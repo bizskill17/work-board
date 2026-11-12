@@ -1,0 +1,3 @@
+Workboard v4.18.157
+- Attendance status: a past day with worked hours is shown as "Short" (not "Absent") when the last punch was an In without an Out. Completed In-Out hours are credited.
+- Applies everywhere the day status is used: AttendSpace, Attendance Register, Monthly Sheet and exports.

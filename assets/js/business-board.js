@@ -813,6 +813,15 @@ App.attendanceDayMetrics=function(emp,date,events,holidays=null,claims=null,nowV
     else if(net>0){const shortMinutes=Math.max(0,effective-net);m.key='short_hours';m.baseKey='short_hours';m.label='Short';m.className='half-day';m.isShortHours=true;m.attendanceCredit=Math.min(1,net/effective);m.presentDay=1;}
     else{m.key='absent';m.baseKey='absent';m.label='Absent';m.className='absent';m.attendanceCredit=0;m.presentDay=0;}
   }
+  // v4.18.157: a day with worked hours is never "Absent". If the last punch was a forgotten In (no Out),
+  // count the completed In→Out hours and show "Short" instead.
+  if(String(m.key||'')==='absent'&&Number(m.netMinutes||0)>0){
+    const standard=Math.max(1,Number(m.standardMinutes||this.attendanceScheduledMinutes(emp)||1));
+    const effective=Math.max(1,Number(m.effectiveRequiredMinutes||standard));
+    const net=Math.max(0,Number(m.netMinutes||0));
+    m.key='short_hours';m.baseKey='short_hours';m.label='Short';m.className='half-day';m.isShortHours=true;
+    m.attendanceCredit=Math.min(1,net/effective);m.presentDay=1;m.missingOutPunch=String(m.lastDirection||'')==='in';
+  }
   if(!leave)return m;
   m.leave=leave;
   if(['absent','not_marked','future'].includes(String(m.baseKey||m.key))){m.key='leave';m.label='Leave';m.className='leave';m.attendanceCredit=0;m.presentDay=0;}
