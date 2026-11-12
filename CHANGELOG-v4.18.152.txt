@@ -1,0 +1,2 @@
+Workboard v4.18.152
+- AttendSpace: empty In, Out, Break, Working Hour and Time cells now show blank instead of a dash.
