@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.161
+ * Version: 4.18.162
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.161';
+    const VERSION = '4.18.162';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -9876,7 +9876,7 @@ JS
                 $k=(int)$r->assignee_id.'|'.$r->due_date;
                 if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$r->assignee_id,'date'=>$r->due_date,'due'=>0,'done'=>0,'not_done'=>[],'done_list'=>[]];
                 $out[$k]['due']++;
-                if($r->status==='Completed'){ $out[$k]['done']++; $out[$k]['done_list'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->result?:'Completed'),'completed_at'=>(string)($r->completed_at?:'')]; }
+                if($r->status==='Completed'){ $out[$k]['done']++; $out[$k]['done_list'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->result?:'Completed'),'completed_at'=>$r->completed_at?$this->activity_time_ist($r->completed_at):'']; }
                 else $out[$k]['not_done'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->status?:'Pending')];
             }
             // Today's occurrences that are not yet overdue have no history row yet: count them as due, not done.

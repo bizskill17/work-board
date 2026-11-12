@@ -1,0 +1,3 @@
+Workboard v4.18.162
+- Daily Scoreboard: Done At shown in Indian Standard Time (Asia/Kolkata).
+- Tasks Done / Not Done pop-up: removed the duplicate close button.
