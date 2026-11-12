@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.159
+ * Version: 4.18.160
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.159';
+    const VERSION = '4.18.160';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -9869,14 +9869,15 @@ JS
         if($from<=$to && $employee_id!==-1){
             $daily="t.is_template=1 AND t.task_type='Recurring' AND COALESCE(NULLIF(t.frequency,''),'Daily')='Daily'";
             $emp_sql=$employee_id?$wpdb->prepare(' AND h.assignee_id=%d',$employee_id):'';
-            $rows=$wpdb->get_results($wpdb->prepare("SELECT h.assignee_id,h.due_date,h.workspace_id,h.status FROM {$this->tables['history']} h JOIN {$this->tables['tasks']} t ON t.id=h.task_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=h.workspace_id WHERE {$daily} AND h.assignee_id IS NOT NULL AND h.due_date BETWEEN %s AND %s AND (w.status IS NULL OR w.status NOT IN ('trash')){$emp_sql}",$from,$to));
+            $rows=$wpdb->get_results($wpdb->prepare("SELECT h.assignee_id,h.due_date,h.workspace_id,h.status,h.due_time,t.id task_id,t.task_name,w.name workspace_name,a.name work_area_name FROM {$this->tables['history']} h JOIN {$this->tables['tasks']} t ON t.id=h.task_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=h.workspace_id LEFT JOIN {$this->tables['work_areas']} a ON a.id=h.work_area_id WHERE {$daily} AND h.assignee_id IS NOT NULL AND h.due_date BETWEEN %s AND %s AND (w.status IS NULL OR w.status NOT IN ('trash')){$emp_sql}",$from,$to));
             $seen_today=[];
             foreach($rows as $r){
                 if($allowed!==null && !in_array((int)$r->workspace_id,$allowed,true)) continue;
                 $k=(int)$r->assignee_id.'|'.$r->due_date;
-                if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$r->assignee_id,'date'=>$r->due_date,'due'=>0,'done'=>0];
+                if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$r->assignee_id,'date'=>$r->due_date,'due'=>0,'done'=>0,'not_done'=>[]];
                 $out[$k]['due']++;
                 if($r->status==='Completed') $out[$k]['done']++;
+                else $out[$k]['not_done'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->status?:'Pending')];
             }
             // Today's occurrences that are not yet overdue have no history row yet: count them as due, not done.
             if($from<=$today && $today<=$to){
@@ -9889,8 +9890,11 @@ JS
                     $has=$wpdb->get_var($wpdb->prepare("SELECT id FROM {$this->tables['history']} WHERE task_id=%d AND occurrence_date=%s LIMIT 1",$tpl->id,$today));
                     if($has) continue;
                     $k=(int)$tpl->assignee_id.'|'.$today;
-                    if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$tpl->assignee_id,'date'=>$today,'due'=>0,'done'=>0];
+                    if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$tpl->assignee_id,'date'=>$today,'due'=>0,'done'=>0,'not_done'=>[]];
                     $out[$k]['due']++;
+                    $ws_name=(string)$wpdb->get_var($wpdb->prepare("SELECT name FROM {$this->tables['workspaces']} WHERE id=%d",(int)$tpl->workspace_id));
+                    $wa_name=(string)$wpdb->get_var($wpdb->prepare("SELECT name FROM {$this->tables['work_areas']} WHERE id=%d",(int)$tpl->work_area_id));
+                    $out[$k]['not_done'][]=['task_id'=>(int)$tpl->id,'task_name'=>(string)($tpl->task_name?:'Recurring Task'),'workspace'=>$ws_name,'work_area'=>$wa_name,'due_time'=>(string)($tpl->due_time?:''),'status'=>'Pending'];
                 }
             }
         }

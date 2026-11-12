@@ -1,0 +1,2 @@
+Workboard v4.18.160
+- Daily Scoreboard: click Not Done % to see the tasks that were not done that day (Task, Workspace, Work Area, Due Time, Status).

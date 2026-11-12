@@ -19193,3 +19193,11 @@ body.bb-note-area-sort-active{user-select:none!important;-webkit-user-select:non
 .bb-dsb-table td.bb-dsb-done{color:#15803d;font-weight:700;background:#f0fdf4}
 .bb-dsb-table td.bb-dsb-notdone{color:#be123c;font-weight:700;background:#fff1f2}
 .bb-dsb-table tfoot td{background:#eef2ff!important;font-size:12px}
+
+/* v4.18.160: Daily Scoreboard — clickable Not Done % and task list pop-up */
+.bb-dsb-notdone-link{background:none;border:0;padding:2px 6px;border-radius:6px;color:#be123c;font:inherit;font-weight:800;text-decoration:underline;cursor:pointer}
+.bb-dsb-notdone-link:hover{background:#ffe4e6}
+.bb-dsb-modal{min-width:min(720px,92vw)}
+.bb-dsb-modal .bb-form-heading p{margin:4px 0 0;color:#64748b;font-size:12px}
+.bb-dsb-notdone-table td,.bb-dsb-notdone-table th{font-size:12px}
+.bb-dsb-status{display:inline-block;padding:2px 8px;border-radius:999px;background:#fff1f2;color:#be123c;font-size:11px;font-weight:700}
