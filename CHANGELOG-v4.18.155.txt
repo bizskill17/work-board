@@ -1,0 +1,5 @@
+Workboard v4.18.155
+- Monthly Sheet columns: Employee, Designation, Month Days, Sunday, Holiday, Working Days, Absent, Payable Days, Gross Salary, Per Day Salary, Payable Salary (Department shown only when used).
+- Sunday counts Sundays and weekly-off days of the full month; Holiday counts holidays not already on a Sunday/weekly off; Working Days = Month Days - Sunday - Holiday.
+- Per Day Salary = Gross Salary / salary basis days; Payable Salary = Per Day Salary x Payable Days.
+- Excel export uses the same columns.

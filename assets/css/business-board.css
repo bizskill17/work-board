@@ -19173,3 +19173,13 @@ body.bb-note-area-sort-active{user-select:none!important;-webkit-user-select:non
 @media(max-width:900px){
   #bb-app .bb-timesheet-form-table,#bb-app .bb-timesheet-form-table th,#bb-app .bb-timesheet-form-table td{border:0!important}
 }
+
+/* v4.18.155: Monthly Sheet column colours for the new layout (counted from the right so the optional Department column doesn't shift them) */
+.bb-monthly-att-table thead th:nth-last-child(5){background:#fef2f2;color:#be123c;}
+.bb-monthly-att-table thead th:nth-last-child(4){background:#eef2ff;color:#4338ca;}
+.bb-monthly-att-table thead th:nth-last-child(3){background:#fff7e8;color:#b45309;}
+.bb-monthly-att-table thead th:nth-last-child(2){background:#f8fafc;color:#475569;}
+.bb-monthly-att-table tbody td:nth-last-child(5){background:inherit;color:#be123c;font-weight:700;}
+.bb-monthly-att-table tbody td:nth-last-child(4){background:#f3f0ff;font-weight:800;color:#4338ca;}
+.bb-monthly-att-table tbody td:nth-last-child(3){background:#fff8eb;font-weight:700;color:#b45309;}
+.bb-monthly-att-table tbody td:nth-last-child(2){background:#fcfdff;font-weight:600;color:#334155;}
