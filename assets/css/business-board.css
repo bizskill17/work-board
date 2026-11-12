@@ -19166,3 +19166,10 @@ body.bb-note-area-sort-active{user-select:none!important;-webkit-user-select:non
 /* v4.18.151: AttendSpace admin table — visible cell borders */
 .bb-att-admin-table{border-collapse:collapse!important;border:1px solid #d5dbe3!important}
 .bb-att-admin-table th,.bb-att-admin-table td{border:1px solid #d5dbe3!important}
+
+/* v4.18.153: Cell borders on all Workboard tables */
+#bb-app table,.bb-modal table{border-collapse:collapse!important;border:1px solid #d5dbe3!important}
+#bb-app table th,#bb-app table td,.bb-modal table th,.bb-modal table td{border:1px solid #d5dbe3!important}
+@media(max-width:900px){
+  #bb-app .bb-timesheet-form-table,#bb-app .bb-timesheet-form-table th,#bb-app .bb-timesheet-form-table td{border:0!important}
+}

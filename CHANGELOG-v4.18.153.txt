@@ -1,0 +1,3 @@
+Workboard v4.18.153
+- All tables (Work, AttendSpace, Attendance Register, Monthly Sheet, Leave, Holiday, Time Sheet, Masters, Billing, Activity, Settings, popups): cell borders on header and all cells.
+- Time Sheet entry form keeps its borderless stacked layout on mobile.
