@@ -872,10 +872,23 @@ App.renderDailyScoreboard=function(){
       this.api('bb_get_daily_recurring_scoreboard',{month:f.month,employee_id:f.employee}).done(r=>{this._dailyScoreCache=this._dailyScoreCache||{};this._dailyScoreCache[key]=r&&r.success?(r.data?.rows||[]):[];if(!(r&&r.success))this.toast(r?.data?.message||'Could not load Daily Scoreboard');}).fail(()=>{this._dailyScoreCache=this._dailyScoreCache||{};this._dailyScoreCache[key]=[];this.toast('Could not load Daily Scoreboard');}).always(()=>{this._dailyScoreLoading='';if(this.view==='daily-scoreboard')this.render();});}
     return;
   }
+  // v4.18.159: skip Sundays / weekly offs, holidays and days the User was absent (or on leave).
+  let att=null;
+  if(priv){this._dailyScoreAtt=this._dailyScoreAtt||{};att=this._dailyScoreAtt[f.month];
+    if(!att){$('#bb-content').html(`<div class="bb-att-report-page bb-dsb-page">${toolbar}<div class="bb-panel bb-loading">Loading attendance…</div></div>`);
+      if(this._dailyScoreAttLoading!==f.month){this._dailyScoreAttLoading=f.month;const mm=f.month;
+        this.api('bb_get_attendance_month',{month:mm}).done(r=>{this._dailyScoreAtt[mm]=r&&r.success?{month:mm,events:r.data?.events||[],holidays:r.data?.holidays||[],claims:r.data?.claims||[],adjustments:r.data?.adjustments||[]}:{month:mm,events:[],holidays:[],claims:[],failed:true};}).fail(()=>{this._dailyScoreAtt[mm]={month:mm,events:[],holidays:[],claims:[],failed:true};}).always(()=>{this._dailyScoreAttLoading='';if(this.view==='daily-scoreboard')this.render();});}
+      return;}
+  }else att=this.attendanceSelectedMonthData(f.month+'-01');
+  const countable=r=>{const emp=(this.empById&&this.empById(r.employee_id))||(this.state.employees||[]).find(x=>String(x.id)===String(r.employee_id));if(!emp)return true;
+    let m=null;try{const ev=att&&!att.failed?this.attendanceEventsFor(emp.id,r.date,att.events):[];m=this.attendanceDayMetrics(emp,r.date,ev,att?.holidays||[],att?.claims||[]);}catch(_e){return true;}
+    if(!m)return true;if(m.holiday||m.weeklyOff||m.sundayEligible)return false;
+    if(Number(emp.attendance_enabled||0)!==1||!att||att.failed)return true;
+    return !!m.firstIn;};
   const monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const nameOf=id=>{const e=this.empById?this.empById(id):(this.state.employees||[]).find(x=>String(x.id)===String(id));return e?.name||'User';};
   const pct=(a,b)=>b?Math.round(a*1000/b)/10:0;
-  const data=cache[key].map(r=>({...r,name:nameOf(r.employee_id)})).sort((a,b)=>String(b.date).localeCompare(String(a.date))||a.name.localeCompare(b.name));
+  const data=cache[key].filter(countable).map(r=>({...r,name:nameOf(r.employee_id)})).sort((a,b)=>String(b.date).localeCompare(String(a.date))||a.name.localeCompare(b.name));
   let tDue=0,tDone=0;const rows=[],excel=[];
   data.forEach(r=>{const due=Number(r.due||0),done=Number(r.done||0),y=String(r.date).slice(0,4),m=monthNames[Number(String(r.date).slice(5,7))-1]||'',d=String(r.date).split('-').reverse().join('/'),dp=pct(done,due),np=due?Math.round((100-dp)*10)/10:0;tDue+=due;tDone+=done;
     rows.push(`<tr><td>${y}</td><td>${this.esc(m)}</td><td><strong>${this.esc(r.name)}</strong></td><td>${d}</td><td>${due}</td><td>${done}</td><td class="bb-dsb-done">${dp}%</td><td class="bb-dsb-notdone">${np}%</td></tr>`);
@@ -885,9 +898,11 @@ App.renderDailyScoreboard=function(){
   if(rows.length)excel.push(['','','Total','',tDue,tDone,tdp+'%',tnp+'%']);
   this._dailyScoreExcel={month:f.month,headers,rows:excel};
   const foot=rows.length?`<tfoot><tr class="bb-dsb-total"><td colspan="4"><strong>Total</strong></td><td><strong>${tDue}</strong></td><td><strong>${tDone}</strong></td><td class="bb-dsb-done"><strong>${tdp}%</strong></td><td class="bb-dsb-notdone"><strong>${tnp}%</strong></td></tr></tfoot>`:'';
-  $('#bb-content').html(`<div class="bb-att-report-page bb-dsb-page">${toolbar}<div class="bb-panel bb-master-panel"><div class="bb-table-wrap"><table class="bb-table bb-dsb-table"><thead><tr>${headers.map(h=>`<th>${this.esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.join('')||`<tr><td colspan="${headers.length}" class="bb-empty">No daily recurring tasks were due in this month</td></tr>`}</tbody>${foot}</table></div></div></div>`);
+  $('#bb-content').html(`<div class="bb-att-report-page bb-dsb-page">${toolbar}<div class="bb-panel bb-master-panel"><div class="bb-table-wrap"><table class="bb-table bb-dsb-table"><thead><tr>${headers.map(h=>`<th>${this.esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.join('')||`<tr><td colspan="${headers.length}" class="bb-empty">No daily recurring tasks were due on working days in this month</td></tr>`}</tbody>${foot}</table></div></div></div>`);
 };
 (function(){
+  const prevScope=App.moduleScopeForView;
+  App.moduleScopeForView=function(view){if(String(view||'')==='daily-scoreboard'&&!this.isPrivilegedIdentity())return 'attendance';return prevScope.apply(this,arguments);};
   const prevRender=App.render;
   App.render=function(){
     if(this.view!=='daily-scoreboard')return prevRender.apply(this,arguments);

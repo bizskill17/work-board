@@ -1,0 +1,3 @@
+Workboard v4.18.159
+- Daily Scoreboard: Sundays, weekly offs, holidays and absent days (no punch In, or on leave) are not counted.
+- Users without attendance enabled: only Sundays, weekly offs and holidays are skipped.
