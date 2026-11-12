@@ -1,0 +1,2 @@
+Workboard v4.18.163
+- Daily Scoreboard: Tasks Done / Not Done pop-ups show an Update Remarks column (all remarks added on that day's task, with IST time).
