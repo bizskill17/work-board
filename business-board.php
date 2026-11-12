@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.157
+ * Version: 4.18.158
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.157';
+    const VERSION = '4.18.158';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -130,7 +130,7 @@ final class BizSkill_Business_Board {
             'sync_workspace_from_template','detach_workspace_template','workspace_template_diff',
             'save_access','delete_access','pause_recurrence','resume_recurrence','skip_next_occurrence',
             'upload_attachment','delete_attachment','mark_notifications_read','save_notification_settings','test_meta_whatsapp','test_morning_pending_digest','save_site_messaging_settings','wallet_create_recharge','wallet_verify_recharge','get_message_log','save_telegram_settings','test_telegram','save_branding_settings','save_ai_settings','ai_simplify_task_text','ai_generate_workspace','ai_create_workspace','ai_generate_workspace_changes','ai_apply_workspace_changes',
-            'get_report','rollback_template_version','import_workspace_package','toggle_pin_task','toggle_task_focus','send_urgent_reminder','update_task_reminders','duplicate_task','duplicate_note_card','move_work_area','reorder_work_areas','reorder_tasks','move_task_work_area','toggle_subtask','save_entity_assignments','add_task_remark','set_task_status','update_task_field','add_inline_subtask','update_inline_subtask','delete_inline_subtask','reorder_inline_subtasks','get_timesheet_entries','get_timesheet_task_options','save_timesheet_entry','delete_timesheet_entry','get_callspace_entries','save_callspace_entry','delete_callspace_entry','get_docspace_entries','save_docspace_entry','delete_docspace_entry'
+            'get_report','get_daily_recurring_scoreboard','rollback_template_version','import_workspace_package','toggle_pin_task','toggle_task_focus','send_urgent_reminder','update_task_reminders','duplicate_task','duplicate_note_card','move_work_area','reorder_work_areas','reorder_tasks','move_task_work_area','toggle_subtask','save_entity_assignments','add_task_remark','set_task_status','update_task_field','add_inline_subtask','update_inline_subtask','delete_inline_subtask','reorder_inline_subtasks','get_timesheet_entries','get_timesheet_task_options','save_timesheet_entry','delete_timesheet_entry','get_callspace_entries','save_callspace_entry','delete_callspace_entry','get_docspace_entries','save_docspace_entry','delete_docspace_entry'
         ] as $a){
             add_action('wp_ajax_bb_'.$a,[$this,'ajax_'.$a]);
         }
@@ -1414,6 +1414,7 @@ final class BizSkill_Business_Board {
             'work-area-templates'=>'work-area-templates',
             'focus'=>'focus',
             'pending-tasks'=>'pending-tasks',
+            'daily-scoreboard'=>'daily-scoreboard',
             'pending-billing'=>'pending-billing',
             'billed-master'=>'billed-master',
             'users'=>'employees',
@@ -1476,6 +1477,7 @@ final class BizSkill_Business_Board {
             'work-area-templates'=>'work-area-templates',
             'focus'=>'focus',
             'pending-tasks'=>'pending-tasks',
+            'daily-scoreboard'=>'daily-scoreboard',
             'pending-billing'=>'pending-billing',
             'billed-master'=>'billed-master',
             'users'=>'employees',
@@ -1640,6 +1642,7 @@ final class BizSkill_Business_Board {
             'work-area-templates'=>'work-area-templates',
             'focus'=>'focus',
             'pending-tasks'=>'pending-tasks',
+            'daily-scoreboard'=>'daily-scoreboard',
             'pending-billing'=>'pending-billing',
             'billed-master'=>'billed-master',
             'employees'=>'users',
@@ -2014,6 +2017,7 @@ JS
                 'folders'=>home_url('/folder/'),
                 'focus'=>home_url('/focus/'),
                 'pending-tasks'=>home_url('/pending-tasks/'),
+                'daily-scoreboard'=>home_url('/daily-scoreboard/'),
                 'pending-billing'=>home_url('/pending-billing/'),
                 'billed-master'=>home_url('/billed-master/'),
                 'templates'=>home_url('/workspace-templates/'),
@@ -2207,6 +2211,7 @@ JS
                             <button data-view="folders"><span class="bb-nav-bullet">•</span>Folders</button>
                             <button data-view="focus"><span class="bb-nav-bullet">•</span>Focus</button>
                             <button data-view="pending-tasks"><span class="bb-nav-bullet">•</span>Pending Tasks</button>
+                            <button data-view="daily-scoreboard"><span class="bb-nav-bullet">•</span>Daily Scoreboard</button>
                             <button data-view="activity"><span class="bb-nav-bullet">•</span>Activity Log</button>
                             <div class="bb-nav-subsection" data-nav-subsection="billing" <?php echo (int)get_option('bb_show_module_billing',0)===1?'':'style="display:none"'; ?>>
                                 <div class="bb-nav-subsection-title" role="button" tabindex="0" aria-expanded="true"><span>Billing</span><span class="bb-nav-subsection-caret" aria-hidden="true">⌄</span></div>
@@ -9846,6 +9851,50 @@ JS
         $sql="SELECT SUM(due_count) due,SUM(early_count+on_time_count) timely,SUM(late_count) late,SUM(missed_count) missed,SUM(skipped_count) skipped,SUM(total_points) points FROM {$this->tables['score_archive']} WHERE ".implode(' AND ',$where);
         $r=$wpdb->get_row($wpdb->prepare($sql,...$args));
         $due=(int)($r->due??0); return ['due'=>$due,'timely'=>(int)($r->timely??0),'late'=>(int)($r->late??0),'missed'=>(int)($r->missed??0),'skipped'=>(int)($r->skipped??0),'points'=>(int)($r->points??0),'score'=>$due?round(((int)$r->points)/$due,1):0];
+    }
+
+    // v4.18.158: Daily Recurring Tasks Scoreboard — per User, per date: occurrences due vs completed.
+    public function ajax_get_daily_recurring_scoreboard(){
+        $this->verify(); global $wpdb;
+        $today=current_time('Y-m-d');
+        $month=sanitize_text_field($_POST['month']??'');
+        if(!preg_match('/^\d{4}-\d{2}$/',$month)) $month=substr($today,0,7);
+        $from=$month.'-01'; $to=date('Y-m-t',strtotime($from));
+        if($to>$today) $to=$today;
+        $privileged=$this->is_privileged_user();
+        $employee_id=absint($_POST['employee_id']??0);
+        if(!$privileged){ $me=$this->current_employee(); $employee_id=$me?(int)$me->id:-1; }
+        $allowed=$this->allowed_workspace_ids();
+        $out=[];
+        if($from<=$to && $employee_id!==-1){
+            $daily="t.is_template=1 AND t.task_type='Recurring' AND COALESCE(NULLIF(t.frequency,''),'Daily')='Daily'";
+            $emp_sql=$employee_id?$wpdb->prepare(' AND h.assignee_id=%d',$employee_id):'';
+            $rows=$wpdb->get_results($wpdb->prepare("SELECT h.assignee_id,h.due_date,h.workspace_id,h.status FROM {$this->tables['history']} h JOIN {$this->tables['tasks']} t ON t.id=h.task_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=h.workspace_id WHERE {$daily} AND h.assignee_id IS NOT NULL AND h.due_date BETWEEN %s AND %s AND (w.status IS NULL OR w.status NOT IN ('trash')){$emp_sql}",$from,$to));
+            $seen_today=[];
+            foreach($rows as $r){
+                if($allowed!==null && !in_array((int)$r->workspace_id,$allowed,true)) continue;
+                $k=(int)$r->assignee_id.'|'.$r->due_date;
+                if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$r->assignee_id,'date'=>$r->due_date,'due'=>0,'done'=>0];
+                $out[$k]['due']++;
+                if($r->status==='Completed') $out[$k]['done']++;
+            }
+            // Today's occurrences that are not yet overdue have no history row yet: count them as due, not done.
+            if($from<=$today && $today<=$to){
+                $tpl_emp=$employee_id?$wpdb->prepare(' AND t.assignee_id=%d',$employee_id):'';
+                $tpls=$wpdb->get_results("SELECT t.* FROM {$this->tables['tasks']} t LEFT JOIN {$this->tables['work_areas']} a ON a.id=t.work_area_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=t.workspace_id WHERE {$daily} AND t.assignee_id IS NOT NULL AND t.archived_at IS NULL AND COALESCE(t.recurrence_status,'active')='active' AND (a.status IS NULL OR a.status NOT IN ('trash','archived')) AND (w.status IS NULL OR w.status NOT IN ('trash','archived')){$tpl_emp}");
+                foreach($tpls as $tpl){
+                    if($allowed!==null && !in_array((int)$tpl->workspace_id,$allowed,true)) continue;
+                    if(empty($tpl->start_date) || $tpl->start_date>$today) continue;
+                    if(!in_array($today,$this->occurrence_dates($tpl,$today,$today),true)) continue;
+                    $has=$wpdb->get_var($wpdb->prepare("SELECT id FROM {$this->tables['history']} WHERE task_id=%d AND occurrence_date=%s LIMIT 1",$tpl->id,$today));
+                    if($has) continue;
+                    $k=(int)$tpl->assignee_id.'|'.$today;
+                    if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$tpl->assignee_id,'date'=>$today,'due'=>0,'done'=>0];
+                    $out[$k]['due']++;
+                }
+            }
+        }
+        wp_send_json_success(['month'=>$month,'from'=>$from,'to'=>$to,'rows'=>array_values($out)]);
     }
 
     public function ajax_get_report(){

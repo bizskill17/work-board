@@ -19183,3 +19183,13 @@ body.bb-note-area-sort-active{user-select:none!important;-webkit-user-select:non
 .bb-monthly-att-table tbody td:nth-last-child(4){background:#f3f0ff;font-weight:800;color:#4338ca;}
 .bb-monthly-att-table tbody td:nth-last-child(3){background:#fff8eb;font-weight:700;color:#b45309;}
 .bb-monthly-att-table tbody td:nth-last-child(2){background:#fcfdff;font-weight:600;color:#334155;}
+
+/* v4.18.158: Daily Recurring Tasks Scoreboard */
+.bb-dsb-toolbar{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px}
+.bb-dsb-table{width:100%;min-width:720px}
+.bb-dsb-table th{font-size:10px!important;text-transform:uppercase;letter-spacing:.05em;color:#475569!important;background:#f8fafc!important;white-space:nowrap}
+.bb-dsb-table td{font-size:12px;vertical-align:middle}
+.bb-dsb-table th:nth-child(n+5),.bb-dsb-table td:nth-child(n+5){text-align:center}
+.bb-dsb-table td.bb-dsb-done{color:#15803d;font-weight:700;background:#f0fdf4}
+.bb-dsb-table td.bb-dsb-notdone{color:#be123c;font-weight:700;background:#fff1f2}
+.bb-dsb-table tfoot td{background:#eef2ff!important;font-size:12px}

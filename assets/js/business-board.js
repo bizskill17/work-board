@@ -856,6 +856,49 @@ App.renderMonthlySheet=function(){
   const headers=['Employee',...(showDepartment?['Department']:[]),'Designation','Month Days','Sunday','Holiday','Working Days','Absent','Payable Days','Gross Salary','Per Day Salary','Payable Salary'];this._monthlyExcel={month,headers,rows:excelRows};$('#bb-content').html(`<div class="bb-att-report-page">${this.attendanceReportToolbar('monthly',filters)}<div class="bb-panel bb-master-panel"><div class="bb-table-wrap"><table class="bb-table bb-monthly-att-table"><thead><tr>${headers.map(h=>`<th>${this.esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.join('')||`<tr><td colspan="${headers.length}" class="bb-empty">No attendance-enabled Users</td></tr>`}</tbody></table></div></div></div>`);
 };
 
+// v4.18.158: Daily Recurring Tasks Scoreboard — Year, Month, Employee, Date, Daily Due, Daily Done, Done %, Not Done %.
+App.dailyScoreFilters={month:'',employee:''};
+App.renderDailyScoreboard=function(){
+  const priv=this.isPrivilegedIdentity(),today=String(this.state.today||this.state.attendanceToday||new Date().toISOString().slice(0,10)).slice(0,10);
+  this.setHeader('Daily Scoreboard','Daily recurring tasks: due vs done');
+  const f=this.dailyScoreFilters;if(!f.month)f.month=today.slice(0,7);if(!priv)f.employee='';
+  const key=f.month+'|'+f.employee,cache=this._dailyScoreCache||{};
+  const emps=(this.state.employees||[]).filter(e=>String(e.status||'active')!=='inactive').sort((a,b)=>String(a.name||'').localeCompare(String(b.name||'')));
+  const userFilter=priv?`<div class="bb-att-filter"><label>User</label><select id="bb-dsb-user"><option value="">All Users</option>${emps.map(e=>`<option value="${this.attr(e.id)}" ${String(f.employee)===String(e.id)?'selected':''}>${this.esc(e.name)}</option>`).join('')}</select></div>`:'';
+  const toolbar=`<div class="bb-att-toolbar bb-dsb-toolbar"><div class="bb-att-filter"><label>Month</label><input type="month" id="bb-dsb-month" max="${this.attr(today.slice(0,7))}" value="${this.attr(f.month)}"></div>${userFilter}<button type="button" class="bb-btn light bb-att-excel" data-dsb-excel title="Download in Excel"><svg class="bb-excel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 3.5h10v17H4z" fill="#107C41"/><path d="M14 6h6v14.5h-6z" fill="#21A366"/><path d="M7.3 8.2 10 12l-2.8 3.8h2.1l1.8-2.6 1.8 2.6H15L12.2 12 15 8.2h-2.1l-1.8 2.6-1.8-2.6z" fill="#fff"/></svg><span>Excel</span></button></div>`;
+  if(!cache[key]){
+    $('#bb-content').html(`<div class="bb-att-report-page bb-dsb-page">${toolbar}<div class="bb-panel bb-loading">Loading Daily Scoreboard…</div></div>`);
+    if(this._dailyScoreLoading!==key){this._dailyScoreLoading=key;
+      this.api('bb_get_daily_recurring_scoreboard',{month:f.month,employee_id:f.employee}).done(r=>{this._dailyScoreCache=this._dailyScoreCache||{};this._dailyScoreCache[key]=r&&r.success?(r.data?.rows||[]):[];if(!(r&&r.success))this.toast(r?.data?.message||'Could not load Daily Scoreboard');}).fail(()=>{this._dailyScoreCache=this._dailyScoreCache||{};this._dailyScoreCache[key]=[];this.toast('Could not load Daily Scoreboard');}).always(()=>{this._dailyScoreLoading='';if(this.view==='daily-scoreboard')this.render();});}
+    return;
+  }
+  const monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const nameOf=id=>{const e=this.empById?this.empById(id):(this.state.employees||[]).find(x=>String(x.id)===String(id));return e?.name||'User';};
+  const pct=(a,b)=>b?Math.round(a*1000/b)/10:0;
+  const data=cache[key].map(r=>({...r,name:nameOf(r.employee_id)})).sort((a,b)=>String(b.date).localeCompare(String(a.date))||a.name.localeCompare(b.name));
+  let tDue=0,tDone=0;const rows=[],excel=[];
+  data.forEach(r=>{const due=Number(r.due||0),done=Number(r.done||0),y=String(r.date).slice(0,4),m=monthNames[Number(String(r.date).slice(5,7))-1]||'',d=String(r.date).split('-').reverse().join('/'),dp=pct(done,due),np=due?Math.round((100-dp)*10)/10:0;tDue+=due;tDone+=done;
+    rows.push(`<tr><td>${y}</td><td>${this.esc(m)}</td><td><strong>${this.esc(r.name)}</strong></td><td>${d}</td><td>${due}</td><td>${done}</td><td class="bb-dsb-done">${dp}%</td><td class="bb-dsb-notdone">${np}%</td></tr>`);
+    excel.push([y,m,r.name,d,due,done,dp+'%',np+'%']);});
+  const tdp=pct(tDone,tDue),tnp=tDue?Math.round((100-tdp)*10)/10:0;
+  const headers=['Year','Month','Employee Name','Date','Daily Due','Daily Done','Done %','Not Done %'];
+  if(rows.length)excel.push(['','','Total','',tDue,tDone,tdp+'%',tnp+'%']);
+  this._dailyScoreExcel={month:f.month,headers,rows:excel};
+  const foot=rows.length?`<tfoot><tr class="bb-dsb-total"><td colspan="4"><strong>Total</strong></td><td><strong>${tDue}</strong></td><td><strong>${tDone}</strong></td><td class="bb-dsb-done"><strong>${tdp}%</strong></td><td class="bb-dsb-notdone"><strong>${tnp}%</strong></td></tr></tfoot>`:'';
+  $('#bb-content').html(`<div class="bb-att-report-page bb-dsb-page">${toolbar}<div class="bb-panel bb-master-panel"><div class="bb-table-wrap"><table class="bb-table bb-dsb-table"><thead><tr>${headers.map(h=>`<th>${this.esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.join('')||`<tr><td colspan="${headers.length}" class="bb-empty">No daily recurring tasks were due in this month</td></tr>`}</tbody>${foot}</table></div></div></div>`);
+};
+(function(){
+  const prevRender=App.render;
+  App.render=function(){
+    if(this.view!=='daily-scoreboard')return prevRender.apply(this,arguments);
+    const saved=this.renderSettings;this.renderSettings=function(){return this.renderDailyScoreboard();};
+    try{return prevRender.apply(this,arguments);}finally{this.renderSettings=saved;}
+  };
+  $(document).on('change','#bb-dsb-month',e=>{App.dailyScoreFilters.month=String(e.currentTarget.value||'');App.render();});
+  $(document).on('change','#bb-dsb-user',e=>{App.dailyScoreFilters.employee=String(e.currentTarget.value||'');App.render();});
+  $(document).on('click','[data-dsb-excel]',e=>{e.preventDefault();const x=App._dailyScoreExcel;if(!x||!x.rows.length){App.toast('No Daily Scoreboard rows to export');return;}App.downloadExcel(`Workboard-Daily-Scoreboard-${x.month}.xls`,x.headers,x.rows);});
+})();
+
 // v4.16.145 — Payroll Hours panel removed from Attendance employee detail view.
 // Keep the underlying payroll-adjustment data/functions for compatibility with historical
 // records and salary calculations, but do not render the Credit / Deduct UI panel here.

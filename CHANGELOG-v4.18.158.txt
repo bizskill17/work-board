@@ -1,0 +1,5 @@
+Workboard v4.18.158
+- New: Daily Scoreboard (Work menu, /daily-scoreboard/) for Daily recurring tasks.
+- Columns: Year, Month, Employee Name, Date, Daily Due, Daily Done, Done %, Not Done % with a Total row. Filters: Month, User. Excel download.
+- Due = Daily recurring occurrences assigned to the User on that date (today includes occurrences not yet overdue). Done = occurrences Completed.
+- Owners/Managers see all Users; Employees see only their own rows.
