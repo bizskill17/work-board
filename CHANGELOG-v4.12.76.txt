@@ -1,0 +1,4 @@
+Workboard v4.12.76
+- Changed the Send Urgent Reminder task icon to a fire icon.
+- Updated the Urgent Reminder popup icon to fire for visual consistency.
+- Version bump to refresh frontend assets after update.

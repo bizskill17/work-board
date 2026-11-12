@@ -1,0 +1,7 @@
+Workboard v4.11.54
+
+- Task-card dragging now auto-scrolls the board horizontally on desktop as well as touch devices.
+- Task checkbox changes preserve the current viewport/board scroll position.
+- Visible task-card metadata icons are directly clickable even when Work Area edit mode is closed.
+- Workspace Templates view simplified to an ultra-minimal two-column layout with no counts or explanatory blocks.
+- Work Area Templates view simplified, counts removed, and client-side pagination added (10 per page).

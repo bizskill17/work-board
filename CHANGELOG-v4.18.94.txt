@@ -1,0 +1,1 @@
+AttendSpace: direct downloadable PDF export (no print tab); title removed, centered date range in DD/MM/YYYY format.

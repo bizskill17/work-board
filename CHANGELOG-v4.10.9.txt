@@ -1,0 +1,7 @@
+Business Board v4.10.9
+- Added Meta WhatsApp Cloud API settings under Settings > Notifications.
+- Added WhatsApp ON/OFF channel alongside existing in-app and email notifications.
+- Added Phone Number ID, access token, Graph API version, default country code, approved template name, language, and test mobile settings.
+- Added Send Test WhatsApp action.
+- Enabled WhatsApp delivery to employee mobile numbers for enabled Business Board notifications, including assignment and task-update notifications.
+- Per-task Notifications switch continues to control assignment/update notifications.

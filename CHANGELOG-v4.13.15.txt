@@ -1,0 +1,9 @@
+Workboard v4.13.15
+
+- Replaced the three legacy morning WhatsApp messages (Task Due Today, Task Overdue and Pending Task Summary) with one Morning Pending Tasks Reminder.
+- Morning digest includes only incomplete tasks with an operational due date/occurrence on or before today; Daily recurring tasks are excluded.
+- Sends one grouped message per assignee, grouped by Workspace (when more than one) and Work Area, with Due Date in dd/mm/yyyy format.
+- Added Utility template setting: workboard_pending_tasks_reminder.
+- Added dynamic "Open Workspaces" CTA support. Meta template button URL should be https://board.bizskilledu.com/{{1}}; Workboard supplies only the site-specific suffix such as vaa/workspaces/.
+- Morning digest is network-aware when the main-site cron runs, and still deduplicates safely if a subsite cron also fires.
+- Retired/disabled the old Due Today, Overdue and Pending Summary morning template switches.

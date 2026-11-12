@@ -1,0 +1,7 @@
+Business Board v4.9.69
+
+Completed recurring visibility + manual archive
+- Daily recurring completed occurrences remain visible for the completion day and automatically leave the operational board the next day.
+- Weekly, Fortnightly, Monthly, Quarterly, Yearly and Custom completed occurrences remain visible in Completed until the Owner archives or deletes them.
+- Existing completed non-daily recurring history is surfaced again automatically; no duplicate occurrence is created and original completion timestamps/history are preserved.
+- Long-press/right-click Archive on a recurring occurrence archives that occurrence only; it does not stop or archive the recurring series.

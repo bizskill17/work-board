@@ -1,0 +1,10 @@
+Workboard v4.14.54
+
+- Added Manager/Owner approval for recorded overtime; unapproved overtime remains unpaid.
+- Supports partial overtime approval and prevents approval beyond the remaining recorded overtime.
+- Added date-wise manual Extra Hours Credit and Hours Deduction for individual Users.
+- Every approval, credit and deduction requires a reason and records the acting Manager/Owner.
+- Added an immutable payroll-hours ledger to each User's daily attendance detail.
+- Missing OUT, incomplete break and still-working days continue to hold salary; adjustments apply only after attendance becomes complete.
+- Monthly Sheet and Excel now include Recorded Overtime, Approved Overtime and Manual +/- Hours.
+- Payable hours, payable-day proportion and salary now include approved overtime and manual adjustments.

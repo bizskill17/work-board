@@ -1,0 +1,6 @@
+Workboard v4.16.166
+
+- Mobile Time Sheet searchable dropdowns now open their option list without automatically opening the keyboard.
+- First tap opens the dropdown only.
+- A second tap into the search field focuses it and opens the mobile keyboard when search is needed.
+- Desktop behaviour is unchanged.

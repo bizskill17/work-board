@@ -1,0 +1,26 @@
+WORKBOARD TELEGRAM TASK INBOX – SETUP INSTRUCTIONS
+
+1. Open Telegram and create a bot through @BotFather using /newbot.
+2. Copy the Bot Token and paste it into Workboard → Settings → Telegram Task Inbox → Bot Token.
+3. Add the bot to the Telegram group that will act as your Workboard Task Inbox.
+4. In @BotFather run /setprivacy → select your bot → Disable. This lets the bot read normal pasted messages in the group.
+5. In Workboard tick Enable Telegram Task Inbox and click Save & Connect.
+6. In the Telegram group send /chatid.
+7. Copy the returned Group Chat ID into Allowed Group Chat ID in Workboard and click Save & Connect again.
+8. Click Save & Test Group to confirm the connection.
+
+HOW TO USE
+Paste the original WhatsApp, email, SMS or any other message directly into the Telegram Task Inbox group. You do not type the task again.
+
+The bot guides you through:
+One Time / Recurring → Workspace → Work Area → Assignee → Owner → Priority → Due Date / Time or recurrence details → Reminder → Preview → Create Task.
+
+The complete original pasted message is retained in the task notes.
+
+USEFUL COMMANDS
+/chatid  Show the current group chat ID
+/cancel  Cancel the current task-creation flow
+/help    Show bot help
+/start   Start / verify the bot
+
+No OpenAI, Gemini or Claude API is required for this Telegram task-capture flow.

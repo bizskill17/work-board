@@ -1,0 +1,8 @@
+Workboard v4.11.65
+
+- Workspace creation and editing now requires at least one valid Workspace Owner.
+- Prevents removing or downgrading the last selected Workspace Owner in the form until another Owner is selected.
+- Adds Owner validation to blank Workspace creation, Workspace Template creation, AI Workspace creation, and Workspace JSON import.
+- Backend validation also blocks ownerless Workspace saves through AJAX/API routes.
+- New Workspace forms prefill the current Workboard user as Owner when that user is linked to an employee record; otherwise an Owner row is shown for selection.
+- Existing legacy Workspaces without an Owner remain accessible, but an Owner must be selected the next time they are saved.

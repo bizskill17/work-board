@@ -1,0 +1,5 @@
+Workboard v4.15.26
+- Removed the visible bottom horizontal scrollbar line/dock in mobile Workspace view.
+- Also hides Notes and Math bottom scroll docks on mobile.
+- Horizontal swipe/scroll remains available; only the visible scrollbar/dock is hidden.
+- Removed the extra mobile bottom padding reserved for those scroll docks.

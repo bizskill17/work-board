@@ -1,0 +1,7 @@
+Business Board v4.0.2
+- Fixed Work Area left/right movement. The previous handler incorrectly attempted to update a non-existent id column in the workspace/work-area mapping table.
+- Work Area movement now swaps the composite Workspace + Work Area records correctly and persists after reload.
+- Added task-card Up / Down controls for administrators/managers.
+- Task card order is persisted using a task sort_order field and applies to recurring task masters as well as one-time tasks.
+- Reordering is optimistic in the UI for instant movement, with server persistence in the background.
+- Pinned tasks still remain above normal tasks; earlier-pinned tasks remain first among pinned tasks.

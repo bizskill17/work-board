@@ -1,0 +1,10 @@
+Workboard v4.15.34
+- Added Pending Tasks under Work.
+- Pending Tasks is a cross-Workspace Table view of all non-Completed/non-Cancelled tasks visible to the logged-in user.
+- Added summary chips for Pending, Overdue, Due Today, Upcoming and No Due Date.
+- Added Search plus searchable filters for Workspace, Work Area, Stage, Owner, Assignee, Priority, Labels and Due Status.
+- Default sorting is Overdue, Due Today, Upcoming, No Due Date; then Due Date, Due Time and Priority.
+- Added 25-row pagination.
+- Task name and View action open the existing Task view; Edit uses the existing Task edit form.
+- Added Excel export for the currently filtered Pending Tasks.
+- Added /pending-tasks/ frontend route.

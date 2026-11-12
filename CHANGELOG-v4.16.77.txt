@@ -1,0 +1,6 @@
+v4.16.77
+- Reduced core startup payload by deferring full Task remarks, attachments, WordPress user list, and non-core assignments.
+- Core dashboard activity is limited to today instead of sending the full 300-row activity history.
+- Task description/long detail text is omitted from startup and loaded on demand when a Task is opened or edited.
+- Added bb_get_task_detail endpoint for lightweight per-Task lazy loading of description, remarks, reminders, attachments, assignments, and activity.
+- Task cards retain remark counts/latest remark through compact aggregate queries.

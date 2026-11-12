@@ -1,0 +1,4 @@
+v4.16.02
+- Share permission selected states now use action-specific colors instead of one blue color.
+- ADD = green, EDIT = blue, DELETE = red, VIEW = purple.
+- Applies to desktop and mobile sharing UI for NoteSpace, Note Area, MathSpace and Math Area.

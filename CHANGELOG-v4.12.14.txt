@@ -1,0 +1,5 @@
+Workboard v4.12.14
+- Increased Notespaces and Notes action icon sizes for better visibility and easier tapping.
+- Enlarged Notespace card action buttons.
+- Enlarged Note Area header action icons.
+- Enlarged Note Card bottom action icons.

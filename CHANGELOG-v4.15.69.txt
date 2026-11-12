@@ -1,0 +1,10 @@
+Workboard v4.15.69
+- Fixed duplicate WhatsApp Task Reminders caused by overlapping cron/PHP workers.
+- Previous duplicate check was read-then-send and could race when two reminder jobs started at nearly the same time.
+- Added an atomic scheduled-minute lock using the reminder_delivery table's UNIQUE source_key.
+- Duplicate key is exactly: Task + occurrence + recipient + scheduled minute.
+- Therefore 15:00 + 15:00 sends only one; 15:00 + 15:01 are both allowed.
+- Atomic lock applies across the same reminder rule, multiple Before Due rules, and Before Due / After Due engines.
+- Successful reminder permanently closes that minute slot.
+- Failed delivery leaves the slot retryable.
+- A stale in-progress lock can be reclaimed after 3 minutes if a PHP process dies.

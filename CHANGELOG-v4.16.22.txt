@@ -1,0 +1,5 @@
+v4.16.22
+- Attendance Status filters now show only the approved status list.
+- Added Temporarily Out and Short Hours as explicit filter choices.
+- Removed Late, Half Day and Missing Out from visible Status dropdowns.
+- Updated AttendSpace and Attendance Register status filtering consistently.

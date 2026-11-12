@@ -1,0 +1,12 @@
+WorkBoard v4.18.0
+
+- Added CallSpace module with Date, Minutes, Type, Party, Caller, Recipient and Remarks.
+- Added CallSpace register with search, filters, Excel export, edit/delete, and Create Task action.
+- CallSpace Create Task opens the standard WorkBoard task form with the CallSpace Remarks prefilled in Description / Instructions.
+- Added DocSpace module for Inward / Outward physical document movement.
+- DocSpace fields: Date, Direction, Sender, Recipient, Mode (Hand/Courier), Courier No., Courier, Document Details and Remarks.
+- Added automatic document numbering: DOC-YY/YY-00001.
+- Added DocSpace register with search, filters, Excel export, edit/delete.
+- Courier fields show only when Mode = Courier.
+- Added Settings module switches for CallSpace and DocSpace.
+- Added dedicated frontend routes /callspace/ and /docspace/.

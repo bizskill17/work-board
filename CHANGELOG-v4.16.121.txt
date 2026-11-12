@@ -1,0 +1,8 @@
+Workboard v4.16.121
+
+Daily Activity
+- Made the list/filter area more compact.
+- Added clear spacing between every filter control.
+- Prevented date/search controls from visually touching adjacent filters.
+- Added visible borders around every Daily Activity table cell.
+- Reduced table row and action button height for a denser view.

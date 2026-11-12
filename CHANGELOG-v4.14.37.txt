@@ -1,0 +1,6 @@
+Workboard v4.14.37
+
+- Updated the Open Workspaces WhatsApp dynamic URL parameter logic.
+- Main network site now sends `dashboard/`, producing https://board.bizskilledu.com/dashboard/.
+- Path-based multisite subsites now send only the site slug, e.g. `vaa`, `nsc`, `pss`, `vaca`.
+- With Meta base URL https://board.bizskilledu.com/{{1}}, this produces the requested site-root links.

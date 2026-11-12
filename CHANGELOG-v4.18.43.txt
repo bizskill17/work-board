@@ -1,0 +1,6 @@
+WorkBoard v4.18.44
+
+- Fixed Time Sheet Remarks two-line collapsed view.
+- Long Remarks now show a down-arrow only when more content exists.
+- Clicking the arrow expands/collapses only that row.
+- Fixed invalid escaped CSS from v4.18.42 that prevented the collapse style from applying.

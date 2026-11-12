@@ -1,0 +1,13 @@
+Workboard v4.14.98
+- Rebuilt inline Add Task into a single-step task creation form.
+- Task Owner and Assignee(s) are visible directly in the form.
+- Notify checkbox is on the Assignee row and is disabled until at least one Assignee is selected.
+- Due Date and Due Time are separate fields.
+- Due Date, Due Time, Recurring and Reminder are grouped in one schedule row on desktop.
+- Reminder supports None, Before Due, After Due and Before + After while preserving existing reminder rules.
+- Priority and Labels are visible directly in the form.
+- Sub-tasks can be entered directly before creating the parent task; no numeric sub-task count field.
+- Notes has a dedicated full-width textarea.
+- Removed the old second-stage icon/panel workflow from inline task creation.
+- Work Area expands while the creation form is open on desktop for clarity.
+- Work Area Owners are not auto-assigned; only Work Area Assignees may prefill Assignee(s).

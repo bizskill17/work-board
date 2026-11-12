@@ -1,0 +1,4 @@
+Workboard v4.12.10
+- Centered mobile popup forms/modals on screen instead of docking them to the bottom.
+- Applied the mobile centering behaviour broadly so Notespace and similar forms open in the middle.
+- Preserved close button positioning and scrollable modal content on small screens.

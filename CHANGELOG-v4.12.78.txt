@@ -1,0 +1,4 @@
+Workboard v4.12.78
+- Applied selected fire icon Option 1 for Send Urgent Reminder.
+- Uses a solid red flame with a white inner flame, matching the selected reference.
+- Updated both task-card icon and Urgent Reminder popup icon.

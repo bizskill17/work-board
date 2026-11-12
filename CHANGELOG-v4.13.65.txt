@@ -1,0 +1,3 @@
+Version 4.13.65
+- Reduced the Sub-task delete icon size.
+- Kept the delete button clearly clickable while making it more compact.

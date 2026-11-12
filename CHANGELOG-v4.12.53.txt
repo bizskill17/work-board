@@ -1,0 +1,7 @@
+Workboard v4.12.53
+
+- Note card display now preserves each entered line as a separate point/line.
+- Numbered lines such as "1. Please Click this link." are shown as clear bold numbered points.
+- Works for both normal Text notes and the Optional note section of Link notes.
+- Existing notes do not need to be edited or migrated; formatting is applied automatically when displayed.
+- No database schema changes.

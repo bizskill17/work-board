@@ -1,0 +1,7 @@
+Workboard v4.11.44
+
+- Updated Focus view to group tasks by Work Area instead of Workspace.
+- Focus column heading now uses: Work Area Name (Workspace Name).
+- Removed the numeric count badge from the right side of each Focus column heading.
+- Removed the repeated Work Area label above each task card because the column itself now represents the Work Area.
+- Focus task cards, Focus toggle behavior, search, task data and underlying Workspace/Work Area relationships remain unchanged.

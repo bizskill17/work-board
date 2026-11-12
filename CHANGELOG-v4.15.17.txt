@@ -1,0 +1,7 @@
+Workboard v4.15.17
+- Made the Dashboard Add Note > Note Area dropdown searchable.
+- Replaced the long native Note Area select with a searchable custom dropdown.
+- Search filters across the combined Notespace — Note Area label.
+- Clicking a result immediately selects the Note Area and closes the dropdown.
+- Clicking outside the dropdown closes it.
+- Date Applicable behavior continues to update automatically when the Note Area changes.

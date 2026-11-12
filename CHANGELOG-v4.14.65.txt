@@ -1,0 +1,5 @@
+Workboard v4.14.65
+
+- Fixed AFTER DUE Repeat Every layout so the unit dropdown is always visible beside the number field.
+- Unit dropdown now clearly shows Minutes / Hours / Days / Weeks / Same Day where applicable.
+- Applied the fix to both Quick Add and the full Task Reminder editor.

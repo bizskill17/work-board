@@ -1,0 +1,7 @@
+Workboard v4.14.42
+
+- Fixed Open Workspaces at the routing source instead of changing WhatsApp suffixes again.
+- Workboard now creates a real published /workspaces/ WordPress page on each site/subsite.
+- The Workspaces page uses the blank Workboard app shell and opens the Workspaces view directly.
+- Removed the custom top-level /workspaces/ rewrite rule so the physical WordPress page owns that URL.
+- WhatsApp Morning Pending button continues to send workspaces/ on the main site and <site>/workspaces/ on subsites.

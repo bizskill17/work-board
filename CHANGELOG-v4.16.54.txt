@@ -1,0 +1,4 @@
+v4.16.54
+- Share Users table is hidden when no User is selected.
+- Share Party table is hidden when no Party is selected.
+- Table appears immediately after the first User/Party is added and hides again after the last entry is removed.

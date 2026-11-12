@@ -1,0 +1,6 @@
+Workboard v4.11.90
+- Due Date & Time picker no longer accepts a date earlier than today.
+- The date input uses today as its minimum selectable date.
+- Added client-side validation before saving an inline Due Date.
+- Added server-side validation so a past Due Date cannot be saved by bypassing the UI.
+- Today and future dates remain valid; time remains optional.

@@ -1,0 +1,7 @@
+Business Board v4.9.99
+
+- Replaced the Work Area template-save glyph with a proper floppy-disk SVG icon.
+- Made the save/template icon blue and visually distinct.
+- Replaced the emoji delete glyph with a proper trash-bin SVG icon.
+- Made the delete action red in normal and hover states.
+- Kept all existing actions and behavior unchanged.

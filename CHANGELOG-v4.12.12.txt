@@ -1,0 +1,5 @@
+Workboard v4.12.12
+- Added a Title field to Add/Edit Note Card.
+- Title works for both Text Notes and Link Notes.
+- Note Card title is displayed above the note content/preview.
+- Existing notes remain compatible; title is optional.

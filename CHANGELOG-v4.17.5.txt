@@ -1,0 +1,7 @@
+WorkBoard v4.17.5
+
+- Added Pin/Unpin control to Notespace cards.
+- Pinned Notespaces always appear before unpinned Notespaces.
+- Pin state persists across reloads using the WordPress site option.
+- No "Pinned" text label is shown below the Notespace name; only the pin icon indicates state.
+- Existing Notespace drag/reorder, edit and delete controls remain available.

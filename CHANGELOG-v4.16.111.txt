@@ -1,0 +1,3 @@
+Version 4.16.111
+- Fixed Daily Activity Task dropdown so tasks from the selected Work Area are shown.
+- Task list now includes both normal tasks and recurring task templates, with duplicate prevention.

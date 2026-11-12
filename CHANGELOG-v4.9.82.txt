@@ -1,0 +1,6 @@
+Business Board v4.9.82
+
+- Hide Work Area insertion + controls whenever any top board filter is active.
+- Applies to Work Area, Priority, Assignee, and Overdue filters.
+- Restore Work Area insertion controls only when all filters are cleared/reset.
+- Hide mobile Add Work Area control during filtered board views as well.

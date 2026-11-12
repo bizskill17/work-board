@@ -1,0 +1,5 @@
+Business Board v4.9.41
+
+- Fixed native due-date/calendar picker on mobile, tablet and desktop.
+- The native date input is now positioned over the calendar control instead of off-screen.
+- Tapping the calendar icon directly opens the device/browser date picker.

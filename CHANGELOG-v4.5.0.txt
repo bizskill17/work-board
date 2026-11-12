@@ -1,0 +1,14 @@
+Business Board v4.5.0
+
+Quick Add improvements
+- Added two instant task actions in every Work Area header:
+  - ↻+ adds Daily Recurring tasks
+  - + adds One-Time tasks
+- One-Time Quick Add keeps Due Date blank by default.
+- Quick Add stays open after each save so tasks can be entered one after another.
+- The selected Quick Add mode remains active for the batch session.
+- Quick options are hidden behind the gear icon.
+- Daily/recurring quick options: Frequency, Priority, Due Time, Assignee.
+- One-Time quick options: Due Date, Priority, Due Time, Assignee.
+- Quick option values are remembered during the current batch-entry session.
+- Detailed fields such as Sub Tasks, Owners, Instructions, Attachments and advanced recurrence remain in Edit Task.

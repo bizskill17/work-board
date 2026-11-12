@@ -1,0 +1,6 @@
+WorkBoard v4.18.22
+
+- Fixed bare site root being rendered by another active frontend plugin/theme.
+- WorkBoard now claims the root URL as the Dashboard route on every WorkBoard site.
+- WorkBoard blank application template now runs at the highest template_include priority so later plugin filters cannot replace it.
+- Existing /workspaces/, /dashboard/ and other WorkBoard routes remain unchanged.

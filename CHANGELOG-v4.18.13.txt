@@ -1,0 +1,5 @@
+WorkBoard v4.18.13
+
+- Increased the Time Sheet Remarks column width for easier reading.
+- Added horizontal scrolling to the Time Sheet table when the wider columns exceed the available screen width.
+- Remarks continue to wrap within the enlarged column.

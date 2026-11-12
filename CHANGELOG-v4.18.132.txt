@@ -1,0 +1,1 @@
+Minutes mode: Time Sheet filters Date From and Date To use date-only fields and compare by calendar dates. PDF: wider Remarks column (seven- and eight-column modes) with wrapped content; page numbers at top right. Preserved Indian DD/MM/YYYY display and 24-hour time fields.

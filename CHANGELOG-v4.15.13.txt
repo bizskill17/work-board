@@ -1,0 +1,10 @@
+Workboard v4.15.13
+- Attendance history is no longer hidden when a User changes role between Employee, Manager and Owner.
+- Attendance is now independent of the User's current system role.
+- Changing a User to Owner no longer automatically disables Attendance.
+- The original attendance_enabled_from date is preserved when editing/re-enabling a User.
+- Attendance dashboards, Attendance Register, Monthly Sheet and exports no longer hide old records because Attendance was re-enabled later.
+- Historical visibility is bounded only by the User joining date.
+- Active Owners, Managers and Employees can all appear in attendance history/report views.
+- Existing attendance event rows are not deleted or rewritten.
+- Historical eligibility expressions updated in 6 frontend locations.

@@ -1,0 +1,29 @@
+Workboard v4.13.1 — Reminder Reliability / Multisite Cron
+
+1. Reminder identity is now rule-specific.
+   - Key includes Task + occurrence date + effective due time + reminder value + unit + assignee.
+   - Changing/adding a reminder later no longer conflicts with a previously handled primary reminder.
+   - Creation-time reminders and bell-added reminders use the same delivery pipeline.
+
+2. WhatsApp delivery is no longer blocked by the in-app notification deduplication row.
+   - The in-app notification is still inserted once.
+   - WhatsApp success/failure is tracked independently.
+   - Failed Meta/wallet/token attempts remain retryable.
+
+3. Added bb_reminder_delivery per-site delivery state table.
+   - pending / attempting / sent / failed / skipped
+   - attempt count, calculated reminder/due time, last error, next retry, Meta message ID and message-log reference.
+
+4. Failed reminders retry with controlled exponential backoff (5, 10, 20, 40, max 60 minutes), never after the task due time.
+
+5. Multisite reminder cron improved.
+   - When the main-site WP-Cron event runs, it scans every active site in the network.
+   - switch_to_blog() now refreshes all Workboard site table names before processing each site.
+   - Per-site and network locks prevent overlapping cron runs / duplicate sends.
+   - Subsite cron still safely handles its own site.
+
+6. Message log upgraded to schema 1.1.0.
+   - Added source_key so every reminder attempt can be correlated to the exact task/reminder/assignee delivery.
+   - Failure attempts are retained in the immutable message log.
+
+7. Existing reminder UI and multiple-reminder behaviour are preserved.

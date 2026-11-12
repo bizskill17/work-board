@@ -1,0 +1,5 @@
+Workboard v4.15.24
+- Fixed Work Area > Task Stages search input losing focus after every typed character.
+- Stage search now keeps the same search field in the DOM while only refreshing matching results.
+- Users can type the complete stage name normally without clicking/refocusing after each character.
+- Existing-stage suggestions and Create New Stage continue to update live while typing.

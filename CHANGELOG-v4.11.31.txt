@@ -1,0 +1,7 @@
+Workboard v4.11.31
+- Added persistent Workspace ordering with sort_order.
+- Administrators, Owners and Managers can drag Workspace cards to reorder them.
+- Employees do not see the Workspace drag handle and cannot reorder.
+- Active Workspace lists now load by sort_order then ID.
+- Newly created, imported, template-created and AI-created Workspaces append to the end.
+- Archive/restore preserves the Workspace's saved order.

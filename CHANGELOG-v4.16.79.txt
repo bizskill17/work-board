@@ -1,0 +1,7 @@
+v4.16.79
+- Added a dedicated lightweight Pending Tasks payload.
+- Pending Tasks now selects only operational task fields instead of full task records.
+- Pending Tasks no longer loads task remark summaries, reminder settings, due-reminder settings, or activity history that the Pending screen does not use.
+- Pending checklist rows now load only fields required by the Pending Tasks table.
+- Recurring templates are still processed server-side to generate actionable occurrences, but are omitted from the Pending Tasks response after generation.
+- Pending task objects are compacted before JSON output while preserving Workspace, Work Area, Stage, Owner/Assignee, Priority, Labels, Due Date/Time, recurrence, and Sub Task functionality.

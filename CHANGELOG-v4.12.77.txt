@@ -1,0 +1,4 @@
+Workboard v4.12.77
+- Changed the Send Urgent Reminder icon to a red solid flame style closer to the requested fire icon.
+- Updated the Urgent Reminder popup icon to the same red flame style for consistency.
+- Version bump to refresh frontend assets after update.

@@ -1,0 +1,8 @@
+Workboard v4.11.94
+
+- Fixed Telegram Task Inbox Save & Connect and Save & Test Group actions.
+- Telegram settings now save through AJAX and show the result directly below the buttons instead of relying on a page reload/notice.
+- Save & Connect validates the Bot Token with Telegram getMe before registering the webhook.
+- Save & Test Group saves the current settings first, registers the webhook, then sends a live test message to the configured group.
+- Exact Telegram API errors are shown inline for invalid token, inaccessible group, webhook errors, or missing Group Chat ID.
+- Added webhook status verification after connection.

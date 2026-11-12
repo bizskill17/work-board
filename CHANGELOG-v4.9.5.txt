@@ -1,0 +1,6 @@
+Business Board v4.9.5
+
+- Restores the missing currentBucket() task-status classifier that caused Workspace rendering to crash in v4.9.4.
+- Current, Overdue, Upcoming and dashboard/user counters render again correctly.
+- Preserves the rule that future Daily recurring occurrences do not appear in Upcoming.
+- Keeps the Owner / Manager / Employee role changes from v4.9.4.

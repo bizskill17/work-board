@@ -1,0 +1,6 @@
+Business Board v3.8.6
+- Fixes the persistent blank strip above the Business Board frontend for logged-in WordPress administrators.
+- Suppresses the WordPress admin bar on every Business Board frontend route, including administrators.
+- Removes the admin-bar layout reservation/margin from the standalone blank app template.
+- Forces the app sidebar and topbar to begin at viewport top.
+- Corrects the internal asset version to 3.8.6 so CSS/JS cache-busting works reliably.

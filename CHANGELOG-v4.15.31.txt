@@ -1,0 +1,9 @@
+Workboard v4.15.31
+- Added Labels under Masters.
+- Labels view includes Search, Add, Edit, Active/Inactive and Delete.
+- Labels Master shows Task usage count.
+- Existing Task labels are automatically synchronized into Labels Master.
+- Renaming a Label updates that Label across existing Tasks.
+- Labels already used in Tasks cannot be deleted; they can be set Inactive.
+- Active Labels Master values are available in the Task Labels dropdown.
+- Added /labels/ frontend route.

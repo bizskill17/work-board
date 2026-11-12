@@ -1,0 +1,8 @@
+Workboard v4.18.58
+
+- Added Network Admin > Workboard Messaging > Site Storage.
+- Default storage allowance is 1024 MB per site.
+- Network Admin can update each site storage limit in MB.
+- Frontend Settings now shows Total Space, Utilized, Balance and usage percentage.
+- Uploads are blocked server-side when the site storage quota would be exceeded.
+- New multisite sites automatically receive 1024 MB.

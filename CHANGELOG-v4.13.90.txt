@@ -1,0 +1,12 @@
+Version 4.13.90
+- Added Department Master and Designation Master under Masters.
+- User Department and Designation now reuse controlled master values, with quick Add New from the User form.
+- Added Attendance Settings for organisation working hours, grace time, Full/Half Day limits, Missing OUT cut-off, weekly off and salary basis.
+- Added simple Mark as Holiday by date; no Holiday/Festival Master required.
+- Holidays appear as Holiday instead of Absent in AttendSpace and reports.
+- Added Attendance Register with Month, Department, User and Status filters; First In, Last Out, Break, Net Hours, Status and punch history.
+- Added configurable working-time treatment for custom Out/In combos.
+- Added Monthly Sheet foundation with Present, Weekly Off, Holiday, Absent, Late, Half Day, Payable Days, Gross Salary and provisional Payable Salary.
+- Monthly attendance counts are clickable for date drill-down.
+- Added attendance status calculation for Present, Late, Half Day, Absent, Holiday, Weekly Off, Missing Out and Working/Inside.
+- Attendance and payroll settings are included in Workboard JSON backups.

@@ -1,0 +1,6 @@
+v4.16.95
+- Added a dedicated Organization Settings section.
+- Added site-level Organization Logo, Mobile, Email, Address, City, State, PIN, GSTIN, PAN and Website fields.
+- Organization logo is independent from the network-wide Workboard branding logo.
+- Moved module toggles into a separate Modules panel.
+- Organization profile fields are included in Workboard backup/export settings.

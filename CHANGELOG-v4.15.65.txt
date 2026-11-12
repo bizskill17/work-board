@@ -1,0 +1,12 @@
+Workboard v4.15.65
+- Removed the Share button from inside an opened Notespace.
+- Notespace card-level Share remains available.
+- Added Note Area Owners & Assignees directly in Add Note Area and Edit Note Area.
+- Math Area Add/Edit continues to include sharing and is now clearly labelled Math Area Owners & Assignees.
+- Notespace access is inherited by Note Areas; direct Note Area sharing can add additional Users.
+- MathSpace access remains inherited by Math Areas; direct Math Area sharing can add additional Users.
+- Directly shared Note Area Users see the parent Notespace but not unrelated sibling Note Areas.
+- Note Area Owner can edit/delete that Note Area and manage its notes.
+- Note Area Assignee can view/update notes in that Note Area.
+- Note Area sharing records are cleaned when the Note Area or parent Notespace is deleted.
+- MathSpace Owners can now create Math Areas consistently with the frontend permission.

@@ -1,0 +1,5 @@
+WorkBoard v4.18.26
+
+- Time Sheet Remarks field now grows vertically on every keystroke on desktop and mobile.
+- Removed the effective fixed-height conflict from mobile form CSS.
+- Remarks keeps wrapping and expands to fit all typed lines.

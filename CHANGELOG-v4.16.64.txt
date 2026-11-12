@@ -1,0 +1,5 @@
+v4.16.64
+- Activity Log now includes Sub Task activity.
+- Added statuses: Sub Task Added, Sub Task Updated, Sub Task Completed, Sub Task Reopened, Sub Task Deleted.
+- Sub Task name/details display in the Remark column against the parent Task.
+- Activity Log Excel export includes the same Sub Task activity rows.

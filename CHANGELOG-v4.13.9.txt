@@ -1,0 +1,6 @@
+Workboard v4.13.9
+
+- Quick Add no longer carries the previous task Due Date or Due Time into a new task.
+- Reminder values are also reset for each new Quick Add task because reminders depend on that task's own Due Date.
+- If a task has no Due Date, WhatsApp task assignment/update template parameters now send Due Date as "-".
+- Removed legacy message-only fallback that substituted today's date or task created date when Due Date was blank.

@@ -1,0 +1,6 @@
+Business Board v4.9.97
+
+- Fixed inline due-date editing for recurring tasks.
+- Recurring cards now persist the edited date after refresh by updating the recurrence anchor (start_date).
+- Future occurrences continue from the newly selected date; e.g. changing Monthly from 2 Sep to 5 Sep makes future occurrences fall on the 5th.
+- One-time task due-date editing remains unchanged.

@@ -1,0 +1,6 @@
+Workboard v4.11.7
+- Workspace cards now keep the Workspace name on one line.
+- Long Workspace names use ellipsis instead of wrapping into multiple lines.
+- Workspace action buttons are shown on a separate row below the name.
+- Actions are left-aligned for a cleaner, consistent card layout.
+- Mobile layout updated to preserve the same name-first/actions-below structure.

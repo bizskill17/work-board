@@ -1,0 +1,1 @@
+Improved post-save screen refresh across standard forms: refresh current data without manually reloading the browser, preserve view, filters, expanded sections and scroll position where possible. Specialized attendance, upload and authentication flows retain their existing handlers.

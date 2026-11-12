@@ -1,0 +1,4 @@
+Workboard v4.16.141
+- Made the left navigation more compact without changing the current dark/high-contrast design.
+- Reduced section spacing, row height, inner padding, bullet size, and subsection spacing.
+- Preserved readable view names, section colours, active-view fills, collapsible groups, and mobile behaviour.

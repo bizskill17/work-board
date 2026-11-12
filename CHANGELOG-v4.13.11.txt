@@ -1,0 +1,5 @@
+Workboard v4.13.11
+
+- Fixed the one-frame/millisecond flash that could appear on the left side the first time a Workspace filter dropdown opened.
+- Filter menus now stay hidden until their viewport position is calculated, then appear directly under the correct trigger.
+- No change to filter logic, selections, or toolbar layout.

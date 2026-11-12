@@ -1,0 +1,5 @@
+Workboard v4.14.51
+
+- Daily Dashboard: moved the Punch Attendance, Add Note and Add Task icon-only quick actions from the fixed bottom-right position to the top-right of the Daily Dashboard heading.
+- Quick actions remain permission/settings aware and keep their existing actions.
+- Mobile layout remains compact in the dashboard header.

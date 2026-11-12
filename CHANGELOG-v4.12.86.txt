@@ -1,0 +1,5 @@
+Workboard v4.12.86
+- Link Note cards no longer show fetched page descriptions.
+- Full saved link is shown below the preview and remains clickable.
+- YouTube links derive the thumbnail directly from the YouTube video ID, so existing saved YouTube links can display a thumbnail without re-saving.
+- New/edited YouTube notes also store the canonical YouTube thumbnail URL.

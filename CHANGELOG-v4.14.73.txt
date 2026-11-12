@@ -1,0 +1,4 @@
+Workboard v4.14.73
+- Work Area Activity mode no longer shows empty 'No activity yet' panels below tasks.
+- Tasks with no activity remain unchanged and compact.
+- Only tasks that actually have activity display the Date / Activity table.

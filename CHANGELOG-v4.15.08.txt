@@ -1,0 +1,6 @@
+Workboard v4.15.08
+- Moved Reminder to a separate full-width row below Due Date, Due Time and Recurring in Add Task.
+- Due Date, Due Time and Recurring now form a clean three-column row on desktop.
+- Reminder shows Before Due and After Due directly beneath the schedule row.
+- Reminder configuration cards continue to open immediately below the Reminder row.
+- Mobile layout remains responsive and stacks schedule fields cleanly.

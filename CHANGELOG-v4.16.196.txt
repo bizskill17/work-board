@@ -1,0 +1,7 @@
+WorkBoard v4.16.196
+
+- Mobile Workspace header updated to two lines.
+- First line: menu button on the left and WorkBoard logo on the top-right.
+- Second line: current Workspace name on the left with Analysis, Add Work Area and Filter controls on the right.
+- Existing mobile Work Area percentage/progress strip remains hidden.
+- Desktop layout is unchanged.

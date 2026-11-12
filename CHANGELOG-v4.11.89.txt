@@ -1,0 +1,6 @@
+Workboard v4.11.89
+- Clicking Due Date on a task card now opens a combined Due Date & Time editor.
+- Time is optional and is saved together with the date in one update.
+- Task cards display the selected due time beside the due date.
+- Clear removes both due date and due time for one-time tasks.
+- Recurring tasks retain the existing rule that a recurrence start date is required.

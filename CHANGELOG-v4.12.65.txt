@@ -1,0 +1,5 @@
+Workboard v4.12.65
+- Fixed Notespace Excel download action not appearing in the active Notespace toolbar.
+- Added a server-rendered footer fallback that restores the Excel button even if an older cached app script renders the Notespace.
+- The visible button is placed immediately before + Note Area and reads Download Excel on desktop.
+- Added active Notespace ID attributes to make export recovery reliable.

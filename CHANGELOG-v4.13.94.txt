@@ -1,0 +1,6 @@
+Version 4.13.94
+- Managers/Owners/Admins can manually add attendance for today or any past date.
+- Added + Add Attendance to Attendance Register and each AttendSpace employee/date row for managers.
+- Any attendance punch can be edited or deleted by Manager/Owner/Admin with audit trail.
+- Attendance Register History renamed to Punch History and now shows individual punches with Edit/Delete access.
+- Manual backfilled attendance uses Indian Standard Time and recalculates attendance/monthly totals automatically.

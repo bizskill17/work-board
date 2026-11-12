@@ -1,0 +1,4 @@
+Workboard v4.12.45
+- Increased the size of all task-card bottom action icons.
+- Enlarged Task Activity, Focus, Urgent Reminder, Move, Flash, Copy Task, and Clipboard icons.
+- Kept the action row compact enough to fit standard task cards and mobile cards.

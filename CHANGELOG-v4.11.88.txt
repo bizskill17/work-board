@@ -1,0 +1,6 @@
+Workboard v4.11.88
+- Added an icon-only Urgent Reminder action beside Add to Focus on every task card.
+- Clicking it sends a Meta WhatsApp reminder to all Assignees selected directly on the task.
+- Message template body: *Urgent Update* / Task: {{1}} / Please Update.
+- Added Meta template setting workboard_urgent_update (configurable in Workboard Settings).
+- Reports sent/skipped/failed recipients and logs successful reminder sends in Activity Log.

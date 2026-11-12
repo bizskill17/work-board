@@ -1,0 +1,3 @@
+Workboard v4.11.47
+- Removed the circular avatar/initial icon from the sidebar footer.
+- Changed the Log Off button background to red with a darker red hover state.

@@ -1,0 +1,1 @@
+Workspace Task Stage, Priorities, Assignees and Labels filters now list only values present in Workspace tasks and sort options alphabetically (A-Z). Existing selected filter state remains preserved.

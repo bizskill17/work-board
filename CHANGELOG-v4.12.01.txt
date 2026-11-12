@@ -1,0 +1,7 @@
+Workboard v4.12.01
+
+- Mobile header no longer shows the global search field.
+- Mobile side-menu action is now a clear hamburger icon on every Workboard view.
+- The menu button toggles show/hide state and exposes proper aria-expanded/labels.
+- Added a dedicated dark-red close button inside the opened mobile sidebar.
+- Kept page-local search fields unchanged.

@@ -1,0 +1,6 @@
+WorkBoard v4.18.68
+
+- Fixed Morning Late detection by comparing the first IN punch clock time directly with the effective user/organisation Start Time plus Grace Minutes.
+- Organisation Default Working Hours continue to be used whenever the user has that option enabled.
+- Send Test now sends both Morning and Evening attendance summary messages to the Test Number.
+- Each test creates a fresh unique summary image and a separate Meta message request.

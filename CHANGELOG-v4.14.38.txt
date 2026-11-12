@@ -1,0 +1,5 @@
+Workboard v4.14.38
+
+- Mobile Task Update / mandatory Remarks popup no longer shows visible scrollbars.
+- Touch scrolling remains available when content is taller than the screen.
+- Prevented horizontal overflow in the Remarks form.

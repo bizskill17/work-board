@@ -1,0 +1,6 @@
+Workboard v4.13.14
+- Fixed searchable dropdown filtering inside Quick Add Assignees and Owners.
+- Added capture-phase input listener so legacy handlers cannot block filtering.
+- Reinforced Work Areas, Priorities, Assignees and Labels searchable filters.
+- Non-matching options are hidden with inline !important plus hidden attribute.
+- Correct No results found behavior.

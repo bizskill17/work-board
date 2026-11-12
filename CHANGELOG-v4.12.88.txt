@@ -1,0 +1,6 @@
+Workboard v4.12.88
+- Added the same fixed bottom horizontal scroll bar used in Workspaces to active Notespaces.
+- Includes left/right arrow buttons and draggable range control.
+- Scroll position is remembered per Notespace during the browser session.
+- The scroll bar automatically updates when a Note Area is resized.
+- Mobile Notespace behavior remains unchanged.

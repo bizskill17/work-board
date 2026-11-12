@@ -1,0 +1,7 @@
+v4.16.92
+- Global stale-state/cache fix across Workboard.
+- Module-scoped responses now merge only the data owned by that module; empty arrays from one module no longer erase data from Dashboard, Notes, Math, Attendance, Leave, Activity, Templates, etc.
+- Core/task-slice reloads now correctly invalidate previously loaded module caches because the core response does not contain those module datasets.
+- Every successful mutation marks cached module/core state stale so the next navigation automatically fetches fresh data.
+- Dashboard and Workspaces automatically refresh core state after writes when required.
+- refreshStateQuietly is now module-aware and refreshes the current lazy module through its dedicated endpoint instead of replacing it with lightweight core state.

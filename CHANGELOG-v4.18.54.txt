@@ -1,0 +1,7 @@
+WorkBoard v4.18.54
+
+- Fixed Complete Task Update flow when mandatory remarks are enabled.
+- If a parent task still has incomplete sub tasks, WorkBoard now blocks completion before opening the Remarks form and shows the exact progress count (for example, 14/18).
+- Prevents users from entering a remark and pressing Update only to have completion rejected afterward.
+- Completion API errors now surface their server message when available.
+- Successful completion/reopen refreshes task state quietly.

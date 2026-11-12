@@ -1,0 +1,6 @@
+Workboard v4.11.42
+
+- Tasks with due dates are now automatically sorted by due date in ascending order within each section.
+- Due time is used as the secondary sort when two tasks share the same due date.
+- Simple tasks without due dates keep their existing manual sort order.
+- Pinned tasks remain above unpinned tasks.

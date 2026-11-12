@@ -1,0 +1,4 @@
+Workboard v4.15.49
+- Sub Tasks now appear immediately below Task Name in the Task form.
+- Removed Owner / Assignee controls from individual Sub Tasks.
+- Sub Task rows now contain only drag handle, Sub Task name and delete action.

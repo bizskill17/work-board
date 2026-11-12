@@ -1,0 +1,5 @@
+Workboard v4.16.165
+- Fixed mobile Time Sheet searchable dropdown position.
+- Workspace, Work Area and Task option lists now open directly below the field that was tapped.
+- Removed the mobile activity-card transform while a field is focused, which was offsetting fixed-position dropdown menus.
+- Existing searchable filtering, card colors and desktop layout remain unchanged.

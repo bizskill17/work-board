@@ -1,0 +1,5 @@
+Workboard v4.12.56
+
+- Simplified Masters > Settings so the page header is the only Settings title; removed the duplicate inner SETTINGS / Settings heading.
+- Org Name Save button is disabled when the value is unchanged.
+- Save becomes enabled immediately after Org Name is edited, and returns to disabled after a successful save.

@@ -1,0 +1,6 @@
+WorkBoard v4.18.70
+- Attendance WhatsApp summary images now use proper bordered table layouts.
+- Morning tables: Absent and Late (Employee, In Time, Late By).
+- Evening tables: Absent, Early (Employee, Out Time, Early By), and Less Working Hours (Employee, Working Hours, Less By).
+- On Leave uses a compact Employee / Status table when applicable.
+- Increased Arial-compatible text sizes and removed corrupted separator characters from generated images.

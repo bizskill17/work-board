@@ -1,0 +1,6 @@
+Version 4.13.74
+- Added live Task Name character counter (220-character database limit).
+- Shows a clear validation error when Task Name exceeds 220 characters.
+- Save/Add Task is blocked while Task Name is over the limit.
+- Added backend validation for normal Task save/edit, inline rename, and Telegram task creation.
+- Inline task-name editing now warns immediately instead of allowing an invalid database save.

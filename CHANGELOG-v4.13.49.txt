@@ -1,0 +1,4 @@
+v4.13.49
+- Fixed Math Area header layout for long names: title stays clean and Total + action icons now appear together on one line.
+- Added Particular movement controls with Up and Down buttons inside each Math Area.
+- Added backend save for Math entry sort order.

@@ -1,0 +1,7 @@
+v4.16.28
+- Move Task popup now includes Workspace selection.
+- Current Workspace is selected by default.
+- Work Area list updates when Workspace changes.
+- Tasks can now be moved to a Work Area in another Workspace.
+- Removed the Move Task subtitle/tagline.
+- Destination stage is retained only when valid in the destination Work Area.

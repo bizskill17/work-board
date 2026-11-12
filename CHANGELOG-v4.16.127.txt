@@ -1,0 +1,5 @@
+Workboard v4.16.127
+
+- Removed the “Work Management” subsection label from the Work menu.
+- Workspaces, Folders, Focus, Pending Tasks and Activity Log now appear directly under Work.
+- Billing and Time Sheet remain as subsections under Work.

@@ -1,0 +1,5 @@
+Workboard v4.14.60
+
+- Reworked MathSpace save to support older/partially migrated site tables without forcing a full table rebuild.
+- MathSpace save now writes only columns that actually exist and supports legacy non-auto-increment IDs.
+- Added safe server/database error reporting so the MathSpace form shows the real cause instead of silently remaining open on HTTP 500.

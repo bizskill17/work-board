@@ -1,0 +1,5 @@
+Workboard v4.12.81
+- Quick Add notification icon now appears in the icon row only after both an Assignee and Due Date are selected.
+- Notifications & Reminder options no longer open automatically; click the bell icon to open them.
+- Removing the Assignee or Due Date hides the bell icon and closes the notification panel.
+- Multiple reminder functionality from v4.12.80 is retained.

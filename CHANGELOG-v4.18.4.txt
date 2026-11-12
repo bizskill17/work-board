@@ -1,0 +1,5 @@
+WorkBoard v4.18.4
+
+- Added clear cell borders to CallSpace register table.
+- Added clear cell borders to DocSpace register table.
+- Applied borders to header and body cells for easier row/column reading.

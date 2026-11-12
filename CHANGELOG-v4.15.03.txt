@@ -1,0 +1,8 @@
+Workboard v4.15.03
+- Replaced More Options with a compact Actions section in the Add Task modal.
+- Actions now include Sub-tasks, Priority, Labels and Notes.
+- Each action opens only its own section and can be collapsed independently.
+- Multiple action sections can stay open together when needed.
+- Sub-tasks are now hidden by default and open only when the Sub-tasks action is clicked.
+- Action buttons show a compact status after values are entered: sub-task count, selected priority, label count and Notes checkmark.
+- Reminder remains disabled until both Assignee(s) and Due Date are selected.

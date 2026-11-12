@@ -1,0 +1,6 @@
+Workboard v4.13.57 — Task Card Reminder Button
+
+- Restored the Notifications & Reminder bell in the bottom action row of task cards.
+- Reminder bell now appears whenever a Due Date exists, matching the reminder rule.
+- Existing reminder count is shown as a small badge on the bell.
+- Clicking the bell continues to open the existing compact Notifications & Reminder editor.

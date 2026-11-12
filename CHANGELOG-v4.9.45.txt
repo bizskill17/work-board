@@ -1,0 +1,4 @@
+Business Board v4.9.45
+
+- Task title inline editing now starts only on double-click (desktop) or double-tap (touch devices).
+- Single tap/click no longer activates task-title editing.

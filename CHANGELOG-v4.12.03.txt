@@ -1,0 +1,7 @@
+Workboard v4.12.03
+
+- Fixed mobile header search still appearing on Dashboard and other views.
+- Force the mobile menu action to remain visible on every Workboard view.
+- Move Task modal now uses an explicit modal class instead of relying on CSS :has(), ensuring true vertical and horizontal centering on mobile.
+- Matched the approved Move Task mockup more closely: helper text stays visible and redundant task-name line is removed.
+- Preserved searchable Work Area selection and confirmation workflow.

@@ -1,0 +1,4 @@
+Workboard v4.12.43
+- Increased Clipboard action icon size on desktop for Tasks and Notes.
+- Added stronger blue background, border and icon stroke for clearer visibility.
+- Mobile sizing remains unchanged.

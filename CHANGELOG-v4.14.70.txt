@@ -1,0 +1,5 @@
+Workboard v4.14.70
+- Fixed inline Activity panel being squeezed into a narrow grid column.
+- Activity table now spans the full width of the task card.
+- Keeps only Date and Activity columns.
+- Improved fixed column widths, wrapping and mobile readability.

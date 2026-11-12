@@ -1,0 +1,3 @@
+v4.16.63
+- Removed Pending count/progress summary line from Pending Tasks Sub Tasks column.
+- Sub Tasks column now shows only actual incomplete subtask rows/checkboxes.

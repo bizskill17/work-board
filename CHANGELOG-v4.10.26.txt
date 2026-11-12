@@ -1,0 +1,6 @@
+Business Board v4.10.26
+
+- Fixed Upcoming tasks being hidden on mobile by legacy responsive CSS.
+- Upcoming now appears on mobile whenever that Work Area has upcoming tasks.
+- More Upcoming is also available on mobile instead of being forcibly hidden.
+- Empty task sections continue to remain hidden.

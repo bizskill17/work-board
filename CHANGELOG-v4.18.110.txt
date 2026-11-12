@@ -1,0 +1,1 @@
+Focus: replaced Work Area left/right move arrows with Workspace-style drag grip on each Work Area heading. Drag onto another Focus column to reorder. Existing Focus filters preserved.

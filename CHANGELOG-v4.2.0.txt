@@ -1,0 +1,8 @@
+Business Board v4.2.0
+
+- Workspaces list redesigned to show Workspace name only.
+- Removed Workspace metadata, Work Area names/counts, Department/status/score columns from the Workspace picker.
+- Workspace names are clickable cards that open the selected Workspace.
+- Added restrained neon accent system across active navigation, primary buttons, focused controls, Workspace cards and task status accents.
+- Neon remains subtle on a light SaaS-style interface.
+- Mobile Workspaces view uses a simple one-column name list with compact Import/Add controls.

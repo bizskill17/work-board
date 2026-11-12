@@ -1,0 +1,4 @@
+Workboard v4.13.40
+
+- Math Entry: pressing Enter in Particular, Number, or Amount no longer submits or saves the form.
+- Entries are saved only by clicking the Save button.

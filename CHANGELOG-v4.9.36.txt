@@ -1,0 +1,6 @@
+Business Board v4.9.36
+
+- Fixed stale asset caching caused by the internal VERSION constant remaining at 4.9.33.
+- Updated both plugin header and internal VERSION to 4.9.36.
+- Added file-modification based cache-busting to frontend CSS and JavaScript so future visual/script updates load immediately even if browser/CDN caches are aggressive.
+- Retained the clean Todoist/Google Keep-style task-card design and all v4.9.35 inline editing features.

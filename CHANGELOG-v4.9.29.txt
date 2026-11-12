@@ -1,0 +1,9 @@
+Business Board v4.9.29
+
+- Fixed Workspace filters across Current, Overdue, Upcoming, More Upcoming and Completed sections.
+- Work Area, Priority and Assignee filters now combine correctly.
+- Empty status sections and Work Areas are hidden when task filters return no matching tasks.
+- Work Area score strip and portrait tabs now follow the selected Work Area filter.
+- Compact Current / Overdue / Upcoming / Completed counts recalculate from the filtered result.
+- Filter selections are retained when the Workspace board re-renders.
+- Clear Filters resets all filter state consistently on desktop, tablet and mobile.

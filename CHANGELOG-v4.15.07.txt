@@ -1,0 +1,10 @@
+Workboard v4.15.07
+- Implemented the approved compact Reminder mockup in Add Task.
+- Before Due now opens a dedicated card with explicit Number + Unit rows.
+- Units support Minutes, Hours, Days and Weeks; Minutes is available when Due Time exists.
+- Multiple Before Due reminders can be added using + Add Reminder.
+- After Due now opens its own card with explicit Repeat every Number + Unit controls.
+- After Due also includes For next and Maximum reminders controls.
+- Removed Same Day from the repeat interval unit; Same Day remains available as a duration choice.
+- Reminder cards are visually distinct but compact and responsive on mobile.
+- Existing reminder backend/save logic is preserved.

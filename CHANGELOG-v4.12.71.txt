@@ -1,0 +1,6 @@
+Business Board v4.12.71
+
+- Calendar view no longer shows the No Due Date section.
+- Calendar view excludes Daily recurring tasks.
+- Calendar task names now wrap onto multiple lines instead of being truncated with ellipsis.
+- Calendar toolbar task count now reflects only tasks eligible to appear on the calendar.

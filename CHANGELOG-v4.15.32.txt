@@ -1,0 +1,6 @@
+Workboard v4.15.32
+- Label Delete now works even when the Label is already used in Tasks.
+- Deleting a Label removes that Label from every Task that currently contains it.
+- Other Labels on the same Task remain unchanged.
+- After removing the Label from Tasks, the Label is deleted from Labels Master.
+- Label deletion is logged in activity.

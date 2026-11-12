@@ -1,0 +1,6 @@
+WorkBoard v4.18.87
+
+- Removed the Work Area hidden-task eye/count control.
+- Removed the Work Area hidden-task overflow/manage (ellipsis) control.
+- Reduced Work Area action button size for a cleaner compact header on desktop and mobile.
+- Hidden tasks remain accessible from the top Archived Tasks control.

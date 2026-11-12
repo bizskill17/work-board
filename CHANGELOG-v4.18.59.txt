@@ -1,0 +1,5 @@
+WorkBoard v4.18.59
+- Share Users stays expanded whenever one or more Users are selected.
+- Adding the first shared User automatically opens and keeps the Share Users section visible.
+- The Share Users eye control cannot collapse the section while selected Users remain.
+- Empty Share Users sections may still be collapsed.

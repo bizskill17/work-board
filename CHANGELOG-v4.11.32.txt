@@ -1,0 +1,4 @@
+Workboard v4.11.32
+
+- Moved the Work Area Add Task (+) action to the far right, immediately after the Edit Work Area icon.
+- No other behavior changed from the Workspace reordering build.

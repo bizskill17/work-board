@@ -1,0 +1,7 @@
+Business Board v4.9.71
+
+- Added a radio-style In Progress control directly below each task completion checkbox.
+- Clicking In Progress opens a compact mandatory progress remark box; no need to open Task Details.
+- In Progress remarks are saved with the current user and timestamp and recorded in Activity/History.
+- Clicking the In Progress control again on an already In Progress task opens Add Progress Update.
+- Completion checkbox remains independent and continues to mark tasks Completed.

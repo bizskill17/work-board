@@ -1,0 +1,4 @@
+Workboard v4.12.72
+- Quick Add task title now behaves as an auto-growing text area.
+- The full task name stays visible while typing; no internal scrollbar or 76px height limit.
+- Existing wrapping is preserved on desktop and mobile.

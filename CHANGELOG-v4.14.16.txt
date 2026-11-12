@@ -1,0 +1,7 @@
+Version 4.14.16
+- Admin/Manager AttendSpace now uses a four-column table: Employee, In, Out, Break.
+- In shows the first IN punch of the day.
+- Out shows the last OUT punch of the day.
+- Break shows total non-working break duration.
+- Privileged AttendSpace defaults From and To filters to Today.
+- Employee self-view remains unchanged.

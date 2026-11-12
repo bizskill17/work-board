@@ -1,0 +1,7 @@
+Workboard v4.11.63
+
+- Workspace Templates > View contents now opens in full-screen mode.
+- Work Area Templates > View contents now opens in full-screen mode.
+- Removed visible inner horizontal/vertical scrollbars from the template contents viewer while retaining wheel/touch scrolling for long lists.
+- Template content tables now fit the available screen width and wrap long text instead of creating a horizontal scrollbar.
+- Kept the colored Edit, top Close (×), and bottom Close controls from v4.11.62.

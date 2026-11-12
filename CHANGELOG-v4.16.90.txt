@@ -1,0 +1,6 @@
+v4.16.90
+- Fixed NoteSpace showing stale/empty data until browser refresh.
+- Any successful Notespace, Note Area, or Note Card mutation now invalidates the lazy Notes module cache.
+- Opening NoteSpace after creating/editing/deleting notes now fetches fresh Notes data automatically.
+- Preserves module-specific lazy loading and performance improvements.
+- Corrected plugin/runtime version metadata to 4.16.90.

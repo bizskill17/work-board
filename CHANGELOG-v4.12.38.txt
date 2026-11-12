@@ -1,0 +1,5 @@
+Workboard v4.12.38
+- Preserves the horizontal Workspace board position when the page is refreshed.
+- Each Workspace remembers its own horizontal scroll position for the current browser tab/session.
+- After refresh or board re-render, the user returns to the same Work Area position instead of the first Work Area.
+- Bottom horizontal range control is synchronized with the restored position.

@@ -1,0 +1,6 @@
+Workboard v4.11.27
+- Added Settings > Branding panel.
+- Administrators/Managers can upload a custom Workboard logo (PNG, JPG/JPEG or WEBP, up to 5 MB).
+- Uploaded logo appears in the Workboard sidebar and login screen.
+- Added logo preview and Remove Logo option.
+- Default B mark remains when no custom logo is configured.

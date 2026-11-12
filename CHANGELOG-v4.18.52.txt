@@ -1,0 +1,7 @@
+WorkBoard v4.18.52
+
+- Task Activity now shows only status-related activity.
+- Included: Status Updated, Sub Task Status Updated, Task Completed, Task Reopened.
+- Hidden from Task Activity: Created, Focus changes, Sub Task Added, general edits, remarks, attachments and other system activity.
+- Status and remark are combined into one Activity line.
+- Task Activity table simplified to Timestamp + Activity.

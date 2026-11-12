@@ -1,0 +1,7 @@
+Workboard v4.11.78
+
+Folder view
+- Folder cards no longer list Workspace names inside the card.
+- Each Folder card now shows only the number of Workspaces on the right side.
+- Folder actions and open/manage behaviour remain unchanged.
+- Folder search can still match Workspace names even though the names are not displayed on the Folder card.

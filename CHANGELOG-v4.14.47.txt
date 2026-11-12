@@ -1,0 +1,5 @@
+Workboard v4.14.47
+
+- Added After Due reminder configuration to the compact Quick Add task panel.
+- Quick Add now supports repeat interval, active hours/24 hours, maximum duration and maximum reminder count.
+- After Due settings are saved with the new task and processed by the existing Due Reminder cron engine.

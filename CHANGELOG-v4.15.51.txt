@@ -1,0 +1,10 @@
+Workboard v4.15.51
+- Redesigned Edit Task to use the same compact single-step form as Add Task.
+- Edit Task now has the same Task, Task Owner, Assignee(s), Notify, Due Date, Due Time, Recurring, Reminder and Actions layout.
+- Existing Sub-tasks, Priority, Labels and Notes are prefilled; populated Actions stay open.
+- Added one extra Work Area field at the top of Edit Task.
+- Work Area is a searchable dropdown.
+- Each option is displayed as: Workspace — (Work Area).
+- Selecting a different Work Area also changes the Task's Workspace automatically.
+- Existing Owners, Assignees, notifications, reminders and task values are prefilled.
+- Update uses the existing bb_save_task backend and preserves recurrence status/end-date/interval settings that are not shown in the compact form.

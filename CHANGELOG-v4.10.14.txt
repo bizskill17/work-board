@@ -1,0 +1,7 @@
+Business Board v4.10.14
+
+- Added a compact + Add sub task action at the end of the always-visible Todoist-style subtask list.
+- The + action opens an inline input inside the task card, so additional subtasks can be created without opening the Sub Tasks panel.
+- Press Enter or tap + to save; Esc or × cancels.
+- The expanded-subtask preference remains enabled after adding.
+- Main tasks still never auto-complete when all subtasks are completed.

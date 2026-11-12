@@ -1,0 +1,8 @@
+Workboard v4.11.37
+
+- Added automatic Focus when an eligible non-daily task becomes due today.
+- Daily recurring tasks are never auto-focused; they can enter Focus only through the manual Focus toggle.
+- Added focus_auto_date and focus_manual_override_date state to remember same-day manual removal.
+- If a user removes an automatically applied Focus, refreshing the page will not add it back again that day.
+- Non-daily recurring auto-focus is scoped to the due occurrence that triggered it.
+- Manual Focus behavior remains available through the existing one-click Focus icon.

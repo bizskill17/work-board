@@ -1,0 +1,10 @@
+Workboard v4.14.53
+
+- Replaced fixed Full Day / Half Day payroll slabs with minute-proportionate payable attendance.
+- Standard daily minutes are calculated from Organisation IN/OUT time less the permitted standard break.
+- Existing per-User IN/OUT overrides now determine that User's own standard daily minutes.
+- Added Standard Break and Auto Break Applies After settings (defaults: 45 and 360 minutes).
+- Uses recorded non-working breaks; otherwise applies the standard break only after the configured duration.
+- Missing OUT and incomplete break punches hold salary credit at zero until corrected by a Manager.
+- Caps ordinary salary credit at 1.00 day and records excess net time separately as unpaid overtime.
+- Monthly Sheet now shows payable hours, short-hour days, salary-held days, recorded overtime, proportionate payable days and salary.

@@ -1,0 +1,8 @@
+Version 4.13.73
+- Added a business-level reusable Task Stage Master.
+- Work Area > Task Stages now opens a searchable picker of stages created across all Workspaces.
+- Existing/similar stages are suggested to reduce duplicate names such as "Pending for Boss" vs "Pending via Boss".
+- Added Create New Stage when no suitable stage exists.
+- Existing shared stages keep a default colour; each Work Area may override that colour.
+- Stage order remains specific to each Work Area and can still be moved Up/Down.
+- In Progress remains permanent and green.

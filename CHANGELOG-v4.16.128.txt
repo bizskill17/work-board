@@ -1,0 +1,7 @@
+Workboard v4.16.128
+
+- Redesigned the left menu with separate soft background colors for Dashboard, Work, HR, Notes, Math and Masters.
+- Added high-contrast light inner panels so every view name remains clearly visible.
+- Billing, Time Sheet, Attendance and Leave are now interactive collapsible subsections.
+- Active view uses a clear white highlight with a blue left indicator.
+- Preserved compact and mobile sidebar behavior.

@@ -1,0 +1,5 @@
+Workboard v4.14.78
+- Fixed Work Area Activity not appearing when Remarks View Days Limit was set to 1.
+- Remarks View Days Limit now uses a rolling time window: 1 = last 24 hours, 3 = last 72 hours.
+- This keeps recent activity from the previous calendar date visible when it is still within the selected day limit.
+- Empty task activity sections remain hidden.

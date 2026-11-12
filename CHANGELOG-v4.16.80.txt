@@ -1,0 +1,7 @@
+v4.16.80
+- Pending Tasks backend optimized at query level.
+- Removed recurrence N+1 SQL lookups by preloading history and recurrence exceptions in bulk.
+- Pending recurring history now loads only overdue and today/future rows instead of all completed history.
+- Pending one-time task query uses positive operational statuses for better index use.
+- Added one-time targeted composite indexes for Pending Tasks task/history filtering.
+- Corrected internal plugin VERSION constant to 4.16.80.

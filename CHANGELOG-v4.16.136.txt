@@ -1,0 +1,7 @@
+Workboard v4.16.136 — Dark Left Menu Views
+
+- Changed all left-menu view rows to a dark navy background.
+- View names use high-contrast white/light text.
+- Bullet-point navigation is retained.
+- Active view continues to use the full section highlight color.
+- Applied the same dark menu treatment on desktop and mobile.

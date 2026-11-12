@@ -1,0 +1,7 @@
+Workboard v4.12.41
+- Added a Clipboard icon after the duplicate Copy icon on Task Cards.
+- Clicking Clipboard copies a readable Task summary to the device clipboard for pasting into WhatsApp, email, SMS or other apps.
+- Task clipboard text includes available Workspace, Work Area, Priority, Assignee, Due Date/Time, Recurrence, Labels, Notes and Sub Tasks.
+- Added the same Clipboard action to Note Cards.
+- Note clipboard text includes Title, Notespace, Note Area, Link and Note text when available.
+- Clipboard action does not create another Task/Note; the existing duplicate Copy button still does that separately.

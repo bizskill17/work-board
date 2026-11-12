@@ -1,0 +1,6 @@
+Workboard v4.12.06
+
+- Fixed Move Task modal on mobile using direct viewport coordinates instead of flex/grid alignment.
+- The Move Task card now uses fixed top:50% / left:50% with translate(-50%, -50%) so it stays exactly in the middle of the visible screen.
+- Added a final high-specificity mobile CSS override to prevent legacy bottom-sheet modal rules from pushing the dialog to the bottom.
+- Existing searchable Work Area selector and task-move flow remain unchanged.

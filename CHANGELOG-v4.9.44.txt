@@ -1,0 +1,5 @@
+Business Board v4.9.44
+
+- Remarks now show the user name and timestamp beneath every remark.
+- Newly added remarks receive the server timestamp immediately without requiring a reload.
+- Remark input now says “Add remark...” and auto-saves on blur; Enter remains a shortcut and Shift+Enter still creates a new line.

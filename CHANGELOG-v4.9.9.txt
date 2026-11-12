@@ -1,0 +1,7 @@
+Business Board v4.9.9
+
+- Fixed missing top/corner and bottom edges on some Task card borders.
+- Every Task card now has a complete 1px outline using its Work Area theme color on all four sides.
+- Last Task in a list now keeps its bottom border instead of losing it to an older CSS rule.
+- Task and Work Area action menus now close automatically when the user clicks anywhere outside the open menu.
+- Selecting an action also closes the action menu.

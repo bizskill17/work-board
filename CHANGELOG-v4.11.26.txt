@@ -1,0 +1,7 @@
+Workboard v4.11.26
+
+- Fixed Workspace package import failing during Workspace creation.
+- Import now creates a unique Workspace slug, matching normal Workspace creation.
+- Added transaction/rollback protection around Workspace package import.
+- Import errors now include the actual database error when Workspace creation fails.
+- Prevented duplicate import error banners in the Import Workspace modal.

@@ -1,0 +1,7 @@
+Workboard v4.11.0
+- Added AI Workspace Builder (initial V1 + file/image input scope).
+- Generate editable Workspace drafts from text prompts or JPG, PNG, WEBP, PDF, DOCX, XLSX, CSV and TXT.
+- Supports OpenAI or Google Gemini through configurable API settings.
+- AI draft includes Work Areas, Tasks, Subtasks, priority, assignee, dates, recurrence and labels when available.
+- Draft must be reviewed and approved before Workboard creates any records.
+- Existing users are matched by exact name; unmatched names remain unassigned and are flagged for review.

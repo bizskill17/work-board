@@ -1,0 +1,5 @@
+Workboard v4.12.44
+- Made the Clipboard action clearly visible on Task Cards and Note Cards.
+- Clipboard now uses a solid blue button with a white clipboard icon.
+- Enlarged and simplified the clipboard SVG for better legibility at card size.
+- Successful clipboard copy still switches to a green confirmation state.

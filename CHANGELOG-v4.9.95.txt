@@ -1,0 +1,5 @@
+Business Board v4.9.95
+
+- Removed the word “All” from the four Workspace filter labels: Work Areas, Priorities, Assignees and Labels.
+- Added subtle individual colour tints to each filter for faster visual recognition.
+- Kept the responsive filter layout and dropdown behaviour unchanged across views.

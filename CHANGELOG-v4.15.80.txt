@@ -1,0 +1,5 @@
+v4.15.80
+- Holiday Calendar now shows the full current financial year (April to March) in one view.
+- All 12 months are visible together in a responsive calendar grid.
+- Calendar FY is calculated automatically from the current date.
+- Table view remains available.

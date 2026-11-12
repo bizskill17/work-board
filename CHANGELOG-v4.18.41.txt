@@ -1,0 +1,5 @@
+WorkBoard v4.18.41
+
+- CallSpace Create Task button now hides the zero count.
+- When task count is 0, the button shows only "Create Task" with orange background.
+- When task count is greater than 0, the button shows "Create Task (N)" and remains green.

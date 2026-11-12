@@ -1,0 +1,9 @@
+Workboard v4.13.5
+
+- Rebuilt Workspace search event handling with native capture listeners so the desktop header search always reacts while typing.
+- Search now uses a dedicated indexed search string on each task card rather than relying only on visible card text.
+- Search includes Task Name, Work Area, Description, Assignees, Owners, Labels, Priority, Due Date/Time, Recurrence, Remarks and Sub Tasks.
+- Work Area name matching remains supported.
+- Desktop and mobile Workspace search inputs stay synchronized.
+- Added a clear empty-state message when no task or Work Area matches.
+- Existing filters and alternate Table/Calendar views continue to use the same filtered task set.

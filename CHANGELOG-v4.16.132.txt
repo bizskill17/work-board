@@ -1,0 +1,6 @@
+Workboard v4.16.132 — Delete Icon Modal Fix
+
+- Fixed reminder-row delete controls in Add/Edit Task forms so they use the approved solid red trash-bin icon.
+- Global delete-icon observer now watches the full document body, including modal/drawer content created after page load.
+- Added reminder-specific CSS overrides so legacy tiny trash styling cannot shrink the standard icon.
+- Delete behavior and confirmation logic are unchanged.

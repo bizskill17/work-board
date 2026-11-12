@@ -1,0 +1,4 @@
+Workboard v4.14.88
+- Removed the unused white tail at the end of the desktop Workspace toolbar.
+- The filter area now stretches and uses the full available row width.
+- Toolbar adapts to sidebar visible/hidden states while still filling the entire row.

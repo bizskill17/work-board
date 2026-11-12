@@ -1,0 +1,4 @@
+v4.16.09
+- Fixed Activity Log data being hidden on mobile by a legacy Task Activity CSS rule.
+- Activity Log now renders filtered rows as compact responsive cards on mobile.
+- Desktop Activity Log table remains unchanged.

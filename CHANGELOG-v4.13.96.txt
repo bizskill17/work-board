@@ -1,0 +1,4 @@
+Version 4.13.96
+- Hide Claim Weekly Off after an employee has marked IN for that date.
+- Backend also blocks Weekly Off claims after attendance has already been marked.
+- Manager/Owner/Admin pending Weekly Off review controls remain available.

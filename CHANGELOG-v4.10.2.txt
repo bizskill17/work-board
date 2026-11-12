@@ -1,0 +1,6 @@
+Business Board v4.10.2
+
+- Packaging changed to a stable `business-board` plugin folder so future ZIP uploads replace the same plugin instead of creating a new versioned plugin folder.
+- Frontend Business Board and Login pages now self-heal if their stored IDs are missing, trashed, or unpublished after an update.
+- Existing page slugs and shortcodes are preserved/restored.
+- Includes the v4.10.1 mobile Add Task fix.

@@ -1,0 +1,7 @@
+Business Board v4.9.28
+- Tablet portrait now follows the compact mobile Workspace top layout.
+- Desktop-style Workspace toolbar is hidden by default in tablet portrait.
+- Header shows compact Analysis, Add Work Area, Filter and Notification actions.
+- Removed duplicate Work Area tab row in tablet portrait.
+- Retained one horizontally scrollable Work Area score strip.
+- Retained vertical Work Area flow with up/down controls in portrait.

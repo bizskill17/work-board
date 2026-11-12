@@ -1,0 +1,3 @@
+- Removed the left-side icons from the main colored sidebar section headers.
+- Kept the section background colors, label text and right-side carets unchanged.
+- Preserved all sidebar functionality and submenu behavior.

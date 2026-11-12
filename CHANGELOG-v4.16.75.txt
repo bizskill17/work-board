@@ -1,0 +1,13 @@
+v4.16.75 — Faster Workboard startup
+
+Performance changes only; no intentional UI/workflow change.
+
+- Removed recurring-instance maintenance from every state refresh; it is now throttled to at most once per 60 seconds per site.
+- Task-slug migration now runs only once per plugin version instead of on every Workboard load.
+- Replaced recurring-task history N+1 database lookups with a single bulk history query.
+- Removed one-query-per-archived-occurrence task lookups by reusing the already loaded recurring task map.
+- Replaced repeated array scans for task/subtask/workspace/note/math assignments and task remarks with indexed lookup maps.
+- Replaced repeated workspace/work-area party-sharing scans with indexed lookup maps.
+- Moved expensive administrator-only diagnostics, DB table COUNT queries, message logs, wallet ledger and template version history out of normal startup.
+- Administrator-only heavy Settings data now loads only when Settings is opened.
+- Increased the mini-loading indicator threshold slightly so fast requests do not flash a loading toast unnecessarily.

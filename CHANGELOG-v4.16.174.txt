@@ -1,0 +1,5 @@
+Workboard v4.16.174
+
+- Fixed task-card billable Amount badge being clipped on narrow Work Area cards.
+- Amount badge now stays fully visible at the right side of the task metadata row.
+- Preserved existing billable amount, card, and billing logic.

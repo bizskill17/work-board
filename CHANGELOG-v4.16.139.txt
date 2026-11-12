@@ -1,0 +1,4 @@
+Workboard v4.16.139
+- Dashboard item in the left sidebar no longer changes background colour when hovered with the mouse.
+- Active Dashboard keeps its selected blue background on hover/focus.
+- Removed the slight hover movement from the Dashboard row for a stable menu appearance.

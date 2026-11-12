@@ -1,0 +1,6 @@
+Workboard v4.10.34
+
+- Fixed Workspace search so it matches the full search phrase against the main task name, Work Area name, or assignee only. Expanded subtask text and unrelated card text no longer cause false matches.
+- Removed the clear (×) icon from Workspace search.
+- Work Area insertion / add controls are hidden while Workspace search is active, preventing repeated insert plus icons from appearing between filtered columns.
+- Search remains in-place so the mobile keyboard stays open while typing.

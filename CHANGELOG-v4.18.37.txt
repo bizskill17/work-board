@@ -1,0 +1,6 @@
+WorkBoard v4.18.37
+
+- Time Sheet From/To dropdowns now show time clearly on mobile and desktop.
+- Increased mobile time field readability while keeping From and To on one row.
+- Made the desktop Time Sheet entry row compact enough to fit the available width without unnecessary horizontal scrolling.
+- Rebalanced Workspace, Work Area, Task, Remarks and Action column widths.

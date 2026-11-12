@@ -1,0 +1,5 @@
+Workboard v4.13.30
+
+- Morning Pending Tasks Reminder now preserves line breaks and WhatsApp bold headings exactly by Workspace and Work Area.
+- Task rows are shown one per line in the requested format instead of being flattened with bullets / pipes.
+- Removed the overall MathSpace Total display. Math Area totals remain directly under each Math Area title.

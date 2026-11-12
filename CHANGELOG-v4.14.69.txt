@@ -1,0 +1,4 @@
+Workboard v4.14.69
+- Simplified the inline task activity panel to show only Date and Activity columns.
+- Improved inline activity table clarity inside narrow task cards.
+- Styled the inline panel with a bordered white card and better spacing for mobile and desktop.

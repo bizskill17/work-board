@@ -1,0 +1,1 @@
+- Clear Filters now clears search text and board filters.

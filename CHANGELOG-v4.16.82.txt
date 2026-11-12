@@ -1,0 +1,5 @@
+v4.16.82
+- Fixed Activity Log appearing empty after v4.16.81 module-specific loading.
+- Activity Log now lazy-loads its own module state instead of relying on the lightweight startup/core state.
+- Preserves the v4.16.81 performance architecture; no return to monolithic full-state loading.
+- Activity module loads the latest activity records using the existing access filtering and Activity Log UI.

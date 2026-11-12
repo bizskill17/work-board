@@ -1,0 +1,4 @@
+Workboard v4.11.13
+- Employee logins no longer see Workspace Edit, Archive, or Delete action icons.
+- Workspace action icons remain available to Administrator, Owner, and Manager roles.
+- Employee Workspace cards remain clickable for normal Workspace access.

@@ -1,0 +1,8 @@
+Workboard v4.18.64 — WhatsApp Delivery Tracking
+
+- Added Meta WhatsApp webhook endpoint for sent, delivered, read and failed status callbacks.
+- Attendance Send Test now polls and displays the actual delivery status and failure reason.
+- Wallet charge is no longer posted when Meta merely accepts the API request; wallet mode checks available balance first and posts the debit only after Meta reports sent/delivered/read.
+- Failed delivery is not charged; if a later failure follows a charged sent status, Workboard posts an idempotent refund.
+- Added Network Admin WhatsApp Webhook URL, Verify Token and optional Meta App Secret for webhook signature verification.
+- Message log schema now stores pending wallet charge separately until delivery status is received.

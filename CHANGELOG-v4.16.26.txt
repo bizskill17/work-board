@@ -1,0 +1,7 @@
+v4.16.26
+- Fixed mobile Workspace vertical scrolling and removed fixed/min-height behavior that caused clipping.
+- Mobile funnel now opens a reliable floating filter drawer above the board.
+- Filter button active/expanded state now stays synchronized when opened/closed.
+- Removed the repeated Simple bucket heading on mobile so the Work Area name is the only area heading.
+- Ensured Work Area headers remain visible and each Work Area stacks cleanly in one vertical flow.
+- Added bottom clearance so floating quick-action buttons do not cover the final Work Area.

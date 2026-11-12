@@ -1,0 +1,6 @@
+Workboard v4.12.57
+
+- Shows the saved Org Name in the left navigation above Dashboard on desktop.
+- On mobile/tablet, the opened sidebar header shows the same Org Name.
+- Updating Org Name in Masters > Settings refreshes the sidebar name immediately without a page reload.
+- Collapsed desktop sidebar keeps a compact initial badge with the full Org Name available as the title.

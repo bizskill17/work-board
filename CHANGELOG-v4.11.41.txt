@@ -1,0 +1,7 @@
+Workboard v4.11.41
+
+- Smoothed mobile task drag auto-scroll using requestAnimationFrame time-based velocity instead of fixed per-frame jumps.
+- Added progressive edge-speed acceleration for both vertical page scrolling and horizontal Work Area scrolling.
+- Reduced drag jitter by avoiding unnecessary DOM re-inserts while the placeholder is already in the correct position.
+- Improved destination Work Area detection when sticky headers or edge overlays cover the finger during auto-scroll.
+- Auto-scroll still stops immediately on drop/cancel and task-body touch remains normal page scrolling.

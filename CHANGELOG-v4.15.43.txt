@@ -1,0 +1,5 @@
+Workboard v4.15.43
+- Pending Tasks toolbar now shows icon-only controls for Filter, Excel and Clear Filters.
+- Activity Log toolbar now shows icon-only controls for Filter, Clear Filters and Excel.
+- Tooltips and aria-labels remain available for clarity/accessibility.
+- Filter icon still rotates to indicate expanded/collapsed state.

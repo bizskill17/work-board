@@ -1,0 +1,6 @@
+Workboard v4.13.64 — Task Assigned Due Date Fix
+
+- Fixed Task Assigned WhatsApp messages where Due Date could be sent as blank/"-" for recurring tasks.
+- Assignment message due-date resolution now uses the saved one-time Due Date first, then recurring occurrence/start date when applicable.
+- Due Time continues to be appended to the same Due Date parameter when present.
+- Internal Task Assigned notification text uses the same recurring-date fallback.

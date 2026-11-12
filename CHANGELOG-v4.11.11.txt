@@ -1,0 +1,7 @@
+Workboard v4.11.11
+- Refined Workspace cards to match approved UI.
+- Workspace name remains text-only with natural wrapping.
+- Edit, Archive and Delete remain icon-only (no action labels).
+- Increased action button clarity and consistent spacing.
+- Added comfortable gap below action row.
+- Responsive mobile sizing retained.

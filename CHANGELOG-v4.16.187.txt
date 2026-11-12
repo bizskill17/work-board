@@ -1,0 +1,6 @@
+Workboard v4.16.187
+
+- Added Delete History to Task Options, matching the approved mockup.
+- Delete History permanently removes only the task activity history; the task, remarks and sub tasks remain.
+- Added an orange Delete History confirmation dialog with Cancel and Delete History actions.
+- Kept Archive Task, View Activity and Delete Permanently as separate options.

@@ -1,0 +1,5 @@
+Business Board v4.9.25
+- Task card outline turns red immediately when the six-dot drag grip is pressed.
+- Red outline remains visible for the entire drag/reorder operation.
+- Normal Work Area/task outline is restored only after the task is dropped.
+- Six-dot grip also receives red active feedback while dragging.

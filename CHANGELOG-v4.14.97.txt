@@ -1,0 +1,6 @@
+Workboard v4.14.97
+- Fixed Task Assigned notifications being sent to a Work Area Owner merely because a task was created in that Work Area.
+- Work Area Owner is no longer used as the automatic/default Task Assignee.
+- Only an explicitly configured Work Area Assignee may be inherited as the create-time Task Assignee.
+- If a Work Area has only an Owner and no Assignee, a newly created task remains unassigned until a Task Assignee is explicitly selected.
+- Existing task permissions and Work Area Owner access remain unchanged.

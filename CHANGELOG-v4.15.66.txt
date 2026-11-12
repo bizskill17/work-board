@@ -1,0 +1,3 @@
+Workboard v4.15.66
+- Mobile Workspace view no longer shows the Overdue / Completed KPI row below the header.
+- Desktop Workspace view remains unchanged.

@@ -1,0 +1,4 @@
+Workboard v4.14.82
+- Removed the Template button from the Workspace top toolbar.
+- Work Area templates remain available from the Create Work Area form.
+- Reduced toolbar height, gaps, button sizes and filter widths on desktop for a more compact single-line layout.

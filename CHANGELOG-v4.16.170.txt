@@ -1,0 +1,5 @@
+Workboard v4.16.170
+
+- WhatsApp template parameters now use `-` whenever a value is missing or blank.
+- Task Updated / Tasks Updated templates are forced to send exactly 7 body parameters to match the approved Meta template.
+- Prevents Meta error #132000 caused by missing body parameters.

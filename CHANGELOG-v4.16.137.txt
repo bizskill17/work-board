@@ -1,0 +1,6 @@
+Workboard v4.16.137 — Sunday Reminder Enablement
+
+- Sunday Reminder checkbox is disabled until at least one reminder is configured.
+- Adding a Before Due / After Due / Repeat After Due reminder enables Sunday Reminder.
+- Removing all reminders automatically clears and disables Sunday Reminder.
+- Existing tasks with reminders keep the saved Sunday Reminder selection editable.

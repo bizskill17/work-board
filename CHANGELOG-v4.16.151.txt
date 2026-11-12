@@ -1,0 +1,6 @@
+Workboard v4.16.151 — Transparent Header Wordmark
+
+- Updated approved WorkBoard header wordmark to a transparent-background asset.
+- Removed the white logo card/background.
+- Removed outline border, rounded card treatment, and shadow around the top-right logo.
+- Kept the Work + chess knight + Board horizontal wordmark responsive on desktop, tablet and mobile.

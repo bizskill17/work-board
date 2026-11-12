@@ -1,0 +1,10 @@
+Business Board v4.4.0
+
+- Added Google Keep-style Quick Add Task directly inside each Work Area.
+- Tapping the Work Area + now opens a compact inline task field instead of the full Task form.
+- Default Quick Add shows only Task Name, an options icon, and Add.
+- Tapping the options icon reveals only: Frequency, Priority, Due Time, and Assignee.
+- Daily is the default frequency; Medium is the default priority; Work Area Head remains the default assignee.
+- One Time, Weekly, Fortnightly, Monthly, Quarterly, and Yearly can be selected from Quick Add.
+- Sub Tasks, Owners, multiple Assignees, instructions, attachments, custom intervals and other detailed settings remain in Edit Task only.
+- Pressing Enter saves the Quick Add task; after save a fresh Quick Add field remains ready for rapid entry.

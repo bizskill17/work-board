@@ -1,0 +1,6 @@
+Workboard v4.10.33
+
+- Fixed mobile Workspace search keyboard repeatedly closing/reopening while typing.
+- Workspace search now filters the already-rendered board in place instead of rebuilding the entire Workspace after every keystroke.
+- Search continues to match Work Area, task and visible assignee/task text on all devices.
+- Clear search keeps focus in the search field.

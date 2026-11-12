@@ -1,0 +1,6 @@
+Business Board v4.9.86
+
+- Added a floating Back to Workspace Top button for long Work Areas.
+- Button appears only after scrolling down inside a Workspace.
+- Smoothly returns to the Workspace toolbar/top.
+- Positioned above the fixed horizontal Workspace scrollbar on desktop and thumb-friendly on mobile.

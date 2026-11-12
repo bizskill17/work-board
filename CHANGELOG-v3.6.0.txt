@@ -1,0 +1,16 @@
+Business Board v3.6.0
+
+Workspace / Work Area improvements
+- Added a compact “+ Work Area” action directly on each Workspace board.
+- Added an “Add Work Area” dashed column after the last Work Area.
+- Empty Workspaces now offer “Add Work Area” directly instead of asking the user to edit the Workspace.
+- Work Area three-dot action now opens Edit Work Area.
+- New Work Areas continue to belong only to the current Workspace.
+
+Task pinning
+- Added Pin / Unpin on task cards.
+- Pinned tasks always sort above non-pinned tasks inside their Current, Overdue, Upcoming or Completed section.
+- When multiple tasks are pinned, the task pinned earlier stays above tasks pinned later.
+- Unpinning restores normal due-date ordering.
+- Pinning does not change task status, recurrence, due dates, completion history or scoring.
+- Pin/unpin actions are written to the Activity Log.

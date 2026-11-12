@@ -1,0 +1,8 @@
+Workboard v4.10.40
+
+- Reworked Work Area drag/reorder to feel like Task dragging.
+- Added a floating Work Area drag preview while the original column remains as a stable placeholder.
+- Added pointer capture and a small drag threshold to prevent accidental jumps.
+- Added horizontal edge auto-scroll while dragging across a wide Workspace.
+- Disabled layout transitions and insert-area controls during drag for smoother movement.
+- Work Area order is saved only after the drag is released.

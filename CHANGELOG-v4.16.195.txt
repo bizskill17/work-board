@@ -1,0 +1,3 @@
+v4.16.195
+- Mobile Workspace: removed the Work Area update / completion percentage strip (e.g. Work Area 0/3 0%) from phone view only.
+- Desktop/tablet behavior remains unchanged.

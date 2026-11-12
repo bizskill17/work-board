@@ -1,0 +1,8 @@
+WorkBoard v4.18.45
+- DocSpace upload optimisation.
+- Increased DocSpace source upload validation limit from 10 MB to 20 MB (subject to PHP/server limits).
+- JPG/PNG/WEBP attachments are automatically resized to a maximum 2000 px long edge and recompressed at quality 80 after upload.
+- PDF attachments receive best-effort Ghostscript optimisation when available; digitally signed PDFs are never modified.
+- Word and Excel files remain untouched to avoid document corruption.
+- DocSpace Save button shows “Uploading & Optimizing…” while the upload is processed.
+- Optimisation keeps the same WordPress attachment and URL; replacement uploads continue to remove the previous attachment.

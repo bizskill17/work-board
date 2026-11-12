@@ -1,0 +1,7 @@
+Business Board v4.10.5
+
+- Fixed task creation permissions for Work Area Owners.
+- A user assigned as Owner of a Work Area can now add tasks inside that Work Area even when they are not a Workspace Owner.
+- Workspace Owner/Manager/Admin task creation remains unchanged.
+- The Add Task (+) button now uses the same permission rule as the backend and is hidden for users who cannot create tasks in that Work Area.
+- Backend still validates the Workspace/Work Area mapping before allowing creation.

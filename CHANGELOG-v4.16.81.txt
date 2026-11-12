@@ -1,0 +1,5 @@
+v4.16.81
+- Optimized All Tasks master: compact rows, no archived-task load, no checklist/progress load, and task details remain on-demand.
+- Added module-specific lazy state loading for Notes/Folders, Math, Templates, Attendance, Leave, Scoreboard and Reports.
+- Module requests use task_scope=none so opening a non-task module no longer loads the whole task database.
+- Module refreshes reload only the current module dataset instead of the old monolithic full state.

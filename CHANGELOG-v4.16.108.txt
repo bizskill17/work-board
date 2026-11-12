@@ -1,0 +1,5 @@
+Version 4.16.108
+- Daily Activity form now shows Date and Employee once above the row table.
+- Each row now contains From, To, Workspace, Work Area, Task, Remarks and Action.
+- Task is now a dropdown populated from the selected Work Area.
+- Changing Workspace or Work Area refreshes dependent Work Area / Task selections.

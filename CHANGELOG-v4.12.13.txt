@@ -1,0 +1,4 @@
+Workboard v4.12.13
+- Note Card Title is now mandatory for both Text and Link notes.
+- Add/Edit Note form marks Title as required.
+- Backend validation prevents saving any Note Card without a Title.

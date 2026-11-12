@@ -1,0 +1,7 @@
+v4.16.71
+- Edit Task now uses true optimistic UI.
+- Edited task values appear immediately when Update Task is pressed.
+- Task card shows Saving… while the server save runs in the background.
+- Work Area moves made from Edit Task are reflected immediately.
+- If the save fails, the original task values are restored automatically.
+- Successful saves quietly reconcile with fresh server data.

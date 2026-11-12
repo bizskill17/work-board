@@ -1,0 +1,6 @@
+Business Board v4.12.70
+
+- Removed the Copy Task Text to Clipboard action from Work Area task cards in Card view.
+- Added a hard CSS fallback so older cached task markup cannot display the clipboard action.
+- Note clipboard functionality remains unchanged in Notespaces.
+- Bumped plugin/asset version to force browsers to load the updated CSS and JavaScript.

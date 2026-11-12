@@ -1,0 +1,4 @@
+v4.15.82
+- Holiday FY calendar day numbers are center aligned.
+- Each of the 12 month cards now uses a different soft background/header colour for easier visual separation.
+- Existing holiday event colours and hover popup are unchanged.

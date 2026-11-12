@@ -1,0 +1,7 @@
+v4.16.93
+- Added stale-while-revalidate navigation for already-loaded screens.
+- Cached views open immediately; stale core/module data refreshes silently in the background.
+- Replaced global module-cache clearing after every write with targeted stale markers.
+- Core/task slice loads preserve already-loaded Notes, Math, Attendance, Leave, Activity and other module caches.
+- Eliminates the small click lag introduced by v4.16.92 while retaining live-data correctness.
+- First-ever opening of a module can still wait for its initial fetch; revisits are instant.

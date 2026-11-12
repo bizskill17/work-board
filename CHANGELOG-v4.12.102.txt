@@ -1,0 +1,5 @@
+Workboard v4.12.102
+- Activity Log: added Clear Filters.
+- Activity Log: pagination after 25 matching rows.
+- Filtering/search resets to Page 1.
+- Excel exports all filtered rows, not only current page.

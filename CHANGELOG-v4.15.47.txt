@@ -1,0 +1,5 @@
+Workboard v4.15.47
+- Fixed Activity Log Search appearing not to filter rows.
+- Root cause: the proper-table CSS used display: table-row !important, which overrode jQuery hide().
+- Activity Log filtering now uses a dedicated hidden-row class with display: none !important.
+- Search, date filters, Workspace, Work Area, Status, User filters and pagination now all hide non-matching rows correctly.

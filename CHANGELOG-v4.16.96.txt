@@ -1,0 +1,8 @@
+v4.16.96
+- Changed Employee AttendSpace to a compact table view.
+- Employee view defaults to Today only instead of showing the whole month.
+- Removed monthly summary cards from the employee AttendSpace view.
+- Employee table shows Date, In, Out, Break, Working Hour and Status.
+- Row arrow opens the existing attendance detail/location view.
+- Today's IN/OUT action remains available below the table.
+- Manager/Owner/team attendance views remain unchanged.

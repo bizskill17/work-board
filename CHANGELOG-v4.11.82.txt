@@ -1,0 +1,9 @@
+Workboard v4.11.82
+- Removed the standalone explanatory line below Without Folder.
+- Removed the “Leave blank to keep this Workspace standalone.” helper.
+- A Workspace can now belong to multiple Folders.
+- Added a many-to-many Folder/Workspace membership table with automatic migration of existing Folder assignments.
+- Removed the Folder selection modal subtitle.
+- Removed “Standalone / available” and “Currently in …” status text from Workspace choices.
+- Renamed “Manage Workspaces” to “Select Workspace”.
+- Workspace create/edit, template creation and JSON import now support multiple Folder selections.

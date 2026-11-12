@@ -1,0 +1,5 @@
+v4.15.94
+- AttendSpace now shows only employees visible through Supervisor rights and/or View Attendance rights.
+- If a row is visible only through View Attendance, it stays read-only.
+- If a row is visible because the current employee is that user's Supervisor, punch actions remain available.
+- User filter dropdown is restricted to only accessible employees.

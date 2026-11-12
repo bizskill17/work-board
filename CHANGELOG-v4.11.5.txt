@@ -1,0 +1,7 @@
+Workboard v4.11.5
+- Added Workspace Archive view.
+- Active Workspace cards now support Edit, Archive, and Move to Trash.
+- Archived Workspaces can be Unarchived or moved to Trash.
+- Trashed Workspaces can be Restored or Deleted Permanently.
+- Restore returns a Workspace to its state before Trash (active/inactive/archived).
+- Archived Workspace tasks are hidden from normal operational boards and reports.

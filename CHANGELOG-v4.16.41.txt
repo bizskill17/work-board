@@ -1,0 +1,6 @@
+v4.16.41
+- Replaced Work Area Owners & Assignees editor with unified Share Work Area UI.
+- Uses Select User + ADD / EDIT / DELETE / VIEW + Person+ controls and USER/ACTION table.
+- Desktop shows text action buttons; mobile shows icons.
+- Work Area permissions are now stored as granular action rights.
+- Legacy Work Area Assignee access is preserved as EDIT + VIEW when first opened in the new editor.

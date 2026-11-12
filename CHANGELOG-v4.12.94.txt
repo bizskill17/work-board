@@ -1,0 +1,5 @@
+Workboard v4.12.94
+- Desktop only: when Workspace top controls are hidden, a task search bar appears beside the Workspace view name in the top header.
+- The header search uses the same Workspace task search logic and stays synchronized with the normal Workspace search field.
+- When controls are shown again, the header search disappears.
+- Mobile behavior is unchanged.

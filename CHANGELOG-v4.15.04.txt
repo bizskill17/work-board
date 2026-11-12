@@ -1,0 +1,8 @@
+Workboard v4.15.04
+- Add Task action sections now stay open once they contain data.
+- Sub-tasks stays open when at least one sub-task has text.
+- Priority stays open when a priority is selected.
+- Labels stays open when one or more labels are selected.
+- Notes stays open when Notes contains text.
+- A populated action cannot be collapsed accidentally; clear its value first if you want the section to become collapsible again.
+- Empty action sections can still be opened and closed normally.

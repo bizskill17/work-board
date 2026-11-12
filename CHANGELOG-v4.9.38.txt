@@ -1,0 +1,8 @@
+Business Board v4.9.38
+- Fixed inline Sub Tasks panel close button so the top-right × reliably closes on touch/click.
+- Clicking outside the panel still closes it.
+- Made the Sub Tasks panel compact with an internally scrollable list.
+- Existing sub tasks are shown with completion checkboxes.
+- Added a red × beside each sub task for immediate deletion.
+- Adding, completing, reopening and deleting sub tasks auto-saves; no Save button is required.
+- Multiple sub tasks can continue to be added by pressing Enter.

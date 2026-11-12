@@ -1,0 +1,3 @@
+Version 4.13.66
+- Reduced Sub-task delete icon further to 20px for a cleaner compact row.
+- Applied consistently in inline, card and detail sub-task views, including mobile.

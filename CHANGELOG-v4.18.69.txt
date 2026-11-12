@@ -1,0 +1,7 @@
+WorkBoard v4.18.69
+
+- Fixed Morning Late detection to compare the first IN punch using the same IST time shown in AttendSpace.
+- Organisation default/user-specific Start Time plus Grace Minutes is respected.
+- Increased WhatsApp attendance image text substantially for mobile readability.
+- Prioritises Arial/Arial Bold system fonts, with Liberation Sans only as a fallback when Arial is not installed on the server.
+- Send Test continues to send both Morning and Evening summaries.

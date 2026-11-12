@@ -1,0 +1,8 @@
+Workboard v4.15.74
+
+- Restored Share option for Notespace and MathSpace while keeping Note Area and Math Area sharing.
+- Notespace/MathSpace Share is available from the space card and from inside the opened space.
+- Space-level sharing is inherited by all child Areas.
+- Owners can manage the space and its child Areas; Assignees can view and update existing content.
+- Area-level ADD / EDIT / DELETE / VIEW permissions continue to work independently for direct Area shares.
+- Create New User remains available only from Master > Users.

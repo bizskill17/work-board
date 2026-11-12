@@ -1,0 +1,7 @@
+Workboard v4.14.55
+
+- Daily recurring tasks now show only the current day's occurrence.
+- Completing today's Daily task no longer exposes tomorrow's occurrence under Upcoming.
+- Today's completed Daily occurrence remains visible under Completed for the rest of today.
+- Tomorrow's fresh Daily occurrence appears only when the date changes to tomorrow.
+- Non-daily recurring task visibility remains unchanged.

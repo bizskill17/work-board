@@ -1,0 +1,5 @@
+v4.16.47
+- Party login sidebar now shows only Workspaces, Pending Tasks, and Activity Log.
+- Dashboard and all other navigation modules are hidden for Party users.
+- Party login now lands on Workspaces by default.
+- Party route access is limited to Workspaces/Workspace, Pending Tasks, and Activity Log.

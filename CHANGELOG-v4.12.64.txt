@@ -1,0 +1,4 @@
+Workboard v4.12.64
+- Fixed Notespace Excel button not appearing after upgrade/cache.
+- Added a robust inline fallback that inserts the Excel control before + Note Area when needed.
+- Made the desktop Excel control clearly visible with a light green treatment.

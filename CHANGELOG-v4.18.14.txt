@@ -1,0 +1,5 @@
+WorkBoard v4.18.14
+
+- Standardized every WorkBoard Excel export to use Arial font for all cells and headers.
+- Applied Arial to browser-generated .xls exports including Time Sheet, CallSpace, DocSpace, Attendance, Monthly Sheet, Focus, Pending Tasks and other shared exports.
+- Applied Arial to PHP-generated Excel exports including visible tasks, task updates and Notespace exports.

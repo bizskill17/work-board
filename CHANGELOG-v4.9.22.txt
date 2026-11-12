@@ -1,0 +1,6 @@
+Business Board v4.9.22
+
+- Tablet portrait/vertical layout now follows the same top-to-bottom Work Area flow as mobile.
+- Portrait tablet breakpoint expanded to cover wider Android and iPad CSS viewports.
+- Work Area reorder controls switch to Up/Down arrows in tablet portrait mode.
+- Desktop/landscape continues to use Left/Right Work Area ordering.

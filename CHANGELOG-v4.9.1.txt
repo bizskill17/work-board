@@ -1,0 +1,7 @@
+Business Board v4.9.1
+
+- Fixed the Users screen + Add User button.
+- Restored the missing User form method that caused the button click to do nothing.
+- Add/Edit User now supports name, email, mobile, designation, joined date and active/inactive status.
+- Login section can link an existing WordPress user or create a Business Board login by setting a password.
+- User form wording now follows the v4.9 user-only sharing model (Owner / Assignee; no Department access).

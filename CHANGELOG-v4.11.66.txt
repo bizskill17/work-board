@@ -1,0 +1,6 @@
+Workboard v4.11.66
+
+- Removed the “Execution” helper label from the Quick Add Assignees column.
+- Removed the “Accountability” helper label from the Quick Add Owners column.
+- Long Assignee and Owner names now wrap onto multiple lines instead of being truncated with ellipses.
+- Existing multi-select behaviour and task assignment logic are unchanged.

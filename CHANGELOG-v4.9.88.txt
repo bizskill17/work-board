@@ -1,0 +1,5 @@
+Business Board v4.9.88
+
+- Removed black bottom-right toast notifications.
+- Removed notification bell and notification drawer from the interface.
+- Disabled notification generation and legacy notification cron schedules.

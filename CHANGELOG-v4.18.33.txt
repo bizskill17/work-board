@@ -1,0 +1,5 @@
+WorkBoard v4.18.33
+
+- Mobile bottom navigation is now pinned to the viewport, like the header.
+- Horizontal Work Area/board scrolling no longer moves the bottom navigation.
+- Bottom navigation remains full-width, fixed, white, and without the colored separator line.

@@ -1,0 +1,10 @@
+Business Board v3.8.5
+
+Workspace UI polish:
+- Removed phantom top spacing caused by hidden WordPress admin bar.
+- Reduced application header height and search/notification control size.
+- Workspace toolbar no longer sticks over Work Area headers.
+- Compressed KPI/filter toolbar into a cleaner single band.
+- Improved board spacing, Work Area headers and column density.
+- Reduced visual weight of the Add Work Area placeholder column.
+- Preserved responsive behavior for tablet/mobile.

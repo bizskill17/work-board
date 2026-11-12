@@ -1,0 +1,7 @@
+Workboard v4.11.73
+
+- Fixed post-login redirect on path-based WordPress/multisite installations.
+- Default successful Workboard login now opens the canonical Workspaces route for the current site.
+- Prevents stale page IDs from creating duplicated paths such as /rajmahal/rajmahal/.
+- Deep links to a specific Workspace, Task, or named Workboard view are still preserved after login.
+- The Workboard Login page itself no longer redirects back to its own current URL after successful login.

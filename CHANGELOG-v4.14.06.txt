@@ -1,0 +1,5 @@
+Version 4.14.06
+- Updated workboard_urgentmessage integration to 6 variables: Task, Workspace, Work Area, Due Date, Notes, Required By.
+- Automatic After Due reminders now send Notes exactly: Task is overdue and still not completed.
+- Automatic After Due Required By uses direct Task Owner name(s), or '-' when blank.
+- Due Date includes Due Time; After Due reminders use the operational 10:00 AM default when no Due Time was selected.

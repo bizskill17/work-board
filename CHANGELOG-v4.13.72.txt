@@ -1,0 +1,5 @@
+Version 4.13.72
+- Added Task Stage filter immediately after Work Areas.
+- Includes No Stage plus all unique Work Area stages in the active Workspace.
+- Task Stage works together with Work Area, Priority, Assignee, Labels, search, Overdue and Completed filters.
+- Stage filter selection persists with the other board filters.

@@ -1,0 +1,4 @@
+WorkBoard v4.18.48
+- Mobile Workspace graph/analysis button now also reveals Work Area and Task archive management shortcuts.
+- Added Archived Work Areas count, Archived Tasks count, and Work Area Trash action to the mobile analysis panel.
+- Existing desktop Workspace toolbar remains unchanged.

@@ -1,0 +1,5 @@
+Workboard v4.16.134 — Settings Logo Removal
+
+- Removed the Organization Logo preview/upload area from the front-end Settings view.
+- Organization profile fields now use the available Settings width without the logo column.
+- Existing Workboard/network branding logo functionality is unchanged.

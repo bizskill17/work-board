@@ -1,0 +1,6 @@
+Workboard v4.13.44
+
+- Refined Math Area styling to use each Math Area's selected color, matching the Note Area visual approach.
+- Added a soft color-tinted card, header, table header and alternating rows.
+- Buttons, totals, borders and hover states now inherit the Math Area color while preserving red destructive actions.
+- No MathSpace data structure or behavior changes.

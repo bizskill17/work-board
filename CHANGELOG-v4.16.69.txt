@@ -1,0 +1,7 @@
+v4.16.69
+- Modernized routine Workboard interactions to avoid the global Loading overlay for common task, subtask, note and math saves.
+- Inline Sub Task creation is now optimistic: the new Sub Task appears immediately with a small saving indicator, then receives its real ID after the server confirms.
+- Sub Task completion no longer reloads the full application after a successful update.
+- Task stage/status updates re-render locally and refresh state quietly in the background.
+- Task, Note and Math saves use quiet state refreshes so the current screen does not blank or show the global Loading indicator.
+- High-risk operations such as Attendance, Billing, approvals, deletes and permissions continue to wait for server confirmation.

@@ -1,0 +1,6 @@
+Workboard v4.13.3
+
+- Added Settings → Organization option: Show Delete Icon in Workspace.
+- When disabled, the red Delete Work Area icon is hidden from Work Area headers inside Workspace.
+- Default remains ON so existing sites keep their current UI after upgrade.
+- The setting controls visibility only; existing permissions and backend delete rules are unchanged.

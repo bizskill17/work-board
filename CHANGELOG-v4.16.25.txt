@@ -1,0 +1,7 @@
+v4.16.25
+- AttendSpace admin table sequence changed to Employee | IN | OUT | Break | Working Hour | Status | Time.
+- Removed Designation from AttendSpace daily table and Excel export.
+- Working Hour header now wraps to two lines.
+- Short Hours renamed to Short.
+- Status now shows plain Short / Overtime without duration.
+- Time column shows shortage for Short and extra time for Overtime in HH:MM format; other statuses show dash.

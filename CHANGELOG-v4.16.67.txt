@@ -1,0 +1,4 @@
+v4.16.67
+- Activity Log Updated By now also resolves Workboard employee names by matching WordPress user email to Employee email for historical records.
+- Prevents WordPress email addresses from being displayed as Updated By when display_name equals the email.
+- Activity export uses the same resolution logic.

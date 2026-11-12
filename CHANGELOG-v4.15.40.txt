@@ -1,0 +1,11 @@
+Workboard v4.15.40
+- Activity Log Workspace, Work Area, Status and User dropdowns are now searchable.
+- Searchable dropdowns close after selection and clicking outside closes them.
+- Clear Filters resets both values and searchable dropdown labels.
+- Added visible borders to every Activity Log table cell.
+- Added a colorful but professional Activity Log view.
+- Completed rows use a soft green background.
+- In Progress rows use a soft blue background.
+- Progress Update rows use a soft amber background.
+- Status values are shown as matching colored pills.
+- Table header styling has been strengthened for easier scanning.

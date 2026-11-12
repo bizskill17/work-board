@@ -1,0 +1,3 @@
+Workboard v4.11.48
+- Removed the floating Work Area header behavior while scrolling.
+- Work Area headers now stay only in their normal position inside each Work Area.

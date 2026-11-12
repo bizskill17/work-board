@@ -1,0 +1,7 @@
+WorkBoard v4.18.21
+
+- CallSpace: employees can now see and use Edit on entries they created themselves.
+- DocSpace: employees can now see and use Edit on entries they created themselves.
+- Owner/Manager/Admin retain edit access to all CallSpace and DocSpace entries.
+- Delete remains restricted to Owner/Manager/Admin.
+- Edit ownership is enforced on the backend, not only in the UI.

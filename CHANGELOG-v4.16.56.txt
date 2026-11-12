@@ -1,0 +1,4 @@
+v4.16.56
+- Default Standard Break is never deducted for scheduled/working durations below 4 hours.
+- Auto Break Applies After remains respected for longer shifts, with a minimum threshold of 240 minutes.
+- Fixes short custom shifts incorrectly becoming overtime because Standard Break was deducted from required hours.

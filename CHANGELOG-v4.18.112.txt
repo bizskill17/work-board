@@ -1,0 +1,1 @@
+Focus: merged Card/Table/Calendar and Group By with Workspace, Work Area, Priority, Assignee and Clear Filters into a single row on desktop. Responsive wrap on narrow screens.

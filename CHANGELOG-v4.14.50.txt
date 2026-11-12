@@ -1,0 +1,7 @@
+Workboard v4.14.50
+
+- Added icon-only Quick Actions dock at the bottom-right of Daily Dashboard.
+- Punch Attendance opens the current employee attendance detail when available, otherwise AttendSpace.
+- Add Note opens the Note form directly when one Note Area is available, otherwise asks for a Note Area.
+- Add Task opens the existing Create Task form.
+- Attendance and Notes shortcuts respect site-level module visibility settings.

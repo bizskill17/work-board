@@ -1,0 +1,3 @@
+v4.16.35
+- Pending Billing Action now shows an icon-only Update Billing button.
+- Added tooltip and aria-label for accessibility.

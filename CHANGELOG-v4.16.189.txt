@@ -1,0 +1,5 @@
+Workboard v4.16.189
+
+- Fixed Task Options so Delete History and Delete Permanently remain full mockup-style action cards instead of being converted to icon-only trash buttons.
+- Fixed Delete History / Delete Permanently confirmation footers so their labeled action buttons remain visible.
+- Removed the legacy global delete-icon override from these specific polished modal actions only; delete icons elsewhere remain unchanged.

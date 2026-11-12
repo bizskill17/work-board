@@ -1,0 +1,4 @@
+Workboard v4.14.95
+- Focus page: removed the helper text "Each column represents a Work Area. Workspace name is shown in brackets."
+- Added a visible Focus search box in the summary/header area.
+- Search uses the existing Focus filtering logic and filters Focus tasks live.

@@ -1,0 +1,4 @@
+Business Board v4.10.27
+- Renamed visible product branding from “Business Board” to “Workboard”.
+- Added clearer spacing between Overdue and Completed KPI buttons in Workspace view.
+- No routes, shortcodes, database table names, or stored data were changed.

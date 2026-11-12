@@ -1,0 +1,7 @@
+Business Board v4.10.12
+
+- Added Todoist-style inline sub-task display under each main task with a small right indentation.
+- Added a sub-task visibility icon below Task Activity. The choice is saved per task, so subtasks can remain always visible after refresh.
+- Completing all subtasks no longer completes the main task automatically.
+- After the final subtask is completed, WorkBoard prompts the user to complete the main task separately.
+- Main task completion is allowed directly once all subtasks are complete; incomplete subtasks still block main task completion.

@@ -1,0 +1,6 @@
+Business Board v4.9.63
+
+- After creating a Work Area, automatically returns to that Workspace board.
+- Automatically scrolls/focuses the newly created Work Area on desktop, tablet, and mobile.
+- Automatically opens Quick Add Task in the new Work Area so task entry can begin immediately.
+- Editing an existing Work Area keeps the existing behavior.

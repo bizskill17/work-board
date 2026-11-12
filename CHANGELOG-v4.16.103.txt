@@ -1,0 +1,4 @@
+Workboard v4.16.103
+- Removed the Choose Logo control from Organization Settings.
+- Organization logo preview remains unchanged.
+- Retains Time Sheet, attendance location timeout, and activity duplicate fixes.

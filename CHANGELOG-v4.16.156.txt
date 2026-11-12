@@ -1,0 +1,5 @@
+Workboard v4.16.156 — Pending Billing Amount Label
+
+- Renamed the Pending Billing column heading “Billed Amount” to “Amount”.
+- Renamed the Pending Billing input placeholder from “Billed Amount” to “Amount”.
+- Billing data and backend field names remain unchanged.

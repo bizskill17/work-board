@@ -1,0 +1,4 @@
+WorkBoard v4.18.73
+
+- Hidden Last Test Status, Meta Message ID, and Error rows from WhatsApp Attendance Summary settings.
+- Send Test still shows its immediate status beside the test control.

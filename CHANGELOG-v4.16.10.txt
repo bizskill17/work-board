@@ -1,0 +1,4 @@
+v4.16.10
+- Activity Log mobile view changed from cards to compact table.
+- Table headers remain visible and the table can scroll horizontally on narrow screens.
+- All desktop columns remain available on mobile.

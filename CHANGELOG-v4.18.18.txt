@@ -1,0 +1,8 @@
+WorkBoard v4.18.18
+
+Time Sheet
+- Made the Add/Edit Activity form more compact on desktop.
+- Reduced From, To, Workspace, Work Area, Task and Action column widths.
+- Kept Remarks wider while removing the excessive fixed minimum width.
+- Reduced row padding and field height while retaining auto-grow for long Remarks.
+- Horizontal scrolling remains available on narrower screens.

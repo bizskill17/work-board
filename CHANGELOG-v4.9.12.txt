@@ -1,0 +1,5 @@
+Business Board v4.9.12
+
+- Reworked the Work Area outer outline so the rounded top-left and top-right corners are always visibly continuous.
+- Uses a dedicated inside overlay border rather than relying on the element border edge.
+- Keeps action menus unclipped while preserving rounded corners.

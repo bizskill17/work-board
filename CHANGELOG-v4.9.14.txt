@@ -1,0 +1,7 @@
+Business Board v4.9.14
+
+- Filter dropdown menus are now fully opaque white and render above Work Area theme borders, preventing color bleed-through.
+- Workspace search now includes Work Area names.
+- When searching, Work Areas with no matching Work Area name and no matching task/assignee data are hidden.
+- If the Work Area name itself matches the search, the Work Area is shown with its tasks.
+- Work Area filter options continue to list all Work Areas.

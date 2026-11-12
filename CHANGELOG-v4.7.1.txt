@@ -1,0 +1,8 @@
+Business Board v4.7.1
+
+- Overdue bucket is rendered only when overdue tasks exist.
+- Completed now sits before Upcoming.
+- Upcoming is placed at the bottom of each Work Area.
+- Normal Upcoming shows only tasks due within the next one month.
+- Tasks due beyond one month are hidden under a collapsible More Upcoming section.
+- More Upcoming remains hidden on phone/mobile, consistent with the mobile upcoming policy.

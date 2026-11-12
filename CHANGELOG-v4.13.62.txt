@@ -1,0 +1,5 @@
+Workboard v4.13.62 — More Left Margin for Task Actions
+
+- Shifted the bottom task action row slightly to the right.
+- Added more left-side breathing space while keeping all action icons visible.
+- No increase in card height or width.

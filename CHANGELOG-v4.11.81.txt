@@ -1,0 +1,5 @@
+Workboard v4.11.81
+
+- Removed the informational note from Manage Workspaces inside Folder.
+- Removed “Folder is optional” and the explanatory unchecking message.
+- Folder assignment behavior remains unchanged.

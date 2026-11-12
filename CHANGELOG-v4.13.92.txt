@@ -1,0 +1,18 @@
+Version 4.13.92
+
+Attendance / Payroll
+- Added Employee "Claim Weekly Off" action in AttendSpace for eligible current/past dates.
+- Weekly Off claims require Manager/Owner approval before affecting attendance.
+- Manager/Owner can Approve or Reject pending Weekly Off claims directly in AttendSpace.
+- Approved claims count as Weekly Off and do not count as Absent.
+- Rejected claims can be submitted again.
+- Added Sunday as a separate paid-day dimension only when Sunday is not already covered by Weekly Off.
+- Monthly Payable Days now follows: Present + (Half Day × 0.5) + Holiday + Weekly Off + eligible Sunday.
+- Holiday/Weekly Off/Sunday can coexist with worked attendance. Example: full-day work on a Holiday counts Present = 1 and Holiday = 1.
+- Late full-day attendance is included in Present while remaining separately visible under Late.
+- Attendance Register status filtering supports overlapping Present / Holiday / Weekly Off / Sunday conditions.
+
+Safety
+- Holiday dates cannot be claimed as Weekly Off through the employee claim action.
+- Future dates cannot be claimed.
+- Existing Attendance, MathSpaces, Notes, Tasks and other modules are preserved.

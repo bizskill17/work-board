@@ -1,0 +1,6 @@
+Workboard v4.12.29
+- Clicking Send Urgent Reminder now opens a Notes dialog before sending.
+- Notes are required.
+- The WhatsApp urgent message includes the entered Notes.
+- Kept compatibility with the existing one-variable Meta urgent template by including Notes within the Task template parameter.
+- Added an on-screen message preview before sending.

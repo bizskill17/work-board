@@ -1,0 +1,5 @@
+Workboard v4.13.41
+
+- Moved MathSpace Download Template button from the bottom section into the top toolbar beside + Math Area.
+- Kept MathSpace search on the right.
+- No change to CSV columns or upload behavior.

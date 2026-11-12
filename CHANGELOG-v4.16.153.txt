@@ -1,0 +1,6 @@
+Workboard v4.16.153 — Attendance Detail Action Layout
+
+- On desktop, Attendance employee detail actions now display horizontally in one row.
+- OUT, Add Attendance and Delete Attendance sit side by side when available.
+- Existing mobile behavior is unchanged.
+- Attendance action logic and permissions are unchanged.

@@ -1,0 +1,7 @@
+Workboard v4.15.20
+- Quick-action buttons now strictly follow module visibility.
+- Punch Attendance is not shown when Attendance is hidden.
+- Add Note is not shown when Notes is hidden.
+- Add Task is shown only when the user has at least one accessible Work Area where a task can be added.
+- If no quick action is available, the bottom-right quick-action container is not shown at all.
+- Dashboard and all other views now use the same quick-action visibility logic.

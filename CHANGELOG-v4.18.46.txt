@@ -1,0 +1,3 @@
+WorkBoard v4.18.46
+- Removed the duplicate close icon from Work Area Trash and Archived Work Areas modals.
+- The shared modal close button remains as the single close control.

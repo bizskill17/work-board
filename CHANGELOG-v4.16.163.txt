@@ -1,0 +1,7 @@
+Workboard v4.16.163
+
+- Mobile Time Sheet activity cards now use different colored outline borders in a repeating sequence.
+- Activity number badges match each card outline color.
+- Added subtle matching header tint for faster visual separation.
+- Added hover/focus interaction with a slightly raised card and stronger shadow.
+- Desktop and tablet Time Sheet layouts remain unchanged.

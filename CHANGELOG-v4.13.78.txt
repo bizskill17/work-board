@@ -1,0 +1,9 @@
+Version 4.13.78
+- Added Work Area Copy action in the Work Area header; copied Work Area is inserted immediately to the right.
+- Work Area Copy includes stages, active tasks, sub-tasks, assignments, labels, recurrence settings and reminder rules, while excluding completion/activity/history/remarks/proof records.
+- Added Work Area Archive with restore support.
+- Work Area Delete now moves the Work Area to Trash instead of permanently deleting it.
+- Added Work Area Trash with Restore and Delete Permanently actions.
+- Archived/trashed Work Areas and their tasks are excluded from the normal board, Focus, recurring processing and scheduled reminders until restored.
+- Added Start / End position selection when creating a Work Area, including creation from a Work Area Template; the last selection is remembered for the session.
+- Existing insert-between-Work-Area behavior remains unchanged.

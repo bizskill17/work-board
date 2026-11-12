@@ -1,0 +1,4 @@
+v4.16.12
+- Added Working Hour as the final column in AttendSpace admin table.
+- Working Hour shows net worked time after break deduction.
+- Added Working Hour to AttendSpace Excel export.

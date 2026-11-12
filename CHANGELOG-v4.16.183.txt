@@ -1,0 +1,7 @@
+Workboard v4.16.183
+
+- Fixed Sub Tasks not appearing immediately after Add Task or Edit Task.
+- When a task is saved with one or more Sub Tasks, its Sub Task panel opens immediately so the newly saved rows are visible.
+- The Sub Task panel remains open through the background server reconciliation that replaces the optimistic card.
+- After a normal page refresh, Sub Tasks return to the intended collapsed-by-default state.
+- The top-right Sub Task hierarchy icon now correctly reflects the open/closed state.

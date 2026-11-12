@@ -1,0 +1,7 @@
+Workboard v4.16.178
+
+- Removed the visible border/background from Sub Task delete icons.
+- Sub Task delete icon stays hidden by default.
+- Clicking a specific Sub Task row shows the delete icon only for that Sub Task.
+- Clicking another Sub Task moves the delete control to that row only.
+- Clicking outside the Sub Task list hides the delete control again.

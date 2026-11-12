@@ -1,0 +1,7 @@
+Business Board v4.0.5
+
+- Fixed stale frontend asset caching caused by the internal VERSION constant remaining at 4.0.2.
+- Ensures the redesigned Option 2 task card is actually loaded after plugin upgrade.
+- Task cards now expose only View / Update and More actions.
+- Edit, Pin / Unpin, Move Up and Move Down remain inside the More menu.
+- Keeps recurring indicator, compact U/H/M/L priority, assignee + due date, and sub-task progress bar.

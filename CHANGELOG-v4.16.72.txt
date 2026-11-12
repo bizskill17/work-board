@@ -1,0 +1,5 @@
+v4.16.72
+- Fixed optimistic Edit Task card jumping to the bottom before returning to its sorted position.
+- Non-placement edits now replace the task card in-place and preserve its exact visual position.
+- Work Area/due-date placement changes render once directly into the correct sorted location.
+- Server reconciliation now refreshes the edited task silently without a full Workspace re-render.

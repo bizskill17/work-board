@@ -1,0 +1,5 @@
+v4.16.74
+- Add Task optimistic card now receives the same leading sort order as the saved task.
+- New tasks no longer first appear at the bottom before moving to their final position.
+- Add Task save reconciliation replaces the temporary card in place instead of re-rendering the full Workspace.
+- Server assigns new tasks the first manual position within their Work Area while retaining due-date/time bucket sorting.

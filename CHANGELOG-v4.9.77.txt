@@ -1,0 +1,6 @@
+Business Board v4.9.77
+- Fixed fatal frontend JavaScript syntax error caused by CSS content being served as business-board.js.
+- Restored valid application JavaScript and retained full-card context/right-click helper.
+- Task Update Activity remains limited to In Progress, Progress Update/Remark, and Completed.
+- Task Activity popup remains compact and centered on mobile/tablet portrait.
+- PWA manifest and service worker now use query endpoints instead of rewrite-only URLs, avoiding manifest.webmanifest 404 when rewrite rules are stale.

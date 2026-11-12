@@ -1,0 +1,6 @@
+Version 4.14.24
+- Removed metre-based GPS accuracy restrictions from attendance punches.
+- Mandatory location now requires a valid current location but does not reject attendance based on the reported accuracy in metres.
+- Workboard still samples high-accuracy readings briefly and saves the best available GPS fix.
+- Removed Maximum Accepted Accuracy from Attendance Settings.
+- Punch History continues to display the reported accuracy for reference only.

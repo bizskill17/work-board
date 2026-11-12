@@ -1,0 +1,4 @@
+Workboard v4.11.19
+- Fixed workspace context after adding a task.
+- State refreshes now preserve the currently open Workspace instead of re-reading the stale initial route.
+- Prevents task creation in one Workspace from jumping to another Workspace after save.

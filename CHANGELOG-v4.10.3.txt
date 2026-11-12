@@ -1,0 +1,6 @@
+Business Board v4.10.3
+
+- Hardened mobile Quick Add task submission.
+- Add task button is now a native submit button.
+- Added a touchend fallback for mobile browsers/WebViews that can suppress click events while the on-screen keyboard is open.
+- Existing is-saving protection prevents duplicate task creation if both touch and click fire.

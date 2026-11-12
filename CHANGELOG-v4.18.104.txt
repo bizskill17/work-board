@@ -1,0 +1,1 @@
+Renamed workspace Pending Tasks toolbar button to Pending without changing filtering behavior.

@@ -1,0 +1,6 @@
+WorkBoard v4.18.80
+
+- Added Show/Hide Password eye icon to the WorkBoard login form.
+- Password remains hidden by default.
+- Clicking the eye toggles password visibility without changing login behaviour.
+- Keeps focus in the password field and supports desktop/mobile.

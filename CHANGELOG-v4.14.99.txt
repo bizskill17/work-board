@@ -1,0 +1,7 @@
+Workboard v4.14.99
+- Add Task now opens in a dedicated modal instead of expanding the Work Area column.
+- Board and neighboring Work Areas keep their original widths while task creation is open.
+- Retains the complete single-step form: Task, Task Owner, Assignee(s), Notify, Due Date, Due Time, Recurring, Reminder, Priority, Labels, Sub-tasks and Notes.
+- Desktop modal is up to 940px wide with its own vertical scrolling.
+- Mobile opens as a near-full-screen bottom sheet.
+- Cancel, Escape and modal close all dismiss the Add Task form without changing board layout.

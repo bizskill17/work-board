@@ -1,0 +1,4 @@
+Workboard v4.13.13
+- Fixed searchable dropdown option filtering.
+- Quick Add Assignee/Owner search now hides non-matching options correctly despite legacy display:flex!important styles.
+- Workspace filter searches use the same robust hidden class.

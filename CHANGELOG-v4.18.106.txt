@@ -1,0 +1,2 @@
+- Restored the left-side bullet point for the Dashboard item in the sidebar.
+- Kept all other section styling and behavior unchanged.

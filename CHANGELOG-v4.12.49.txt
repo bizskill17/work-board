@@ -1,0 +1,8 @@
+Workboard v4.12.49
+
+- Added Workspace-style sharing to Notespaces with Owners and Assignees.
+- At least one Notespace Owner is required when a Notespace is created or edited.
+- Users now see only Notespaces shared with them (admins/managers retain full access).
+- Notespace Owners can manage Note Areas, move/reorder/delete notes and full Notespace content.
+- Notespace Assignees can view the Notespace and add/edit/copy notes without structural delete/move rights.
+- Existing Notespaces are migrated safely: current active users keep access, with an Owner/Manager selected as the initial Notespace Owner when available.

@@ -1,0 +1,5 @@
+Business Board v4.9.8
+
+- Task card outline border now uses the parent Work Area theme color.
+- Border remains the Work Area color on hover.
+- This visually separates adjacent task cards while keeping each Work Area consistent.

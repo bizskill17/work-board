@@ -1,0 +1,6 @@
+WorkBoard v4.18.61
+
+- Added Daily Attendance Summary template to WordPress Workboard Settings → Meta Templates.
+- Added WhatsApp Attendance Summary controls to frontend Masters → Settings, including Active, recipient number, fixed morning/evening schedules, template name, Test Number and Send Test.
+- Settings and HR Attendance Settings use the same underlying attendance WhatsApp options.
+- Send Test now works from either Settings location.

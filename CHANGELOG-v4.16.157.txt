@@ -1,0 +1,5 @@
+Workboard v4.16.157
+
+- Added Download Excel option to Time Sheet list view.
+- Excel export respects the currently applied Time Sheet filters.
+- Export includes Date, From, To, Workspace, Work Area, Employee, Task and Remarks.

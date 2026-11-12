@@ -1,0 +1,5 @@
+Workboard v4.12.32
+- Quick Add task name now wraps onto multiple lines while typing.
+- Enter still creates the task; Shift+Enter can be used for a manual line break while composing.
+- Newly created Simple tasks are placed at the top of the Simple section.
+- New Simple tasks receive a sort order before existing tasks, so normal drag/reorder remains available afterwards.

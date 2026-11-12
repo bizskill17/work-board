@@ -1,0 +1,3 @@
+Workboard v4.15.29
+- Reduced vertical spacing between employee options in the Supervisor employee dropdown.
+- Made the employee list more compact without changing checkbox size or selection behavior.

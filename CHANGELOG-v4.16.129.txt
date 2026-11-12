@@ -1,0 +1,10 @@
+Workboard v4.16.129
+
+- Changed the selected left-menu view from a white outlined/highlight state to a full solid background color.
+- Work selected views use solid green with white text.
+- HR selected views use solid orange with white text.
+- Notes selected views use solid purple with white text.
+- Math selected views use solid cyan with white text.
+- Masters selected views use solid slate with white text.
+- Dashboard selected state uses solid blue with white text.
+- Existing section background colors and collapsible menu behavior are preserved.

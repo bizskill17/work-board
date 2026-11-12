@@ -1,0 +1,7 @@
+Version 4.13.97
+- Added fresh browser/device geolocation capture to live AttendSpace punches.
+- Attendance Settings now supports Location: Off, Optional, or Mandatory.
+- Mandatory mode blocks IN/OUT if location cannot be captured.
+- Stores latitude, longitude and reported accuracy with each live punch.
+- Manager/Owner/Admin Punch History shows a map pin linking to the captured coordinates.
+- Manual/backfilled attendance remains possible without GPS because it is a manager correction flow.

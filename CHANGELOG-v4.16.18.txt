@@ -1,0 +1,4 @@
+v4.16.18
+- Leave page now shows all leave requests to Owner, Manager and Administrator.
+- Privileged Leave view includes an Employee column and is labelled All Leave.
+- Normal Employees continue to see only My Leave.

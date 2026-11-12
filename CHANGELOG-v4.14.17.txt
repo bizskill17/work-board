@@ -1,0 +1,4 @@
+Version 4.14.17
+- AttendSpace Admin/Manager table now shows Employee | Designation | In | Out | Break.
+- Renamed Mark as Holiday button to Holiday.
+- Renamed Present/Paid summary to Present.

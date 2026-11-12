@@ -1,0 +1,6 @@
+Business Board v4.9.65
+- Fixed mobile/tablet task drag preview stretching or drifting outside the Work Area.
+- Drag preview is hard-locked to the exact source card width and height.
+- On mobile/tablet portrait, the preview stays horizontally aligned with its source lane while following the finger vertically.
+- Kept cross-Work-Area drop detection and reorder behavior intact.
+- Reduced the source placeholder to a light dashed outline while dragging.

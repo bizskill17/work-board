@@ -1,0 +1,5 @@
+Business Board v4.9.10
+
+- Fixes invalid escaped CSS introduced in v4.9.9.
+- Restores a full 1px Work Area theme-color border on every side of every Task card.
+- Ensures task-list containers do not clip top/bottom task borders.

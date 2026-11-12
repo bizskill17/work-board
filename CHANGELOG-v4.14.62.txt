@@ -1,0 +1,7 @@
+Business Board v4.14.62
+
+- Decoupled BEFORE DUE and AFTER DUE reminders.
+- AFTER DUE can now be enabled even when Set Reminder (before due) is unchecked.
+- An AFTER DUE-only configuration no longer creates or forces a BEFORE DUE reminder.
+- Editing a task with before-due reminders disabled no longer disables an existing AFTER DUE schedule.
+- AFTER DUE continues to send only while the task remains incomplete and follows its configured cadence/limits.

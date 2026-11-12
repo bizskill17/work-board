@@ -1,0 +1,6 @@
+Workboard v4.11.2
+
+- Workspace delete now moves the Workspace to Trash instead of deleting it.
+- Added Workspace Trash view with Restore and Delete Permanently actions.
+- Permanent deletion is allowed only from Trash and removes the Workspace with its Work Areas, tasks, sub tasks and related data.
+- Trashed Workspaces and their tasks are hidden from normal Workspaces/boards.

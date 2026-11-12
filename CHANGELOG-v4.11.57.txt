@@ -1,0 +1,5 @@
+Workboard v4.11.57
+
+- Removed the artificial max-width from the Dashboard Workspace Task Summary.
+- Colorful workspace cards now use the full available content width instead of leaving large empty margins on the left and right.
+- No unrelated workflow changes.

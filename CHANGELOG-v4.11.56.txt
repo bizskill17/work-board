@@ -1,0 +1,6 @@
+Workboard v4.11.56
+
+- Redesigned Dashboard Workspace Task Summary into colorful workspace cards.
+- Each card shows Workspace name, Tasks Added count and Tasks Updated count.
+- Responsive grid: three columns on desktop, two on tablet and one on mobile.
+- No unrelated workflow changes.

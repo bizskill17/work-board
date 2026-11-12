@@ -1,0 +1,7 @@
+Business Board v4.12.68
+
+- Removed the visible “Show this view” text; desktop now shows only the Card / Table / Calendar selector.
+- Fixed Table and Calendar switching where the Card board could remain visible because its display rule used !important.
+- Table now replaces the Card board immediately when selected; Calendar follows the same switching logic.
+- Card remains the default Workspace view.
+- Mobile/tablet continue to use Card view only.

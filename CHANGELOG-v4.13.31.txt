@@ -1,0 +1,4 @@
+Workboard v4.13.31
+
+- Removed MathSpace-level total amount from the MathSpaces list/card view.
+- Math Area totals remain visible directly below each Math Area title.

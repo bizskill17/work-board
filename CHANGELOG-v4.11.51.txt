@@ -1,0 +1,7 @@
+Workboard v4.11.51
+- Task Due Today, Task Overdue and Pending Task Summary are now sent in one morning batch at 09:15 AM India time (Asia/Kolkata).
+- The schedule is independent of the WordPress site timezone, so it still runs on India time even if WordPress is set to UTC.
+- Task Due Today sends once per due task per morning.
+- Task Overdue sends once per overdue task per morning until it is completed or no longer overdue.
+- Pending Task Summary sends once per employee per morning with Due Today and Overdue counts.
+- Removed the immediate overdue WhatsApp send when a task first crosses its deadline; overdue reminders now follow the morning schedule.

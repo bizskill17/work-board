@@ -1,0 +1,3 @@
+v4.15.85
+- Holiday Calendar/Table view switch now uses icons only.
+- Tooltips and aria labels retained for Calendar View and Table View.

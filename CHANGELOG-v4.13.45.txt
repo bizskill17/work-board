@@ -1,0 +1,6 @@
+Workboard v4.13.45
+
+- Added Download PDF action to every Math Area header.
+- PDF includes MathSpace/Math Area name, Math Area total, Particular, optional Date, optional Contact Number, and Amount.
+- PDF automatically creates additional pages for long Math Areas.
+- Download is generated on the server with no external PDF library dependency.

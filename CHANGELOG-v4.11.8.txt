@@ -1,0 +1,4 @@
+Workboard v4.11.8
+- Long Workspace names now wrap naturally to additional lines instead of showing an ellipsis.
+- Workspace action buttons remain on the separate row below the name.
+- Card height expands automatically for longer Workspace names on desktop and mobile.

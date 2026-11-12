@@ -1,0 +1,9 @@
+Workboard v4.12.74
+
+- Dated tasks now always have an exact due time. If no time is entered, Workboard defaults to 10:00 AM.
+- Quick Add automatically fills 10:00 AM when a Due Date is selected.
+- Full Task form defaults Due Time to 10:00 AM for dated tasks.
+- Reminder cron event is self-healing on init so UI-only upgrades cannot leave it unscheduled.
+- Reminder worker records a last-run heartbeat for diagnostics.
+- Added Task Reminder WhatsApp template settings (workboard_task_reminder) and enables the reminder event by default for existing sites where the option did not exist.
+- Designed for reliable server cron: configure Hostinger to call WordPress wp-cron.php every minute so reminders run even when nobody opens Workboard.

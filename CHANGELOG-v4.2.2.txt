@@ -1,0 +1,13 @@
+Business Board v4.2.2
+
+Mobile Workspace UI organization
+- Fixed the Add Work Area control so it appears as one button only on mobile.
+- Removed the duplicate standalone plus caused by older responsive CSS.
+- Hid the redundant Back button on the mobile Workspace toolbar.
+- Organized the first toolbar row as Add Work Area (left) and Filter (right).
+- Moved KPI chips to a clean second horizontal row.
+- Filters remain hidden until Filter is tapped.
+- Empty Current / Overdue / Upcoming / Completed sections now stay compact.
+- Removed forced mobile Work Area minimum height so empty areas no longer fill the screen.
+- Completed no longer gets pushed to the bottom of an empty Work Area.
+- Kept a small, deliberate peek of the next Work Area for horizontal navigation.

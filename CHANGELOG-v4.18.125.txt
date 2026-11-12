@@ -1,0 +1,1 @@
+Top Workspace Labels filter updates immediately after successfully saving a new task label or Label Master entry. Existing selections and search remain intact.

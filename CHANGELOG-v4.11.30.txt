@@ -1,0 +1,6 @@
+Workboard v4.11.30
+
+- Replaced the ambiguous sidebar arrow/undo-style logout icon with an explicit Log Off button.
+- Added a power icon plus Log Off text for clear user intent.
+- Login form button now reads Log In.
+- Collapsed desktop sidebar keeps a compact power icon while mobile/expanded sidebar shows the full Log Off button.

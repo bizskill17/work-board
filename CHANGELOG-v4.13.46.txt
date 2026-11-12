@@ -1,0 +1,5 @@
+Workboard v4.13.46
+
+- Math Area PDF action now shows a compact icon only instead of the text “PDF”.
+- Exported Math Area PDF is now strictly black-and-white/grayscale with no Math Area accent color.
+- PDF content and columns remain unchanged.

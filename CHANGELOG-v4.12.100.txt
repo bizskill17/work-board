@@ -1,0 +1,8 @@
+Workboard v4.12.100
+
+- Refined the saved-task Notifications & Reminder popup UI.
+- Reduced modal width and excess whitespace on desktop.
+- Matched the Quick Add notification panel styling more closely.
+- Kept notification and reminder toggles side by side.
+- Reminder rows and Add Reminder button are more compact and aligned.
+- Reminder behavior and server scheduling are unchanged.

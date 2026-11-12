@@ -1,0 +1,10 @@
+Business Board v3.7.3
+
+Workspace UI refinement:
+- Replaced the separate Workspace identity band and filter/KPI band with one compact premium toolbar.
+- Workspace name remains only in the main app header, removing duplicate headings and wasted space.
+- Back, Add Work Area, KPI chips, filters and reset now share the same operational toolbar on wide desktop screens.
+- Filters remain on one row and use smaller, consistent controls.
+- Work Area board begins immediately below the toolbar.
+- Added responsive two-line fallback only for narrower desktop widths and horizontal compact behavior on mobile/tablet.
+- Asset version bumped to 3.7.3 so browsers fetch the new CSS/JS instead of cached v3.7.2 assets.

@@ -1,0 +1,6 @@
+Business Board v3.8.4
+
+- Fixed Workspace toolbar overlapping/sliding underneath the sticky top application header while scrolling.
+- Workspace toolbar now sticks immediately below the header on desktop.
+- Added correct offset handling if the WordPress admin bar is visible to a true WordPress administrator.
+- Corrected internal plugin VERSION constant to 3.8.4 so assets/database upgrade checks use the current release.

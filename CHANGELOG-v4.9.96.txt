@@ -1,0 +1,6 @@
+Business Board v4.9.96
+
+- Fixed Workspace filter layout on tablet/mobile so filters consistently appear two per row.
+- Moved the Excel and Reset actions together directly below/near the Labels filter instead of opposite ends of the filter panel.
+- Fixed the Labels multi-select dropdown so it opens inward from the right edge and stays inside the screen.
+- Applied the fix globally to Workspace views using the common filter toolbar.

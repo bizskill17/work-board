@@ -1,0 +1,2 @@
+Business Board v4.9.18
+- Removed the numeric count badge from the Current section header in each Work Area column.

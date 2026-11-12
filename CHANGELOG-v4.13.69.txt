@@ -1,0 +1,9 @@
+Version 4.13.69
+- Added Work Area-level custom Task Stages.
+- In Progress is always available as the default stage and uses green task cards.
+- Tasks assigned to a stage now appear in a separate stage section above Simple, Overdue, Due and Upcoming.
+- Clicking the task progress circle opens a Stage selector; No Stage returns the task to its normal due-date section.
+- Custom stages can be added, named and colour-coded from Edit Work Area.
+- Task due dates remain unchanged while a task is in a stage, so urgency is still visible.
+- Moving a task to another Work Area keeps its stage only when the destination has a matching stage; otherwise the stage is cleared.
+- Work Area and Workspace templates preserve Work Area stage definitions.

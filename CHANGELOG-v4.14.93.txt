@@ -1,0 +1,5 @@
+Workboard v4.14.93
+- Updated Notification / Before Reminder / After Due option cards for clearer narrow-column display.
+- Labels now stay on one line without wrapping.
+- Each label is shown above with its checkbox centered below.
+- Improved compact mobile and narrow Work Area readability.

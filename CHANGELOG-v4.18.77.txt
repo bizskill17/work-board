@@ -1,0 +1,9 @@
+WorkBoard v4.18.77
+
+- Time Sheet table now supports Excel-like cell and rectangular range selection.
+- Ctrl+C / Cmd+C copies selected cells as tab-separated rows for direct paste into Excel/Google Sheets.
+- Full cell values are copied, including full Remarks text even when visually collapsed.
+- Ctrl+A selects all visible Time Sheet data cells; Esc clears selection.
+- Shift+click/drag extends the current rectangular selection.
+- Time Sheet column headers can be dragged left/right to reorder columns; order is remembered in the browser.
+- Action cells are excluded from cell-copy selection.

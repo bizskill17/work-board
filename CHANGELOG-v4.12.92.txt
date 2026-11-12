@@ -1,0 +1,5 @@
+Workboard v4.12.92
+- Changed Send Urgent Reminder to Fire Icon Option 3.
+- Two-tone flame: red outer flame with amber inner flame.
+- Removed the permanent pink circular background from the task action; a light hover background remains.
+- Same two-tone flame is used in Workspace, Focus and the Urgent Reminder popup.

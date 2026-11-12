@@ -1,0 +1,3 @@
+Version 4.13.83
+- Removed the Inherited access / Read only block from the quick Assignees & Owners popup.
+- Direct Task Assignee/Owner editing remains unchanged.

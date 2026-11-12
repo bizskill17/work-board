@@ -1,0 +1,3 @@
+Workboard v4.10.28
+- Increased the visual gap specifically between Overdue and Completed buttons in Workspace view.
+- Uses a dedicated margin so other toolbar spacing is unaffected.

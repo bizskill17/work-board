@@ -1,0 +1,3 @@
+Workboard v4.11.24
+- Fixed mobile Workspace Import flow: Import Workspace action footer now remains visible while previewing long package details.
+- Added safe-area bottom spacing so the action button is not hidden behind mobile browser/navigation controls.

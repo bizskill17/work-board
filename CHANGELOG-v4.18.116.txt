@@ -1,0 +1,1 @@
+Hide Workspace Group By in Card and Calendar views; show only in Table view. Preserve Focus Table-only behavior.

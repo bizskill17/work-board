@@ -1,0 +1,7 @@
+Workboard v4.12.17
+
+Update included:
+- Moved the inline sub task delete control to the right side of each sub task row.
+- Kept the delete control as a dark red cross icon with white cross.
+- Improved sub task row grid alignment so the delete icon no longer drops below the row.
+- Preserved mobile-friendly spacing and tap size.

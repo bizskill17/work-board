@@ -1,0 +1,6 @@
+Workboard v4.13.59 — Bottom Icons Use Left Space
+
+- When the Reminder icon is visible, the Copy action now also remains visible.
+- The task-card bottom action row now extends into the empty left-side gutter below the drag handle and status controls.
+- No increase in task card size.
+- Bottom action buttons and reminder badge were tightened slightly for a clearer single-line layout.

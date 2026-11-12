@@ -1,0 +1,6 @@
+Workboard v4.12.26
+- Refined Move Note UI to match the approved mockup.
+- Fixed Note Area options to use the same styled searchable choice component as Move Task.
+- Removed the duplicate inner search field from Move Note; the main selector itself now filters Note Areas.
+- Enlarged and cleaned the Current Note Area panel, search field, option rows and action buttons.
+- Kept the Move Note dialog centered on desktop and mobile.

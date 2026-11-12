@@ -1,0 +1,6 @@
+Version 4.14.21
+- Improved attendance GPS capture accuracy for live IN/OUT punches.
+- Workboard now samples multiple high-accuracy browser/device readings for up to 15 seconds and saves the best reading instead of immediately accepting the first GPS result.
+- Stops early when accuracy reaches approximately 35 metres or better.
+- Existing reverse geocoding continues to use the exact stored latitude/longitude; readable address remains a display aid.
+- If the device cannot provide a stronger GPS fix, the best available reading is still used (or attendance is blocked when location is mandatory and no reading is available).

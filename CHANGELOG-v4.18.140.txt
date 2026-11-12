@@ -1,0 +1,1 @@
+Standard form saves now synchronize visible data in the background without browser reloads, preserving filters, scroll positions, and expanded Completed areas. Specialized form actions retain their own save handlers.

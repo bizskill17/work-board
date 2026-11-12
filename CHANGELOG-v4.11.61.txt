@@ -1,0 +1,4 @@
+Workboard v4.11.61
+
+- Workspace cards now use stronger colorful backgrounds matching the Dashboard palette.
+- Colors cycle across Workspace cards while preserving all existing actions and drag ordering.

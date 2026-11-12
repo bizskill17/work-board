@@ -1,0 +1,6 @@
+Business Board v4.9.23
+- Added Todoist-style drag-and-drop vertical task reordering.
+- Drag tasks up/down using the compact grip at the left of each task.
+- Works with mouse, touch and stylus through pointer events.
+- Task order is saved to the database and retained after refresh.
+- Pinned tasks remain protected from manual reorder until unpinned.

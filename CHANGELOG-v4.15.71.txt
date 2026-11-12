@@ -1,0 +1,9 @@
+Workboard v4.15.71
+
+- Redesigned Note Area and Math Area sharing UI.
+- Share form now always shows one compact User + Action entry row at the top.
+- Click + to move the selected User into the table below.
+- Selected users are displayed in a clean two-column User | Action table.
+- Existing selected users can still have ADD, EDIT, DELETE and VIEW permissions changed directly in the table.
+- Duplicate User selection updates the existing row instead of creating a duplicate.
+- ADD, EDIT or DELETE continues to automatically include VIEW.

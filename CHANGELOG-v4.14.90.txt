@@ -1,0 +1,4 @@
+Workboard v4.14.90
+- Increased all top Workspace toolbar button/control sizes.
+- Increased Card selector, KPI chips, filter dropdowns and action icons for clearer desktop visibility.
+- Kept the entire toolbar in one row for both sidebar visible and sidebar hidden states.

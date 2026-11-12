@@ -1,0 +1,15 @@
+Workboard v4.11.60
+
+- Added dedicated frontend slugs for primary Workboard views:
+  /dashboard/
+  /workspaces/
+  /focus/
+  /workspace-templates/
+  /work-area-templates/
+  /users/
+  /activity-log/
+- Sidebar navigation now updates the browser URL without reloading the app.
+- Direct links, refresh, and browser Back/Forward restore the correct Workboard view.
+- Workspace and Task deep links continue to use their existing dedicated routes.
+- Direct view links preserve their destination through the Workboard login flow.
+- Restricted management views still respect Owner/Manager/Admin visibility.

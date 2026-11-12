@@ -1,0 +1,4 @@
+v4.16.16
+- Break column now shows break duration only, e.g. 41 min, 45 min, or 1h 21min.
+- Removed break time-range display from AttendSpace table and related reports/export.
+- Actual recorded break duration is preferred; automatic break duration is shown only when no actual break exists.

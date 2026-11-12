@@ -1,0 +1,4 @@
+Workboard v4.18.144
+- Time Sheet PDF: dynamically omit absent Date, Minutes, Employee, Workspace, Work Area, and Task header segments.
+- No placeholder Employee label or dangling separators; duration bracket includes only available data.
+- Existing portrait report and other Time Sheet functionality retained.

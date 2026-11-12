@@ -1,0 +1,5 @@
+Version 4.14.13
+- Before Due reminders keep Minutes as a selectable unit when Due Time is present.
+- Minimum Before Due reminder in Minutes is now 5 minutes, matching the 5-minute reminder cron cadence.
+- UI automatically changes a Minutes value below 5 to 5.
+- Backend also enforces the 5-minute minimum.

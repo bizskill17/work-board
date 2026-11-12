@@ -1,0 +1,9 @@
+v4.16.50
+- Added a Billing navigation section directly below Work.
+- Billing contains Pending Tasks, Pending Billing and Billed Master.
+- Added Settings > Modules > Enable Billing.
+- Billing navigation and Task Billable/Amount fields appear only when Enable Billing is ON.
+- Billable task card indicators are hidden when Billing is disabled.
+- Backend task save ignores billing fields while Billing is disabled.
+- Update Billing endpoint is blocked while Billing is disabled.
+- Party navigation keeps only Workspaces, Pending Tasks and Activity Log; Pending Tasks appears only when Billing is enabled.

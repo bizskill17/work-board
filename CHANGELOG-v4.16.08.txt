@@ -1,0 +1,7 @@
+v4.16.08
+- Rebuilt View Attendance as a compact native-style multi-select.
+- Closed field now shows selected names as one truncated line instead of chips/cards.
+- Dropdown employee list uses compact 32px rows with no large bordered boxes.
+- Dropdown floats over the form and does not increase form height.
+- Search, Select All, Clear All and Done remain available.
+- Clicking outside closes the dropdown.

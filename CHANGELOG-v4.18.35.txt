@@ -1,0 +1,5 @@
+WorkBoard v4.18.35
+
+- Party Master: after Add Party / Update Party succeeds, the saved party is inserted/updated in local state immediately.
+- Party modal closes and View Party is redrawn instantly without waiting for a full application reload.
+- A silent background refresh still runs afterward to keep all master/state data synchronized.

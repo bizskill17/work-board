@@ -1,0 +1,5 @@
+Workboard v4.10.32
+
+- Workspace search now keeps a dark outline border visible at all times, even when it is not focused.
+- Focus state remains purple for clear typing feedback.
+- Existing spacing below the search is retained.

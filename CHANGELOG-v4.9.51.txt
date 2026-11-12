@@ -1,0 +1,5 @@
+Business Board v4.9.51
+
+- Sub Tasks now reveal the next blank Add Sub Task row immediately when typing begins; Enter is no longer required to make the next row available.
+- Existing auto-save-on-blur and Enter shortcut behavior remain intact.
+- The Sub Tasks popover header now shows the parent task name for context.

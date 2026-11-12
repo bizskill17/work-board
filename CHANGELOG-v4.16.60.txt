@@ -1,0 +1,6 @@
+v4.16.60
+- Added a separate Leave sidebar section.
+- Moved Leave and Pending Leave Approval out of Attendance into Leave.
+- Added Settings > Modules > Show Leave.
+- When Show Leave is off, the Leave section and leave routes are hidden.
+- Existing leave data and approval logic remain unchanged.

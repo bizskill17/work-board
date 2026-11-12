@@ -1,0 +1,6 @@
+WorkBoard v4.18.10
+
+- CallSpace Date now captures both date and time in one field.
+- Uses a 24-hour time selector (HH:MM) with valid minutes 00-59.
+- CallSpace register and Excel export now show Date & Time together.
+- Existing CallSpace records remain compatible; records without a stored time continue to display the date.

@@ -1,0 +1,5 @@
+Workboard v4.16.146 — Borderless Left Menu Views
+
+- Removed the outer border from Dashboard and all left-menu view rows.
+- Kept section background colours, dark submenu backgrounds, bullet points, hover states, and full-row active colours unchanged.
+- Applied the flat borderless treatment on desktop and mobile.

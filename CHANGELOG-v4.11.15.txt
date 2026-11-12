@@ -1,0 +1,5 @@
+Workboard v4.11.15
+
+- Workspace task search now hides Work Areas that do not contain any matching task.
+- Matching Work Area score cards/tabs stay visible; non-matching ones are hidden during search.
+- Existing filter behavior and Add Work Area availability are retained.

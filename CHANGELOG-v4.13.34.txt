@@ -1,0 +1,6 @@
+Workboard v4.13.34
+
+- Added Number field to MathSpace Math Area entries.
+- Math entry form now contains Particular, Number and Amount.
+- Number is displayed as a separate column in each Math Area.
+- Existing MathSpace totals continue to total the Amount field only.

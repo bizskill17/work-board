@@ -1,0 +1,10 @@
+Workboard v4.15.27
+- Added Attendance > Supervisor permission to the User form.
+- Supervisor is an attendance-only permission and does not grant Manager/Owner access elsewhere in Workboard.
+- An Attendance Supervisor can punch today's attendance for other active Users whose Attendance is enabled.
+- Dashboard Punch Attendance opens Team Attendance for Supervisors.
+- AttendSpace shows attendance-enabled team members to Supervisors with live IN/OUT and configured Out/In combo punch buttons.
+- Supervisors cannot use Manager-only past attendance corrections, delete attendance, holiday management, reports, settings or payroll controls.
+- Attendance event audit continues to store the actual employee being punched and the User who performed the punch.
+- Punch History now shows “Punch · by <Supervisor>” when another User made the punch.
+- Added employees.attendance_supervisor database field; DB schema migration runs once on this version.

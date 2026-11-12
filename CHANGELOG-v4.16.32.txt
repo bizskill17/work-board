@@ -1,0 +1,7 @@
+v4.16.32
+- Added Billable checkbox and optional Amount to Task Add/Edit.
+- Added Pending Billing view below Pending Tasks.
+- Pending Billing lists completed billable tasks whose billing has not been updated.
+- Added Update Billing popup with required Billed Amount.
+- Once billing is updated the task leaves Pending Billing while remaining Completed.
+- Added targeted task billing database migration and billing activity log entry.

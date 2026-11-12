@@ -1,0 +1,1 @@
+Time Sheet PDF export sorts by Date ascending, then From Time ascending. Does not change on-screen or Excel order.

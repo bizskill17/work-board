@@ -1,0 +1,7 @@
+Version 4.13.79
+- Added Parties under Masters after Users.
+- Party fields: Party Name, Party Type, Party Mobile, Party Email, Party Address, City, State and PIN.
+- Party Type remains free text with suggestions from existing Party Types, allowing any business-specific type.
+- Added universal @ search/autocomplete across supported text inputs and textareas.
+- @ suggestions search active Users and Parties together and clearly identify the source.
+- Selecting a suggestion inserts @Name at the cursor position.

@@ -1,0 +1,6 @@
+Business Board v4.10.17
+
+- Simplified the expanded subtask add control to a small + icon only; removed the List item helper text.
+- After pressing Enter, the new subtask is saved immediately and the same inline input stays open, clears itself, and receives focus for the next subtask.
+- Multiple subtasks can now be entered continuously without tapping the + button again between items.
+- Escape/× still exits inline subtask entry.

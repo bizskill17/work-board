@@ -1,0 +1,8 @@
+Workboard v4.11.35
+
+- Added a dedicated Focus view to the frontend navigation.
+- Focus view shows active Focus-marked tasks across all accessible Workspaces.
+- Each Workspace is displayed as a frontend column (Work Area-style presentation only); database hierarchy is unchanged.
+- Each Focus card shows its real Work Area for context.
+- Removing Focus from a task while in Focus view removes it immediately from the view.
+- Focus view cards cannot be dragged between the virtual Workspace columns.

@@ -1,0 +1,7 @@
+Workboard v4.15.73
+
+- Removed every inline / quick "Create New User" option from application forms.
+- New Users can now be created only from Master > Users.
+- Existing user dropdowns remain available for selecting already-created Users.
+- Removed inline Add User shortcuts from Workspace, Work Area, Notespace, Task Assignee and Workspace Import mapping forms.
+- Kept the + Add User button on the Users master view.

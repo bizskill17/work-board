@@ -1,0 +1,16 @@
+Workboard Scheduled Reminder Cron
+=================================
+
+To send reminders even when nobody opens Workboard, configure a real server cron in Hostinger to call WordPress cron every 5 minutes.
+
+Recommended command:
+
+curl -fsS "https://board.bizskilledu.com/wp-cron.php?doing_wp_cron" >/dev/null 2>&1
+
+Schedule: every 5 minutes (*/5 * * * *)
+
+Alternative if curl is not available:
+
+wget -q -O - "https://board.bizskilledu.com/wp-cron.php?doing_wp_cron" >/dev/null 2>&1
+
+Workboard v4.14.12 automatically keeps its bb_task_reminder_tick event scheduled every 5 minutes and records the last reminder check time.

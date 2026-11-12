@@ -1,0 +1,6 @@
+Workboard v4.11.50
+- Removed Settings from the Workboard frontend sidebar.
+- Added Workboard settings directly under WordPress Admin > Settings > Workboard.
+- Moved Branding, Notifications, Meta WhatsApp, AI Settings and Backup access to the backend settings page.
+- Added backend WhatsApp test button.
+- No unrelated Workboard workflow changes.

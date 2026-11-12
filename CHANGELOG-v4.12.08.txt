@@ -1,0 +1,5 @@
+Workboard v4.12.08
+- Removed the legacy header/global search at the server-rendered app-shell level.
+- Added an inline runtime purge so old SPA scripts cannot re-insert the header search.
+- Added no-cache headers for Workboard frontend routes to prevent stale app shells after plugin updates.
+- Kept page-level/local search controls unchanged.

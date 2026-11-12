@@ -1,0 +1,5 @@
+v4.16.07
+- View Attendance is now a true floating dropdown overlay instead of expanding the User form.
+- Search/Select All/Clear All remain fixed above the list.
+- Done/footer remains fixed at the bottom while only the user list scrolls.
+- Selected chips remain visible in the compact field.

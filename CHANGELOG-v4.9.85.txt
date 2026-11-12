@@ -1,0 +1,7 @@
+Business Board v4.9.85
+
+- Rebuilt task visibility for Priority filtering using strict DOM visibility rather than class-only hiding.
+- Priority filter now forcibly removes non-matching cards from Current, Overdue, Upcoming and Completed sections.
+- Empty sections and Work Areas collapse immediately after filtering.
+- Priority checkbox changes are handled on both input and change events for more reliable browser behavior.
+- Combined Work Area, Assignee and Overdue filtering remains supported.

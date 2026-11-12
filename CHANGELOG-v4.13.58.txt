@@ -1,0 +1,6 @@
+Workboard v4.13.58 — Compact Bottom Action Icons
+
+- Tightened the task-card bottom action row so all icons remain visible without increasing card height or width.
+- Removed the unused reserved right-side gap in the bottom action strip.
+- Slightly reduced icon button sizes and spacing to fit Activity, Focus, Reminder, Urgent, Move, Flash, and Copy clearly in the same row.
+- Reduced the reminder count badge size so it no longer blocks neighboring icons.

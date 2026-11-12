@@ -1,0 +1,8 @@
+Business Board v4.0.3
+
+- Polished Task Share workflow in View / Update Task.
+- Clear separation of Direct and Inherited access.
+- Sharing modal explains inheritance and protected ancestor rights.
+- Compact person cards show User, Owner/Assignee, rights, and source.
+- View / Update Task now shows a polished Shared with panel with Direct and Inherited groups.
+- Share remains available only to effective Owners with Edit rights (and WordPress administrators).

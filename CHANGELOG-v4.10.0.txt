@@ -1,0 +1,6 @@
+Business Board v4.10.0
+- Added a dedicated Work Area Templates view in the left menu.
+- Saved Work Area Templates are now visible in one place with template name, original Work Area name, task count, and last updated time.
+- Added Create Work Area from Template action directly from the template list.
+- Added Delete action for saved Work Area Templates.
+- Existing floppy-disk Save Work Area as Template button continues to save templates into this library.

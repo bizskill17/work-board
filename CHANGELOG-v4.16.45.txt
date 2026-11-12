@@ -1,0 +1,5 @@
+v4.16.45
+- Fixed Work Area User and Party sharing not persisting when Update was clicked before Person+ was pressed.
+- The current picker User/Party plus selected permissions are now automatically included in the save payload.
+- Existing rows in USER/PARTY tables continue to save normally.
+- Removed overlapping User-share click handler from the Party Person+ button.

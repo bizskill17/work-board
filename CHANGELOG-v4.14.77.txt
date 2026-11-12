@@ -1,0 +1,5 @@
+Workboard v4.14.77
+- Added Work Area setting: Remarks View Days Limit, directly below Update Remarks Required.
+- 0 shows all task activity; a positive value limits inline task activity to the last N calendar days.
+- Example: 3 shows only activity from today and the preceding 2 calendar days.
+- The setting is preserved when a Work Area is copied.

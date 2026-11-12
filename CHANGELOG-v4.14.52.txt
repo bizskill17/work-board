@@ -1,0 +1,7 @@
+Workboard v4.14.52
+
+- Daily Dashboard > Add Task now uses a guided 3-step flow.
+- Step 1 asks for Workspace.
+- Step 2 asks for Work Area and only shows Work Areas where the user can add tasks.
+- Step 3 opens the existing Create Task form with the selected Workspace and Work Area already fixed, followed by Task Name and the remaining task options.
+- Added Back controls so the Workspace / Work Area selection can be changed before saving.

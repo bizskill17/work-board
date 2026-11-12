@@ -1,0 +1,6 @@
+v4.16.06
+- Redesigned View Attendance multi-select dropdown.
+- Selected users now appear as removable chips.
+- Added employee search, Select All, Clear All, live selected count and Done button.
+- Selected rows are visually highlighted.
+- Existing inverse multi-user View Attendance permissions are unchanged.

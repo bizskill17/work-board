@@ -1,0 +1,5 @@
+Workboard v4.12.47
+- Made the six primary Task Card actions clearly visible in this fixed order: Activity, Focus, Urgent Reminder, Move, Flash, Copy.
+- Added distinct tinted backgrounds and borders so each icon is easy to identify.
+- Kept the external Clipboard copy action as a separate solid-blue icon at the far right so it no longer squeezes or hides the six primary actions.
+- Improved desktop and mobile sizing without adding text labels to Task Cards.

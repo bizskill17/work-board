@@ -1,0 +1,6 @@
+Workboard v4.12.34
+- Added a Flash icon immediately after the Move to Work Area icon on every task card.
+- Clicking Flash uses the existing pinned-task state, so the task stays at the top of its task section.
+- Flash-highlighted tasks now pulse/blink with an amber highlight for quick visual attention.
+- Clicking Flash again removes the highlight and top-pinned state.
+- Existing task data and recurrence behavior are unchanged.

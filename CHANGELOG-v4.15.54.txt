@@ -1,0 +1,10 @@
+Workboard v4.15.54
+- Added cross-reminder duplicate suppression.
+- The same employee will not receive two scheduled reminders for the same Task in the same scheduled minute.
+- Duplicate protection works across:
+  - multiple Before Due reminder rules
+  - Before Due vs After Due reminder engines
+  - different WhatsApp reminder templates
+- The first valid reminder is sent; any second reminder for the same Task + occurrence + employee + scheduled minute is marked skipped.
+- Failed reminders are not treated as successful duplicates, so a valid alternate reminder can still be attempted.
+- Existing source-key duplicate protection and retry logic remain intact.

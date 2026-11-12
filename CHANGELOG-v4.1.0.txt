@@ -1,0 +1,10 @@
+Business Board v4.1.0
+- Redesigned Dashboard for much better mobile density and hierarchy.
+- Reduced KPI cards to Current, Overdue, Completed Today and Upcoming.
+- Moved Overall Score into a compact full-width performance strip with Timely/Late/Missed counters.
+- Moved Needs Attention ahead of reporting widgets and compacted overdue rows.
+- Converted Workspace Performance into compact rows instead of tall cards.
+- Recent Activity now focuses on completed activity so overdue items are not duplicated from Needs Attention.
+- User Scoreboard now shows top 3 in a compact ranking layout.
+- Reduced mobile card heights, section padding, shadows and vertical gaps.
+- Further compacted mobile Dashboard header controls.

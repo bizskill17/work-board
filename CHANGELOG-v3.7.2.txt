@@ -1,0 +1,7 @@
+Business Board v3.7.2
+
+- Removed Recent Activity and Scoreboard side panels from individual Workspace boards.
+- Workspace board now uses the full available content width.
+- Fixed desktop left-menu toggle: collapsed state now fully hides the sidebar and the board expands to full width.
+- Sidebar state remains remembered per browser.
+- Dashboard, Activity Log and Scoreboard remain available as their own pages.

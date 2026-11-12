@@ -1,0 +1,7 @@
+v4.15.79
+- Holiday Master opens in Calendar view by default.
+- Added Calendar/Table view selector.
+- Removed the Holiday record count from the toolbar.
+- Added colorful calendar events and row accents.
+- Holiday delete icon now uses a dark red SVG treatment.
+- Add Row automatically opens Table view for direct entry.

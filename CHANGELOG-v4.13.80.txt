@@ -1,0 +1,6 @@
+Version 4.13.80
+- Normal task edits no longer send the Task Updated notification/WhatsApp message to Task Owners.
+- Inline task field edits are also silent.
+- Changing task Owners/Assignees does not send Task Updated to Owners.
+- Newly-added Assignees still receive the Task Assigned message.
+- Progress remarks, stage changes, sub-task activity, completion/reopen and other operational updates keep their existing notification logic.

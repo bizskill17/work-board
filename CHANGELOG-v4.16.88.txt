@@ -1,0 +1,6 @@
+v4.16.88
+- Fixed Workspace navigation: clicking any Workspace now preserves the selected Workspace ID instead of falling back to the first Workspace after lazy task loading.
+- Fixed AttendSpace midnight/date rollover: Attendance state is refreshed automatically when the IST calendar date changes while Workboard remains open.
+- If AttendSpace filters were still pointing exactly to the previous day, they move to the new current day after rollover.
+- Holiday Add form now defaults to the live Asia/Kolkata date instead of a potentially stale cached attendance date.
+- Existing holiday records remain tied strictly to their saved holiday_date.

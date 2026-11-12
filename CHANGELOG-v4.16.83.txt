@@ -1,0 +1,8 @@
+v4.16.83
+- Mobile quick actions redesigned as a fixed app-style bottom navigation bar.
+- Added Workspaces and Tasks shortcuts.
+- Mobile bar shows Workspaces | Tasks | Timer | Notes | Add.
+- Tasks opens Pending Tasks.
+- Current Workspaces/Tasks section is highlighted.
+- Desktop keeps the existing vertical floating Timer/Notes/Add actions.
+- Added safe-area and content bottom spacing so the bar does not cover content.

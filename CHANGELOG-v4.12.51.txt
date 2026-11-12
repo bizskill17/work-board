@@ -1,0 +1,9 @@
+Workboard v4.12.51
+
+Fix: 504 Gateway Time-out after UI-only plugin updates.
+
+- Separates plugin version from database schema version.
+- Full dbDelta/schema migrations now run only when the database schema actually needs an upgrade.
+- CSS/UI-only releases no longer rerun all database setup and migration routines on the first frontend request.
+- Preserves v4.12.50 Work Area / Note Area background-color styling.
+- Preserves v4.12.49 Notespace sharing logic.

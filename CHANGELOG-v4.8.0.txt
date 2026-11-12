@@ -1,0 +1,6 @@
+Business Board v4.8.0
+
+- Fixes Assignee multi-filter so it recognises all effective/direct assignees, including multiple assignees and inherited assignment relationships.
+- Adds a Work Area score strip above the board. Each Work Area card shows completed due occurrences / total due occurrences plus the weighted score percentage.
+- Clicking a Work Area score card filters the board to that Work Area.
+- Hardens Work Area header layout so the three-dot Edit Work Area menu remains visible even on the first/long-name column.

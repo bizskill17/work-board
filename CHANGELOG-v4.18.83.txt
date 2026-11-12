@@ -1,0 +1,6 @@
+WorkBoard v4.18.83
+- Removed the Copy WhatsApp button from the Time Sheet toolbar.
+- Kept standard Ctrl+C / Cmd+C Excel-style cell copying unchanged.
+- Action column is permanently the last Time Sheet column.
+- Action column cannot be dragged/reordered.
+- Action column is sticky on the right during horizontal scrolling.

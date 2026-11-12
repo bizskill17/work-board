@@ -1,0 +1,3 @@
+- Moved the task actions eye icon from the bottom action row to the right-side rail.
+- The task actions eye now appears just below the sub-task icon.
+- Clicking the side eye toggles the bottom task action icons.

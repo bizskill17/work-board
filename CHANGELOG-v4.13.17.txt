@@ -1,0 +1,6 @@
+Workboard v4.13.17
+
+- Mobile Add to Home Screen / shortcut now uses the shared Workboard logo.
+- Added apple-touch-icon and favicon metadata on Workboard frontend routes.
+- Added a per-site web app manifest using the shared network logo and each site's /workspaces/ start URL.
+- Shortcut/app name uses the current site's WordPress site name.

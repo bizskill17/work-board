@@ -1,0 +1,7 @@
+v4.16.40
+- Standardized all permission-sharing form sections to one responsive layout.
+- Desktop: User selector + ADD / EDIT / DELETE / VIEW + Person+ Add User in one row.
+- Selected permission colors remain ADD green, EDIT blue, DELETE red, VIEW purple.
+- Mobile: action buttons switch to icon-only +, pencil, trash, eye, Person+.
+- Selected users remain in a two-column USER / ACTION table with icon-only actions on mobile.
+- Applied through the shared component used by NoteSpace, Note Area, MathSpace, Math Area, and their sharing forms.

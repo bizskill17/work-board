@@ -1,0 +1,1 @@
+v4.18.90 - Employee Punch History is read-only: no Add Attendance, day deletion, or individual edit/delete controls. Management permissions remain unchanged; server endpoints enforce require_manage.

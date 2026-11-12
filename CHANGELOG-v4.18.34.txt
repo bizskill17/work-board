@@ -1,0 +1,6 @@
+WorkBoard v4.18.34
+
+- Time Sheet From/To fields no longer open the native clock picker.
+- From and To use direct HH:MM text entry with 24-hour validation.
+- Mobile layout keeps From and To in one compact row.
+- Added automatic colon formatting while typing four digits.

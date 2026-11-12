@@ -1,0 +1,7 @@
+Business Board v4.14.63
+
+- Added an explicit Max Duration dropdown for After Due reminders.
+- Added Same Day mode: reminders stop after the due-date calendar day and still respect active hours.
+- Added Until Completed and common duration presets.
+- Fixed After Due being visually/creation-linked to Before Due reminder state.
+- After Due can be used independently when Set Reminder is off.

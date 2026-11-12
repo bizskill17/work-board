@@ -1,0 +1,7 @@
+Version 4.13.89
+- Redesigned Users form into User Details, Login & Access, and Attendance & Payroll sections.
+- Added Department, Address, searchable/reusable Designation and Department values.
+- Added Organisation Default vs custom Working Hours per User.
+- Added Organisation Default vs custom Weekly Off rule per User.
+- Retained Attendance Active, Salary, Role, Login ID, Password and Status.
+- Added Department to the Users table and user search.

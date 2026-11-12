@@ -1,0 +1,6 @@
+v4.16.19
+- Short Hours and Day Credit now use Attendance Settings > Grace Time (minutes).
+- Effective required working minutes = scheduled working minutes minus configured grace minutes.
+- If net working minutes meet the grace-adjusted requirement, attendance is credited as 1.00 Day.
+- Late arrival continues to use the same configured grace minutes.
+- Overtime still starts only after the full scheduled working minutes, so grace does not create overtime.

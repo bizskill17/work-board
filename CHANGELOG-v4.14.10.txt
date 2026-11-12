@@ -1,0 +1,5 @@
+Version 4.14.10
+- After Due reminder preview now skips reminder slots that are already in the past.
+- Next shows the first future eligible slot inside Active Hours.
+- If Maximum Duration has already ended, preview clearly shows that there is no upcoming reminder.
+- Preview uses Workboard Indian time supplied by the server.

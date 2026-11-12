@@ -1,0 +1,7 @@
+Business Board v4.9.48
+
+- Added vertical drag-and-drop reordering for existing sub tasks using the six-dot grip.
+- Works with mouse, touch and pen pointer events.
+- Dragged sub task follows the pointer with a red outline and a visible destination placeholder.
+- New sub task order is saved permanently using the existing checklist sort_order field.
+- Completion state and delete controls remain independent of dragging.

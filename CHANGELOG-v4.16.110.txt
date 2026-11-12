@@ -1,0 +1,5 @@
+Version 4.16.110
+- Daily Activity row required fields corrected.
+- Required: From, To and Remarks.
+- Workspace, Work Area and Task are optional.
+- Fixed Save Activities failing when Task is not selected.

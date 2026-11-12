@@ -1,0 +1,8 @@
+Workboard v4.15.10
+- Fixed Add Task footer overlapping the Repeat after due reminder controls.
+- Cancel and Add Task now remain after all form content instead of floating over it.
+- Added a dedicated vertical scrollbar on the right side of the Add Task modal when content exceeds the available height.
+- Removed horizontal scrolling from the Add Task modal.
+- Made Repeat after due a compact contained row: every + number + unit + for next + duration.
+- Prevented the repeat duration dropdown from stretching across the full modal width.
+- Added responsive stacking for repeat controls on narrow/mobile screens.

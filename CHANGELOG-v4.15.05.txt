@@ -1,0 +1,8 @@
+Workboard v4.15.05
+- Fixed Add Task Task Owner, Assignee(s) and Labels dropdowns so clicking anywhere outside closes the open dropdown.
+- Opening one of these dropdowns now closes any other open Task dropdown.
+- Removed obsolete More Options styling/code remnants from the current Add Task UI.
+- Sub-tasks, Priority, Labels and Notes now start collapsed on every new Add Task form.
+- Optional Priority and Labels values are no longer carried into the next newly-created task.
+- Once the user enters data into an Action section, that populated section remains open.
+- Corrected plugin ZIP packaging so the archive root is business-board and updates the existing plugin folder properly.

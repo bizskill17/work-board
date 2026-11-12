@@ -1,0 +1,5 @@
+WorkBoard v4.18.11
+
+- DocSpace Recipient is now populated from active Users.
+- Recipient uses the same searchable user dropdown control used elsewhere in WorkBoard.
+- Existing DocSpace recipient values are preserved while editing older records.

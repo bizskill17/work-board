@@ -1,0 +1,4 @@
+Workboard v4.12.30
+- Removed the Message Preview section from the Send Urgent Reminder popup.
+- Kept Task and required Notes fields.
+- Reminder message sending logic remains unchanged and still includes the entered Notes.

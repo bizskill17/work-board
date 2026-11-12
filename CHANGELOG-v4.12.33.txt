@@ -1,0 +1,5 @@
+Workboard v4.12.33
+- Removed Enter-to-create behavior from Quick Create Task.
+- Pressing Enter now stays inside the task name field and can create a new line.
+- Tasks are created only by clicking the Add task button.
+- Escape still closes the Quick Create Task card.

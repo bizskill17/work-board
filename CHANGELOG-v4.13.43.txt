@@ -1,0 +1,4 @@
+Workboard v4.13.43
+- If Date and Contact Number are both enabled, entry metadata shows in one line: dd/mm/yyyy (number).
+- Mobile Math Areas now stack vertically for normal up/down scrolling.
+- Desktop MathSpace gets a fixed horizontal scroll dock like Work Areas/Notespaces and preserves horizontal position.

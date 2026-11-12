@@ -1,0 +1,5 @@
+Workboard v4.12.46
+- Expanded the task-card bottom action row to use the full available card width.
+- Distributed all available task action icons evenly across the row.
+- Prevented Copy and Clipboard actions from being clipped or pushed outside the visible card area.
+- Kept all action icons large and clearly visible on desktop and mobile.

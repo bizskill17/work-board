@@ -1,0 +1,6 @@
+Workboard v4.15.19
+- The three bottom-right quick-action buttons now remain visible on every Workboard view.
+- Punch Attendance, Add Note and Add Task keep the same permissions and module visibility rules.
+- The vertical toolbar is recreated cleanly whenever the user changes views, avoiding duplicate toolbars.
+- Dashboard, Workspaces, Workspace, Focus, Notes, Math, Attendance, Tasks, Reports, Settings and other views now share the same bottom-right quick actions.
+- Existing quick-action behavior is unchanged.

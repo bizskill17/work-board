@@ -1,0 +1,6 @@
+Business Board v4.12.66
+
+- Corrected WordPress plugin ZIP packaging: all plugin files are again inside the standard business-board/ root folder, matching earlier releases.
+- This ensures Upload Plugin replaces/updates the existing Business Board plugin instead of creating a second plugin folder.
+- Preserves the Notespace Download Excel button and export functionality from v4.12.63-v4.12.65.
+- Download Excel remains visible inside an active Notespace between Search Notes and + Note Area.

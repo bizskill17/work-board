@@ -1,0 +1,1 @@
+Removed dropdown arrow icons from all Workspace toolbar selectors (view, Group By, Work Areas, Task Stage, Priorities, Assignees, Labels) without changing click or selection behavior.

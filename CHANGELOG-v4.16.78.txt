@@ -1,0 +1,10 @@
+v4.16.78
+- Added task-scope aware core loading.
+- Core/bootstrap requests now default to no task payload instead of loading every task in every Workspace.
+- Workspace view loads only that Workspace's tasks.
+- Focus loads only focused tasks.
+- Pending Tasks loads only pending/actionable tasks.
+- Billing loads only completed billable tasks.
+- Task-related assignments, remarks, reminders, checklist progress and archived rows are restricted to the current task slice.
+- Browser navigation automatically requests the required task slice before rendering a task-heavy view.
+- Full-state module loading remains available for modules that require complete datasets.

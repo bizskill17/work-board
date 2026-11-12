@@ -1,0 +1,4 @@
+v4.16.33
+- Confirmed Billable + optional Amount support for Simple Task Add/Edit and Quick Add forms.
+- Completed Simple billable tasks flow into Pending Billing until Billed Amount is updated.
+- Added a small ₹ indicator on billable task cards so billable work is visible directly in the Simple task view.

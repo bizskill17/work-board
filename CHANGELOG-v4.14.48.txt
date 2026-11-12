@@ -1,0 +1,5 @@
+Workboard v4.14.48
+- Quick Add After Due reminder no longer shows Active Hours or 24 Hours.
+- Quick Add automatically saves the default active window as 08:00 to 20:00.
+- Compacted Repeat Every, Max Duration and Max Reminders controls.
+- Full reminder editor remains unchanged and can still customize Active Hours later.

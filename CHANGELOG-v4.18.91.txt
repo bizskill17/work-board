@@ -1,0 +1,1 @@
+v4.18.91 — Punch History compact aligned full-width table; removes bottom Close button while retaining header X; keeps Employee read-only access and management actions.

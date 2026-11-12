@@ -1,0 +1,7 @@
+Workboard v4.11.98
+
+- Rebuilt Move Task Work Area selector as a proper searchable dropdown.
+- Dropdown stays closed until clicked/focused and shows matching Work Areas in a compact menu.
+- Added clear current Work Area display and improved keyboard/accessibility states.
+- Fixed malformed v4.11.97 dropdown CSS so styling loads correctly.
+- Made Move Task modal compact on desktop and sheet-style on mobile.

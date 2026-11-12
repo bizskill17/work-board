@@ -1,0 +1,7 @@
+WorkBoard v4.18.56
+
+- Standardized Task Completed/Reopened activity formatting to use the same em dash separator throughout.
+- Activity Log now displays: Action — Task Name — Remark.
+- Task Activity popup uses the same separator formatting.
+- Existing legacy separators (hyphen, middle dot, en dash) are normalized for display and Excel export.
+- New completion/reopen activity is stored using the em dash separator.

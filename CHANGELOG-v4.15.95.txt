@@ -1,0 +1,4 @@
+v4.15.95
+- Holiday mobile Table view now fits completely within the screen width.
+- Removed horizontal table overflow on mobile.
+- Date, Holiday and Delete action remain visible together without sideways scrolling.

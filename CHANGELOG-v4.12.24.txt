@@ -1,0 +1,6 @@
+Workboard v4.12.24
+- Replaced the Move Note Note Area list with a proper searchable dropdown.
+- Shows the current Note Area separately.
+- Search filters Note Areas instantly.
+- Added explicit Move Note confirmation button after selection.
+- Reuses the compact Workboard move-selector UI on desktop and mobile.

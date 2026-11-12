@@ -1,0 +1,5 @@
+Version 4.13.87
+- AttendSpace now displays all punch times in Indian Standard Time (Asia/Kolkata).
+- Attendance day/date is based on Indian time, independent of server or WordPress timezone.
+- Existing attendance timestamps are converted to IST for display without rewriting stored history.
+- Manual attendance corrections accept IST and convert safely back to the configured storage timezone.

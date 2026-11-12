@@ -1,0 +1,5 @@
+Workboard v4.11.53
+
+- Task Assigned WhatsApp: if the task due date is blank, the message now uses today's date in Asia/Kolkata (IST).
+- This fallback is message-only. The task due date in Workboard is not changed or saved.
+- Existing due time behavior remains unchanged when an actual due date/time is present.

@@ -1,0 +1,5 @@
+Version 4.13.70
+- Fixed Task Stage selection: stage options now save correctly from the popup.
+- Added persistent Move Up / Move Down controls for Work Area task stages.
+- In Progress remains permanent and green, but can be reordered with other stages.
+- Stage section order now follows the order configured in the Work Area.

@@ -1,0 +1,6 @@
+WorkBoard v4.17.7
+
+- Task action icon row is now always visible below the task details/meta line.
+- Applies on desktop and mobile task cards.
+- Keeps the Eye icon removed.
+- Corrected the internal plugin version so updated CSS/JS assets receive a fresh cache version.

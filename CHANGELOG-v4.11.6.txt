@@ -1,0 +1,10 @@
+Workboard v4.11.6
+
+- Added AI modification for an existing Workspace.
+- When a Workspace is open, the AI button now opens "Modify Workspace with AI" instead of the new-Workspace builder.
+- Modify from text prompt or JPG/PNG/WEBP/PDF/DOCX/XLSX/CSV/TXT input.
+- AI reads the current Workspace structure and proposes only the requested changes.
+- Review each proposed change and deselect anything you do not want before applying.
+- Supports Workspace rename/description updates, adding/updating/deleting Work Areas, Tasks and Subtasks, and task field changes including assignee, dates, recurrence, priority and labels.
+- Delete actions are highlighted and require confirmation before applying.
+- All AI changes use Workboard permission checks and server-side ID validation; AI does not write directly to the database without approval.

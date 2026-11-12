@@ -1,0 +1,6 @@
+Workboard v4.11.74
+
+- Fixed path-based WordPress Multisite login redirects that could duplicate the subsite path, e.g. /rajmahal/rajmahal/workspaces/.
+- Deep-link preservation after login now rebuilds the URL from Workboard route variables instead of feeding REQUEST_URI back into home_url().
+- Correct examples: /rajmahal/workspaces/, /rajmahal/focus/, /rajmahal/business-board/workspace/<slug>/.
+- Main-site routing remains unchanged.

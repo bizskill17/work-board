@@ -1,0 +1,10 @@
+WorkBoard v4.17.0 — React Web migration foundation
+
+- Added React Web frontend foundation using WordPress wp-element (React).
+- Converted the global WorkBoard header/topbar to a React-owned component.
+- Kept existing CSS classes and delegated action hooks so current navigation,
+  filters, mobile menu, workspace analysis, Add Work Area and filter actions
+  continue to work without changing the PHP backend.
+- Existing Workspace/Task/Attendance/Notes/Billing/Math/Leave screens remain
+  on the proven legacy renderer for this phase and can now be migrated one by one.
+- No external CDN or separate React runtime is required.

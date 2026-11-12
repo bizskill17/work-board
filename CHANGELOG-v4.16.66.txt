@@ -1,0 +1,4 @@
+v4.16.66
+- Activity Log Updated By now prefers the Workboard employee/user name instead of email/login display values.
+- Existing activity rows resolve the employee name through employee_id or the linked WordPress user id.
+- Activity export uses the same name resolution.

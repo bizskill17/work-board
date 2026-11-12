@@ -1,0 +1,5 @@
+Workboard v4.12.96
+- Desktop Workspace toolbar now stays on one line.
+- Overdue and Completed remain side by side.
+- Work Area, Priority, Assignee, Labels, Excel and Clear actions remain on the same row.
+- Mobile layout is unchanged.

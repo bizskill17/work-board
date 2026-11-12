@@ -1,0 +1,4 @@
+Business Board v4.9.13
+
+- Added a clear dark outline around the complete Workspace control/filter toolbar.
+- Strengthened borders on filter dropdowns, refresh, back, and Add Work Area controls for a consistent visual language.

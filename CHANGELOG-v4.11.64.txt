@@ -1,0 +1,7 @@
+Workboard v4.11.64
+
+- Quick Add Assignee selector now shows Assignees and Owners side-by-side on desktop.
+- Both Assignees and Owners support multiple selection.
+- Added Clear / Clear all and Done controls to the people selector.
+- Mobile stacks Assignees and Owners vertically.
+- New tasks save direct Assignee and Owner relationships correctly.

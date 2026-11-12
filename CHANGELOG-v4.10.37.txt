@@ -1,0 +1,6 @@
+Workboard v4.10.37
+
+- Work Area title now occupies the first line of each Work Area header.
+- All Work Area action icons now appear on a dedicated second line.
+- Standardized all Work Area header action buttons to the same size and alignment.
+- Applied the layout consistently on desktop, tablet, and mobile.

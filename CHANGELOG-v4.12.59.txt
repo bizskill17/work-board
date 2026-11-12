@@ -1,0 +1,6 @@
+Workboard v4.12.59
+
+- Removed the icon/initial badge shown to the left of Org Name in the sidebar.
+- Org Name is now displayed as clean text only on desktop and mobile/tablet.
+- When the desktop sidebar is collapsed, the Org Name row is hidden instead of showing an initial badge.
+- Long Org Name wrapping from v4.12.58 is retained.

@@ -1,0 +1,6 @@
+WorkBoard v4.18.81
+
+- Fixed login Show/Hide Password eye button.
+- Uses WordPress jQuery noConflict-safe binding plus a vanilla JS fallback on the login form.
+- Clicking the eye now reliably changes the password input between hidden and visible.
+- Keeps password field focus and works on desktop/mobile.

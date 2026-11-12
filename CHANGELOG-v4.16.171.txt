@@ -1,0 +1,7 @@
+Workboard v4.16.171
+
+- Time Sheet list filters are hidden by default.
+- Added a Filter toggle button beside Download Excel and + Add Activity.
+- Clicking Filter expands/collapses Date From, Date To, Workspace, Work Area, Employee and Search filters.
+- Current filter selections remain intact when the filter panel is hidden and shown.
+- Applied consistently on desktop and mobile list views.

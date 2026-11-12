@@ -1,0 +1,7 @@
+Workboard v4.13.27
+
+- Math Areas now display side by side in one horizontal row, matching Notespace-style layout.
+- Math Areas use fixed card widths with horizontal scrolling instead of wrapping to the next line.
+- MathSpace grand total moved from the top-right toolbar to below the Math Area row, aligned on the left (under the first Math Area).
+- Per-Math Area totals remain unchanged at the bottom of each card.
+- Mobile keeps the same horizontal side-by-side behavior with swipe scrolling.

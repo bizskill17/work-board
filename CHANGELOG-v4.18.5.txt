@@ -1,0 +1,5 @@
+WorkBoard v4.18.5
+
+- Removed DocSpace upload helper text: PDF, image, Word or Excel · maximum 10 MB.
+- Fixed CallSpace and DocSpace filter toggle so the filter row reliably shows/hides when the filter button is clicked.
+- Initialized CallSpace/DocSpace filter visibility state explicitly.

@@ -1,0 +1,7 @@
+Workboard v4.16.101
+
+Attendance location timeout adjustment
+- Uses one location request with a 20-second timeout.
+- High-accuracy location is enabled for attendance.
+- Keeps the 2-minute recent-location cache to avoid unnecessary repeated prompts.
+- Retains the Activity Log duplicate fix from v4.16.99 and the attendance location handling improvements from v4.16.100.

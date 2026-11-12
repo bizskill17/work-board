@@ -1,0 +1,7 @@
+Workboard v4.13.19
+
+- Mobile shortcut/app label is now forced to “Workboard”.
+- Manifest name and short_name now both use “Workboard” instead of the site/domain name.
+- Added application-name and apple-mobile-web-app-title metadata for mobile launchers.
+- Workboard frontend document title is set to “Workboard” so Chrome Create shortcut suggests the correct name.
+- Existing Workboard shortcut icons remain unchanged.

@@ -1,0 +1,10 @@
+Workboard v4.15.58
+- Added Masters → Holiday.
+- Holiday Master uses a two-column table only: Date and Holiday.
+- Existing Holidays are editable directly in the table.
+- Added + Add Row for entering multiple Holidays.
+- Added Update All for one-click bulk save/update.
+- Supports past and future Holiday dates; state is no longer limited to the current year.
+- Supports pasting two Excel columns (Date and Holiday) directly into the table.
+- Existing row can be removed by clearing its Date and clicking Update All.
+- Duplicate dates are blocked before save and again on the server.

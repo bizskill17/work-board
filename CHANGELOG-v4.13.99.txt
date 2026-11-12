@@ -1,0 +1,7 @@
+Workboard v4.13.99
+- Redesigned AttendSpace mobile view to match the approved compact card mockup.
+- User and Status filters sit side by side on small screens; Clear spans the row.
+- Date summary counters are displayed as compact cards.
+- Employee attendance rows are now touch-friendly cards with larger IN/OUT and manager action controls.
+- Latest captured attendance address and GPS accuracy are shown directly on the mobile employee card and link to the map.
+- Desktop AttendSpace behavior remains unchanged.

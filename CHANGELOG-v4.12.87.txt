@@ -1,0 +1,5 @@
+Workboard v4.12.87
+- Added desktop drag-to-resize support for Note Areas, matching Work Area resizing.
+- Drag the right edge of any Note Area to increase or decrease its width.
+- Note Area width is remembered per Notespace and Note Area on the same browser.
+- Mobile layout remains unchanged.

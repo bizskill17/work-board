@@ -1,0 +1,6 @@
+WorkBoard v4.17.3
+
+- Removed helper text below Attendance Rules heading.
+- Removed helper text below Standard Break.
+- Removed helper text below Auto Break Applies After.
+- Removed helper text below Attendance Location.

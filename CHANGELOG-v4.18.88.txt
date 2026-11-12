@@ -1,0 +1,6 @@
+Workboard v4.18.88 — Task Updated recipient restrictions
+
+- Task Updated notifications go only to explicit Task Owners, never Workspace/Work Area shared users or assignees.
+- The task Notify checkbox must be enabled.
+- Enforced at internal notification creation and WhatsApp transmission, including alternate task-update aliases.
+- Existing assignment, reminder, and digest notification rules are unchanged.

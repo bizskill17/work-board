@@ -1,0 +1,6 @@
+Business Board v4.10.23
+
+- Reduced inline sub-task indentation so mobile cards keep more usable width.
+- Reworked the blank new-subtask row: it now shows a clear + add icon instead of an empty drag handle and checkbox.
+- Kept continuous Enter-to-add behaviour, with the input staying ready for the next subtask.
+- Tightened subtask spacing and mobile alignment.

@@ -1,0 +1,7 @@
+WorkBoard v4.18.15
+
+- Time Sheet list now combines From and To into one Time column (for example 15:00 - 17:00).
+- Removed the separate Workspace column from the Time Sheet list.
+- Workspace name is now shown below the Work Area name.
+- Employees can edit their own Time Sheet activities; Owner/Manager/Admin can edit all visible activities.
+- Delete permission remains restricted to Owner/Manager/Admin.

@@ -1,0 +1,4 @@
+Workboard v4.14.75
+- Fixed Work Area task activity so the task name is not repeated inside the Activity column.
+- The renderer now receives the current task name directly and strips it from legacy activity details such as "PPF · Said sir".
+- Result now shows only the actual activity/remark, e.g. "Completed" and "Said sir".

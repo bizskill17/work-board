@@ -1,0 +1,5 @@
+Workboard v4.14.67
+- Fixed the compact AFTER DUE form so the approved two-line UI is enforced in both new-task and existing-task inline reminder panels.
+- Row 1 now always shows Repeat Every with both the numeric interval and Minutes/Hours/Days/Weeks/Same Day unit dropdown.
+- Row 2 now always shows Max Duration and Max Reminders side-by-side.
+- Removed reliance on the bb-quick-task-card ancestor so the same layout works when the reminder block is rendered inside an existing task card.

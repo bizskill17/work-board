@@ -1,0 +1,8 @@
+Workboard v4.15.42
+- Added Show Filter / Hide Filter control to Pending Tasks.
+- Added Show Filter / Hide Filter control to Activity Log.
+- Pending Tasks Search, Excel and Clear remain visible when filters are hidden.
+- Activity Log Search, Excel and Clear Filters remain visible when filters are hidden.
+- Activity Log date, Workspace, Work Area, Status and User filters are grouped in a collapsible filter row.
+- Filter visibility remains as selected while the user continues working in the current Workboard session.
+- Added responsive mobile handling for the new filter controls.

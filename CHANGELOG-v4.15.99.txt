@@ -1,0 +1,5 @@
+v4.15.99
+- Share permissions use icons only on mobile for ADD, EDIT, DELETE and VIEW.
+- Desktop keeps text permission buttons.
+- Mobile share table is fitted to the form width without horizontal scrolling.
+- Applies to Notespace, Note Area, MathSpace and Math Area sharing.

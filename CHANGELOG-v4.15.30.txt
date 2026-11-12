@@ -1,0 +1,10 @@
+Workboard v4.15.30
+- Reversed the Attendance Supervisor relationship to the intended model.
+- Each employee now has one searchable Supervisor dropdown in Attendance & Payroll.
+- Selecting Parashmoni as Aman's Supervisor means Parashmoni can punch Aman's attendance.
+- Supervisor login shows the Supervisor's own row plus one separate row for every employee assigned to that Supervisor.
+- Each assigned employee row has its own live attendance punch controls.
+- The Supervisor dropdown is single-select and supports No Supervisor.
+- Backend permission checks now read the target employee's assigned Supervisor, so the permission cannot be bypassed.
+- Existing v4.15.28/29 selections are interpreted as the employee's Supervisor for backward compatibility until that User is saved again.
+- Added attendance_supervisor_employee_id database field and schema migration.

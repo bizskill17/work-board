@@ -1,0 +1,6 @@
+v4.16.68
+- Note social-link cards now use clean preview rendering for YouTube, Facebook and Instagram.
+- Third-party metadata titles such as YouTube consent text and social post captions are no longer rendered inside social previews.
+- YouTube uses its thumbnail with a centered play icon; Facebook/Instagram use the fetched thumbnail with a clean external-open overlay.
+- Original note title, original URL and optional user note remain visible.
+- Existing saved notes are fixed at render time; no data migration is required.

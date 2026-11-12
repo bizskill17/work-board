@@ -1,0 +1,10 @@
+Business Board v4.12.61 — Search stability and scope fix
+
+- Local list/master searches no longer rebuild the page on every keystroke.
+- Search waits briefly for typing to pause, then filters and restores keyboard focus/caret.
+- Workspace task search now uses its own workspace-only search state.
+- Search text entered inside a Workspace does not carry back to the Workspaces list.
+- Search text entered inside a Notespace does not carry back to the Notespaces list.
+- Folder inner search does not carry back to the outer Folder view.
+- Archive/Trash switches start with a clean Workspace search state.
+- Existing filters and search dropdowns remain independent.

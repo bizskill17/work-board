@@ -1,0 +1,8 @@
+Version 4.14.03
+- Added AFTER DUE reminders that repeat only while a task remains incomplete.
+- Repeat interval supports Minutes, Hours, Days and Weeks.
+- Added Active Hours window plus 24 Hours mode.
+- Added optional Maximum Duration and Maximum Reminders limits; 0 means unlimited/until completed.
+- After-due reminders continue on future days and stop automatically on completion.
+- Reminder delivery remains occurrence-specific for recurring tasks and uses the existing Task Reminder WhatsApp template.
+- Archived/deleted Work Areas and Workspaces are excluded from reminder processing.

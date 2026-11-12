@@ -1,0 +1,6 @@
+v4.16.86
+- Fixed AI Simplify not appearing in the actual Quick Add/Edit Task form.
+- Added AI icon beside the Task field in Quick Add/Edit Task.
+- Added AI icon beside Notes/Instructions in the quick Task form.
+- AI Simplify now works with both the full Task form and quick Task form.
+- Replace/Cancel preview behavior remains unchanged.

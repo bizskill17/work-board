@@ -1,0 +1,7 @@
+Workboard v4.12.63
+
+- Added an Excel download option inside every Notespace.
+- The Excel export downloads all Note Areas and Notes in the current Notespace.
+- Export columns: Notespace, Note Area, Title, Type, Note, Link, Website Title, Website Description, Created On and Updated On.
+- Export respects Notespace access permissions.
+- Added compact mobile Excel icon in the Notespace toolbar.

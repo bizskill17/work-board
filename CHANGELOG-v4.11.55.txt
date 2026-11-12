@@ -1,0 +1,9 @@
+Workboard v4.11.55
+
+- Workspace Templates and Work Area Templates remain minimal, tabular views.
+- Delete action is now clearly red.
+- Added View Contents for both template types.
+- Added Edit Template for both template types.
+- Template editor can update template name, Work Area names/descriptions, task name, Work Area assignment (Workspace Templates), priority, due time, description and subtasks, then save.
+- Workspace Template edits create an automatic version backup before saving.
+- Work Area Templates keep pagination at 10 rows per page.

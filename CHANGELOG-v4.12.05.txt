@@ -1,0 +1,5 @@
+Workboard v4.12.05
+
+- Removed the global search box from the top header on all Workboard views.
+- Page-level/local search fields remain available where they are useful.
+- Header now keeps the page title on the left and action icons/logo on the right.

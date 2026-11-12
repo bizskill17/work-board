@@ -1,0 +1,7 @@
+Business Board v4.9.75
+
+- Task Activity now shows only parent-task update activity: In Progress, Remark/Progress Update, and Completed.
+- Removed Task Created from the Task Activity popup.
+- Removed all Sub Task activity from the Task Activity popup.
+- Mobile and tablet portrait Task Activity now open as a centered modal instead of a bottom sheet.
+- Kept responsive desktop/tablet landscape table and compact mobile card presentation.

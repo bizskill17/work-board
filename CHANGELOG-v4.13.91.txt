@@ -1,0 +1,5 @@
+Version 4.13.91
+- Fixed MathSpaces not opening after the Attendance expansion.
+- Restored frontend modules inadvertently removed when AttendSpace was introduced: MathSpaces, Notespaces, Focus, task-list rendering, move-task picker, folder contents editor, and their helpers.
+- Restored MathSpace search, horizontal scrolling, Math Area/Particular ordering, move/copy, PDF export, CSV import/export, and MathSpace forms.
+- Attendance Register, Monthly Sheet, Departments, Designations, payroll fields, and Attendance Settings from v4.13.90 remain unchanged.

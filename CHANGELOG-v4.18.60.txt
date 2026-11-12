@@ -1,0 +1,7 @@
+WorkBoard v4.18.60
+- Added WhatsApp Attendance Summary controls under Attendance Settings.
+- Added Active switch, WhatsApp Number, Morning 11:00 AM and Evening 8:00 PM controls.
+- Added editable Meta template name, defaulting to workboard_daily_attendance_summary.
+- Added Test Number and Send Test button with live success/error status.
+- Test and scheduled summaries generate a shareable PNG attendance image and send it as the template image header.
+- Added automatic 11:00 AM and 8:00 PM IST delivery through the existing WorkBoard 5-minute cron pipeline, with once-per-day safeguards.

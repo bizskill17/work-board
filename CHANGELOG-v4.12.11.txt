@@ -1,0 +1,3 @@
+Workboard v4.12.11
+- In mobile view, the Notespaces toolbar now shows icon-only actions for Back and Add Note Area.
+- Desktop view remains unchanged with full button text.

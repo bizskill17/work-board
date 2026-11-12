@@ -1,0 +1,5 @@
+v4.16.51
+- Moved Pending Tasks back under the Work sidebar section.
+- Pending Tasks is now independent of the Enable Billing setting.
+- Billing section now contains only Pending Billing and Billed Master.
+- Party users continue to see Workspaces, Pending Tasks, and Activity Log even when Billing is disabled.

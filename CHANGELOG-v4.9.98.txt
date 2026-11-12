@@ -1,0 +1,6 @@
+Business Board v4.9.98
+
+- Due-date changes now immediately refresh the Workspace board.
+- A task moved to a future due date is immediately reclassified under Upcoming.
+- A task moved to today appears under Current; a task moved to a past date appears under Overdue.
+- Recurring tasks continue to persist the edited date as the new recurrence anchor.

@@ -1,0 +1,4 @@
+Business Board v4.10.7
+
+- Added clearer visual spacing between the Overdue and Completed KPI chips in the Workspace toolbar.
+- No task logic, permissions, filters, or other functionality changed.

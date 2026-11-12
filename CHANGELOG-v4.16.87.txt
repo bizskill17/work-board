@@ -1,0 +1,6 @@
+v4.16.87
+- Fixed Task AI Simplify click feedback in quick/full Task forms.
+- Removed dependency on cached frontend AI settings before making the simplify request.
+- Shows Simplifying with AI directly below the field.
+- Shows provider/API/settings errors inline instead of relying only on toast notifications.
+- Keeps Preview -> Replace / Cancel flow.

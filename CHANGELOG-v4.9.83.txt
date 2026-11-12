@@ -1,0 +1,7 @@
+Business Board v4.9.83
+
+- Removed the Install Business Board / PWA install feature completely.
+- Removed the install icon and install guidance UI.
+- Removed manifest and service-worker endpoints/head tags.
+- Removed PWA install JavaScript and related CSS.
+- Added one-time cleanup of legacy Business Board service-worker registrations and caches left by older versions.

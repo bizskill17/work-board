@@ -1,0 +1,8 @@
+Business Board v3.7.0
+- Simplified Create Task form when launched from a Work Area.
+- Workspace and Work Area are locked to the context and no longer shown as editable fields.
+- Assignee defaults automatically to the Work Area Head and is hidden in contextual task creation.
+- Backend also falls back to the Work Area Head when no assignee is supplied.
+- Removed Task Summary side panel, Good Task Design box, lean-storage note, eyebrow text and other explanatory clutter.
+- Reduced form padding and made the task form a cleaner single-column workflow.
+- General task creation/editing outside a Work Area keeps Workspace/Work Area/Assignee controls.

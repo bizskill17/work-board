@@ -1,0 +1,18 @@
+Workboard v4.15.70
+
+Area-level sharing for Notes and Math
+- Removed User sharing from Notespace and MathSpace level.
+- Added Share option to each Note Area and Math Area.
+- Added the same sharing table inside Add/Edit Note Area and Add/Edit Math Area forms.
+- Sharing table has two columns: User and Action.
+- Action permissions are button-style: ADD | EDIT | DELETE | VIEW.
+- ADD, EDIT or DELETE automatically includes VIEW.
+- VIEW controls Area visibility.
+- ADD controls new Notes/Particulars, copies and Math CSV upload.
+- EDIT controls editing, reordering and moving existing content.
+- DELETE controls deleting Notes/Particulars.
+- Area structure and sharing remain controlled by Owner/Manager/Admin.
+- Moving content requires EDIT on the source Area and ADD on the destination Area.
+- Existing Notespace/MathSpace shares are migrated to their current child Areas on upgrade.
+- Fixed backend support for saving note_area and math_area assignments.
+- Notespace Excel export now exports only the Note Areas visible to the current User.

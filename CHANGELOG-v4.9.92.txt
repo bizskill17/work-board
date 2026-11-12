@@ -1,0 +1,3 @@
+Business Board v4.9.92
+- Fixed mobile sub-task entry so the active typing row stays visible above the keyboard.
+- The next blank sub-task row still appears Google Keep-style, but no longer steals scroll position or focus.

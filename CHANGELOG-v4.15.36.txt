@@ -1,0 +1,5 @@
+Workboard v4.15.36
+- Pending Tasks table no longer shows the eye/Open Task action.
+- Replaced it with a clear Update button.
+- Update opens the existing View / Update Task modal.
+- The pencil Edit Task action remains available separately.

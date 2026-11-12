@@ -1,0 +1,7 @@
+Workboard v4.13.37
+
+- Math Entry Number is now optional.
+- Contact Number appears below Particular only when filled.
+- Edit and Delete actions now appear on the same line as the contact number.
+- If Number is blank, only the actions appear on the secondary row.
+- Number remains digits-only, maximum 15 digits.

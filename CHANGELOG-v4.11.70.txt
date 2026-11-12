@@ -1,0 +1,6 @@
+Workboard v4.11.70
+
+- Cross / X controls now remain dark red with a white cross in every state.
+- Removed the darker hover treatment from cross controls.
+- Hover, focus and active states no longer change the cross button background, border or icon colour.
+- No workflow, permissions, data, template, AI or WhatsApp behavior changed.

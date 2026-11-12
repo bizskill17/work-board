@@ -1,0 +1,5 @@
+Version 4.13.75
+- Quick Add Task Name now uses the full card width.
+- Moved Add task below the character validation and aligned it to the right.
+- Add task becomes grey/disabled while Task Name exceeds 220 characters.
+- Reduced unused white space beside long task names.

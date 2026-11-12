@@ -1,0 +1,7 @@
+Workboard v4.16.133 — Sunday Reminder
+
+- Added a task-level Sunday Reminder checkbox to Add Task and Edit Task.
+- Sunday Reminder is OFF by default for new and existing tasks.
+- When OFF, Before Due and After Due / Repeat After Due reminders are not sent on Sundays.
+- When ON, scheduled reminders for that task can be delivered normally on Sunday.
+- Added a targeted database column migration without running the full Workboard schema upgrade.

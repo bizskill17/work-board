@@ -1,0 +1,7 @@
+Workboard v4.11.83
+
+- Added a drag handle to Workspaces shown under "Without Folder" in Folder view.
+- Administrators, Owners and Managers can drag a standalone Workspace directly onto a Folder card.
+- Folder cards highlight while they are valid drop targets.
+- Dropping a Workspace adds it to the selected Folder and preserves all Workspace data and permissions.
+- Compatible with the multi-Folder relationship introduced in v4.11.82.

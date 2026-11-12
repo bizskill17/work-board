@@ -1,0 +1,7 @@
+Workboard v4.16.186
+
+- Redesigned Task Options popup into clear action cards for Archive Task, View Activity and Delete Permanently.
+- Added cleaner icons, spacing, hierarchy and chevrons.
+- Redesigned permanent-delete confirmation with warning icon, explanatory copy, Cancel and Delete Permanently buttons.
+- Removed the extra native browser confirmation for this styled permanent-delete flow.
+- Responsive styling added for mobile.

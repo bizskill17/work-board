@@ -1,0 +1,6 @@
+v4.16.00
+- Fixed View Attendance User not persisting after Update User.
+- bb_save_employee now reads attendance_view_employee_id from POST before database save.
+- Disabled View Attendance clears the selected User.
+- Prevents selecting the same User as their own View Attendance target.
+- Validates the selected target User before storing it.

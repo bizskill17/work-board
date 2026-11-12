@@ -1,0 +1,7 @@
+WorkBoard v4.18.78
+
+- Time Sheet copied cell/range now keeps an Excel-style blinking dashed border after Ctrl+C / Cmd+C.
+- Copied border remains until another cell/range is selected, Esc is pressed, another range is copied, or the grid is refreshed.
+- Selected range retains the light blue Excel-style fill while in copied state.
+- Copying shows a brief “Copied N cells” confirmation.
+- Multi-cell copied ranges show one visual outer copied boundary via edge-aware cell borders.

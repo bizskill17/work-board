@@ -1,0 +1,8 @@
+Workboard v4.16.177
+
+- The task-card sub-task hierarchy icon now controls Show / Hide Sub Tasks.
+- Removed the eye icon from beside the sub-task hierarchy icon.
+- Added the eye icon to the bottom task action row.
+- Bottom task action icons are hidden by default and are shown only after clicking the eye icon.
+- Clicking the eye again hides the bottom task action icons.
+- Sub-task visibility and bottom action visibility are independent per task card and reset on refresh.

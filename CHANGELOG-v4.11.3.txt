@@ -1,0 +1,3 @@
+Workboard v4.11.3
+- Workspace delete/trash actions now use a proper red trash-bin SVG icon.
+- Increased red contrast for the delete button in normal and hover states.

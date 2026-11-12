@@ -1,0 +1,5 @@
+Business Board v4.9.58
+- Replaced proxy scrollbar with always-visible desktop Work Area range slider.
+- Slider is directly synchronized with the real board horizontal scroll container.
+- Left/right slide buttons remain visible on desktop.
+- Dragged task preview is locked to its source card width.

@@ -1,0 +1,6 @@
+Workboard v4.15.33
+- Removed the three introductory lines from Labels Master:
+  LABEL MASTER
+  Labels
+  Reusable Labels for Tasks.
+- Search, label count and + Add Label remain available in the compact toolbar.

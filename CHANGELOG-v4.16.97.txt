@@ -1,0 +1,8 @@
+v4.16.97
+- Removed the separate blank arrow column from Employee AttendSpace table.
+- Attendance detail chevron now sits inside the Status column; the whole row opens details.
+- Employee table now fits the mobile width without the unnecessary trailing blank space.
+- Supervisor and View Attendance users now also use the same table-view layout.
+- Supervisor/View users see only the employees they are permitted to view.
+- All non-admin employee-facing AttendSpace views default to Today.
+- Owner/Manager privileged AttendSpace remains unchanged.

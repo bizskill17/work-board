@@ -1,0 +1,7 @@
+v4.16.85
+- Added AI Simplify icons inside the Task Form for Task Name and Description / Instructions.
+- Paste rough English, Hindi or Hinglish text and click ✦ to generate a concise business-friendly version.
+- AI shows a preview first with Replace / Cancel; it never overwrites the field automatically.
+- Task Name simplification is action-oriented and capped at 220 characters.
+- Description simplification preserves names, quantities, dates, deadlines, conditions and key business terms.
+- Reuses the existing site-level OpenAI / Gemini provider and API key.

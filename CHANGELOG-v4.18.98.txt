@@ -1,0 +1,1 @@
+Added right-side workspace Settings drawer with Archived & Deleted actions, Work Areas multi-select, and functional Due Date task filters. Due Date rows are text and checkboxes only, without icons.

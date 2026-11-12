@@ -1,0 +1,6 @@
+Workboard v4.16.125
+
+Time Sheet
+- Renamed the Daily Activity view to Time Sheet in the navigation and page header.
+- Workspace, Work Area, Task and Remarks columns now wrap long text clearly in the Time Sheet list.
+- Adjusted column widths for improved readability.

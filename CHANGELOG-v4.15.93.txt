@@ -1,0 +1,5 @@
+v4.15.93
+- Mobile Holiday page now uses Table view only; Calendar view is hidden/disabled on mobile.
+- Download Template and Upload Template buttons are hidden on mobile.
+- Add Holiday button is shown as a compact plus icon only on mobile.
+- Desktop Holiday page remains unchanged.

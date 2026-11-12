@@ -1,0 +1,7 @@
+Workboard v4.14.92
+- Redesigned Notifications & Reminder controls to match the approved mockup.
+- Top row now shows Notification, Before Reminder and After Due in one line.
+- Renamed Send notifications for this task to Notification.
+- Renamed Set Reminder to Before Reminder.
+- Removed repeated BEFORE/AFTER helper headings and taglines from the compact UI.
+- Before Reminder and After Due remain independent and reveal their detailed controls only when selected.

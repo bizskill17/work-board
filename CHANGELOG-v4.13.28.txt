@@ -1,0 +1,6 @@
+Workboard v4.13.28
+
+- Improved Morning Pending Tasks Reminder readability while keeping the Meta body variable safe from multi-line parameter error #132018.
+- Workspace and Work Area headings are now clearly marked as 【Heading】 in the WhatsApp digest.
+- Tasks within the same section use a clean | separator; sections use a stronger divider.
+- Existing morning eligibility rules, dynamic Open Workspaces button and Meta template parameters remain unchanged.

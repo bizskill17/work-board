@@ -1,0 +1,6 @@
+Business Board v4.9.73
+
+- Simplified Task Activity to show only meaningful work actions.
+- Kept: Task Created, In Progress, Completed, Remark Added, Sub Task Added, Sub Task Completed.
+- Hidden from Task Activity: edit/update, reopen/pending, delete, reorder, archive/unarchive, move, pin, recurrence maintenance and other housekeeping/system actions.
+- Applied the same meaningful-action filter to the legacy Task Details activity timeline.

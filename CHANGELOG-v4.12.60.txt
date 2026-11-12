@@ -1,0 +1,7 @@
+Workboard v4.12.60
+
+- Activity Log filter panel now uses two rows on desktop (4 controls per row).
+- Search Task or Remark is the first filter.
+- First row: Search, From Date, To Date, Workspace.
+- Second row: Work Area, Status, User, Excel.
+- Existing responsive two-column layout remains for smaller screens.

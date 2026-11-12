@@ -1,0 +1,7 @@
+Workboard v4.11.29
+
+- Moved the uploaded Workboard logo out of the sidebar and into the top-right of the application header.
+- Header logo uses a white background tile so transparent logos remain clearly visible.
+- Removed the sidebar logo block entirely, leaving the navigation clean and uncluttered.
+- In mobile portrait/vertical mode, the logo remains visible at the far right of the header with a compact responsive size.
+- Branding settings text now reflects that the logo is used in the app header and login screen.

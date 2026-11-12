@@ -1,0 +1,4 @@
+Workboard v4.10.36
+
+- Removed the visible placeholder/hint text from the Workspace search field on all devices.
+- Search accessibility label and existing search behavior are unchanged.

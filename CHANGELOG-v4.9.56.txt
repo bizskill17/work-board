@@ -1,0 +1,8 @@
+Business Board v4.9.56
+
+- Added an always-visible desktop Work Area slide dock at the bottom of the viewport.
+- Added clear left/right slide arrows.
+- Bottom scrollbar now mirrors the Work Area board horizontal position.
+- Shift+mouse-wheel and horizontal trackpad gestures scroll Work Areas.
+- Slide controls only affect the Work Area board; sidebar/header remain fixed.
+- Tablet portrait/mobile behavior is unchanged.

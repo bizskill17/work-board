@@ -1,0 +1,5 @@
+Workboard v4.13.39
+- Added Search inside active MathSpace for Math Area, Particular, contact Number and Amount.
+- Added Download Template button at the bottom of MathSpace. CSV template columns: Particular, Number, Amount.
+- Added Upload Template option in every Math Area for bulk CSV upload.
+- Bulk upload keeps Number optional/digits-only and requires Particular + Amount.

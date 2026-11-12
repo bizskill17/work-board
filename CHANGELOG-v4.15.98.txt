@@ -1,0 +1,5 @@
+v4.15.98
+- AttendSpace visibility now uses only the current Supervisor field and explicit View Attendance selection.
+- Removed legacy supervisor-list fallback that could make unrelated employees visible.
+- View Attendance no longer falls back to all users when no User is selected.
+- Supervisor rows remain punchable; View Attendance-only rows remain read-only.

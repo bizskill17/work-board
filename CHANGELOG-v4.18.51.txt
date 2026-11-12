@@ -1,0 +1,6 @@
+WorkBoard v4.18.51
+
+- Force re-login is now always enabled after every plugin activation or version update.
+- Existing server-side WordPress sessions for Workboard users, parties, department logins and administrators are invalidated.
+- Users must authenticate again on their next request, ensuring fresh permissions, nonces and frontend state after substantial updates.
+- Stores the last forced re-login timestamp, version and reason for diagnostics.

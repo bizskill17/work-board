@@ -1,0 +1,5 @@
+Business Board v4.9.27
+
+- Replaced the Work Area three-dot action menu with a direct pencil edit icon.
+- Clicking the pencil opens Edit Work Area immediately.
+- Removed the redundant three-dot Work Area menu when there is no secondary action.

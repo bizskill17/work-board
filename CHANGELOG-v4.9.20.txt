@@ -1,0 +1,8 @@
+Business Board v4.9.20
+- Replaced separate one-time and recurring task buttons with a single Add Task (+) action.
+- Added Todoist-style Quick Add: task name first, with optional Date, Assignee, Labels and More controls.
+- Added multi-assignee selection directly in Quick Add.
+- Added labels directly in Quick Add.
+- Moved recurrence and priority under More; One Time is the default.
+- Added optional description without opening the full task form.
+- Recurring tasks can be created from the same Quick Add by choosing a repeat frequency.

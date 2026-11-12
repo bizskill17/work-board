@@ -1,0 +1,5 @@
+Workboard v4.13.10
+- Fixed Workspace filter dropdowns not appearing for Work Areas, Priorities, Assignees and Labels.
+- Root cause: the one-line desktop toolbar uses horizontal overflow, which clipped absolutely positioned menus.
+- Open filter menus are now positioned against the viewport and stay above the board.
+- Keeps existing multi-select, search-in-labels, filter state and one-line toolbar behavior.

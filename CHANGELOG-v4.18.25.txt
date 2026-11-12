@@ -1,0 +1,5 @@
+WorkBoard v4.18.25
+
+- Improved Time Sheet mobile form layout.
+- Workspace, Work Area, Task and Remarks fields now use the full available card width on mobile.
+- Searchable dropdown menus also expand to the full field width.

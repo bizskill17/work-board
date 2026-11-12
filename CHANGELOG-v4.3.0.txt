@@ -1,0 +1,9 @@
+Business Board v4.3.0
+- Removed Work Area count from Workspace KPI chips.
+- Mobile header now provides Analysis, Add Work Area, Filter (funnel), and Notification actions.
+- Mobile KPI counts stay hidden until Analysis is opened.
+- Mobile Work Areas are stacked vertically instead of horizontal left/right scrolling.
+- Mobile hides Work Areas that have no Current, Overdue, or Completed tasks.
+- Mobile hides empty task sections inside a Work Area.
+- Upcoming section and Upcoming KPI are hidden on mobile.
+- Desktop Workspace board behavior remains unchanged.

@@ -1,0 +1,9 @@
+Workboard v4.11.33
+
+- Added subtle priority-based task card colors only.
+- Urgent: light red.
+- High: light orange.
+- Medium: light blue.
+- Low: light green.
+- No Priority: existing white/default card.
+- Applies consistently to task cards across workspace sections, search/filter results, desktop and mobile.

@@ -1,0 +1,5 @@
+Workboard v4.11.9
+- Made Workspace cards more compact while keeping wrapped long names.
+- Reduced vertical padding and action-row spacing.
+- Kept Edit, Archive, and Delete actions on a separate row below the Workspace name.
+- Reduced action button size slightly for a cleaner dense grid on desktop and mobile.

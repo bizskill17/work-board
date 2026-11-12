@@ -1,0 +1,7 @@
+v4.16.03
+- Reversed View Attendance permission logic.
+- While editing an employee, selected users are the viewers allowed to see that employee's attendance.
+- View Attendance supports multiple users with checkboxes.
+- Supervisor rights remain independent and retain punch rights.
+- View-only users cannot punch or modify the target employee's attendance.
+- Added automatic migration from the old single forward View Attendance setting.

@@ -1,0 +1,6 @@
+Version 4.13.77
+- Added an Add to Focus option while creating a task.
+- Quick Add now includes a one-click Focus toggle.
+- Full Create Task form includes an Add to Focus switch.
+- One-time tasks are created directly in Focus when selected.
+- Recurring tasks apply create-time Focus only to the current/first active occurrence, not every future recurrence.

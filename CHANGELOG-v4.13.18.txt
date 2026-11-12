@@ -1,0 +1,7 @@
+Workboard v4.13.18
+
+- Fixed Android/Chrome Create shortcut dialog falling back to a generic letter icon.
+- Added dedicated square 180px, 192px and 512px Workboard shortcut icons.
+- Workboard shortcut icon metadata is now emitted late in wp_head so theme/WordPress favicon tags do not override it.
+- Added explicit shortcut icon, favicon, Apple touch icon and versioned manifest URLs to avoid stale browser icon caches.
+- Manifest now references correctly sized square PNG files instead of declaring a wide uploaded branding logo as 192x192/512x512.

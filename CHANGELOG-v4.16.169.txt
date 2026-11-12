@@ -1,0 +1,6 @@
+Workboard v4.16.169
+
+- Fixed mobile Time Sheet Workspace / Work Area / Task dropdowns not appearing.
+- Dropdown menu now opens directly below its field and remains inside the Activity card.
+- Dropdown uses normal document flow on mobile so it expands the card instead of being clipped or positioned outside it.
+- Desktop behavior is unchanged.

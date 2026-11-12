@@ -1,0 +1,4 @@
+Workboard v4.16.123
+
+- Daily Activity: replaced the delete-row emoji with a clear solid red trash-bin SVG icon matching the requested style.
+- Kept the existing Add Row (+) behavior unchanged.

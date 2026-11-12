@@ -1,0 +1,7 @@
+WorkBoard v4.18.53
+
+- Task Activity: Sub Task status now displays as “Sub Task - [Original Sub Task Name] — Completed/Reopened”.
+- Activity Log now uses the same concise status-only activity format.
+- Activity Log shows only status changes, task completed/reopened, and sub task completed/reopened.
+- Activity Log combines status/detail into one Activity column.
+- Activity Log Excel export follows the same status-only, one-line Activity format.

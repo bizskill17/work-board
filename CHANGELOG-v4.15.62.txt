@@ -1,0 +1,4 @@
+Workboard v4.15.62
+- Removed the “Show task edit icons” button from every Work Area header.
+- Removed its click/toggle handler.
+- Existing task interactions and visible task metadata remain unchanged.

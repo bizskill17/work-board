@@ -1,0 +1,7 @@
+Workboard v4.15.53
+- Fixed Supervisor AttendSpace showing an assigned employee as Not Marked even when that employee already had attendance events.
+- Root cause: non-privileged users were receiving only their own attendance events, while Supervisor UI also displayed assigned employees.
+- Supervisors now receive attendance events for themselves plus all attendance-enabled employees assigned to them.
+- This keeps each supervised employee's IN/OUT button in sync with the server.
+- Supervisor-visible Weekly Off claims and attendance payroll adjustments now include assigned employees as well.
+- A stale attendance-state response now automatically refreshes AttendSpace instead of leaving the old action button on screen.

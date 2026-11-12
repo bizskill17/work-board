@@ -1,0 +1,9 @@
+Workboard v4.16.116
+
+Daily Activity
+- Fixed Workspace dropdown showing no options even when Workspaces contain Tasks.
+- Added a dedicated server-side Task hierarchy source for Daily Activity instead of relying on the current board task slice.
+- Workspace now lists only Workspaces that contain visible Tasks.
+- Work Area now lists only Work Areas with Tasks inside the selected Workspace.
+- Task now lists only Tasks inside the selected Workspace + Work Area.
+- Searchable dropdown filtering remains enabled.

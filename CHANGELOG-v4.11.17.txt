@@ -1,0 +1,5 @@
+Workboard v4.11.17
+
+- Workspace text search no longer shows the repeated Insert Work Area (+) controls between Work Areas.
+- The main + Work Area action remains available while searching.
+- Existing search filtering and Work Area visibility behavior is unchanged.

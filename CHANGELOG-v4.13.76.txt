@@ -1,0 +1,7 @@
+Version 4.13.76
+- Fixed recurring schedule anchoring: task creation date can no longer become a false recurrence date.
+- Yearly/Monthly/Weekly/etc. remain anchored to the configured Start Date.
+- Repairs unresolved legacy phantom recurrence rows that are off-schedule.
+- Recurring task deletion now distinguishes Delete This Occurrence from Delete Entire Recurring Series.
+- Deleting one occurrence creates a recurrence exception so it is not recreated on refresh.
+- Bulk deletion of a recurring occurrence now also preserves the recurring series.

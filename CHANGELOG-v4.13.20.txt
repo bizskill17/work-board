@@ -1,0 +1,7 @@
+Workboard v4.13.20
+
+- Added a Network Admin Shortcut / App Name field beside the existing Common Multisite Site Icon page.
+- Default value remains Workboard.
+- The value controls Android/Chrome shortcut name, web app manifest name/short_name, application-name, Apple mobile title, and Workboard page title.
+- Network Admin can change the launcher name later without editing code.
+- Existing shared shortcut icon behaviour is unchanged.

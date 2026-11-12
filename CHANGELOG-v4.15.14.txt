@@ -1,0 +1,8 @@
+Workboard v4.15.14
+- Dashboard + Add Task no longer uses the 3-step Workspace → Work Area → Task wizard.
+- Clicking Dashboard + now immediately opens Add Task with Workspace and Work Area selection together.
+- Work Area is locked until a Workspace is selected.
+- Selecting a Workspace immediately loads only Work Areas where the user can add tasks.
+- Selecting a Work Area immediately opens the same compact Add Task form used inside a Work Area.
+- The full Add Task modal keeps Workspace and Work Area selectors at the top so context is always visible and can be changed.
+- Work Area defaults, assignees, reminders, Actions, labels, notes and sub-tasks continue to use the existing Work Area quick-task logic.

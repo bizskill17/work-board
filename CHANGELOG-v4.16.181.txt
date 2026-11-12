@@ -1,0 +1,5 @@
+Workboard v4.16.181
+
+- Task Options now shows only one Delete Task action for normal tasks.
+- Clicking Delete Task opens the existing delete-choice screen, preserving both delete modes without showing duplicate delete icons in the main Task Options popup.
+- Recurring-task delete choices remain unchanged because occurrence and entire-series deletion are distinct actions.

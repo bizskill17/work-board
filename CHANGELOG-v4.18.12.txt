@@ -1,0 +1,6 @@
+WorkBoard v4.18.12
+
+Time Sheet
+- Remarks field now grows vertically automatically while typing.
+- Long remarks wrap inside the field without a horizontal scroll.
+- The field keeps a compact minimum height and expands only as needed.

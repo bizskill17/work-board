@@ -1,0 +1,5 @@
+Workboard v4.14.72
+- Work Area Activity button now expands activity directly below each task in that Work Area.
+- Each task activity table shows only Date and Activity.
+- Clicking the Work Area Activity button again closes all expanded activity tables.
+- Removed the single aggregate Activity panel from the bottom of the Work Area.

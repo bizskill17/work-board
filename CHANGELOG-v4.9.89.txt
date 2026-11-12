@@ -1,0 +1,6 @@
+Business Board v4.9.89
+
+- Fixed Work Area drag synchronization.
+- Top Work Area score buttons now move with dragged Work Areas.
+- Mobile/tablet Work Area chips now follow the same order.
+- Rebuilds Insert Work Area controls after each drag so + buttons do not bunch together or retain stale positions.

@@ -1,0 +1,5 @@
+WorkBoard v4.18.72
+- Added editable Morning and Evening WhatsApp Attendance Summary times.
+- Defaults remain 11:00 AM and 8:00 PM.
+- Scheduler now uses the saved times.
+- Generated attendance image heading and WhatsApp template label use the configured time.

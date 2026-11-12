@@ -1,0 +1,11 @@
+Workboard v4.15.35
+- Created real published WordPress frontend pages for Pending Tasks and Labels.
+- Pending Tasks page: /pending-tasks/
+- Labels page: /labels/
+- Both pages use the Workboard blank-app template and [business_board] app shell.
+- Plugin self-heals/recreates the pages if they are missing, trashed or unpublished.
+- Opening Pending Tasks now uses the Pending Tasks URL instead of retaining a Workspace/Task URL.
+- Opening Labels now uses the Labels URL instead of retaining another view URL.
+- Directly opening /pending-tasks/ starts in Pending Tasks.
+- Directly opening /labels/ starts in Labels.
+- Added Pending Tasks and Labels to frontend viewRoutes and Workboard page detection.

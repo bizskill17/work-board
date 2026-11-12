@@ -1,0 +1,5 @@
+Workboard v4.12.58
+
+- Long Org Name values now wrap onto multiple lines in the left sidebar instead of being cut off with an ellipsis.
+- The same wrapping behavior applies to the mobile/tablet sidebar header.
+- Collapsed desktop sidebar remains compact and continues to show the organization initial only.

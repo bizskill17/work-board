@@ -1,0 +1,6 @@
+Business Board v3.7.1
+
+- Added a visible Edit (pencil) action directly on every Workspace task card.
+- Recurring occurrence Edit opens the underlying recurring task master.
+- Forced Workspace filters into one horizontal desktop strip: Work Area | Priority | Assignee | Reset.
+- Added a tablet fallback that keeps the filters together instead of three full-width rows.

@@ -1,0 +1,6 @@
+Business Board v4.12.69
+
+- Removed the external Clipboard / Copy Task Text action from task cards in Work Areas.
+- Kept the duplicate/copy-below task action unchanged.
+- Clipboard text export remains available on Notes only.
+- Removed the reserved task action-row space that was used by the task Clipboard button.

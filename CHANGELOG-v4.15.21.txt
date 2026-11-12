@@ -1,0 +1,6 @@
+Workboard v4.15.21
+- Dashboard Add Task modal no longer shows a separate Workspace dropdown.
+- Added one searchable Work Area dropdown in the full Add Task form.
+- Work Area options now display as Workspace — (Work Area).
+- Selecting a Work Area reopens the full task form directly for that selected Work Area.
+- Added searchable dropdown UI styles for the Dashboard Add Task Work Area picker.

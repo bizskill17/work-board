@@ -1,0 +1,7 @@
+Workboard v4.15.02
+- Add Task Reminder now stays disabled until BOTH Assignee(s) and Due Date are selected.
+- Notify remains disabled until at least one Assignee is selected.
+- Made the Add Task modal shorter by collapsing Priority, Labels and Notes under a single More Options control.
+- More Options expands only when needed and can be collapsed again with Less Options.
+- Sub-tasks remain directly available in the main form for fast task breakdown.
+- Existing Priority, Labels multi-select, Add New Label and Notes save logic is preserved.

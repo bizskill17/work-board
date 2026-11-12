@@ -1,0 +1,3 @@
+Workboard v4.14.74
+- Removed repeated task name from per-task inline Activity rows.
+- Activity rows now show only the activity/status and any actual note/details after the task name.

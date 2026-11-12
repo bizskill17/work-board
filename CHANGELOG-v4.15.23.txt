@@ -1,0 +1,6 @@
+Workboard v4.15.23
+- Hidden visible scrollbars on mobile/tablet widths up to 900px.
+- Touch/swipe scrolling continues to work normally.
+- Hidden the dedicated bottom horizontal Workspace scrollbar/dock on mobile.
+- Hidden the Notespace bottom scroll dock on mobile as well.
+- Desktop scrollbar behavior is unchanged.

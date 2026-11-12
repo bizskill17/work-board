@@ -1,0 +1,5 @@
+Version 4.16.107
+- Daily Activity redesigned with a cleaner table-style UI.
+- Add Activity now supports multiple rows in one form.
+- Added Date, From, To, Workspace, Work Area, Employee, Task and Remarks fields.
+- Daily Activity list now shows structured columns and row delete action.

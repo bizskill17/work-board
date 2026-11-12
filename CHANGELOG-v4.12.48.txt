@@ -1,0 +1,6 @@
+Business Board v4.12.48
+
+- Work Area header/action section now uses a dark version of the Work Area theme color.
+- Note Area header/action section now uses a dark version of the Note Area theme color.
+- Only the Work Area / Note Area header section is colored; task and note content areas remain white/light.
+- Header titles and counts use high-contrast white text while action buttons remain clear and readable.

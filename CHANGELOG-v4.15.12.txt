@@ -1,0 +1,8 @@
+Workboard v4.15.12
+- Added Send During controls for Repeat After Due reminders.
+- Repeat After Due can now run during 24 Hours, Office Hours, or Custom Hours.
+- 24 Hours sets the active window to 00:00–23:59.
+- Office Hours uses the organization office-hours settings when available; fallback is 09:30–19:00.
+- Custom Hours reveals From and To time fields.
+- These send-window controls apply only to repeating after-due reminders.
+- Individual Before Due and individual After Due reminder rules continue to fire at their calculated exact time.

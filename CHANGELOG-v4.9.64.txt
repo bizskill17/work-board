@@ -1,0 +1,9 @@
+Business Board v4.9.64
+
+- Added Progressive Web App (PWA) support for the Business Board frontend.
+- Added web app manifest, standalone display mode, theme colors, and Business Board app icons.
+- Added a scoped service worker for Business Board static assets.
+- Added an Install Business Board button to the app header.
+- Android/Chromium: uses the native Install App / Add to Home Screen prompt when available.
+- iPhone/iPad: shows guided Safari instructions for Share > Add to Home Screen, because iOS does not expose a programmable install prompt.
+- Installed PWA opens in standalone app mode and uses a dedicated Home Screen icon.

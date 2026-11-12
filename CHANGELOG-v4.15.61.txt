@@ -1,0 +1,6 @@
+Workboard v4.15.61
+- Added Delete Row option in Masters → Holiday.
+- Table remains only two columns: Date and Holiday.
+- Delete icon is placed inside the Holiday cell, so no third Action column is added.
+- Existing saved Holiday asks for confirmation and deletes immediately.
+- Unsaved blank/new rows are removed immediately without a server request.

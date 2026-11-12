@@ -1,0 +1,9 @@
+Workboard v4.16.122
+
+- Replaced the Duplicate Row icon with a + Add row icon inside each Daily Activity row.
+- Removed the separate + Add Row button above the activity table.
+- Clicking + now inserts the next row immediately below the current row.
+- The new row starts From time with the current row To time.
+- Workspace is copied to the new row when present.
+- To time, Work Area, Task and Remarks are left blank in the new row.
+- Changed the Delete icon styling to dark red.

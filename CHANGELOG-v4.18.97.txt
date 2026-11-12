@@ -1,0 +1,1 @@
+Uniform 42px height for all main left-menu sections, 7px vertical spacing, preserved section colors and expand/collapse behavior.

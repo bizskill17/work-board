@@ -1,0 +1,5 @@
+WorkBoard v4.18.38
+
+- Time Sheet From/To dropdowns widened so the full selected HH:MM value remains visible.
+- Desktop row widths rebalanced to stay compact while preserving time readability.
+- Mobile time selectors keep full selected values visible and centered.

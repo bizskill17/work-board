@@ -1,0 +1,9 @@
+Workboard v4.16.115
+
+Daily Activity
+- Workspace dropdown now shows only Workspaces that actually contain Tasks.
+- Work Area dropdown now shows only Work Areas that actually contain Tasks in the selected Workspace.
+- Task dropdown now resolves tasks directly by Workspace ID + Work Area ID and displays the available tasks.
+- Searchable dropdown filtering fixed: typing filters options immediately.
+- Opening one searchable dropdown now closes the others to avoid overlapping menus.
+- Search dropdown width increased for clearer task/work-area names.

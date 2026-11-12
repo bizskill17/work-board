@@ -1,0 +1,3 @@
+Workboard v4.15.59
+- Changed the Notespace card Share icon to the same ↗ Share icon used in MathSpace.
+- No sharing logic changed.

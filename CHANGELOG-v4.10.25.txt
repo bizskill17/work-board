@@ -1,0 +1,5 @@
+Business Board v4.10.25
+
+- Fixed the inline subtask + button on touch/mobile browsers.
+- Added a pointer/touch-safe fallback while retaining normal desktop click and keyboard behaviour.
+- Ensured the + control is tappable above nearby card elements.

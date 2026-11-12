@@ -1,0 +1,7 @@
+Business Board v4.0.6
+
+- Fixed duplicate hamburger/menu opener in mobile view.
+- Mobile now shows only the dedicated mobile menu button.
+- Desktop continues to show only the sidebar collapse/expand button.
+- Removed the “Operations Workspace” subtitle from the top-left sidebar brand.
+- Synchronized plugin header and internal asset version to 4.0.6 for reliable cache busting.

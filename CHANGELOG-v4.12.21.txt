@@ -1,0 +1,4 @@
+Workboard v4.12.21
+- Fixed Repeat/Recurrence picker where tick marks could appear on every frequency option.
+- Only the currently selected recurrence frequency now displays a tick.
+- Incomplete occurrence policy keeps its own independent selected tick.

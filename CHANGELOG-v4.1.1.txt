@@ -1,0 +1,6 @@
+Business Board v4.1.1
+
+- Removed helper/subtitle text throughout the frontend application.
+- Removed generic explanatory text from login, masters, dashboard, reports, settings, access and workspace empty states.
+- Removed helper copy from task update, sub-task, attachment and notification areas.
+- Kept functional labels, buttons, values and validation behaviour unchanged.

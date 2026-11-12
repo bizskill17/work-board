@@ -1,0 +1,10 @@
+Business Board v4.2.1
+
+- Fixed Work Area left/right persistence: workspace_areas uses a composite key and no id column.
+- Added reliable Work Area Move Left / Move Right actions in the Work Area menu; desktop arrows remain.
+- Added clearer task Move Up / Move Down actions in the task More menu and improved touch targets.
+- Task reorder now updates immediately and persists to sort_order.
+- Mobile Workspace filters moved behind a compact Filter button.
+- Empty Current / Overdue / Upcoming / Completed sections collapse to compact rows on mobile.
+- Mobile Work Area header hides move arrows to reduce clutter; movement is available from the menu.
+- Hardened mobile navigation so only one hamburger is visible.

@@ -1,0 +1,4 @@
+Business Board v4.9.46
+
+- Sub Task Add flow improved: when a sub-task is being typed, one tap on + Add Sub Task now saves the current entry and immediately creates/focuses the next blank sub-task row.
+- Enter continues to perform the same save-and-next action.

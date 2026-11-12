@@ -1,0 +1,5 @@
+Version 4.14.14
+- Due Reminder no longer sends as a side-effect of Add/Edit/Save Task or Save Reminder.
+- Removed immediate overdue reminder catch-up from reminder save.
+- AJAX requests no longer run the fallback reminder processor at shutdown.
+- Scheduled 5-minute cron remains the delivery trigger for Before Due and After Due reminders.

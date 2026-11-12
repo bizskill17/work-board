@@ -1,0 +1,5 @@
+Workboard v4.16.130
+
+- Replaced left-menu view icons with clean bullet points.
+- Applied the bullet style consistently to Dashboard, Work, Billing, Time Sheet, HR, Notes, Math and Masters view links.
+- Preserved full-color active view highlighting, section colors and collapsible navigation behavior.

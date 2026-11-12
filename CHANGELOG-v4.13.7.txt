@@ -1,0 +1,7 @@
+Workboard v4.13.7
+
+- Fixed desktop Workspace header search field being visible but non-interactive.
+- Root cause: legacy CSS globally hid all search inputs inside the topbar with pointer-events:none, height:0, and visibility:hidden.
+- Added a scoped Workspace-only exception so the search input is visible, focusable and typeable.
+- Clicking anywhere inside the Workspace search wrapper now focuses the input.
+- No search/filter logic or database schema changes.

@@ -1,0 +1,4 @@
+WorkBoard v4.17.4
+- Removed the decorative icon from the left side of Notespace cards.
+- Added drag-and-drop Notespace reordering for Owner/Manager/Admin, matching Workspace movement behavior.
+- Restricted Time Sheet record deletion to Owner/Manager/Admin at both UI and server level.

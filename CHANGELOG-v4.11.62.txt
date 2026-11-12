@@ -1,0 +1,6 @@
+Workboard v4.11.62
+
+- Removed the AI/Gemini sparkle icon from the frontend top header.
+- Changed Workspace/Work Area Template delete action to a dark-red filled button.
+- Added filled background colors to Edit, top Close (×), and bottom Close controls in the template contents popup.
+- No template workflow or AI backend settings logic changed.

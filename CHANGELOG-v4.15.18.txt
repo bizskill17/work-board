@@ -1,0 +1,6 @@
+Workboard v4.15.18
+- Moved the three Daily Dashboard quick-action buttons to the bottom-right corner.
+- Quick actions are now stacked vertically instead of side by side.
+- Punch Attendance, Add Note and Add Task remain in the same order.
+- Added responsive bottom/right spacing for mobile screens.
+- Existing quick-action functionality is unchanged.

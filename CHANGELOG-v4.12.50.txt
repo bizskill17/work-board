@@ -1,0 +1,7 @@
+Workboard v4.12.50
+
+- Work Area body now shows a light tint of that Work Area's selected color.
+- Note Area body now shows a light tint of that Note Area's selected color.
+- Dark area headers remain unchanged.
+- Task cards and Note cards remain white for readability.
+- Existing area borders, action buttons, priority colors, and sharing logic are unchanged.

@@ -1,0 +1,6 @@
+Workboard v4.12.18
+- Removed the Workspace sharing explanatory sentence from the Workspace form.
+- Added + Add User beside + Add Person in the Workspace Owners & Assignees section.
+- Add User opens a nested quick user form and selects the newly created user back into the Workspace sharing row.
+- Quick user creation now includes the required Login ID and Password fields so it can save successfully.
+- Removed the complete Work Areas section from the Workspace create/edit form, including the Save the Workspace first instruction.

@@ -1,0 +1,5 @@
+Workboard v4.14.58
+
+- Fixed MathSpace creation returning HTTP 500 on upgraded/multisite installs where one or more MathSpace database tables or columns were missing.
+- Added a lightweight self-repair check for MathSpace, Math Area and Math Entry tables before MathSpace saves.
+- Existing MathSpace data is preserved; the repair only creates missing tables/columns.

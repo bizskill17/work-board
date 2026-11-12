@@ -1,0 +1,5 @@
+Workboard v4.14.68
+- Added a new comment/activity icon after the last task action icon.
+- Clicking the comment/activity icon now opens an inline activity table below the task card.
+- The inline table shows Date, Activity, Remark and User for that task occurrence.
+- Added a close button on the inline activity panel and kept the existing activity modal unchanged.

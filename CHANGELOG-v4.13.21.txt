@@ -1,0 +1,7 @@
+Workboard v4.13.21
+
+- Added a Test button beside Morning Pending Tasks Reminder in WordPress Settings > Workboard.
+- Test runs the real Morning Pending Tasks Reminder logic immediately for the current site.
+- It uses the same qualifying-task rules, assignee grouping, Meta template and dynamic Open Workspaces button as the scheduled morning run.
+- Test runs use a unique source key so the button can be used repeatedly without interfering with the normal once-per-day scheduled digest.
+- Added confirmation and an inline result showing messages, assignees and qualifying tasks.

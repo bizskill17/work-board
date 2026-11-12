@@ -1,0 +1,5 @@
+v4.15.90
+- Added per-User View Attendance permission below Supervisor in Attendance & Payroll.
+- When enabled, an Employee can view all active employees in Today Attendance only.
+- The permission is view-only: it does not grant punch, edit, delete, Attendance Register, Monthly Sheet, or Settings rights.
+- Added safe database migration for attendance_view_others.

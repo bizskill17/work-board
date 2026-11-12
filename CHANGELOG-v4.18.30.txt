@@ -1,0 +1,7 @@
+WorkBoard v4.18.30
+- Task Options now shows exactly five actions: Archive Task, View Activity, Delete Activity, Delete Task, and Delete Task & Activity.
+- Removed explanatory taglines from Task Options.
+- Delete Activity removes only task activity history.
+- Delete Task removes the task while retaining activity history.
+- Delete Task & Activity removes both task data and activity history.
+- Recurring task cards apply delete actions to the displayed occurrence.

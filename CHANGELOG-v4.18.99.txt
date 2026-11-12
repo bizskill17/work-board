@@ -1,0 +1,1 @@
+Removed Archived Work Areas, Archived Tasks, and Deleted Work Areas buttons from the desktop and mobile workspace toolbar. They remain accessible through the Settings drawer.

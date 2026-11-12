@@ -1,0 +1,10 @@
+Workboard v4.15.60
+- Removed the instructional line below Holiday Master.
+- Removed Update All button.
+- Added Download Template.
+- Added Upload Template.
+- Holiday CSV template contains only Date and Holiday columns.
+- Download Template includes existing Holiday rows so they can be edited in bulk and uploaded again.
+- Upload Template bulk upserts Holiday rows by Date.
+- Manual inline Date/Holiday edits now save automatically on change, so Update All is no longer required.
+- Clearing the Date of an existing row removes that Holiday.

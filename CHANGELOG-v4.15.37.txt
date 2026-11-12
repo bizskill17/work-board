@@ -1,0 +1,9 @@
+Workboard v4.15.37
+- Pending Tasks > Update no longer opens the full View / Update Task detail screen.
+- Added a compact Update Task modal containing only:
+  - Update To
+  - Remark
+- Update To offers Completed plus the Task Stages configured for that Work Area.
+- Completing from this form respects sub-task completion rules.
+- Remark is required only when the Work Area has Update Remarks Required enabled; otherwise it remains available but optional.
+- Updating a Stage and completing a Task continue to use the existing backend task-status logic.

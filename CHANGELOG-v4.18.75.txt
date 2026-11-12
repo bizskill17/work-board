@@ -1,0 +1,11 @@
+WorkBoard v4.18.75
+
+- Added duplicate-name validation for Notespace, Note Area, MathSpace and Math Area.
+- Notespace and MathSpace names are unique within their respective modules.
+- Note Area names are unique within the selected Notespace.
+- Math Area names are unique within the selected MathSpace.
+- Duplicate checks ignore letter case, leading/trailing spaces and repeated internal spaces.
+- Validation runs in both the frontend and server/API.
+- Edit mode excludes the current record from duplicate checks.
+- Duplicate validation keeps the form open and focuses the Name field.
+- Existing duplicate records are not automatically modified or deleted.

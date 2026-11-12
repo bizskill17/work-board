@@ -1,0 +1,8 @@
+WorkBoard v4.18.74
+
+- Added Delete action to Leave list.
+- Delete is visible only to WorkBoard Managers and WordPress Administrators.
+- Added server-side permission enforcement for leave deletion.
+- Added confirmation before deleting a leave.
+- Deleted leave is removed from the current list immediately without a full page reload.
+- Pending Leave Approval also shows Delete for Manager/Admin.

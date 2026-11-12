@@ -1,0 +1,6 @@
+v4.15.91
+- Removed helper/description text from the User Add/Edit form as requested.
+- Removed User profile form description.
+- Removed Department and Designation helper text.
+- Removed Login ID helper text.
+- Removed View Attendance helper text.

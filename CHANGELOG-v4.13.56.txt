@@ -1,0 +1,7 @@
+v4.13.56
+
+- Simplified Create Workspace form.
+- Removed Folder, Status, Create From, and Description from the Create Workspace screen.
+- New Workspaces default to Active, with no folder and blank description.
+- Folder, Status, and Description remain available when editing an existing Workspace.
+- Workspace Owner / sharing controls remain unchanged.

@@ -1,0 +1,6 @@
+Workboard v4.16.175
+
+- Fixed sub tasks not appearing on the task card immediately after Add Task or Edit Task.
+- Saving a task with one or more sub tasks now automatically keeps the inline sub-task section open.
+- The visibility state is persisted server-side, so sub tasks remain visible after state refresh/reload.
+- Removing all sub tasks during edit closes the inline sub-task section.

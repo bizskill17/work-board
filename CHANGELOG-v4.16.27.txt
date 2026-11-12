@@ -1,0 +1,5 @@
+v4.16.27
+- Mobile Workspace top header is fixed while the board scrolls.
+- Header includes menu, Workspace selector/name, chart, add, filter and logo actions.
+- Added top content offset so cards never slide underneath the fixed header.
+- Mobile filter overlay opens below the fixed header.

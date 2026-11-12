@@ -1,0 +1,5 @@
+v4.13.54
+- Added Copy Particular action icon.
+- Added Move Particular action icon to move an entry to another Math Area in the same MathSpace.
+- Added searchable destination Math Area picker.
+- Existing 6-dot handle remains for reordering Particulars within the current Math Area.

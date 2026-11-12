@@ -1,0 +1,8 @@
+Workboard v4.13.42
+- Math Area Add/Edit now includes two optional checkboxes: Date and Contact Number.
+- Date field appears in Math Entry only when Date is enabled for that Math Area.
+- Contact Number appears in Math Entry only when Contact Number is enabled for that Math Area.
+- Renamed Number to Contact Number throughout MathSpace UI.
+- Date and Contact Number display below Particular only when enabled and filled.
+- Added entry_date plus per-area show_date/show_contact_number database fields with automatic dbDelta migration.
+- Math CSV template now includes Particular, Date, Contact Number and Amount; optional columns are respected according to Math Area settings.

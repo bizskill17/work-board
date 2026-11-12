@@ -1,0 +1,7 @@
+Business Board v4.9.61
+
+- Fixed Create Work Area button on mobile/tablet by using an explicit click handler instead of relying only on implicit form submission.
+- Kept normal form submit as a fallback.
+- Added duplicate-click protection and visible Creating/Updating state.
+- Added explicit validation for Work Area name and Workspace context.
+- Improved AJAX failure handling so save errors are shown instead of failing silently.

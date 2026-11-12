@@ -1,0 +1,5 @@
+Workboard v4.12.00
+
+- Move Task modal is centered vertically and horizontally on mobile.
+- Mobile Move Task dialog uses a compact full-radius card instead of the bottom-sheet layout.
+- Existing searchable Work Area dropdown and move-task logic are unchanged.

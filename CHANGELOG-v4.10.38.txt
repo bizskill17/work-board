@@ -1,0 +1,5 @@
+Workboard v4.10.38
+
+- Drag Work Area action is now left-aligned on the second action row.
+- Remaining Work Area action icons stay grouped on the right.
+- Uniform action icon sizing is retained.

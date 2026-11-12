@@ -1,0 +1,5 @@
+Version 4.13.86
+- AttendSpace Employee login now shows only the logged-in employee.
+- Employee view no longer shows the team User filter or team attendance counters.
+- Attendance events returned to Employee logins are restricted server-side to that employee only.
+- Manager, Owner and Administrator retain the full team AttendSpace view.

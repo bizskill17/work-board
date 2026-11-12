@@ -1,0 +1,5 @@
+Workboard v4.15.63
+- Added an Edit Task button beside Copy Task in the task-card bottom action row.
+- Clicking the pencil opens the existing compact Edit Task form.
+- Recurring occurrences open their underlying recurring Task master for editing.
+- Edit button is shown to Administrator / Task Owner users with edit/share rights.

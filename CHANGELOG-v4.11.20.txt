@@ -1,0 +1,4 @@
+Workboard v4.11.20
+- Work Area header now floats below the app header while scrolling down a Workspace.
+- Floating header stays aligned with horizontal Work Area scrolling.
+- Header returns to its normal position when the Work Area leaves view.

@@ -1,0 +1,8 @@
+WorkBoard v4.18.42
+
+- Time Sheet Remarks cells now show a compact two-line preview by default.
+- A down arrow is shown only when the Remarks text exceeds the two-line preview.
+- Clicking the arrow expands the full Remarks for that row; clicking again collapses it.
+- Line breaks and entered formatting are preserved.
+- Excel export continues to use the full Remarks text.
+- Works on desktop and mobile without an internal Remarks scrollbar.

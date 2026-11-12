@@ -1,0 +1,7 @@
+Business Board v4.3.1
+
+- Mobile Workspace filters now display Work Area, Priority and Assignee in one row.
+- Tapping outside the filter panel closes/minimises it.
+- Tapping outside an open multi-select closes that dropdown.
+- Opening one multi-select closes the other open filter dropdowns.
+- Reset control remains compact at the end of the same row.

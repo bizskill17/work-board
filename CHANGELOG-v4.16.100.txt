@@ -1,0 +1,5 @@
+Workboard v4.16.100
+- Fixed repeated Attendance location timeout errors.
+- Increased browser geolocation timeout and added a two-stage location lookup.
+- Uses a recent successful location briefly to avoid unnecessary repeated location requests.
+- Shares an in-progress location request so multiple attendance actions do not start duplicate browser location requests.

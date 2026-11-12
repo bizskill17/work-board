@@ -1,0 +1,14 @@
+Business Board v4.9.0
+
+- Removes the Department concept from the active product UI and access model.
+- Removes Department Login, Department menu, Department-to-Workspace mapping and Access Override menu.
+- Every login is now a Business Board User. Visibility depends on the logged-in User and what is shared with that User.
+- Sharing roles are simplified to Owner and Assignee only.
+- Owner = View + Edit + Update + Share.
+- Assignee = View + Update.
+- Parent sharing still flows downward through Workspace -> Work Area -> Task -> Sub Task; there is no Department-based inheritance.
+- Direct Work Area / Task / Sub Task shares expose their containing Workspace without granting sibling-task access.
+- Fixes task edit permissions so a Task Owner can edit the task even when not a Workspace Owner.
+- Task action menu is hidden for Assignees; they retain View / Update and completion controls.
+- Legacy Department login accounts are safely migrated to normal Users on upgrade. Existing Department Workspace links are converted to Assignee shares for the migrated User account.
+- Legacy Department tables are retained only for upgrade/backup safety and are no longer used by the active application.

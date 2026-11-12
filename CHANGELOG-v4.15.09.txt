@@ -1,0 +1,9 @@
+Workboard v4.15.09
+- Replaced the separate Before Due / After Due reminder switches with Google Calendar-style reminder rows.
+- Each reminder row now contains Number + Unit + Before Due/After Due.
+- Users can add multiple independent reminder rules with + Add Reminder.
+- Example rules: 30 Minutes Before Due, 1 Day Before Due, 2 Hours After Due.
+- When at least one After Due rule exists, an optional Repeat after due section becomes available.
+- Repeat after due supports Number + Minutes/Hours/Days/Weeks + duration.
+- Reminder creation remains disabled until both Assignee(s) and Due Date are selected.
+- Existing backend Before/After reminder fields are populated for compatibility.

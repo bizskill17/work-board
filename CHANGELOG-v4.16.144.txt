@@ -1,0 +1,8 @@
+Workboard v4.16.144 — Mobile Note Area Stacked Layout
+
+- Note Areas now stack vertically on mobile screens below 768px.
+- Removed horizontal Note Area scrolling on mobile.
+- Each Note Area uses the full available mobile width.
+- Mobile Note Area drag/reorder now follows the vertical order.
+- Long-press drag supports page auto-scroll near the top/bottom edges.
+- Desktop/tablet horizontal Note Area layout remains unchanged.

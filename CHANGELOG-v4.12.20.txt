@@ -1,0 +1,5 @@
+Workboard v4.12.20
+- Fixed new Work Area / Note Area color suggestion logic.
+- New Accent Color / Color now avoids colors already used anywhere in Workboard areas, Workspaces, Notespaces, and previously suggested unsaved forms in the current session.
+- This prevents repeatedly showing the same purple/default color when creating new Work Areas or Note Areas.
+- Editing an existing area continues to preserve its saved color.

@@ -1,0 +1,5 @@
+Workboard v4.12.27
+- Fixed search filtering in Move Task and Move Note dropdowns.
+- Non-matching Work Areas / Note Areas are now actually hidden while typing.
+- The No matching message appears only when there are truly no matches.
+- Search is case-insensitive and resets correctly after selecting an Area.

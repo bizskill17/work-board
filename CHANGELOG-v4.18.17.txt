@@ -1,0 +1,8 @@
+WorkBoard v4.18.17
+
+Time Sheet
+- Blank Work Area now displays as a truly blank cell (no dash placeholders).
+- Workspace name appears below Work Area only when a Workspace exists.
+- Reduced Date, Time and Employee column widths.
+- Increased Remarks column width to use the recovered table space.
+- Existing horizontal scrolling remains available where required.

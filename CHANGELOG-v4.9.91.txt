@@ -1,0 +1,15 @@
+Business Board v4.9.91
+Post-v4.9.90 feature update
+
+1. Due dates show DD Mon in current year and DD Mon YY in other years.
+2. Added searchable multi-select Labels filter with OR within Labels and AND across filter groups.
+3. Added Work Area Templates with optional assignee/due-date copying and destination Workspace selection.
+4. Enhanced Workspace Templates: Create Blank/Create from Template, optional assignee/due-date copying, labels/subtasks/settings retained, history/archive excluded.
+5. Added interactive Completed tab beside Overdue.
+6. Added Completed-mode individual, Work Area, and Workspace selection with bulk Archive/Delete. Recurring occurrence cleanup does not stop future recurrence.
+7. Added Excel-compatible export of currently visible Workspace tasks respecting active filters/modes.
+8. Redesigned Activity Log as Task Updates Register only: In Progress, Progress Update/Remark, Completed.
+9. Added Activity filters and Excel-compatible export of currently filtered update rows.
+10. Fixed Workspace creation redirect so the exact newly-created Workspace opens.
+11. Workspace Owner/Admin can delete Work Areas even with tasks, with Active/Completed/Archived warning counts.
+12. Added fixed viewport-bottom horizontal Workspace scrollbar for desktop when horizontal scrolling is required.

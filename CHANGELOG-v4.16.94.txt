@@ -1,0 +1,3 @@
+v4.16.94
+- Hide the floating quick-action stack on desktop/tablet widths above 700px.
+- Keep the app-style bottom quick navigation available on mobile only.

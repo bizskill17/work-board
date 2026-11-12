@@ -1,0 +1,6 @@
+Business Board v4.9.32
+
+- Current, Overdue, Upcoming and Completed top KPI counters are now calculated directly from task data.
+- KPI counters update immediately with Work Area, Priority and Assignee filters.
+- KPI counters also follow search text, task completion/undo, and responsive/hidden sections.
+- Completed KPI continues to mean tasks completed today.

@@ -1,0 +1,5 @@
+Workboard v4.16.124
+
+- Standardized all icon-style Delete actions to use the same solid red trash-bin icon.
+- Applied the icon across Workspace, Work Area, Masters, Notes, Math, Tasks, Sub Tasks, Attendance, Holidays, Attachments and Daily Activity where the Delete action is icon-only.
+- Text buttons such as “Delete Attendance” remain text buttons for clarity.

@@ -1,0 +1,8 @@
+Workboard v4.16.147 — Sidebar Option 2
+
+- Reworked the left navigation to the selected Option 2 mockup.
+- Uses one dark navy sidebar base with a slim colour accent line for each main section.
+- Removed pastel section cards and heavy submenu boxes.
+- Kept clear bullets, compact spacing, and nested subsections.
+- Active view now uses a restrained dark highlight with a section-colour left edge.
+- Applied consistently on desktop and mobile.

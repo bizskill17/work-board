@@ -1,0 +1,6 @@
+Workboard v4.14.81
+- Removed Status from the Create Work Area form; Status remains available when editing an existing Work Area.
+- Added Template selector to Create Work Area with Blank Work Area as the default.
+- Selecting a Work Area Template creates the new Work Area from that template.
+- Removed the explanatory line below Update Remarks Required.
+- Removed the explanatory line below Task Stages.

@@ -1,0 +1,4 @@
+Workboard v4.11.12
+- Workspace text search now filters matching tasks without hiding non-matching Work Area columns.
+- Work Area score cards and mobile Work Area tabs remain visible during text search.
+- Work Area insertion controls remain hidden while search is active.

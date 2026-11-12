@@ -1,0 +1,9 @@
+WorkBoard v4.18.23
+
+- Improved Time Sheet Add/Edit Activity form responsiveness on mobile.
+- Removed horizontal scrolling from the mobile entry form.
+- Date and Employee fit cleanly in a compact two-column row (stack below 360px).
+- From and To remain side-by-side; Workspace, Work Area, Task and Remarks use full card width.
+- Reduced mobile padding and control heights while keeping touch-friendly controls.
+- Remarks stays full-width and auto-grows.
+- Added bottom clearance so Save/Cancel are not hidden behind the mobile navigation.

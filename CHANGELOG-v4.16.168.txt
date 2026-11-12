@@ -1,0 +1,5 @@
+Workboard v4.16.168
+
+- Mobile Time Sheet Workspace, Work Area and Task dropdowns now stay within the Activity card width.
+- Dropdown menus open directly below their field without extending outside the card horizontally.
+- Existing searchable dropdown behavior and desktop layout are unchanged.

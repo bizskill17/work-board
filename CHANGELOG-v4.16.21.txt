@@ -1,0 +1,6 @@
+v4.16.21
+- Short Hours status now shows shortage duration as Xh Xm instead of day fraction.
+- Grace Time is respected when calculating the displayed shortage duration.
+- If an employee punches IN late, live status remains Late until final Office OUT is marked.
+- On-time employees continue to show Working / Inside (or temporary-out status) until final OUT.
+- Final OUT then recalculates Present, Short Hours, Overtime, etc.

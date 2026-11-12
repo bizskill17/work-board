@@ -1,0 +1,4 @@
+Business Board v4.9.79
+
+- Removed the Accent Color helper/tagline from the Work Area form.
+- Accent Color now shows only the color control for a cleaner compact layout.

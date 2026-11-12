@@ -1,0 +1,8 @@
+Workboard v4.13.12
+
+- Made all Workspace filter dropdowns searchable: Work Areas, Priorities, Assignees and Labels.
+- Added search fields inside Quick Add Assignee and Owner dropdowns.
+- Search filters options instantly without changing selected checkboxes.
+- Added No results found state.
+- Search resets whenever a dropdown is newly opened.
+- Preserved multi-select behavior and existing first-open positioning fix.

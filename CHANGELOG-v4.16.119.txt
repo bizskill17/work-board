@@ -1,0 +1,8 @@
+Workboard v4.16.119
+
+Daily Activity
+- Removed the duplicate Daily Activity heading from the list card.
+- Removed the "Track employee work entries and activity logs." subtitle.
+- Removed the Total Time summary from the list header.
+- Kept + Add Activity aligned on the right.
+- Added clearer spacing between filter fields.

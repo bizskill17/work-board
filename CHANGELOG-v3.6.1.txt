@@ -1,0 +1,15 @@
+Business Board v3.6.1
+=====================
+
+Inline master creation for dynamic dropdowns
+--------------------------------------------
+- Added a compact + button beside table-driven dropdowns on data-entry forms.
+- Task form: Workspace, Work Area and Assignee can be created without leaving the task form.
+- Work Area form: Work Area Head can create a new User inline.
+- Department form: Department Head can create a new User inline.
+- User form: Primary Department can create a new Department inline.
+- Access form: User and Workspace can be created inline.
+- Quick-create opens as a nested modal, preserving all data already entered in the parent form.
+- Newly created values refresh from the database and are automatically selected on return.
+- Report/filter dropdowns intentionally remain clean and do not show + buttons.
+- Quick-created Departments are created without Department Login enabled; login/password can be configured later from Edit Department.

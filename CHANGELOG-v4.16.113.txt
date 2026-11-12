@@ -1,0 +1,4 @@
+Version 4.16.113
+- Fixed Daily Activity Task suggestions not appearing.
+- Replaced browser datalist with reliable searchable dropdown menus for Workspace, Work Area and Task.
+- Task menu now opens on click/focus and shows all tasks for the selected Work Area, with live search.

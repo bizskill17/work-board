@@ -1,0 +1,6 @@
+v4.16.42
+- Work Area Party sharing now uses the same unified sharing UI as User sharing.
+- Party selector + ADD / EDIT / DELETE / VIEW + Person+ control.
+- Selected Parties appear in PARTY / ACTION table.
+- Mobile uses icon-only permission controls.
+- Party permissions are stored per Work Area and enforced server-side.

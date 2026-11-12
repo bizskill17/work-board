@@ -1,0 +1,9 @@
+Workboard v4.14.46
+
+- Added Restore Backup under WordPress Settings → Workboard → Backup & Export.
+- Restore accepts Workboard JSON backups and replaces this site's Workboard tables only.
+- Starts a safety backup download before restore from the admin UI.
+- Preserves network wallet and network messaging credentials.
+- WordPress Media Library files are not embedded/restored.
+- Employee WordPress logins are relinked by email where possible; unmatched users are reported after restore.
+- Backups from a newer Workboard version are blocked until the destination plugin is updated.

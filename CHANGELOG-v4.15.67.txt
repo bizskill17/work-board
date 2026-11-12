@@ -1,0 +1,5 @@
+Workboard v4.15.67
+- Fixed Workspace Switcher search field not accepting input.
+- Root cause: older global topbar CSS intentionally hid all search inputs in the header.
+- The Workspace Switcher search now explicitly overrides those legacy rules.
+- Live Workspace filtering logic remains unchanged.

@@ -1,0 +1,7 @@
+Workboard v4.12.04
+
+- Fixed Move Task modal still appearing as a mobile bottom sheet.
+- Moved the shared modal host outside the Workboard app container so fixed positioning is viewport-relative.
+- Move Task now portals to document.body and applies viewport-centering with inline !important styles.
+- Keeps the searchable Work Area dropdown and explicit Move Task confirmation button.
+- Other modals keep their existing behavior after the Move Task modal closes.

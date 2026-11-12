@@ -1,0 +1,1 @@
+Replaced Pending, Overdue and Completed workspace toolbar buttons with a single Status dropdown. Existing filters and counts are preserved in the underlying tasks logic.

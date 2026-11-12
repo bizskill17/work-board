@@ -1,0 +1,6 @@
+Workboard v4.15.72
+
+- Share Note Area and Share Math Area dropdowns now hide users who are already selected in the sharing table.
+- After adding a user, that user is immediately removed from the dropdown.
+- After removing a user from the sharing table, that user becomes available in the dropdown again.
+- Existing ADD / EDIT / DELETE / VIEW permission behavior is unchanged.

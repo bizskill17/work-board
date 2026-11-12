@@ -1,0 +1,4 @@
+Workboard v4.12.16
+- Fixed frontend flash of raw/un-styled HTML before Workboard opens.
+- Workboard CSS and JavaScript are now enqueued before wp_head() on all Workboard frontend routes.
+- Added a minimal first-paint background guard for the blank Workboard frontend template.

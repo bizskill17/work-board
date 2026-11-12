@@ -1,0 +1,1 @@
+Hide surplus Work Area insertion (+) controls when Status = Both and during other board filters.

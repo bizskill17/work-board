@@ -1,0 +1,7 @@
+Business Board v3.8.3
+
+- Fixed lean recurring-task calculation so a past scheduled occurrence that has no history row yet is still treated as unresolved.
+- The Workspace now always shows the oldest unresolved recurring occurrence first.
+- Example: yearly task starting 01/07/2026 and not completed now stays Overdue on 01/07/2026 instead of jumping to 01/07/2027.
+- Applies to Daily, Weekly, Fortnightly, Monthly, Quarterly, Yearly and Custom Interval recurrences.
+- Future occurrences remain virtual; no unnecessary rows are pre-created.

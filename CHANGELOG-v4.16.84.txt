@@ -1,0 +1,7 @@
+v4.16.84
+- Mobile bottom navigation renamed to Workspaces | Tasks | AttendSpace | NoteSpace | Add Task.
+- On mobile, AttendSpace opens the AttendSpace module instead of the punch popup.
+- On mobile, NoteSpace opens the NoteSpace module instead of the quick-note popup.
+- Add Task continues to open the Add Task form directly.
+- AttendSpace and NoteSpace receive the active-section highlight.
+- Desktop floating quick actions keep their previous punch / quick-note behavior.

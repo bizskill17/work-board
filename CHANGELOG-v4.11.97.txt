@@ -1,0 +1,7 @@
+Workboard v4.11.97
+
+- Replaced the long Work Area button list in Move Task with a compact searchable dropdown.
+- Type any part of a Work Area name to filter the dropdown instantly.
+- Current Work Area remains clearly identified and cannot be selected as the destination.
+- Enter key moves to the first matching destination; Escape closes the dropdown.
+- Optimized the picker for desktop and mobile while preserving the existing move-task backend and task data.

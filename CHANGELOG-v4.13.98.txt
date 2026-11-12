@@ -1,0 +1,5 @@
+Workboard v4.13.98
+- Attendance punches now store a readable address resolved from captured GPS coordinates.
+- Punch History displays the readable address with GPS accuracy and keeps the exact map link.
+- Raw latitude/longitude remain stored as the source of truth.
+- Address lookup failure never blocks a valid punch.

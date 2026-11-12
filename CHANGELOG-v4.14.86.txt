@@ -1,0 +1,4 @@
+Workboard v4.14.86
+- When the desktop left menu is hidden, the main workspace now uses the full available width.
+- Sidebar is fully removed from layout instead of leaving residual reserved area.
+- Topbar, content and workspace toolbar stretch to full width after menu hide.

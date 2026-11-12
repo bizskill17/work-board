@@ -1,0 +1,7 @@
+Workboard v4.16.184
+
+- Fixed the Sub Task icon disappearing a few seconds after adding or editing a task.
+- Task cards now derive Sub Task availability from both the server count and the loaded checklist rows.
+- During the background post-save reconciliation, a temporarily stale server response can no longer wipe the just-saved Sub Task list/count from the card.
+- The Sub Task icon remains visible after the optimistic card is replaced by the refreshed server card.
+- Existing collapsed-by-default behavior after a normal page refresh remains unchanged.

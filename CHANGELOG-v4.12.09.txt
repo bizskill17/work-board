@@ -1,0 +1,4 @@
+Workboard v4.12.09
+
+- Renamed the mobile/overlay left navigation header from “Menu” to “WorkBoard”.
+- Preserved the existing drawer styling, section layout, close button, navigation behaviour and all v4.12.08 functionality.

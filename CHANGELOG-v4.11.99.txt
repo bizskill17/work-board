@@ -1,0 +1,8 @@
+Workboard v4.11.99
+
+- Fixed mobile navigation so the full side menu opens from every Workboard view, not only inside a Workspace.
+- Mobile no longer inherits a desktop collapsed-sidebar state that could hide non-active menu items.
+- Added responsive breakpoint handling for the side menu.
+- Added clear red trash/delete controls for Sub Tasks for Task Owners/Admins.
+- Sub Tasks can be deleted directly from expanded Task Cards, the inline Sub Tasks panel, and Task Details.
+- Deleting a Sub Task removes only that Sub Task; the parent Task remains unchanged.

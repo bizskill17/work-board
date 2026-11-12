@@ -1,0 +1,5 @@
+Workboard v4.16.99
+
+- Fixed Activity Log rows appearing more than once when multiple Employee records matched the same WordPress user/email.
+- Fixed Activity Excel export using the same duplicate-producing employee joins.
+- Made task completion/reopen requests idempotent so repeated AJAX submissions do not add duplicate Activity Log entries.

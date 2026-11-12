@@ -1,0 +1,5 @@
+Workboard v4.12.73
+
+- Quick Add: Set Reminder checkbox is disabled until a Due Date is selected.
+- Clearing the Due Date automatically turns the reminder off and hides its controls.
+- Selecting a Due Date enables Set Reminder immediately.

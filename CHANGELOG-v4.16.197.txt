@@ -1,0 +1,5 @@
+WorkBoard v4.16.197
+
+- Sub-task typing fields now wrap long text automatically.
+- Sub-task fields grow vertically as the user types instead of keeping text on one line.
+- Applied to the quick Add/Edit Task sub-task section and the standard task form.

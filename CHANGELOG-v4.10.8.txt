@@ -1,0 +1,8 @@
+Business Board v4.10.8
+
+- Added per-task notification control while adding a task (enabled by default).
+- Assignees receive an in-app notification when newly assigned to a task.
+- Task owners receive an in-app notification when task details/status/progress/subtasks are updated.
+- Notification messages are also sent by email when Email Notifications is enabled in Settings.
+- Existing global "New task assignment" setting is respected.
+- Notifications can be disabled for an individual task from the task notification option.

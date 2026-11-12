@@ -1,0 +1,7 @@
+Business Board / Workboard v4.10.29
+
+- Added a dedicated Workspace task search visible on desktop, tablet and mobile.
+- Search matches Work Area names, task names and assignee names using the existing Workspace search logic.
+- Added a clear-search button.
+- Search keeps keyboard focus while typing even though the board re-renders.
+- Replaced the Workspace topbar search with the same dedicated in-board search for a consistent all-device experience.

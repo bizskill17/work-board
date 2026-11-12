@@ -1,0 +1,5 @@
+Workboard v4.11.21
+
+- Workspace view: when an active search/filter returns zero matching Workspaces, the background message “No Workspaces created yet” is no longer shown.
+- The empty-state message is now shown only when that Workspace collection is genuinely empty.
+- Existing Archive and Trash empty-state behaviour is preserved.

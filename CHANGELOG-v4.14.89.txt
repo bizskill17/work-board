@@ -1,0 +1,4 @@
+Workboard v4.14.89
+- Increased the bottom horizontal scroll dock size for the Workspace board.
+- Enlarged left/right buttons, track and thumb for clearer visibility and easier dragging.
+- Dock now spans one clean full row at the bottom and adapts when the sidebar is hidden.

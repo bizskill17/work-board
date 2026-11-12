@@ -1,0 +1,7 @@
+Workboard v4.13.33
+
+- Morning Pending Tasks Reminder now sends a simple numbered task list only.
+- Workspace and Work Area names are no longer included in the WhatsApp digest.
+- Tasks are separated with ` | ` so the existing approved two-variable Meta template can remain unchanged.
+- Due dates remain in dd/mm/yyyy format.
+- Example: 1. Task A - (12/09/2026) | 2. Task B - (12/09/2026)

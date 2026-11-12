@@ -1,0 +1,5 @@
+Business Board v4.9.40
+- Fixed inline task icons appearing unresponsive on tablet/mobile.
+- Popup position now uses explicit important inline coordinates so responsive CSS cannot force menus off-screen.
+- Inline task action buttons now use type="button" to prevent accidental form submission behavior.
+- Retains anchored popovers, direct date picker, remarks, labels, recurrence, assignees and sub-task controls.

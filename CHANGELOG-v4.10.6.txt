@@ -1,0 +1,6 @@
+Business Board v4.10.6
+
+- Refined the Workspace Excel export button only.
+- Replaced the generic document/X-style symbol with a clear spreadsheet-grid icon.
+- Added a subtle Excel-green treatment, border and hover state for a cleaner, more recognisable action.
+- No task, permission, filter, routing or layout logic changed.

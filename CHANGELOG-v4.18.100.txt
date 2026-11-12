@@ -1,0 +1,1 @@
+Removed the horizontal Work Area score-card row from the Workspace header. Work Areas remain available in Settings; mobile area navigation and actual board columns remain intact.

@@ -1,0 +1,9 @@
+Business Board v4.9.21
+
+- Refined the Work Area Add Task (+) control with a cleaner outlined SVG icon and compact hover/press treatment.
+- Portrait tablets (641–1024px) now stack Work Areas vertically instead of laying them out left-to-right.
+- Mobile Work Area headers now show Up / Down controls for reordering Work Areas; desktop keeps Left / Right controls.
+- Added a unique slug to every task and a direct task route: /business-board/task/{task-slug}/.
+- Existing tasks are automatically backfilled with unique slugs; newly created/imported tasks receive slugs automatically.
+- Clicking a task name or eye button opens the task using its task URL, allowing direct task links.
+- Hardened Create Work Area: clear submitting state, validation, AJAX failure feedback, reliable Workspace mapping, and order preservation on edit.

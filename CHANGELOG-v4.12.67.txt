@@ -1,0 +1,10 @@
+Business Board v4.12.67
+
+- Added a desktop-only “Show this view” selector inside each Workspace.
+- Available views: Card, Table and Calendar.
+- Card remains the default view and keeps the existing Work Area board exactly as before.
+- Table view shows Task, Work Area, Priority, Assignee, Due, Status and Edit action.
+- Calendar view shows tasks by due date in a month grid, with Previous / Today / Next month navigation and a separate No Due Date section.
+- Existing Workspace search and filters apply to Card, Table and Calendar views.
+- Mobile/tablet layout continues to use the existing Card view.
+- Preserves all v4.12.66 packaging and Notespace Excel fixes.

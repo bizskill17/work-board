@@ -1,0 +1,6 @@
+Version 4.14.15
+- Dashboard hides Workspace cards when both Tasks Added and Tasks Updated are zero.
+- Dashboard is the default first view when no explicit route is requested.
+- Left navigation sections now work as a single-open accordion.
+- Opening one section automatically collapses every other collapsible section.
+- Dashboard keeps all collapsible sections closed.

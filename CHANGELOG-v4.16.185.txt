@@ -1,0 +1,6 @@
+Workboard v4.16.185
+
+- Simplified the normal-task Delete Task confirmation popup.
+- Removed the retain-activity delete option from the popup.
+- The popup now shows only one Delete Permanently action.
+- Permanent delete continues to remove the task, remarks, sub tasks and activity after confirmation.

@@ -1,0 +1,1 @@
+Minutes-mode Time Sheet: allocate 41% of entry table to Remarks with full-width, taller text area. From/To mode unchanged.

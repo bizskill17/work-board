@@ -1,0 +1,9 @@
+Business Board v3.5.1
+=======================
+
+Workspace filter layout fix
+- Work Area, Priority and Assignee filters now remain on one compact horizontal row on desktop.
+- Removed the premature 1100px stacking breakpoint that could trigger on desktop browsers with display scaling/zoom.
+- Desktop layout is explicitly protected from global filter-field rules.
+- Narrow tablet layouts can horizontally scroll the compact filter controls instead of creating three full-width rows.
+- Mobile behaviour remains unchanged.

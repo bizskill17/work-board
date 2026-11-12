@@ -1,0 +1,9 @@
+Workboard v4.11.96
+
+- Reordered the left navigation to Work, Notes, then Masters.
+- Made Work, Notes, and Masters independently collapsible.
+- Masters is collapsed by default to keep daily views visible.
+- The section containing the current active view opens automatically.
+- Collapse state is remembered in the browser.
+- Made the navigation area vertically scrollable while keeping the logged-in user / Log Off area fixed and visible.
+- Improved left-menu readability on shorter screens.

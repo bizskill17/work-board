@@ -1,0 +1,8 @@
+Workboard v4.11.91
+- Removed the Quick Add helper line: “Assignees are notified when assigned. Task owners are notified when the task is updated.”
+- Added an optional Set Reminder checkbox beside the task notification option.
+- Reminder supports a number plus Hours, Days or Weeks; Minutes appears only when Due Time is filled.
+- Reminder settings are saved on the task and are available in the full Task form as well as Quick Add.
+- Added a one-minute Workboard reminder processor that sends the reminder to all selected task Assignees.
+- Reminder notifications are created in Workboard and follow Email notification settings when Email is enabled.
+- A dedicated Task Reminder WhatsApp event is reserved but disabled by default until a matching Meta template is configured.

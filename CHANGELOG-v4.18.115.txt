@@ -1,0 +1,1 @@
+Workspace grouped PDF: full-width group heading rows without column lines; avoid orphaned group headers, repeat group labels at page breaks.

@@ -1,0 +1,8 @@
+v4.16.30
+- Prevents duplicate Work Area names inside the same Workspace.
+- Validation runs in both frontend and backend.
+- Name comparison is case-insensitive, trims leading/trailing spaces, and collapses repeated spaces.
+- Editing a Work Area excludes its own record from the duplicate check.
+- Same Work Area name remains allowed in a different Workspace.
+- Template-based Work Area creation uses the same duplicate validation.
+- Validation message: A Work Area with this name already exists in this Workspace.

@@ -1,0 +1,4 @@
+WorkBoard v4.18.39
+- CallSpace Create Task button now shows linked task count.
+- Orange when count is 0; green when count is greater than 0.
+- Tasks created from CallSpace are persistently linked and counted.

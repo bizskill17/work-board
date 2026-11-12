@@ -1,0 +1,6 @@
+Version 4.14.07
+- Retired workboard_urgentmessage from manual urgent and automatic after-due reminder routing.
+- Manual Urgent Reminder now uses workboard_urgent_reminder with 5 variables: Task, Workspace, Work Area, Notes, Required By.
+- Automatic After Due / Until Completed reminders now use workboard_due_reminder with 5 variables: Task, Workspace, Work Area, Due Date, Notes.
+- Due Reminder Notes are fixed to: Task is overdue and still not completed.
+- Added separate Meta settings/toggles for Urgent Reminder and Due Reminder.

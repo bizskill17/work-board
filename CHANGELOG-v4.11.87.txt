@@ -1,0 +1,6 @@
+Workboard v4.11.87
+- Task Activity and Add to Focus actions moved below task metadata (below the M/priority line).
+- Both actions are icon-only; no text labels are shown on the task card.
+- Tooltips and accessibility labels remain available.
+- Task Activity uses a history icon; Focus uses the existing target icon.
+- Existing subtask hierarchy toggle remains on the right side.

@@ -1,0 +1,8 @@
+WorkBoard v4.18.36
+
+Time Sheet
+- Increased From and To field size on mobile.
+- Replaced mobile text time entry with dropdown-style 24-hour time selectors.
+- Time options are available in 5-minute intervals (for example 11:20, 11:25, 11:30).
+- Existing saved times that do not fall on a 5-minute interval remain available while editing.
+- From and To remain side by side in one row on mobile.

@@ -1,0 +1,8 @@
+WorkBoard v4.18.71
+
+- Rebuilt Morning and Evening WhatsApp attendance summary images to match the approved large-text mockup.
+- Increased card labels, totals, section titles, table headings and row text for WhatsApp/mobile readability.
+- Uses Arial when installed on the server, with Liberation Sans as the metric-compatible fallback.
+- Kept proper bordered tables and compact dynamic image height.
+- Morning layout: Total, Present, Absent, Late, On Leave; Absent and Late tables.
+- Evening layout: Total, Present, Absent, Early, Less Hours, On Leave; Absent, Early and Less Working Hours tables.

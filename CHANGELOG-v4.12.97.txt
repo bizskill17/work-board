@@ -1,0 +1,5 @@
+Workboard v4.12.97
+
+- In task edit/details view, a Reminder button now appears below Add Remark.
+- In the inline Remarks popover opened from the task card, a Reminder button is also shown below the remark box.
+- Clicking the Reminder button opens the Edit Task form so reminder settings can be updated quickly.

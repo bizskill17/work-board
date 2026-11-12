@@ -1,0 +1,6 @@
+Business Board v4.9.93
+- Fixed top Workspace filter bar overflow globally.
+- Work Area, Priority, Assignee and Labels now share available width instead of using conflicting fixed widths.
+- Excel and Reset remain compact action controls.
+- Added responsive 2-column wrapping for narrower layouts and mobile filter panel.
+- Prevents Labels filter clipping/overflow across views and screen sizes.

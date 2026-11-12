@@ -1,0 +1,8 @@
+WorkBoard v4.18.84
+
+- Fixed intermittent malformed Task Updated WhatsApp messages.
+- Centralized WhatsApp event-type normalization so task completion/reopen/stage-update aliases use the full 7-variable Task Updated payload instead of a generic two-variable payload.
+- Task Updated now always reloads the complete task record from the database before building Meta variables.
+- Unknown WhatsApp event types no longer silently fall back to the Task Updated template.
+- Added a safety guard so a live Task Updated WhatsApp cannot be sent without a valid task ID.
+- Blank values continue to be sent as '-' without shifting template variable positions.

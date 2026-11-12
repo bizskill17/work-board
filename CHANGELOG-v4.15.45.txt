@@ -1,0 +1,8 @@
+Workboard v4.15.45
+- Made Workspace and Work Area filters dependent on each other in Pending Tasks.
+- Selecting one or more Workspaces limits the Work Area dropdown to Work Areas belonging to those Workspaces.
+- Selecting one or more Work Areas limits the Workspace dropdown to the corresponding Workspaces.
+- Incompatible selections are automatically cleared.
+- Added the same two-way Workspace / Work Area dependency in Activity Log.
+- Activity Log Workspace and Work Area options are based on actual Activity Log records.
+- Searchability and existing filter behavior remain unchanged.

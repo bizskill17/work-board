@@ -1,0 +1,1 @@
+Fix Task Options delete confirmations using explicit centered custom dialog instead of native Chrome confirm. Preserves delete mode, scope and existing permissions.

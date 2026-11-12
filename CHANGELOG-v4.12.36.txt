@@ -1,0 +1,5 @@
+Workboard v4.12.36
+- Rebuilt Flash task blinking using a full-card animated overlay so it cannot be overridden by existing task background/priority CSS.
+- Flash task now visibly alternates between yellow/amber and stronger orange/red glow.
+- Added a pulsing Flash icon and blinking left accent.
+- Flash tasks continue to stay pinned at the top of their task section.

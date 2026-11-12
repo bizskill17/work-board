@@ -1,0 +1,7 @@
+Business Board v4.9.94
+- Refined the Workspace filter layout globally across all views.
+- Desktop keeps four filters in one row with compact Excel and Reset actions.
+- Tablet/mobile now use two filters per row: Work Area + Priority, then Assignee + Labels.
+- Excel and Reset are compact icon actions on the third row instead of large full-width buttons.
+- Replaced XLS text with an Excel/download document icon while retaining accessible labels/tooltips.
+- Added final responsive overrides to prevent earlier fixed-width rules from squeezing filters into one mobile row.

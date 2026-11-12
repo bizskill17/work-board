@@ -1,0 +1,5 @@
+v4.16.62
+- Pending Tasks now includes a Sub Tasks column when subtasks exist.
+- Shows only incomplete subtasks with progress count.
+- Subtasks can be completed directly from Pending Tasks.
+- Pending Tasks Excel export now includes Sub Tasks.

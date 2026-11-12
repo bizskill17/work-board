@@ -1,0 +1,3 @@
+WorkBoard v4.17.2
+- Login page now uses the supplied full WorkBoard logo artwork instead of the fallback B icon / separate Workboard text.
+- Responsive logo sizing added for desktop and mobile login layouts.

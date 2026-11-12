@@ -1,0 +1,7 @@
+Workboard v4.15.48
+- Removed per-Sub Task Owners / Assignees controls.
+- Edit Task form no longer shows Task Owners & Assignees.
+- Edit Task form no longer shows Attachments.
+- Create Task keeps its existing Task Owners & Assignees and Attachments sections.
+- Existing sharing remains manageable from the Task Share / Manage Sharing flow.
+- Existing files remain accessible from the Task detail / proof flow.

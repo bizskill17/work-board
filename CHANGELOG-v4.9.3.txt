@@ -1,0 +1,8 @@
+Business Board v4.9.3
+
+- Fixed frontend Business Board user login.
+- Users can now sign in with Login ID, Email, or exact User Name.
+- Login resolves the Business Board User record first and authenticates its linked WordPress login account.
+- Inactive users are blocked with a clear message.
+- Missing/unlinked login accounts return a clear administrator message.
+- Administrator WordPress login/email remains supported.

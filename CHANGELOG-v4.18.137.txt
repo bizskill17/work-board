@@ -1,0 +1,1 @@
+Highlights verified @User and @Party mentions in rendered task names and task activity remarks in theme color without changing saved plain text.

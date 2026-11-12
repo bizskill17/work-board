@@ -1,0 +1,8 @@
+Business Board v4.9.42
+
+- Redesigned the inline Repeat menu into a compact polished popover.
+- Added clear recurrence initials: D, W, F, M, Q, Y.
+- Fortnightly now uses F.
+- Added color-coded recurrence badges and selected-state check mark.
+- Custom repeat expands inline in the same popover.
+- One Time / Remove repeat is visually separated at the bottom.

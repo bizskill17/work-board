@@ -1,0 +1,5 @@
+WorkBoard v4.18.28
+
+- Removed the colored/green line visible inside the mobile bottom navigation.
+- Mobile bottom navigation now uses an opaque white background and neutral top divider.
+- Desktop navigation is unchanged.

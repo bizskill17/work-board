@@ -1,0 +1,5 @@
+WorkBoard v4.18.32
+
+- Moved the CallSpace top-level sidebar section to appear immediately below Work.
+- CallSpace module visibility still follows Settings > Show CallSpace.
+- No CallSpace functionality or permissions were changed.

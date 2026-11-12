@@ -1,0 +1,7 @@
+Business Board v4.10.13
+
+- Refined Todoist-style inline subtask layout.
+- Subtasks now remain inside the task card and align beneath the task title with a subtle hierarchy connector.
+- Replaced the awkward subtask action control with a proper hierarchy/list icon below Task Activity.
+- Improved mobile wrapping and icon alignment.
+- Main task completion remains separate from subtask completion.

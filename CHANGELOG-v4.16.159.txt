@@ -1,0 +1,5 @@
+Workboard v4.16.159
+
+- Folder view: removed the folder icon shown to the left of each Folder name.
+- Folder action buttons (manage contents, edit, delete) now use the same square size and alignment.
+- Existing Folder functionality is unchanged.

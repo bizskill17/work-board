@@ -1,0 +1,4 @@
+Workboard v4.14.79
+- Updated Work Area Activity button selected state.
+- When Show Activity is opened, the Activity icon now displays a dark background with white icon for clearer visibility.
+- Hover state remains light when inactive.

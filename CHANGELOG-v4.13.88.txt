@@ -1,0 +1,3 @@
+Version 4.13.88
+- Removed the Manage Out / In Combos button from the AttendSpace toolbar.
+- Existing attendance combo data and punch history remain unchanged.

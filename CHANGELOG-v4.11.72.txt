@@ -1,0 +1,5 @@
+Workboard v4.11.72
+
+- Fixed inline popup cross buttons that could still appear with a white/transparent background.
+- Remarks and all other inline popovers now force a dark-red background (#991b1b) with a white X.
+- The cross appearance remains identical on normal, hover, focus and active states.

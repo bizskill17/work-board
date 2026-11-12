@@ -1,0 +1,11 @@
+Workboard v4.16.102
+
+- Added optional Time Sheet module, hidden by default.
+- Added Time Sheet > Daily Activity frontend view.
+- Added Daily Activity entry form with Date & Time timestamp, Activity, Time and User.
+- Added filters for Date From, Date To, Activity, Time and User.
+- Added total filtered time calculation.
+- Owners/Managers/Administrators can view all users; Employees see their own activity.
+- Added Settings > Modules > Show Time Sheet toggle (default OFF).
+- Added dedicated bb_timesheet_entries table and included it in Workboard backup/restore.
+- Retains v4.16.101 Attendance 20-second location timeout and earlier Activity Log duplicate fixes.

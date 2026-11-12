@@ -1,0 +1,8 @@
+Business Board v4.10.18
+
+- Task names now enter inline edit mode on a single click/tap; double-click/double-tap is no longer required.
+- Subtask names now enter inline edit mode on a single click/tap.
+- Press Enter while editing a subtask to save and automatically move to the next subtask in edit mode.
+- If Enter is pressed on the last subtask, the new-subtask input opens automatically and stays ready for continuous entry.
+- New subtask entry now keeps focus and smoothly scrolls the active row into view, improving the end-of-card mobile experience.
+- Escape cancels a subtask edit; clicking/tapping outside saves it.

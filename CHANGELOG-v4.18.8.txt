@@ -1,0 +1,6 @@
+WorkBoard v4.18.8
+
+- CallSpace Party dropdown is now searchable.
+- CallSpace Recipient user dropdown is now searchable.
+- CallSpace Report To user dropdown is now searchable.
+- Existing selected values remain prefilled when editing.

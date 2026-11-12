@@ -1,0 +1,6 @@
+Workboard v4.12.42
+- Fixed the Clipboard action icon visibility on Task Cards.
+- Replaced the tiny ambiguous clipboard SVG with a clearer clipboard-board icon.
+- Added a light-blue icon background and larger 18px glyph so it is visibly different from the duplicate/copy icon.
+- Applied the same clearer Clipboard icon to Note Cards.
+- Clipboard copy behavior remains unchanged.

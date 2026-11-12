@@ -1,0 +1,3 @@
+v4.16.01
+- Removed descriptive/tagline text shown under headings in all Add/Edit forms.
+- Form titles, fields, labels and functional help text inside fields remain unchanged.

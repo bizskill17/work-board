@@ -1,0 +1,5 @@
+v4.18.130 — Re-login policy
+- Removed forced login on plugin activation and version upgrades.
+- Require a fresh login at most once every three days (72 hours) for Workboard-linked users.
+- The first three-day interval starts on initial installation of this policy.
+- Manual logout, WordPress session invalidation, and existing permission checks are unaffected.

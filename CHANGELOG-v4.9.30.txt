@@ -1,0 +1,8 @@
+Business Board v4.9.30
+
+- Fixed Work Area filtering so the complete Work Area card/column hides, including tablet portrait and mobile layouts that previously forced it visible with responsive CSS.
+- Rebuilt Priority filtering using normalized task priority values.
+- Rebuilt Assignee filtering against the task's full effective assignee ID list, including multiple and inherited assignees.
+- Priority and Assignee filters now hide Work Areas that contain no matching tasks.
+- Current, Overdue, Upcoming and Completed section counts now use filter matches rather than CSS :visible state.
+- Added filter-specific hidden classes with !important so responsive display rules cannot override filtering.

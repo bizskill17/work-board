@@ -1,0 +1,6 @@
+Version 4.13.93
+- Simplified Monthly Sheet: removed Leave, Absent and Late columns.
+- Added Designation as a dedicated Monthly Sheet column.
+- Department column is shown only when at least one displayed User has a Department selected.
+- Monthly Sheet Department filter lists only Departments actually assigned to attendance-enabled Users and is hidden when none are assigned.
+- Added Excel download for the currently filtered Monthly Sheet.

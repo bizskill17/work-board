@@ -1,0 +1,6 @@
+Workboard v4.11.68
+
+- Task Assigned WhatsApp messages now show all selected task assignees in one comma-separated value, e.g. "ABC, XYZ".
+- Task Updated WhatsApp messages continue to show all selected task assignees using the same comma-separated format.
+- Assignee order is kept stable based on the task assignment order.
+- If only one assignee is selected, only that name is shown.

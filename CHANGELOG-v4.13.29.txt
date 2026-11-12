@@ -1,0 +1,4 @@
+Workboard v4.13.29
+- Math Area total moved into the Math Area header, directly below the Math Area name.
+- Removed duplicate total row from the bottom of each Math Area table.
+- Existing MathSpace grand total remains unchanged.

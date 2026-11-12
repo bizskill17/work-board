@@ -1,0 +1,2 @@
+Time Sheet PDF: widened Remarks column and added multi-line wrapping with automatic row heights.
+Workspace PDF: wrap long cell text, retain full-width group headers and paginate variable-height rows.

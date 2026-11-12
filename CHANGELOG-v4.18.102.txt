@@ -1,0 +1,4 @@
+- Added a Pending Tasks toggle to the workspace toolbar before the overdue KPI.
+- Added Table-only Group By selector: Assignee, WorkArea, Due date, and None.
+- Rendered group heading rows with task counts in Workspace Table view.
+- Clear Filters resets Pending Tasks.

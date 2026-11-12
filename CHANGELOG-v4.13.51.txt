@@ -1,0 +1,4 @@
+v4.13.51
+- Fixed MathSpace cards not opening their Math Areas after the sharing update.
+- MathSpace card click now opens the selected MathSpace directly without re-routing through the same view.
+- Preserves Math Area sharing and delete-only-when-empty rules from v4.13.50.

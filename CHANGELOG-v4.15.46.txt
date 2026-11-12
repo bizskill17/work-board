@@ -1,0 +1,6 @@
+Workboard v4.15.46
+- Fixed Activity Log Search not filtering rows while typing.
+- Search now reacts to input, keyup and browser search-clear events.
+- Search text is normalized so line breaks and wrapped table text do not prevent matching.
+- Search query is preserved while the Activity Log view is re-rendered.
+- Clear Filters also clears the stored Activity Log search query.

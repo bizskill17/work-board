@@ -1,0 +1,6 @@
+Workboard v4.16.120
+
+Daily Activity
+- Moved + Add Row onto the same line as Date and Employee.
+- Keeps the Add Row button aligned to the right on desktop.
+- Retains responsive full-width stacking on small screens.

@@ -1,0 +1,5 @@
+Version 4.14.08
+- Compacted the After Due reminder configuration UI.
+- Repeat interval, active hours, duration and 24-hour option now use a tighter desktop layout.
+- Mobile layout remains responsive and compact.
+- Reminder scheduling logic is unchanged.

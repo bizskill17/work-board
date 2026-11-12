@@ -1,0 +1,8 @@
+Business Board v4.9.67
+
+- Existing task cards now default to a clean display mode.
+- Empty inline task edit icons stay hidden until Task Edit Mode is enabled for that Work Area.
+- Added a Work Area header Task Edit Mode toggle; only one Work Area is placed in edit mode at a time.
+- Populated metadata remains visible in clean read-only form while edit mode is off.
+- Quick Add now shows the full task icon vocabulary: Priority, Assignee, Date, Recurrence, Labels, Remark, and Sub Tasks.
+- Quick Add supports initial remark and multiple initial sub tasks.

@@ -1,0 +1,6 @@
+v4.16.20
+- AttendSpace now shows recorded overtime directly in the attendance status badge.
+- Example: Overtime · 0h 15m.
+- Late attendance with overtime shows: Late · Overtime 0h 15m.
+- Added Overtime to the AttendSpace status filter.
+- Overtime display does not automatically credit payroll; Manager/Owner approval logic remains unchanged.

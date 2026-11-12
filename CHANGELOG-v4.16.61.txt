@@ -1,0 +1,4 @@
+v4.16.61
+- Settings > Modules now displayed as a compact two-column table.
+- Columns: Module and Action.
+- Module checkboxes remain functionally unchanged.

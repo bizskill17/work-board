@@ -1,0 +1,5 @@
+v4.16.14
+- Break column now shows actual break interval times (e.g. 2:08 PM – 2:49 PM) instead of only break duration.
+- Multiple actual breaks are displayed in sequence.
+- When no actual break punch exists and the standard break is auto-applied, Break shows Auto plus the duration.
+- Applied consistently to AttendSpace, employee attendance details, Attendance Register and Excel export.

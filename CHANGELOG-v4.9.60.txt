@@ -1,0 +1,7 @@
+Business Board v4.9.60
+
+- Quick Add now uses the same compact metadata icons as task cards: Date, Assignee, Repeat and Labels.
+- Recurrence is visible directly in the Quick Add front row.
+- Priority and Description remain under More.
+- Selected Quick Add values display compactly beside their icons.
+- Work Area Add Task + toggles to × while Quick Add is open, allowing one-tap close.

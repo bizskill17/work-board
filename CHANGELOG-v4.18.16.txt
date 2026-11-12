@@ -1,0 +1,7 @@
+WorkBoard v4.18.16
+
+- Increased the Time Sheet Remarks area in the Add/Edit Activity form.
+- Remarks textarea now auto-grows without a fixed height limit.
+- Increased the Remarks column width in the Time Sheet register.
+- Time Sheet register now preserves line breaks and formatting in Remarks.
+- Horizontal scrolling remains available when the wider table exceeds the screen.

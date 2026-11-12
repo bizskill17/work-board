@@ -1,0 +1,14 @@
+Business Board v3.5.0
+
+Workspace UI compression and navigation refinement
+
+1. Workspace board now begins after only two compact rows.
+2. Large KPI cards removed from individual Workspace view and replaced by compact KPI chips.
+3. Large Active Workspace / global Add Task toolbar removed from Workspace board.
+4. Filters are integrated into the compact second row.
+5. Add Task is now available as a + icon in every Work Area header, with Workspace and Work Area preselected.
+6. Bottom + Add Task footer removed from each Work Area column.
+7. Desktop left menu can be collapsed/expanded from the top bar.
+8. Sidebar preference is remembered in the browser for the user.
+9. Mobile menu continues to work as an off-canvas overlay.
+10. Workspace board starts substantially higher on the screen.

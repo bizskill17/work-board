@@ -1,0 +1,7 @@
+Business Board v4.9.47
+
+- Labels now use the same one-tap continuous-add flow as Sub Tasks.
+- Tapping + Add Label while text is entered saves/selects that label and immediately opens the next blank label row.
+- Enter remains an optional shortcut for the same behavior.
+- Duplicate labels are prevented case-insensitively and with normalized whitespace.
+- Existing duplicate label choices are deduplicated in the inline label picker.

@@ -1,0 +1,5 @@
+Business Board v4.9.11
+
+- Makes Work Area outer border and rounded top corners crisp and fully visible.
+- Adds a non-interactive perimeter overlay so header backgrounds cannot visually cover the corner border.
+- Keeps overflow visible so Work Area action menus are not clipped.

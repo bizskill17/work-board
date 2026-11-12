@@ -1,0 +1,7 @@
+Business Board v4.9.33
+- Added drag-and-drop movement of task cards between Work Areas using the existing six-dot grip.
+- Drag within the same Work Area still reorders tasks vertically.
+- Destination Work Area receives a green outline while hovered during a cross-area drag.
+- Dropped task keeps its task data and slug; only its Work Area and manual order change.
+- Source/destination counts and filtered board state refresh immediately after a successful move.
+- Supports Current, Overdue, Upcoming and Completed task buckets, including empty destination buckets.

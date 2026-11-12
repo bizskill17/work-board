@@ -1,0 +1,5 @@
+v4.16.39
+- Added Settings > Modules > Enable Party Share.
+- Added optional Party login ID/password.
+- Added Work Area Party sharing.
+- Party logins are view-only and restricted to shared Work Areas/tasks.

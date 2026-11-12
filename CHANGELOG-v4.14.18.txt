@@ -1,0 +1,5 @@
+Version 4.14.18
+- AttendSpace employee names are clickable and open the existing User/Edit form.
+- Added Excel download for the currently filtered AttendSpace table.
+- Restored From/To date filters in mobile AttendSpace.
+- Mobile toolbar keeps Clear and Excel actions compact side by side.

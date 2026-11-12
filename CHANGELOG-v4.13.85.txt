@@ -1,0 +1,13 @@
+Version 4.13.85 — AttendSpace
+
+- Added AttendSpace as a new Attendance module with virtual daily date areas for the current month, newest date first.
+- Added Attendance Active/Inactive control to Users. Only active Employee/Manager users enabled for attendance appear in AttendSpace.
+- Added automatic attendance activation start date so newly-enabled Users are not shown as missing attendance for earlier dates.
+- Added User Salary field as a monthly base value for future Salary Sheet support. Salary is not exposed to non-privileged users.
+- Added main IN / OUT attendance punching with automatic state switching.
+- Added reusable custom Out/In combos such as Lunch Out / Lunch In, Client Visit Out / Client Visit In, etc.
+- Custom combo actions require the User to be IN first and prevent overlapping open combos.
+- Added date, User and attendance status filters.
+- Added Manager/Admin correction of attendance time with mandatory reason and audit trail; attendance entries can also be deleted with an audit reason.
+- Past dates remain visible as history; punching is allowed only for today.
+- No backend Work Areas are created for attendance dates; date areas are rendered from attendance data in the frontend.

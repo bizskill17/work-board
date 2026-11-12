@@ -1,0 +1,7 @@
+Workboard v4.11.1
+- Fixed AI Workspace Builder failures being reported as opaque admin-ajax HTTP 500 errors.
+- Shows the exact OpenAI/Gemini provider error inside the AI window.
+- Prevents duplicate Generate Draft requests.
+- Uses OpenAI Responses JSON mode for more reliable Workspace draft parsing.
+- Updates untouched OpenAI default model from gpt-5 to gpt-5.6 while preserving custom model choices.
+- Increased AI request timeout and improved transport/invalid-response handling.

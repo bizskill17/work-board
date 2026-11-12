@@ -1,0 +1,7 @@
+Business Board v4.9.54
+
+- Added a dedicated compact mobile task-card layout.
+- Task title stays on one line with ellipsis for long names.
+- Metadata stays on one horizontal row and scrolls sideways instead of wrapping.
+- Reduced mobile card padding, gaps, drag grip size and eye-control size.
+- Desktop and tablet layouts remain unchanged.

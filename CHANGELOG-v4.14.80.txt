@@ -1,0 +1,4 @@
+Workboard v4.14.80
+- Expanded task activity history to show other statuses, not only Completed.
+- Activity tables below tasks now include Created, Updated, In Progress, Pending, Reopened, Stage Changed, Completed and related sub-task/remark updates.
+- Added clearer labels for the extra activity types.

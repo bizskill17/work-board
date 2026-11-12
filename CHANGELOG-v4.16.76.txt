@@ -1,0 +1,7 @@
+v4.16.76
+- Added progressive/lazy state loading for faster Workboard startup.
+- Initial bb_get_state now requests scope=core and skips Notes, Math, Attendance/Leave history, Templates, Scoreboard/Reports history and other module-only datasets.
+- Heavy module data is loaded automatically only when the relevant module is opened.
+- Direct URLs to lazy modules automatically fetch full state before rendering.
+- Quiet background refreshes preserve core/full scope so normal Task actions do not unnecessarily reload all modules.
+- Existing UI/routes remain unchanged.

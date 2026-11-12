@@ -1,0 +1,7 @@
+WorkBoard v4.18.85
+
+- Task Updated WhatsApp now sends only to explicit Task Owner(s).
+- Task Updated sends only when the task Notification toggle is enabled.
+- No Task Owner selected = no Task Updated message.
+- Assignees do not receive Task Updated unless they are also selected as Task Owner.
+- Normal Edit Task saves now use the same owner-only Task Updated notification flow as status/completion/subtask updates.

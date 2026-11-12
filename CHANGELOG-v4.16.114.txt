@@ -1,0 +1,7 @@
+Workboard v4.16.114
+
+- Fixed Daily Activity Workspace / Work Area / Task searchable dropdown visibility.
+- Dropdown menus now open above table overflow with a wider readable list.
+- Fixed Task choices by matching both IDs and normalized Workspace / Work Area names.
+- Fixed selected searchable values syncing to hidden form fields before save.
+- Task selection now saves the selected task correctly.

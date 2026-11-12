@@ -1,0 +1,7 @@
+Workboard v4.11.77 — Folder Workspace Cards
+
+- Workspaces shown inside a Folder now use the same colorful card backgrounds as the main Workspaces view.
+- Added the same Workspace actions inside Folder view: Edit, Archive, and Move to Trash.
+- Standalone / Without Folder Workspaces use the same Workspace card styling and actions.
+- Folder Workspace grids now use the full available content width and the same responsive card layout as Workspaces.
+- Existing Folder assignment and permissions remain unchanged.

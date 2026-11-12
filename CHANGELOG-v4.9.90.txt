@@ -1,0 +1,7 @@
+Business Board v4.9.90
+
+- Removed Expand / Contract Work Area control.
+- Added spreadsheet-style temporary Work Area width resizing on desktop.
+- Drag the right edge of a Work Area to make it wider or narrower.
+- Width changes are intentionally temporary and reset on refresh.
+- Mobile/tablet narrow view keeps the existing responsive width.

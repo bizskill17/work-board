@@ -1,0 +1,5 @@
+WorkBoard v4.18.1
+
+- CallSpace: Party is now a plain manual text field with no suggestion/dropdown list.
+- CallSpace: Recipient is now a plain manual text field with no suggestion/dropdown list.
+- Caller behavior remains unchanged.

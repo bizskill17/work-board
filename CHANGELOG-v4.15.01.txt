@@ -1,0 +1,7 @@
+Workboard v4.15.01
+- Checked all dropdowns in the Add Task modal.
+- Fixed Labels: replaced the plain text box with a searchable multi-select dropdown using existing labels, plus Add New Label.
+- Fixed Reminder: it now opens as soon as Due Date is selected; Assignee selection no longer blocks opening/configuration.
+- Notify remains disabled until at least one Assignee is selected, as designed.
+- If a reminder is configured without an Assignee, final Add Task validation asks the user to select an Assignee before saving.
+- Recurring and Priority remain standard select dropdowns and continue to work inside the modal.

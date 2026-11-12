@@ -1,0 +1,5 @@
+Workboard v4.11.85
+
+- Removed the top-header global search field from the Folders view.
+- The Folder page's own local search remains available.
+- Global search automatically returns on all other Workboard views.

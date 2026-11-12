@@ -1,0 +1,6 @@
+Workboard v4.13.2
+
+- Fixed Workspace search and consolidated duplicate search event handlers.
+- Workspace search now matches Work Area, task text, assignee/owner, labels, due date/time, description and remarks where available.
+- Notespace search now matches Note Area name and description; matching a Note Area keeps that area visible with its notes.
+- Removed the duplicate inner close icon from Task Options/Delete Task modals; only the standard modal close button remains.

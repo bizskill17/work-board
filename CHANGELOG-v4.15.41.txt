@@ -1,0 +1,7 @@
+Workboard v4.15.41
+- Fixed Activity Log rows collapsing into the first column.
+- Root cause: Activity Log table rows were using the existing .bb-activity-row class, which belongs to the Dashboard activity feed and uses CSS Grid.
+- Activity Log rows now use a separate .bb-activity-log-row class.
+- Explicitly restored proper HTML table-row and table-cell display behavior.
+- Added practical column widths and horizontal overflow handling.
+- Retained searchable filters, cell borders, and colorful status-based row styling.

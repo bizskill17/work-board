@@ -1,0 +1,5 @@
+Workboard v4.14.83
+- Further reduced the Card/Table/Calendar selector width and height.
+- Reduced Work Areas, Task Stage, Priorities, Assignees and Labels filter widths.
+- Reduced toolbar button, export and reset icon sizes for a tighter desktop toolbar.
+- Kept labels readable while reducing unused horizontal space.

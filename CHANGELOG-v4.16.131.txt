@@ -1,0 +1,5 @@
+Workboard v4.16.131
+
+- Standardized delete/remove controls in forms and tables to the approved solid red trash-bin icon.
+- Applies automatically to dynamically rendered rows, reminders, subtasks, attachments, attendance and other delete/remove controls.
+- Preserves each existing delete action and confirmation logic; only the visual control is normalized.

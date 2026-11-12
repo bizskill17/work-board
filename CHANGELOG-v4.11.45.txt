@@ -1,0 +1,6 @@
+Workboard v4.11.45
+
+- Fixed long task titles on mobile task cards.
+- Long task names now wrap naturally inside the card instead of being clipped or extending outside the card.
+- Task cards grow vertically to fit the full title.
+- Drag handle, status controls and side actions remain aligned to the top for multi-line task titles.

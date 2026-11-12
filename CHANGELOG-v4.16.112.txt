@@ -1,0 +1,3 @@
+Version 4.16.112
+- Daily Activity Workspace, Work Area and Task selectors are now searchable.
+- Cascading behaviour remains Workspace → Work Area → Task.

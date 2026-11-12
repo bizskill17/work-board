@@ -1,0 +1,2 @@
+- Fixed Workspace Status = Both so only Work Areas with visible matching tasks remain shown.
+- Work Area visibility is now based on actual visible task count after filtering.

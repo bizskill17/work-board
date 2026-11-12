@@ -1,0 +1,5 @@
+v4.15.83
+- Holiday FY calendar is now interactive.
+- Click any date cell to open Table view and add/edit that holiday date directly.
+- Existing holiday chips still open the selected holiday, and now stop propagating to avoid double actions.
+- Calendar date cells now support keyboard Enter/Space and hover/focus styling.

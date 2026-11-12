@@ -1,0 +1,8 @@
+Workboard v4.12.02
+
+- Redesigned the Move Task dialog to match the approved polished mobile UI.
+- Added a clear Current Work Area card and descriptive Move Task header.
+- Improved searchable Work Area selector styling with icon, colored Work Area markers and compact dropdown.
+- Work Area selection no longer moves immediately; select first, then confirm with Move Task.
+- Added clear Cancel and Move Task actions.
+- Preserved the centered mobile modal and existing task-move backend logic.

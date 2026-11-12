@@ -1,0 +1,5 @@
+Workboard v4.11.40
+- Added mobile vertical page auto-scroll while dragging tasks with the drag handle.
+- Holding a dragged task near the top or bottom screen edge now scrolls the page continuously.
+- Destination card position is recalculated after every vertical/horizontal auto-scroll step.
+- Existing horizontal Work Area auto-scroll and drag-handle-only mobile initiation are preserved.

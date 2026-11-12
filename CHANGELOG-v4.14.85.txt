@@ -1,0 +1,3 @@
+Workboard v4.14.85
+- Fixed Workspace filter dropdown arrows so they remain vertically centered on the same line as the filter text.
+- Added right-side space inside each compact filter so labels and arrows no longer collide.

@@ -1,0 +1,5 @@
+Version 4.18.89
+- AttendSpace Working / Inside status displays IN.
+- Attendance deletion remains restricted server-side to Manager/Owner/Admin.
+- AttendSpace PDF print/save button beside Excel.
+- Historical date selections beyond current month; historical month attendance fetched from server.

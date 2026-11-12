@@ -1,0 +1,3 @@
+Workboard v4.11.14
+- Text search no longer hides Add/Insert Work Area controls.
+- When a text search returns no matching task data, the Workspace filter group is hidden until results return or search is cleared.

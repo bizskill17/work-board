@@ -1,0 +1,4 @@
+Workboard v4.11.34
+- Added one-click Focus toggle to task cards.
+- Focus state is independent of task priority/status.
+- Added inline saving spinner and active/inactive target icon states.

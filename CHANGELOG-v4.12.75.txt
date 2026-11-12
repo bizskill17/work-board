@@ -1,0 +1,7 @@
+Workboard v4.12.75
+
+- Due Time stays visually blank unless the user explicitly selects a time.
+- Selecting a Due Date no longer auto-fills 10:00 AM in Quick Add or the full Task form.
+- When Due Time is blank, Minutes is removed from the Reminder Unit dropdown.
+- Server reminder scheduling still uses 10:00 AM as the hidden fallback due time for Hours/Days/Weeks reminders.
+- Minutes reminders require an explicitly selected Due Time on both frontend and backend.

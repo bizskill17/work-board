@@ -1,0 +1,5 @@
+Workboard v4.11.80
+
+- Folder cards now show the folder icon, folder name and workspace count on one horizontal line.
+- Workspace count remains aligned to the far right.
+- Existing compact card size and colorful bottom action buttons are unchanged.

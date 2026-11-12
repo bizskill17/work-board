@@ -1,0 +1,9 @@
+Business Board v4.9.34
+
+- Keep-style direct task-name editing from the card.
+- Interactive second-row controls for Priority, Assignee, Due Date, Recurrence and Labels.
+- Empty fields show compact icons; selected values replace the icons.
+- Priority supports no-priority (!) plus U/H/M/L.
+- Added inline Remark action.
+- Added inline Add Sub Task action and subtask progress display.
+- Full eye/detail view remains available.

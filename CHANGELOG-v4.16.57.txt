@@ -1,0 +1,4 @@
+v4.16.57
+- Default Standard Break is not deducted when Working Hour is less than 8 hours (480 minutes).
+- For Working Hour of 8 hours or more, automatic break deduction can apply when no actual break punch exists.
+- Actual break punches continue to take priority over the default break.

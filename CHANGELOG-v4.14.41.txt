@@ -1,0 +1,6 @@
+Workboard v4.14.41
+
+- Fixed the WhatsApp Morning Pending Tasks dynamic Open Workspaces button to use the actual Workspaces page route.
+- Main site sends `workspaces/`, producing https://board.bizskilledu.com/workspaces/.
+- Path-based multisite subsites send `<site>/workspaces/`, e.g. `vaa/workspaces/`, producing https://board.bizskilledu.com/vaa/workspaces/.
+- Removed the previous dashboard/site-root shortcut value from the WhatsApp dynamic button payload.

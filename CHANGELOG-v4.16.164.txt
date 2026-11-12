@@ -1,0 +1,7 @@
+Workboard v4.16.164
+
+- Improved mobile Time Sheet searchable dropdown visibility.
+- Dropdown opens above activity-card content with a higher stacking level.
+- Dropdown width is expanded within the mobile viewport.
+- Increased option spacing, contrast and tap height for clearer selection.
+- Workspace, Work Area and Task dropdowns use the same improved mobile treatment.

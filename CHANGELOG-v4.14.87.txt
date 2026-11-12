@@ -1,0 +1,5 @@
+Workboard v4.14.87
+- Workspace toolbar now adapts automatically to the desktop left-menu state.
+- With the left menu visible, toolbar controls become tighter so they fit cleanly.
+- With the left menu hidden, toolbar controls expand slightly to use the extra width and improve readability.
+- No reload is required; the CSS responds immediately when the sidebar class changes.

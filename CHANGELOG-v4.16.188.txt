@@ -1,0 +1,5 @@
+Workboard v4.16.188
+
+- New Sub Task typing now wraps inside the task card instead of running in one long line.
+- The inline new-subtask field auto-grows as wrapped text reaches a second/third line, up to a compact maximum height.
+- Works on desktop and mobile; Enter still saves the sub task and Escape cancels.

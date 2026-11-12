@@ -1,0 +1,7 @@
+Business Board v4.9.39
+
+- Fixed inline sub-task panel positioning by rendering it in a viewport-level portal.
+- Sub-task panel now anchors to the clicked task control and is clamped inside the visible screen, preventing it from appearing behind Work Area or Workspace headers.
+- Sub-task panel uses internal scrolling for long lists.
+- Continuous sub-task entry keeps the input focused after each add, so the panel stays open and the next sub-task can be typed immediately.
+- Strengthened popup close/outside-click cleanup.

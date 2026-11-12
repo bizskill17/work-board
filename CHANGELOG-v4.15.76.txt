@@ -1,0 +1,3 @@
+v4.15.76
+- Removed separate Share action buttons from Notespace, Note Area, MathSpace and Math Area screens.
+- Sharing remains available inside Add/Edit forms only.

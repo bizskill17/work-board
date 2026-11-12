@@ -1,0 +1,5 @@
+Workboard v4.12.37
+- Added a Flash icon immediately after the Notification bell in Quick Create Task.
+- Flash can be turned on before creating the task.
+- A task created with Flash ON is immediately pinned to the top and receives the existing blinking/colorful Flash highlight.
+- Flash remains OFF by default for the next new task.

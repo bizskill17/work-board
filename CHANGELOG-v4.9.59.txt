@@ -1,0 +1,6 @@
+Business Board v4.9.59
+
+- Removed the desktop bottom Work Area slider added in v4.9.58.
+- Added a slim horizontal slider inside each task card for Row 2 metadata overflow.
+- The task slider appears only when that task has more metadata than fits in the card.
+- Sliding affects only that task card metadata and stays synced with touch/trackpad scrolling.

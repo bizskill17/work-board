@@ -1,0 +1,7 @@
+Workboard v4.13.48
+- Added Math Area drag/reorder, similar to Workspace ordering.
+- Added 6-dot move handle beside each Math Area title for Admin/Manager/Owner.
+- Desktop: drag Math Areas left/right.
+- Mobile: drag stacked Math Areas up/down.
+- Order persists using math area sort_order.
+- Existing MathSpace horizontal scroll position/proxy remains synchronized during reorder.

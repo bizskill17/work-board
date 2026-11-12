@@ -1,0 +1,9 @@
+Business Board v4.9.4
+
+- Added User Role field with Owner, Manager and Employee options.
+- Existing users are migrated safely to Employee by default.
+- Owner and Manager logins can see all application views, including Users, Workspace Templates, Activity Log, Reports and Settings.
+- Owner and Manager logins receive full board visibility instead of being restricted only to directly shared workspaces.
+- Owner and Manager can perform management actions throughout Business Board.
+- Employee logins keep the restricted/shared-item experience.
+- User list now includes the Role column.

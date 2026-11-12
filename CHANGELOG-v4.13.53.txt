@@ -1,0 +1,4 @@
+v4.13.53
+- Replaced the two Particular Up/Down buttons with one drag/move handle.
+- Drag the single handle vertically to move a Particular up or down within the same Math Area.
+- Particular order is saved persistently.

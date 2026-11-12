@@ -1,0 +1,7 @@
+Workboard v4.12.40
+- Added a Copy icon immediately after Flash on Task Cards.
+- Clicking Copy creates a new duplicate task directly below the source task.
+- Copies task details, Owners/Assignees, recurrence settings, labels, reminders and Sub Task text/assignments.
+- Completion/history are not copied; the duplicate is a fresh task.
+- Added the same Copy facility to Note Cards.
+- Note Copy appears after Move and creates the same Note directly below the source Note.

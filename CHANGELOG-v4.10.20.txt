@@ -1,0 +1,6 @@
+Business Board v4.10.20
+
+- Fixed main-task inline editing so long task names remain fully visible instead of horizontally scrolling to the end.
+- The task title now edits in a wrapping auto-height field inside the card.
+- Existing checkbox, metadata, activity and sub-task controls stay in place while editing.
+- Enter saves; Escape cancels; clicking outside saves.

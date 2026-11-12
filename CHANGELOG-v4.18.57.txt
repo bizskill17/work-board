@@ -1,0 +1,4 @@
+WorkBoard v4.18.57
+
+- Activity Log and Task Activity: standardized Sub Task format to “Sub Task — [Sub Task Name] — Completed/Reopened”.
+- Removed the normal hyphen after “Sub Task” so all activity separators consistently use the em dash (—).

@@ -1,0 +1,5 @@
+Workboard v4.11.46
+- Added a compact Test button directly beside the Test Mobile field in Meta WhatsApp settings.
+- Test sends immediate inline feedback with spinner and prevents repeat clicking while sending.
+- Test uses the configured Task Assigned template and bypasses event-toggle restrictions so it can verify Meta connectivity.
+- Removed the duplicate lower Send Test WhatsApp button.

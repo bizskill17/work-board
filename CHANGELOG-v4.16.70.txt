@@ -1,0 +1,5 @@
+v4.16.70
+- Add Task now uses true optimistic UI.
+- New task appears immediately with a Saving… badge while the server saves it.
+- On success the authoritative server state replaces the temporary card quietly.
+- On failure the temporary task is removed and an error is shown.

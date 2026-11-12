@@ -1,0 +1,6 @@
+Workboard v4.16.126
+- Reorganized the left navigation into clearer functional groups.
+- Billing and Time Sheet are now subsections inside Work.
+- Workspaces, Folders, Focus, Pending Tasks and Activity Log are grouped under Work Management.
+- Added HR as a main section with Attendance and Leave subsections.
+- Existing module visibility settings continue to control Billing, Time Sheet, Attendance and Leave.

@@ -1,0 +1,5 @@
+Version 4.14.25
+- Attendance location now accepts the first valid current GPS fix instead of waiting for multiple readings.
+- Location request timeout reduced to 4 seconds and may reuse a very recent browser fix (up to 15 seconds old).
+- Attendance punch saves immediately; readable reverse-geocoded address is resolved asynchronously in the background.
+- Mandatory mode still requires a valid location, but there is no metre-based accuracy restriction.

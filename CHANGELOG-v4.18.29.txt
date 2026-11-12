@@ -1,0 +1,1 @@
+WorkBoard v4.18.29\n- Fixed desktop right-click Task Options on task cards.\n- Right-click now works on task title, meta area and normal card surface.\n- Delete option is available through the same Task Options sheet as mobile long-press, subject to existing permissions.\n

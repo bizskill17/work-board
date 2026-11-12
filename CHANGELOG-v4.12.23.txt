@@ -1,0 +1,6 @@
+Workboard v4.12.23
+- Reordered the left menu so Dashboard appears as a standalone item at the top.
+- WORK now contains Workspaces, Folders, Focus and Activity Log.
+- NOTES contains Notespaces.
+- MASTERS contains Users, Workspace Templates and Work Area Templates.
+- Work, Notes and Masters remain collapsible.

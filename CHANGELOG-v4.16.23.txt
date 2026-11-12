@@ -1,0 +1,6 @@
+v4.16.23
+- Actual AttendSpace status engine now uses only the approved visible statuses.
+- Removed visible Late status from live and completed attendance rows.
+- Live open break now uses Temporarily Out as its actual status key.
+- Completed overtime now uses Overtime as the actual status key.
+- Status filters now match Temporarily Out, Overtime, Short Hours, Present and Not Marked correctly.

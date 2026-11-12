@@ -1,0 +1,8 @@
+Business Board v4.9.35
+
+- Restored clean Todoist/Google Keep-style task cards while keeping v4.9.34 inline editing.
+- Task title is normal text, not a boxed input/button; it becomes a subtle inline editor only while editing.
+- Second-row actions are flat inline metadata with separators and no individual button boxes.
+- Empty fields remain subtle icons; populated fields remain compact values.
+- Kept priority, assignee, due date, recurrence, labels, remarks and sub-task actions directly editable.
+- Retained six-dot drag grip, eye details action, drag/drop and cross-Work-Area movement.

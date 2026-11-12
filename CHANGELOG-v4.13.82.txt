@@ -1,0 +1,2 @@
+Version 4.13.82
+- Focus view: Workspace name shown in brackets now uses white text, matching the Work Area header.

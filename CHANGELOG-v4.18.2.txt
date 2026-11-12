@@ -1,0 +1,8 @@
+WorkBoard v4.18.2
+
+- DocSpace: added document upload to Add/Edit Document Movement.
+- Supported document uploads: PDF, JPG, PNG, WEBP, DOC, DOCX, XLS and XLSX up to 10 MB.
+- Existing uploaded document can be viewed from the form and DocSpace Register.
+- Replacing a document removes the previous attachment; deleting a DocSpace entry removes its uploaded document.
+- CallSpace and DocSpace Settings module switches now default to OFF/hidden for new installations/sites.
+- Existing sites keep their saved Show/Hide selection.

@@ -1,0 +1,8 @@
+Business Board v3.8.2
+
+Recurring occurrence correction
+- Fixed a recurring-task bug where an unresolved past occurrence could be skipped and the Workspace displayed the next future recurrence instead.
+- The Workspace now keeps the oldest unresolved occurrence actionable until it is completed, skipped, or otherwise resolved.
+- Example: a yearly task due 01/07/2026 and still incomplete remains Overdue on 01/07/2026; 01/07/2027 is not shown as the actionable occurrence yet.
+- Applies consistently to Daily, Weekly, Fortnightly, Monthly, Quarterly, Yearly, and Custom Interval tasks.
+- Future recurring occurrences are still calculated virtually; no future task-instance rows are pre-created.

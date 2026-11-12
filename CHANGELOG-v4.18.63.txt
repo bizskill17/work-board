@@ -1,0 +1,6 @@
+WorkBoard v4.18.63
+
+- Attendance WhatsApp Send Test no longer reports a Meta-accepted request as delivered.
+- Successful API submission now shows: Submitted to Meta — Delivery Pending.
+- Added Last Test Status, Meta Message ID and Error rows to the attendance WhatsApp settings table.
+- Failed tests show the actual Meta/API error returned by the backend.

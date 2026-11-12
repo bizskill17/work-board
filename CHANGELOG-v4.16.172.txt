@@ -1,0 +1,6 @@
+Workboard v4.16.172
+
+- Fixed the Time Sheet Filter control so the filter panel reliably opens and closes on mobile and desktop.
+- Filter state is now re-rendered from application state instead of relying only on the DOM hidden property.
+- Added an explicit hidden rule for the Time Sheet filter panel to prevent grid CSS from overriding the hidden state.
+- On mobile, Filter and Download Excel use compact icon-only buttons while + Add Activity remains clearly visible.

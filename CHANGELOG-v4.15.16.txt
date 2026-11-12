@@ -1,0 +1,8 @@
+Workboard v4.15.16
+- Dashboard + Add Note now opens the complete Add Note form immediately.
+- Removed the intermediate Note Area picker / Continue step.
+- An available Note Area is preselected automatically.
+- Note Area remains visible at the top of the full Add Note form and can be changed there.
+- The Note Area dropdown shows Notespace — Note Area for clarity.
+- If the selected Note Area uses Date Applicable, the Date field appears immediately; otherwise it stays hidden.
+- Save Note continues to use the selected Note Area.

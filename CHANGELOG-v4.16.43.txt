@@ -1,0 +1,4 @@
+v4.16.43
+- Share permission buttons are now icon-only on desktop as well as mobile.
+- Applies to unified User sharing and Party sharing in Work Area forms and shared permission components.
+- Icon mapping remains: + Add, pencil Edit, trash Delete, eye View, person+ Add Selected.

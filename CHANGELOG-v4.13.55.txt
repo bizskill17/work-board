@@ -1,0 +1,6 @@
+v4.13.55
+- Made the MathSpace board more compact without removing any existing actions.
+- Reduced Math Area card width so more areas fit on desktop at the same time.
+- Tightened Math Area header, Total row, table rows, toolbar spacing and card gaps.
+- Reduced action icon button sizes for both Math Area and Particular actions.
+- Kept the mobile Math Area layout full-width and touch friendly.

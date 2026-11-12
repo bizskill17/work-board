@@ -1,0 +1,7 @@
+WorkBoard v4.18.55
+
+- Activity Log: standardized the separator between Task name and Remark to the same em dash (—) used throughout the Activity column.
+- Task Completed/Reopened entries now render consistently as: Action — Task Name — Remark.
+- Task Activity popup uses the same separator normalization.
+- Activity text remains a single consistent font size/weight within the Activity cell.
+- Excel Activity export uses the same em-dash formatting.

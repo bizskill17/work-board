@@ -1,0 +1,5 @@
+Workboard v4.13.63 — Reminder Time Display Cleanup
+
+- Removed the IST suffix from the Notifications & Reminder popup.
+- Default due-time note now shows 10:00 AM instead of 10:00 AM IST.
+- Calculated reminder schedule now shows date and time only, without IST.

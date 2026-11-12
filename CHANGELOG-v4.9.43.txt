@@ -1,0 +1,8 @@
+Business Board v4.9.43
+
+- Changed Sub Tasks to a Google Keep-style interaction: existing items plus a visible + Add Sub Task row.
+- Adding a sub task no longer requires Enter; typing and tapping elsewhere auto-saves. Enter remains an optional shortcut and opens the next blank sub-task row.
+- Removed instructional Press Enter text and Save-style interaction from inline sub-task entry.
+- Changed Labels to use Search Labels plus a visible + Add Label action.
+- New labels auto-save on blur/tap-away; Enter remains optional.
+- Added compact cancel × controls for unfinished new sub-task/label rows.

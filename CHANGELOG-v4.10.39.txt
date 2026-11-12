@@ -1,0 +1,5 @@
+Workboard v4.10.39
+
+- Moved the Drag Work Area grip to the left of the Work Area name on the first line.
+- Left-aligned all remaining Work Area action icons on the second line.
+- Kept the action icon sizes uniform.

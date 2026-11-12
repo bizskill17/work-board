@@ -1,0 +1,5 @@
+Business Board v4.9.62
+- Fixed sub-task text wrapping: no ellipsis/truncation; long sub-tasks wrap across multiple lines.
+- Drag handle and checkbox stay top-aligned while wrapped text grows; delete cross remains fixed at right.
+- Add Sub Task entry is now an auto-expanding multiline field that wraps naturally while typing.
+- Mobile spacing tightened for wrapped sub-task rows.

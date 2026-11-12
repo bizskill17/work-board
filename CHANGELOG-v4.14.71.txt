@@ -1,0 +1,5 @@
+Workboard v4.14.71
+- Removed the new inline Activity/comment button from individual task cards.
+- Added the Activity/comment icon as the last Work Area header action, immediately after the Add Task (+) icon.
+- Clicking the Work Area Activity icon opens a Date / Activity table at the bottom of that Work Area.
+- Activity rows include the task name within the Activity column and show up to the latest 100 relevant task activity records available in the current state.

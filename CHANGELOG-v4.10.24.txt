@@ -1,0 +1,5 @@
+Business Board v4.10.24
+
+- Reduced inline subtask indentation so subtasks use substantially more of the task-card width, especially on mobile.
+- Kept the + add-subtask control on its own next row while a new subtask is being typed.
+- Removed the + from the active entry row; Enter remains the primary save/continue action and the × cancels entry.

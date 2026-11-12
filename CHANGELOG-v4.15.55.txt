@@ -1,0 +1,12 @@
+Workboard v4.15.55
+- Added Share option to Notespace.
+- Added Share option to MathSpace.
+- Notespace and MathSpace sharing use the same Owner / Assignee model as Workspace.
+- Owner: Edit + Update + Share.
+- Assignee: View + Update.
+- Added Share buttons on Notespace and MathSpace cards and inside their active view toolbars.
+- MathSpace create/edit form now includes MathSpace Owners & Assignees.
+- MathSpace sharing is inherited by all Math Areas inside that MathSpace.
+- Direct Math Area sharing continues to work for narrower access.
+- Existing legacy MathSpaces without top-level sharing remain visible under the prior behavior to avoid hiding old data.
+- MathSpace assignments are now included in application state and deleted when a MathSpace is deleted.

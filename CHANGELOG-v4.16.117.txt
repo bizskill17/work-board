@@ -1,0 +1,6 @@
+Workboard v4.16.117
+
+Daily Activity
+- Fixed searchable Workspace / Work Area / Task dropdown filtering so non-matching options are actually hidden while typing.
+- From and To fields now open blank by default instead of being prefilled with the current time.
+- Existing cascading selection remains: Workspace > Work Area > Task.

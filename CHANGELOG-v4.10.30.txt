@@ -1,0 +1,4 @@
+Workboard v4.10.30
+- Made the Workspace search field outline clearly visible on desktop, tablet, and mobile.
+- Added a stronger 2px neutral border with a purple focus state.
+- No search logic or other functionality changed.

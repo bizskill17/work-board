@@ -1,0 +1,14 @@
+Business Board v3.8.0
+
+Workspace board refinements:
+- Work Areas can be moved left/right from each Work Area header; order persists per Workspace.
+- Workspace tagline removed from the Workspace board header.
+- Work Area, Priority and Assignee filters are now multi-select dropdown filters.
+- Task completion/reopening uses optimistic UI so cards move immediately without waiting for a full state reload.
+- Priorities standardized to Urgent, High, Medium, Low. Existing Critical becomes Urgent; Normal becomes Medium.
+- Task cards show compact priority letters U/H/M/L only.
+- Recurring task cards show only a circled-arrow style recurrence icon; One Time text is removed.
+- User initials removed from task cards.
+- Assignee display uses first name unless another User has the same first name, in which case the full name is shown.
+- Due date/time appears immediately after assignee and dates display as DD/MM/YYYY in main task/history views.
+- Stronger black typography and a heavier Arial/Segoe UI font stack for readability.

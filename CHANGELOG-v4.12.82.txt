@@ -1,0 +1,6 @@
+Workboard v4.12.82
+- Assignees and Owners in Quick Add Task now show as stacked dropdown-style selectors on desktop and mobile.
+- New Quick Add tasks do not carry forward Assignee or Owner selections from the previous task.
+- Work Area default assignee behavior remains unchanged; only previous-task selections are cleared.
+- Conditional Notifications icon from v4.12.81 is preserved.
+- Add User save/validation fix is included.

@@ -1,0 +1,8 @@
+Workboard v4.16.105
+
+- Daily Activity form now uses separate From and To timestamp fields.
+- Removed manual Time Spent input from the form.
+- Activity duration is calculated automatically from From and To.
+- Added validation that To must be later than From and duration cannot exceed 24 hours.
+- Daily Activity table now shows both From and To timestamps.
+- Existing Time Sheet entries remain compatible; older entries without a To timestamp continue to display.

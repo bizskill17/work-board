@@ -1,0 +1,4 @@
+v4.15.97
+- Mobile Holiday Table now fills the complete available card width.
+- Removed unused white space on the right side of the Holiday table.
+- Forced mobile table display/layout rules to override global responsive table shrinking.

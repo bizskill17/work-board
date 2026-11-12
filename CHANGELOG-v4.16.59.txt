@@ -1,0 +1,5 @@
+v4.16.59
+- Party login sidebar now shows only Workspaces.
+- Pending Tasks and Activity Log are no longer available to Party login.
+- Party Workspace view hides the internal toolbar, KPI chips, filters, view selector, Excel export and refresh controls.
+- Search Tasks remains available for Party login.

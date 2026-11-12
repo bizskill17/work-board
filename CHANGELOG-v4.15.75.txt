@@ -1,0 +1,6 @@
+v4.15.75
+- Share section now appears inside Add/Edit forms for Notespace, Note Area, MathSpace and Math Area.
+- Notespace and MathSpace share UI now uses the same User | Action layout with ADD | EDIT | DELETE | VIEW buttons.
+- Notespace and MathSpace Add/Edit forms save sharing directly.
+- Clicking Share on Notespace and MathSpace now opens their Edit form with inline sharing.
+- Parent Notespace/MathSpace sharing now correctly inherits the selected ADD/EDIT/DELETE/VIEW rights to child Areas.

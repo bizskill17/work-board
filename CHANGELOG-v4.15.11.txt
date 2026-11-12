@@ -1,0 +1,8 @@
+Workboard v4.15.11
+- Repeat After Due is now independent of individual After Due reminder rows.
+- Repeat After Due becomes available whenever Assignee(s) and Due Date are present.
+- Users can now create only a Before Due reminder and separately enable Repeat After Due.
+- For next is no longer incorrectly locked when Repeat After Due is enabled.
+- Repeat interval Number, Unit and For next are enabled together when Repeat After Due is checked.
+- Existing individual After Due reminder rows continue to work independently.
+- Backend after-due state now activates if either an individual After Due rule exists or Repeat After Due is enabled.

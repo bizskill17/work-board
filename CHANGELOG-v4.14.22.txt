@@ -1,0 +1,5 @@
+Version 4.14.22
+- Attendance GPS now accepts a good location immediately at 100 m accuracy or better.
+- High-accuracy capture waits up to 10 seconds for a reading within 100 m.
+- Mandatory location mode rejects attendance when accuracy is worse than 100 m.
+- Optional mode may still use the best available reading after the timeout.

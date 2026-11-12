@@ -1,0 +1,5 @@
+Workboard v4.10.35
+
+- Removed the search icon from the Workspace search field.
+- Desktop Workspace search now uses the same rounded visual style as mobile.
+- Search stays full-width with the existing dark outline and spacing.

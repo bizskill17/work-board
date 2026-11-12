@@ -1,0 +1,6 @@
+Workboard v4.13.8
+
+- Fixed the Workspace header search field not accepting keyboard input.
+- Replaced the dedicated Workspace header control from HTML input type=search to type=text with search semantics, isolating it from older global CSS rules that intentionally hide generic topbar search inputs.
+- Added explicit focus, pointer, caret, user-select and stacking rules for the Workspace search only.
+- Existing Workspace filtering/search logic is unchanged.

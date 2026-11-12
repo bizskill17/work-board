@@ -1,0 +1,6 @@
+Workboard v4.13.61 — Larger Bottom Task Actions
+
+- Increased the bottom task action button size slightly for clearer visibility.
+- Increased the action icon size for easier tapping.
+- Added a small left-side inset so the bottom action row does not start too close to the drag/status gutter.
+- Kept the full set of actions visible in one row, including Reminder and Copy.

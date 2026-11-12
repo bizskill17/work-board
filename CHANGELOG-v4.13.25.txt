@@ -1,0 +1,6 @@
+Workboard v4.13.25
+- Added new Math section below Notes with MathSpaces.
+- MathSpaces contain Math Areas.
+- Each Math Area stores two-field rows: Particular and Amount.
+- Added automatic Math Area and MathSpace totals.
+- Added create/edit/delete UI for MathSpaces, Math Areas and entries.

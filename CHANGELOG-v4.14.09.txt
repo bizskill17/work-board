@@ -1,0 +1,5 @@
+Version 4.14.09
+- Fixed After Due reminder task selection so enabled Due Reminder rules are processed even if an older task reminder flag is out of sync.
+- Schedules an immediate reminder check after saving an enabled After Due rule.
+- Redesigned After Due settings into a compact modal-safe layout with no clipped fields.
+- Added a clear Next Due Reminder preview to the plan summary.

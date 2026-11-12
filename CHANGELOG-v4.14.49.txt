@@ -1,0 +1,5 @@
+Workboard v4.14.49
+
+- Fixed compact Add Task After Due layout.
+- Max Duration now keeps the Days unit fully visible and aligned beside the value.
+- Reminder logic is unchanged.

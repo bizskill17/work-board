@@ -1,0 +1,6 @@
+Workboard v4.13.68
+
+- Updated Task Assigned WhatsApp template to 5 variables: Task, Workspace, Work Area, Assigned To, Due Date.
+- Updated Task Updated WhatsApp template to 7 variables: Task, Workspace, Work Area, Due Date, Update Date, Assignee(s), Remarks.
+- Task Updated Remarks uses the latest saved task progress remark; when none exists it sends “-”.
+- Updated the Settings template previews, variable guidance and WhatsApp test parameters to match the new Meta templates.

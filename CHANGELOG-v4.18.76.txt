@@ -1,0 +1,6 @@
+WorkBoard v4.18.76
+
+- Duplicate validation errors for NoteSpace, Note Area, MathSpace and Math Area now display directly below the Name field.
+- Duplicate field receives a red border and focus remains in the field.
+- Inline error clears immediately when the user edits the name.
+- Duplicate backend/API responses are also shown inline instead of popup/toast alerts.

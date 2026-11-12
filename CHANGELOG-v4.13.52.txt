@@ -1,0 +1,4 @@
+v4.13.52
+- Fixed MathSpace opening failure caused by missing frontend Math Area permission helper methods.
+- Added frontend Math Area manage/update permission checks aligned with backend sharing rules.
+- Preserved Math Area sharing, delete-empty rule, and Particular ordering.

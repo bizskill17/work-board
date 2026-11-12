@@ -1,0 +1,6 @@
+Workboard v4.14.36
+
+- Fixed the Morning Pending Tasks WhatsApp dynamic Open Workspaces button for WordPress multisite.
+- The plugin now sends only the current site root suffix (for example `vaa/`) to Meta instead of `vaa/workspaces/`.
+- With the Meta base URL `https://board.bizskilledu.com/{{1}}`, the button now opens the exact site root such as `https://board.bizskilledu.com/vaa/`.
+- Main network site safely resolves to the root as well.

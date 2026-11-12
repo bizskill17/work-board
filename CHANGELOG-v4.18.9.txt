@@ -1,0 +1,5 @@
+WorkBoard v4.18.9
+
+- Fixed searchable dropdown filtering in CallSpace.
+- Party, Recipient and Report To now hide non-matching options immediately while typing.
+- Added a CSS fallback so hidden search options cannot remain visible because of button display styles.

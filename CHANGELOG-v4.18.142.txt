@@ -1,0 +1,1 @@
+Fix task update visible only after manual refresh. After save, fetch Workspace-scoped task data and reconcile the rendered view, retaining filters, scroll and expanded Completed sections.

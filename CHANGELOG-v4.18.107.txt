@@ -1,0 +1,2 @@
+- Updated the Table-view Group By control so the "Group By" label and selected value show in two different background colors.
+- Preserved existing Group By functionality and visibility only in Table view.

@@ -1,0 +1,6 @@
+Business Board v4.10.21
+
+- Main task names now use true direct inline editing instead of an input/textarea box.
+- Single tap/click places the cursor directly in the existing task title with the same visual styling.
+- Enter saves, Escape cancels, and clicking/tapping outside saves.
+- Long titles wrap naturally while editing and surrounding task controls stay in place.

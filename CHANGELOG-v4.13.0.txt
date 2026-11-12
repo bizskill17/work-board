@@ -1,0 +1,17 @@
+Workboard v4.13.0 — Network Messaging, Wallet & Razorpay
+
+- Added network-level messaging control for every multisite site: Disabled, Workboard Wallet, Own Meta Account, or Either/Site Chooses.
+- Added per-site message-log retention controlled only by Network Admin; 0 months means unlimited retention.
+- Added immutable network message audit log for WhatsApp attempts with recipient, template, mode, Meta message ID, status, error and wallet charge.
+- Added Workboard Wallet with immutable credit/debit/refund ledger.
+- Added Network Admin facility to manually add wallet credits to any site with reason/audit trail.
+- Added network default Cost Price and Selling Price for Utility, Marketing and Authentication messages, with optional site-specific Selling Price override.
+- Wallet mode checks balance before sending, deducts the configured selling price, and automatically refunds a failed Meta send.
+- Added network-level central Meta WhatsApp credentials for Wallet sites.
+- Added encrypted, write-only per-site Permanent Access Token storage for Own Meta mode. Network Admin UI never displays a client token and cannot replace a client-site token.
+- Migrates a legacy per-site plain-text Meta token into encrypted storage when available, then removes the legacy plain-text option.
+- Added Razorpay network settings: Key ID, encrypted Key Secret, encrypted Webhook Secret, minimum recharge and webhook URL.
+- Added site Wallet recharge through Razorpay Checkout with server-side signature verification and signed webhook fallback.
+- Recharge crediting is idempotent and writes an immutable wallet ledger entry.
+- Added Settings UI for Messaging policy, wallet balance/pricing/recharge, own Meta connection and read-only Message History / Wallet Transactions.
+- Individual site owners have no delete action for message logs or wallet ledger entries.

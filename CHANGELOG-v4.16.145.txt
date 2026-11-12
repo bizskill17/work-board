@@ -1,0 +1,5 @@
+Workboard v4.16.145 — Remove Payroll Hours Panel
+
+- Removed the Payroll Hours section from the Attendance employee detail view.
+- Removed the visible + Credit / Deduct action from that detail screen.
+- Existing attendance, overtime and historical payroll-adjustment data remain intact for compatibility.

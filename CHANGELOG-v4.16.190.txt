@@ -1,0 +1,5 @@
+Workboard v4.16.190
+
+- Fixed task-card action row so functional icons are never replaced by the global Delete trash icon.
+- Restored the actual Reminder bell and preserves Activity, Focus, Urgent Reminder, Move, Flash, Copy and Edit icons.
+- Delete icons elsewhere remain unchanged.

@@ -1,0 +1,5 @@
+v4.16.91
+- Fixed Notespace sidebar navigation while already inside an open Notespace.
+- Clicking Notespaces in the left menu now always clears the active Notespace and opens the Notespace master/list.
+- Mobile NoteSpace bottom navigation now has the same master/list behavior.
+- Back to Notespaces now uses the normal navigation/render path.

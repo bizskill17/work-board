@@ -1,0 +1,5 @@
+v4.16.73
+- Fixed task cards jumping to the bottom after Edit Task.
+- Same Workspace/Work Area/bucket edits now replace the existing card in its exact DOM position.
+- Due date/time, priority, labels, assignee, description and other ordinary edits no longer trigger a board re-sort/re-render.
+- Tasks are repositioned only when they actually move to another Workspace, Work Area, or task section/bucket.

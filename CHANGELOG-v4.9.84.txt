@@ -1,0 +1,8 @@
+Business Board v4.9.84
+
+- Fixed Priority filter matching at task-card level.
+- Added No Priority as a filter option.
+- Normalized legacy Critical/Normal values to Urgent/Medium during filtering.
+- Work Areas with no matching priority tasks are hidden.
+- Work Area summary chips/mobile chips also hide when no task matches.
+- Priority filter continues to combine with Work Area, Assignee and Overdue filters.

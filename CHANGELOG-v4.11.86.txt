@@ -1,0 +1,6 @@
+Workboard v4.11.86
+- Existing task-card people popup now shows Assignees and Owners together.
+- Both Assignees and Owners support multiple selection.
+- Desktop uses side-by-side columns; mobile stacks the sections.
+- Long user names wrap instead of being truncated.
+- Added Clear and Done controls while retaining the global dark-red close button.

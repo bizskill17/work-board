@@ -1,0 +1,8 @@
+Workboard v4.12.52
+====================
+
+- Login ID is now editable from Edit User.
+- Removed the read-only restriction from the Login ID field.
+- Changed Login IDs take effect immediately for Workboard sign-in while retaining the linked WordPress account.
+- Added duplicate checks against other Workboard Login IDs and WordPress usernames.
+- No database migration is required; DB_VERSION remains 4.12.49.

@@ -1,0 +1,6 @@
+Workboard v4.14.64
+
+- Added “Same Day” directly inside the AFTER DUE Repeat Every unit dropdown.
+- Selecting Same Day keeps the entered number as the hourly repeat cadence and automatically limits reminders to the task due-date calendar day.
+- Maximum Duration is locked to Same Day while that unit is selected, preventing conflicting settings.
+- Existing Same Day schedules reopen with Same Day selected in the unit dropdown.

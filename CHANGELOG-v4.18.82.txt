@@ -1,0 +1,6 @@
+WorkBoard v4.18.82
+
+- Fixed login password Show/Hide using a direct native onclick handler on the eye button.
+- Does not depend on jQuery, delegated handlers, or dynamically executed script blocks.
+- Clicking the eye reliably changes the password field type between password and text.
+- Keeps the existing desktop/mobile styling and login behaviour unchanged.

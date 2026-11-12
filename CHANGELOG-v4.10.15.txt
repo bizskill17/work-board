@@ -1,0 +1,7 @@
+Business Board v4.10.15
+
+- Reworked inline subtask add UI after expanded subtasks.
+- The add control is now a single small + icon at the end of the subtask list.
+- Clicking it replaces the + with one clean full-width inline entry row.
+- Removed the duplicate “Add sub task” link while typing.
+- Improved mobile spacing and input width.

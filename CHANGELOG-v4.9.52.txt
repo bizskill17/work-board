@@ -1,0 +1,5 @@
+Business Board v4.9.52
+
+- Sub Tasks panel now automatically scrolls just enough to keep the newly-created blank Add Sub Task row visible while typing.
+- The active typing row remains visible as the next row appears, removing the need for manual scrolling.
+- Sub Tasks header remains sticky while the panel scrolls.

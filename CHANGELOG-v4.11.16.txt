@@ -1,0 +1,7 @@
+Workboard v4.11.16
+
+- Employee role can no longer drag/reorder Work Areas.
+- Employee role can no longer drag/reorder Tasks.
+- Work Area and Task drag handles are hidden for Employees.
+- Owner, Manager and Administrator drag/reorder behaviour is unchanged.
+- Added a client-side permission guard so hidden drag actions cannot be triggered by touch/pointer events.

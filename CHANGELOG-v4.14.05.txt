@@ -1,0 +1,5 @@
+Version 4.14.05
+- Updated workboard_urgentmessage to the 5-variable structure: Task, Workspace, Work Area, Notes, Required By.
+- Automatic After Due / Until Completed reminders now send direct Task Owner name(s) as Required By.
+- If a Task has no direct Owner, automatic After Due reminders send Required By as -.
+- Manual Urgent Update also supplies the same 5 variables so the shared Meta template remains compatible.

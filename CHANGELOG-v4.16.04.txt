@@ -1,0 +1,7 @@
+v4.16.04
+- Updated Share permission icon mapping.
+- ADD now uses Plus (+).
+- EDIT uses Pencil.
+- DELETE uses Trash Bin.
+- VIEW uses Eye.
+- Add Selected User now uses Person + icon.

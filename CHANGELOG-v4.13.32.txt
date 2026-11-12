@@ -1,0 +1,7 @@
+Workboard v4.13.32
+
+- Fixed Meta error #132018 for Morning Pending Tasks Reminder.
+- Morning template body parameters are now guaranteed to contain no newline/tab characters and no excessive consecutive spaces.
+- The approved two-variable Utility template remains unchanged.
+- Test payload now uses the same Meta-safe parameter format.
+- No change to task eligibility, due-date rules, dynamic Open Workspaces button, or morning schedule.

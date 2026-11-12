@@ -1,0 +1,5 @@
+v4.16.58
+- Share Users and Share Party selectors are true searchable dropdowns.
+- Added inline Person+ validation: Please select a User. / Please select a Party.
+- Added permission validation: Please select at least one permission.
+- Already-added Users/Parties remain excluded after refresh.

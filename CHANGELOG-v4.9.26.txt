@@ -1,0 +1,5 @@
+Business Board v4.9.26
+- Fixed task drag so the task card visibly follows the mouse/finger while moving.
+- Added a floating red-outline drag card and a light placeholder at the original/current slot.
+- elementFromPoint can now detect the task underneath, so vertical reordering works reliably.
+- Red drag outline remains active until drop; saved task ordering remains unchanged.

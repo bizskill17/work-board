@@ -1,0 +1,5 @@
+Version 4.14.04
+- After Due / Until Completed reminders now reuse the existing workboard_urgentmessage Meta template.
+- Before Due reminders continue using workboard_task_reminder.
+- Scheduled urgent reminders use direct Task Owner name(s) as Required By when available.
+- No new Meta template is required.

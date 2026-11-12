@@ -1,0 +1,6 @@
+v4.15.87
+- Holiday page is now available to Employee users under Attendance.
+- Employees have view-only access to Holiday Calendar and Table views.
+- Employee Holiday view hides Add, Upload, Edit and Delete controls.
+- Employee calendar dates and holiday chips no longer open edit/add actions.
+- Manager, Owner and Administrator Holiday controls remain unchanged.

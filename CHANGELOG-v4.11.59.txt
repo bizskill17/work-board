@@ -1,0 +1,5 @@
+Workboard v4.11.59
+- Dashboard top search now filters only the visible Dashboard workspace summary cards.
+- Dashboard search matches Workspace names and no longer ignores the search input.
+- Added dashboard-specific search placeholder and empty-search state.
+- No other behavior changed.

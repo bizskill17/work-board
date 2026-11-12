@@ -1,0 +1,7 @@
+Workboard v4.16.150 — New WorkBoard Header Wordmark
+
+- Replaced the small top-right logo tile with the approved horizontal WorkBoard wordmark.
+- Wordmark layout: “Work” + chess-knight logo + “Board”.
+- Uses the approved blue chess icon and colored board tiles.
+- Added responsive sizing for desktop, tablet and mobile headers.
+- Existing network branding/login logo settings remain unchanged.

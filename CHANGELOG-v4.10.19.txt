@@ -1,0 +1,7 @@
+Business Board v4.10.19
+
+- Fixed main-task inline editing so the task title no longer appears as selected/highlighted text.
+- The task title is now replaced by a proper in-card editor without moving the checkbox, drag handle, metadata or right-side action icons.
+- Editing starts with the cursor at the end of the title instead of selecting the whole title.
+- Enter saves, Escape cancels and tapping/clicking outside saves as before.
+- Added mobile-safe width and overflow rules so the editor stays inside the task card.

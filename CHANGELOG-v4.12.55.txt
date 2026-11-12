@@ -1,0 +1,6 @@
+Workboard v4.12.55
+- Added inline Note/Link content validation in Add/Edit Note.
+- If Text is selected, Note content is required.
+- If Link is selected, a Link is required.
+- Missing content now shows: "Please enter a Note or provide a Link." below the Text/Link selector instead of submitting and showing a generic save error.
+- Added matching server-side validation message.

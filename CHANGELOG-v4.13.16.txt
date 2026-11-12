@@ -1,0 +1,11 @@
+Workboard v4.13.16
+
+- Updated workboard_pending_tasks_reminder to match the approved Utility-style body:
+  Hi {{1}},
+  The following tasks assigned to you are still pending as of today:
+  {{2}}
+  Please review the tasks and update their status in Workboard.
+- {{1}} now sends the assignee name.
+- {{2}} sends the grouped Workspace/Work Area pending-task list.
+- Kept the Open Workspaces dynamic URL button unchanged; its button {{1}} remains the site-specific path such as vaa/workspaces/.
+- Updated the Settings template guidance and Meta test parameters.

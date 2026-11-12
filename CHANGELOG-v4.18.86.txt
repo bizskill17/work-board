@@ -1,0 +1,4 @@
+WorkBoard v4.18.86
+
+- Hidden Tasks modal: removed the duplicate internal close (X) button.
+- The modal now shows only the single standard close button in the top-right corner.

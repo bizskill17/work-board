@@ -1,0 +1,5 @@
+Business Board v4.8.1
+
+- Work Area names now wrap to multiple lines in Workspace column headers instead of being truncated with ellipsis.
+- Work Area score cards also allow wrapped names for better readability.
+- Header action controls remain aligned at the top while long names expand vertically.

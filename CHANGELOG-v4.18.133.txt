@@ -1,0 +1,1 @@
+New shareable Workspace URLs at /workspaces/{slug}/. Legacy /business-board/workspace/{slug}/ remains functional. Existing Workspace slugs remain stable across renames. Browser back/forward and direct loading supported; permissions continue through existing task-state access checks.

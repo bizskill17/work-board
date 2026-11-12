@@ -1,0 +1,4 @@
+Workboard v4.12.89
+- Notespace search now includes the Note Title field.
+- While searching inside a Notespace, Note Areas with zero matching Note Cards are hidden.
+- When nothing matches anywhere, only a compact No matching notes message is shown instead of empty Note Areas.

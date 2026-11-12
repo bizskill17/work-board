@@ -1,0 +1,7 @@
+WorkBoard v4.18.79
+
+- Time Sheet normal Ctrl+C remains Excel/Google Sheets compatible using TAB between columns and newline between rows.
+- Multi-line Remarks now preserve their original line breaks when copied instead of being flattened into one line.
+- Added Copy WhatsApp button for the currently selected Time Sheet cell/range.
+- Copy WhatsApp uses " | " between selected columns and newline between rows while preserving line breaks inside Remarks.
+- Existing copied-range blinking border remains active after either copy method.

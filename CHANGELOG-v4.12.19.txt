@@ -1,0 +1,5 @@
+Workboard v4.12.19
+- New Work Areas now automatically receive an Accent Color not already used by another Work Area in the same Workspace.
+- New Note Areas now automatically receive a Color not already used by another Note Area in the same Notespace.
+- Existing Work Area and Note Area colors remain unchanged when editing.
+- If the preset palette is exhausted, Workboard generates another unused color automatically.

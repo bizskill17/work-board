@@ -1,0 +1,7 @@
+Workboard v4.15.52
+- Supervisor is explicitly permitted to live-punch attendance for employees assigned to that Supervisor.
+- Supervisor permission is validated from the employee's assigned Supervisor field.
+- Added targeted attendance schema repair for upgraded sites.
+- Repairs Supervisor assignment and live-punch/location columns without rerunning the full database migration.
+- Live punch performs one repair/retry if an older attendance table causes the first insert to fail.
+- Supervisors still cannot punch attendance for employees who are not assigned to them.

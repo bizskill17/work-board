@@ -1,0 +1,1 @@
+Task updates now refresh the visible workspace immediately when the edited task is not present in the loaded task slice or when server reconciliation cannot find the saved task. Existing optimistic task updates remain in place.

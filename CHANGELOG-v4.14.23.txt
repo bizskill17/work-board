@@ -1,0 +1,6 @@
+Version 4.14.23
+- Added configurable Maximum Accepted Attendance GPS Accuracy in Attendance Settings.
+- Default accuracy limit is 150 metres.
+- Preset suggestions: 50, 100, 150 and 250 metres; custom values are supported.
+- Mandatory location mode now validates against the configured accuracy limit on both browser and server.
+- GPS capture accepts the first reading at or better than the configured threshold and otherwise keeps trying briefly for a better reading.

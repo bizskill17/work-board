@@ -1,0 +1,7 @@
+Workboard v4.11.28
+
+- Removed the hardcoded “Workboard” text from the sidebar brand area.
+- Sidebar now shows only the uploaded logo.
+- Added a white logo tile so transparent logos remain clearly visible on the dark sidebar.
+- Added a divider line between the logo area and menu items.
+- Preserved responsive and collapsed sidebar behavior.

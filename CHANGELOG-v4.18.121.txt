@@ -1,0 +1,1 @@
+Both status hides Work Area columns with no matching Pending or Completed tasks; summary chips follow the same visibility. No Work Area or task is deleted.

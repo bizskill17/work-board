@@ -1,0 +1,7 @@
+Business Board v4.9.72
+
+- Repurposed the task-card info control as a simple Task Activity view.
+- Desktop and wide tablet landscape: responsive 4-column table (Timestamp, Status, Remark, User).
+- Mobile and tablet portrait: compact card view.
+- Activity includes task status changes, remarks, and sub-task activity such as add/complete/reopen/delete/reorder.
+- Activity is read-only and latest entries appear first.

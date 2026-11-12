@@ -1,0 +1,5 @@
+Version 4.13.67
+- Sub-task delete icon is hidden by default.
+- Clicking/selecting a sub-task shows the delete icon only for that sub-task.
+- Clicking elsewhere hides the delete icon again.
+- Keeps the compact 20px delete icon size from v4.13.66.

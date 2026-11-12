@@ -1,0 +1,6 @@
+Workboard v4.11.22
+
+- Fixed mobile task drag/reorder where the floating task moved but the task returned to its original position on release.
+- Task placement now uses the pointer Y position against all visible sibling task cards, instead of requiring the finger to be directly over another card.
+- Works for reordering within the same Work Area and moving between Work Areas.
+- Desktop drag behaviour remains unchanged.

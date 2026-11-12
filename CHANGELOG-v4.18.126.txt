@@ -1,0 +1,1 @@
+Workspace search now matches Work Area names directly from the Workspace master, including areas with no task-name match. Existing task search and filter behavior is retained.

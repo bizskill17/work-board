@@ -1,0 +1,5 @@
+WorkBoard v4.17.8
+- Task card action icon row is forced visible below task metadata on every Work Area task card.
+- Applies to desktop, mobile and completed task cards.
+- Removed clipping/height constraints that could hide the action row.
+- Fixed the frontend jQuery noConflict console error in the sub-task delete-row helper.

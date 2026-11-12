@@ -1,0 +1,6 @@
+Business Board v4.9.55
+- Compact desktop/tablet task cards.
+- Metadata stays on a single horizontal row instead of wrapping into multiple rows.
+- Metadata row scrolls horizontally when needed, with hidden scrollbar.
+- Reduced card spacing and control sizes while preserving readability.
+- Mobile compact layout remains unchanged.

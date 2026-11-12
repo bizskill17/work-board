@@ -1,0 +1,8 @@
+Workboard v4.16.176
+
+- Sub-task rows are now hidden by default on task cards.
+- Kept the existing sub-task hierarchy icon as a clear indicator.
+- Added an eye icon beside the sub-task icon.
+- Clicking the eye shows/hides the inline sub-task rows for that task only.
+- Expanded/collapsed state is not persisted, so cards return to the clean collapsed state after reload.
+- Sub-task text continues to wrap to multiple lines when required.

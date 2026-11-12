@@ -1,0 +1,5 @@
+v4.16.48
+- Added Eye toggle to sharing sections so sharing controls are collapsed by default.
+- Applied to Workspace, Work Area, NoteSpace, Note Area, MathSpace, Math Area, and Party sharing sections.
+- Sharing data remains saved even when the section is collapsed.
+- Removed Folder field from Workspace Edit form.

@@ -1,0 +1,5 @@
+Workboard v4.13.38
+
+- MathSpace entry Edit and Delete actions moved below Amount.
+- Contact Number remains below Particular only when filled.
+- Amount remains right aligned.

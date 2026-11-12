@@ -1,0 +1,5 @@
+Workboard v4.14.84
+- Fixed overlap between Completed KPI and Work Areas filter in the desktop Workspace toolbar.
+- Removed forced minimum width from the filter group so controls no longer cover each other.
+- Reduced Card and filter widths while keeping labels readable.
+- Removed extra Completed left margin and tightened KPI/filter spacing.

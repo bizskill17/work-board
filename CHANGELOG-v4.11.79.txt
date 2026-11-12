@@ -1,0 +1,10 @@
+Workboard v4.11.79
+
+Folder view
+- Folder cards are now more compact.
+- Workspace count remains on the right side.
+- Folder action buttons remain at the bottom.
+- Manage Workspaces action now has a green background.
+- Edit Folder action now has a blue/purple background.
+- Delete Folder action now has a fixed dark-red background with a white icon.
+- Folder data and behaviour are unchanged.

@@ -1,0 +1,6 @@
+Workboard v4.11.39
+- Added touch-specific horizontal auto-scroll for mobile cross-Work-Area task dragging.
+- Destination Work Area is recalculated continuously while the board auto-scrolls.
+- Vertical card positioning remains active inside the destination Work Area.
+- Mobile task drag starts only from the existing task drag handle; normal task-body touch remains available for page scrolling.
+- Auto-scroll animation stops immediately on drop or pointer cancel.

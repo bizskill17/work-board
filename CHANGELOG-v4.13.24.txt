@@ -1,0 +1,5 @@
+Workboard v4.13.24
+- Morning Pending Test now reports messages actually accepted by Meta, not just internal notification rows created.
+- Captures and displays the real Meta / wallet / credentials / template failure reason per assignee.
+- Passes the morning source key into Message Log for traceability.
+- Keeps existing Workboard internal notification behavior unchanged.

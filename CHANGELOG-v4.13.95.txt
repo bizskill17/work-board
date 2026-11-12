@@ -1,0 +1,6 @@
+Version 4.13.95
+- Added one-click Delete Attendance for Manager/Owner/Admin on each employee/date row.
+- Delete Attendance removes all punches for that employee on that date after one confirmation.
+- Individual punch deletion no longer requires a reason.
+- Punch History keeps individual edit/delete controls.
+- Attendance Register and AttendSpace recalculate immediately after deletion.

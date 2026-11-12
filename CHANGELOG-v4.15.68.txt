@@ -1,0 +1,7 @@
+Workboard v4.15.68
+- Fixed Workspace Switcher search definitively.
+- Changed the switcher search field from type=search to type=text so legacy topbar rules cannot hide or disable it.
+- Search now filters on input, keyup, search and change.
+- Matching Workspace rows are forced visible; non-matching rows are forced hidden.
+- Opening the switcher fully resets the previous search/filter state.
+- Escape closes the Workspace switcher without triggering unrelated keyboard handlers.

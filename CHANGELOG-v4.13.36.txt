@@ -1,0 +1,5 @@
+Workboard v4.13.36
+
+- MathSpace contact Number display no longer shows decimal suffixes such as .00.
+- Contact Number remains digits-only and is shown below Particular.
+- Existing legacy numeric values are normalized for display/edit without affecting Amount.

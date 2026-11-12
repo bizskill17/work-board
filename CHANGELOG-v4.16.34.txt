@@ -1,0 +1,4 @@
+v4.16.34
+- Billable task cards now show the entered Amount beside the rupee indicator.
+- If Amount is blank, only the rupee indicator is shown.
+- Amount uses Indian number formatting with up to 2 decimal places.

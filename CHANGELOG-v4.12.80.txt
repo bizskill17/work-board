@@ -1,0 +1,7 @@
+Workboard v4.12.80
+- Quick Add Notifications & Reminder section now appears automatically only after an Assignee and Due Date are selected.
+- Removed the separate Notifications bell action from the Quick Add icon row.
+- Added multiple reminder rules with + Add Reminder and per-row delete.
+- Reminder units continue to hide Minutes when Due Time is blank; date-only reminders use the existing 10:00 AM backend fallback.
+- Added targeted bb_task_reminders table for additional reminder rules without rerunning the full Workboard database migration.
+- Server cron sends each reminder rule independently and preserves the legacy primary reminder source key to avoid duplicate sends.

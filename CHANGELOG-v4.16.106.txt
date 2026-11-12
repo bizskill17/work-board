@@ -1,0 +1,5 @@
+Workboard v4.16.106
+
+- Daily Activity: when Add Activity form is open, the Daily Activity list/table and filters are hidden.
+- Closing/cancelling the form returns to the Daily Activity list.
+- Saving an activity closes the form and returns to the list.

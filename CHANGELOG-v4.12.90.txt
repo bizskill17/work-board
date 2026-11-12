@@ -1,0 +1,5 @@
+Workboard v4.12.90
+- Added desktop Download Excel button to Focus view.
+- Export includes Focus tasks with Workspace, Work Area, Task, Due date/time, Priority, Assignee, Owner, Labels, Recurrence, latest update and sub-task progress.
+- Focus search is respected by the export.
+- Mobile Focus view remains unchanged.

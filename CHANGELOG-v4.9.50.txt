@@ -1,0 +1,8 @@
+Business Board v4.9.50
+
+- Sub Tasks now follow the Google Keep pattern.
+- Removed the separate + Add Sub Task button.
+- A blank Add Sub Task... row is always ready at the bottom of the panel.
+- Typing and tapping elsewhere auto-saves the sub task.
+- Enter saves and moves focus to the next ready blank row.
+- Escape/clear only clears the draft row; no Save button is required.

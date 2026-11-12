@@ -1,0 +1,5 @@
+Workboard v4.12.79
+- Rebuilt Send Urgent Reminder as a proper solid red flame icon matching the approved mockup.
+- Added a soft red circular background so the fire is visually clear at task-card size.
+- Kept a white inner flame for stronger contrast.
+- Applied the same fire style inside the Urgent Reminder popup.

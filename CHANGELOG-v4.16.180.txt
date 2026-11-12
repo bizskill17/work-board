@@ -1,0 +1,6 @@
+Workboard v4.16.180
+
+- Task card metadata now wraps naturally to a second line when card width is limited.
+- Priority, assignee, due date/time and billable amount remain fully visible without horizontal clipping.
+- Billable amount no longer overlays adjacent metadata.
+- Compact one-line layout is retained whenever the available width is sufficient.

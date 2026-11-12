@@ -1,0 +1,8 @@
+Workboard v4.16.142 — Sunday & Holiday Reminder
+
+- Renamed Sunday Reminder to Sunday & Holiday Reminder in Add Task and Edit Task.
+- The checkbox remains OFF by default and is enabled only after at least one task reminder is configured.
+- When OFF, Before Due, After Due and Repeat After Due reminders are not sent on Sundays or on dates entered in Attendance > Holiday.
+- When ON, scheduled reminders may send normally on Sundays and Attendance holidays.
+- Holiday checks use the existing bb_attendance_holidays table; no separate holiday master was added.
+- Reminder slots scheduled on a blocked Sunday/holiday are not sent later as catch-up reminders.

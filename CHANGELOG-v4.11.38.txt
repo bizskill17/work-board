@@ -1,0 +1,8 @@
+Workboard v4.11.38
+
+- Extended Auto Focus to eligible overdue tasks as well as tasks due today.
+- Non-daily active tasks with a due date on or before today can be Auto Focused once.
+- Daily recurring tasks remain excluded from Auto Focus and can only be focused manually.
+- Auto Focus is keyed to the actual due/recurrence occurrence date.
+- If a user manually removes an Auto Focused task, that removal is remembered for the same occurrence and refresh will not add it back.
+- When the task due date / recurring occurrence advances, the new eligible occurrence can Auto Focus independently.

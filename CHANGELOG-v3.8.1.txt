@@ -1,0 +1,10 @@
+Business Board v3.8.1
+
+Recurring Workspace visibility fix
+- Removed the 7-day display-window limitation for recurring tasks on Workspace boards.
+- Every active recurring task now contributes its next actionable occurrence to its Workspace, regardless of how far in the future it is.
+- Daily, weekly, fortnightly, monthly, quarterly, yearly and custom-interval tasks are handled consistently.
+- Completed recurring occurrences are skipped when calculating the next occurrence.
+- Existing overdue/missed occurrences remain visible.
+- Recurring occurrences completed today remain visible in Completed while the next occurrence can also appear as Upcoming.
+- Future recurrence rows are still calculated virtually and are not pre-created in the database.

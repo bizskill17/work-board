@@ -1,0 +1,3 @@
+Version 4.12.15
+- Replaced Sub Task delete trash icons with a dark red cross button.
+- Kept the Sub Task delete button in a fixed dark red background with white cross in normal, hover, focus, and active states.

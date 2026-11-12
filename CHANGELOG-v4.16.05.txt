@@ -1,0 +1,4 @@
+v4.16.05
+- View Attendance in User Add/Edit form changed from visible checkbox grid to dropdown-style multi-select.
+- Multiple viewers can still be selected with checkboxes.
+- Dropdown summary shows selected user name or selected user count.

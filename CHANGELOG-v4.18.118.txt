@@ -1,0 +1,1 @@
+Replaced delete confirmation icon buttons with accessible Cancel and Delete text buttons at the bottom of the centered modal.

@@ -1,0 +1,8 @@
+Business Board v4.10.22
+
+- Fixed main-task direct editing so a single tap/click reliably puts the caret into the existing task title without showing an editor box.
+- Main task editing now preserves wrapping and the original card layout while editing.
+- Reworked expanded sub-task editing to use true contenteditable direct editing instead of replacing the row with an input field.
+- Sub-task rows no longer jump, acquire a grey input background, or change width while editing.
+- Enter saves a sub-task and advances to the next sub-task; at the end it opens the continuous new-sub-task row.
+- Escape cancels; clicking/tapping outside saves.

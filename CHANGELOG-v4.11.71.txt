@@ -1,0 +1,5 @@
+Workboard v4.11.71
+
+- Task Updated WhatsApp: when the task Due Date is blank, the Due Date variable now shows the task's original Add Date (created_at).
+- The fallback is message-only; it does not change or save the task Due Date.
+- Existing Task Updated recipient rule remains unchanged: message goes to the Owner(s) selected on that task.

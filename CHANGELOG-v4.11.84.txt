@@ -1,0 +1,5 @@
+Workboard v4.11.84
+
+- Renamed the Folder view label to Folders in the left navigation.
+- Renamed the Folder page heading to Folders.
+- Folder URL/slug and folder functionality remain unchanged.

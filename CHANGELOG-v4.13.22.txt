@@ -1,0 +1,6 @@
+Workboard v4.13.22
+
+- Hard-coded Meta WhatsApp template language to `en` across site, own-account and network messaging modes.
+- Template Language is no longer editable in Workboard settings; it is shown as a fixed read-only value.
+- Message sending always submits language code `en` to Meta regardless of older saved values.
+- Existing saved en_US/custom language values are ignored for sending and overwritten to en when related settings are saved.

@@ -1,0 +1,9 @@
+Workboard v4.16.161
+
+- Redesigned the Time Sheet Add Activity form for mobile screens below 768px.
+- Date and Employee fields now show as clean full-width cards.
+- Each activity row now displays as its own stacked card instead of a horizontally scrolling table.
+- From and To remain side by side; Workspace, Work Area, Task and Remarks use full-width rows.
+- Add and Delete row actions stay together in the activity-card header.
+- Save Activities and Cancel remain full-width mobile actions.
+- Desktop and tablet Time Sheet form layout remains unchanged.

@@ -1,0 +1,5 @@
+Workboard v4.14.96
+- Fixed repeated admin-ajax.php HTTP 403 errors caused by stale/expired Workboard AJAX nonces.
+- Added authenticated fresh-nonce endpoint and automatic one-time retry when a normal Workboard AJAX call gets 403.
+- Added no-cache headers on Workboard frontend pages to reduce stale nonce pages from browser/proxy/page cache.
+- jQuery Migrate and apple-mobile-web-app-capable warnings are unrelated and harmless.

@@ -1,0 +1,4 @@
+Workboard v4.12.83
+- Fixed Notespace note cards becoming extremely narrow for users who do not have Note Area drag/manage permission.
+- Note text, link previews, thumbnails and actions now use the full card width when the drag handle is hidden.
+- Administrator/manager drag-enabled Notespace cards remain unchanged.

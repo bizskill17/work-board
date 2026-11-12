@@ -1,0 +1,8 @@
+Workboard v4.11.67
+
+- Updated Task Updated WhatsApp template to four variables:
+  {{1}} Task, {{2}} Due Date, {{3}} Update Date, {{4}} Assignee(s).
+- Added fixed closing line: “Please check the updated task.”
+- Update Date is sent in DD/MM/YYYY using Asia/Kolkata time.
+- Multiple selected task assignees are sent comma-separated.
+- Task update notifications now go to all Owner(s) explicitly selected on that task, not inherited Workspace/Work Area Owners.

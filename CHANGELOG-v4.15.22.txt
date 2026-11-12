@@ -1,0 +1,7 @@
+Workboard v4.15.22
+- Reopening a completed task no longer asks for Remarks.
+- Reopen Task is available only to WordPress Administrators and Workboard Managers.
+- Workboard Owners and Employees cannot reopen completed tasks.
+- Completed tasks show a static completed check for users who cannot reopen them.
+- Added the same Administrator/Manager-only reopen restriction on the backend for both one-time and recurring tasks.
+- Completing a task still follows Update Remarks Required when that Work Area setting is enabled.

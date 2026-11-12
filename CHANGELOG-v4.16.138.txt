@@ -1,0 +1,8 @@
+Workboard v4.16.138
+- Redesigned the left navigation for stronger readability and clearer hierarchy.
+- Main section headers now use distinct, high-contrast colors while the sidebar keeps a dark navy base.
+- All submenu/view names now use brighter text, larger spacing, and dark high-contrast row backgrounds.
+- Bullet navigation is retained and aligned consistently.
+- Active view remains a full-row color highlight with white text.
+- Attendance, Leave, Billing and Time Sheet nested groups now use clearer dark subsection panels.
+- Applied the same readable treatment on desktop, tablet and mobile.

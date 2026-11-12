@@ -1,0 +1,9 @@
+WorkBoard v4.18.65
+
+- Attendance summary image uses Arial-compatible TrueType rendering when available, with Arial font lookup and Liberation Sans fallback.
+- Morning 11:00 AM summary: Total, Present, Absent, Late and On Leave.
+- Late is calculated per employee using that employee's Start Time plus configured Grace Minutes.
+- Evening 8:00 PM summary: Total, Present, Absent, Early, Less Working Hours and On Leave.
+- Early is calculated per employee using that employee's End Time minus configured Grace Minutes.
+- Less Working Hours follows each employee's Start/End Time and also allows configured Grace Minutes.
+- Approved leave is excluded from Absent and counted separately as On Leave.

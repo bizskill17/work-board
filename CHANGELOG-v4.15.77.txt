@@ -1,0 +1,4 @@
+v4.15.77
+- Removed Note Area Date Applicable help text.
+- Removed Share section instruction text above the User/Action table.
+- Removed automatic VIEW permission help text below sharing table.

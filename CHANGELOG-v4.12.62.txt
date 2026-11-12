@@ -1,0 +1,6 @@
+Workboard v4.12.62
+
+- Simplified Note clipboard copy output.
+- Clipboard now copies only the Note title, Link (when present), and Note/Optional Note text.
+- Removed Notespace name, Note Area name, field labels, preview metadata, and other UI details from copied Note text.
+- Link notes with an optional note keep a blank line between the URL and note text for cleaner pasting into WhatsApp, email, and other apps.

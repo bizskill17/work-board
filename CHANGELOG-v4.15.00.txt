@@ -1,0 +1,4 @@
+Workboard v4.15.00
+- Fixed Task Owner and Assignee(s) dropdown values not appearing inside the Add Task modal.
+- Dropdown option lists now expand clearly inside the modal instead of being clipped by the modal scroll container.
+- Added sticky search inside the people dropdown and clearer checkbox rows for multiple selections.

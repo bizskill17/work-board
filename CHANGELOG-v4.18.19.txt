@@ -1,0 +1,8 @@
+WorkBoard v4.18.19
+
+Time Sheet
+- Made the Time Sheet list more compact by reducing Date, Time, Work Area, Employee and Task column widths.
+- Increased the Remarks column substantially so long remarks wrap into fewer lines.
+- Full Remarks text remains visible; no fixed-height clipping is used.
+- Horizontal scrolling remains available when the table is wider than the viewport.
+- Reduced table cell padding and line-height for a denser list view.

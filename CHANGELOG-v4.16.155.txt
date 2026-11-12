@@ -1,0 +1,6 @@
+Workboard v4.16.155 — Standard Orange Cancel Buttons
+
+- All visible Cancel buttons now use an orange background with white text.
+- Added darker orange hover/focus styling.
+- Applied to modal forms, Quick Task, AI simplify flow, Time Sheet and other Cancel actions.
+- No action logic changed.

@@ -1,0 +1,11 @@
+Workboard v4.15.57
+- Redesigned Notespace and MathSpace Share UI.
+- Replaced repeated User / Role dropdown rows with two clean checkbox columns: Assignees and Owners.
+- Added user search.
+- Added selected counts for Assignees and Owners.
+- Added Clear action.
+- Removed blank assignment rows from the Share modal.
+- Existing selections are pre-checked.
+- At least one Owner remains mandatory.
+- The same User can still be both Owner and Assignee.
+- Mobile layout stacks the two columns vertically.

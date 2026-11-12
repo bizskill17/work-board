@@ -1,0 +1,5 @@
+WorkBoard v4.18.3
+
+- Settings save buttons now show an inline spinner immediately after click.
+- Spinner appears on the exact button clicked (for example Save Modules).
+- Save buttons remain disabled while the request is processing and restore automatically after completion.

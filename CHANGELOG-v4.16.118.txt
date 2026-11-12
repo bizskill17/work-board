@@ -1,0 +1,8 @@
+Workboard v4.16.118
+
+Daily Activity
+- Made the multi-row entry form more compact.
+- Reduced spacing between Add Row, Date/Employee, activity table and footer.
+- Reduced activity row height and input padding.
+- Reduced Remarks field height while keeping it resizable.
+- Kept the existing searchable Workspace -> Work Area -> Task cascade unchanged.

@@ -1,0 +1,8 @@
+Workboard v4.15.15
+- Dashboard + Add Task now opens the complete Add Task form immediately.
+- Removed the preliminary Workspace / Work Area picker step from the Dashboard + flow.
+- The form opens with an available Workspace and Work Area already selected.
+- Workspace and Work Area remain visible at the top of the full task form and can be changed there.
+- Changing Workspace reloads its available Work Areas.
+- Changing Work Area reloads the same Work Area task form context, including defaults and assignees.
+- The Dashboard + flow now matches the task form used directly under a Work Area.

@@ -1,0 +1,5 @@
+v4.15.92
+- Added User dropdown under View Attendance in User > Attendance & Payroll.
+- Selected employee can be chosen for View Attendance; if blank, all active attendance users remain visible.
+- View Attendance now shows month-to-date punches in descending date order, not only Today.
+- View Attendance remains read-only for other employees; self punch actions remain available.

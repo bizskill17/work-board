@@ -1,0 +1,10 @@
+Workboard v4.11.36
+
+- Simplified active task bifurcation into four mutually exclusive sections:
+  Simple: tasks with no due date.
+  Overdue: tasks with a due date before today.
+  Due: tasks due today or later within the current calendar month.
+  Upcoming: tasks due after the current calendar month.
+- Completed tasks remain in the separate Completed section.
+- Focus view reflects the same Simple / Overdue / Due / Upcoming classification.
+- Task movement between Work Areas preserves the task's date-based section.

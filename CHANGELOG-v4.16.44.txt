@@ -1,0 +1,3 @@
+v4.16.44
+- Party sharing field now uses exactly the same select field, icon buttons, spacing, borders, and table action styling as User sharing.
+- Party action icons now use the same SVG icon set as User sharing.

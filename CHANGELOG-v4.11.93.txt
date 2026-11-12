@@ -1,0 +1,9 @@
+Workboard v4.11.93
+
+Telegram Task Inbox instructions
+- Added a detailed Setup Instructions panel directly inside Workboard Settings → Telegram Task Inbox.
+- Added BotFather /newbot and /setprivacy guidance.
+- Added instructions for adding the bot to the Telegram group, saving the Bot Token, retrieving /chatid, saving the Allowed Group Chat ID, and testing the connection.
+- Added an in-plugin How to Create a Task flow showing that the original pasted WhatsApp/email/SMS text is used directly and does not need to be typed again.
+- Added useful bot command reference for /chatid, /cancel, /help and /start.
+- Added a reminder that the Telegram capture flow does not use OpenAI, Gemini or Claude APIs.

@@ -1,0 +1,6 @@
+Workboard v4.14.56
+
+- Fixed Notifications & Reminder form Save failing because after-due variables were referenced before initialization.
+- After-due repeat-reminder settings now save correctly and the modal closes after a successful save.
+- Preserved repeat reminders for every task Assignee individually; Owners are included only when they are also Assignees.
+- Preserved the existing 5-minute reminder cron, retry handling, duplicate protection, active-hours window, maximum-duration/maximum-reminders limits, and stop-on-completion behavior.

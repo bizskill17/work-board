@@ -1,0 +1,5 @@
+v4.16.24
+- Removed the remaining legacy Late badge path from AttendSpace.
+- Late is now retained only as an internal timing flag, never as a visible attendance status.
+- Any legacy Late result is normalized to Present, Short Hours · Xh Xm, Overtime · Xh Xm, or Absent using net hours and configured Grace Time.
+- The same normalization applies everywhere attendanceDayMetrics is used.

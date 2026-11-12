@@ -1,0 +1,6 @@
+Business Board v4.10.1
+
+- Fixed mobile Quick Add: tapping Add task now calls the save routine directly instead of relying only on native form submit behaviour.
+- Prevents duplicate saves while a request is already in progress.
+- Improved mobile tap reliability for the Add task button.
+- Desktop Quick Add behaviour remains unchanged.

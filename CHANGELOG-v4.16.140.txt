@@ -1,0 +1,7 @@
+Workboard v4.16.140
+- Added drag-and-drop reordering for Note Areas inside a Notespace, matching Work Area movement.
+- Desktop: drag the Note Area grip left/right.
+- Mobile/tablet: long-press the grip, then drag; horizontal auto-scroll works near the edges.
+- Note Cards remain inside their Note Area while the Area moves.
+- Note Area order is saved to sort_order and persists after refresh/login.
+- Reordering is disabled while Notespace search is active to avoid partial-order conflicts.

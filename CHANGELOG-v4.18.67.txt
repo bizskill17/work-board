@@ -1,0 +1,3 @@
+WorkBoard v4.18.67
+- Attendance summary images now use a unique file URL on every generation so Meta/WhatsApp cannot reuse a cached image from an earlier test.
+- Ensures latest Late/Early counts and enlarged Arial-compatible image layout are fetched on every test/send.

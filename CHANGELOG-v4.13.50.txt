@@ -1,0 +1,8 @@
+v4.13.50
+- Math Area delete icon now appears only when that Math Area has no Particular entries.
+- Backend also blocks Math Area deletion while entries exist.
+- Added Sharing section to Math Area form with Owner / Assignee user sharing.
+- Math Area Owner can edit settings/sharing; Assignee can view and update entries.
+- Unshared legacy Math Areas remain visible to current Workboard users for backward compatibility.
+- Shared Math Areas are filtered per user, including PDF access.
+- Preserved Particular Up / Down ordering from v4.13.49.

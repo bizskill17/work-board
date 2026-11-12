@@ -1,0 +1,4 @@
+WorkBoard v4.18.62
+- Removed helper text from WhatsApp Attendance Summary.
+- Converted WhatsApp Attendance Summary settings to a compact two-column table in Masters > Settings and Attendance Settings.
+- Kept Active, WhatsApp Number, Morning/Evening fixed times, Template Name, Test Number and Send Test controls.

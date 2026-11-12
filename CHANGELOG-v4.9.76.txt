@@ -1,0 +1,4 @@
+Business Board v4.9.76
+- Desktop right-click Task Options now works across the full non-interactive task-card surface (title, metadata, and empty card area).
+- Mobile/tablet long-press target is likewise expanded across the task card while preserving checkbox, drag grip, inline controls, links, and form interactions.
+- Uses the existing Task Options action sheet; no duplicate menu or action logic is introduced.

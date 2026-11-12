@@ -1,0 +1,6 @@
+Workboard v4.11.18
+
+- Fixed Employee task-card layout when task drag handles are hidden.
+- Employee task titles now use the full available card width instead of collapsing into a narrow vertical column.
+- Owner, Manager and Administrator drag/reorder layout remains unchanged.
+- Desktop and mobile card widths remain responsive.

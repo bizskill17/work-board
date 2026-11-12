@@ -1,0 +1,15 @@
+Business Board 4.0.0
+
+- Adds multiple Owners and multiple Assignees at Workspace, Work Area, Task and Sub Task levels.
+- Each Owner/Assignee can receive View, Edit or View + Edit rights.
+- Adds ancestor-style access inheritance from Workspace -> Work Area -> Task -> Sub Task.
+- Direct Task assignments coexist with inherited Workspace/Work Area assignments.
+- Separates Edit Task (definition) from View / Update Task (live execution).
+- Adds Pending and In Progress operational updates without completing the task.
+- Adds progress Remarks with user/date/time history.
+- Adds remark count and In Progress indicator directly on Workspace task cards.
+- Adds live activity timeline inside View / Update Task.
+- Sub Tasks remain tickable/untickable in View / Update; unticking reopens the parent occurrence.
+- Supports Owner/Assignee configuration on individual Sub Tasks.
+- Board checkbox remains instant completion; tasks with Sub Tasks still require all Sub Tasks first.
+- My Tasks recognizes direct/inherited Task assignee relationships.

@@ -1,0 +1,6 @@
+Workboard v4.12.31
+- Changed the urgent WhatsApp template name to workboard_urgentmessage.
+- Urgent reminder now sends three Meta template variables: Task, Notes, and Required By.
+- Required By uses the currently logged-in Workboard user name / WordPress display name, never an email address.
+- Existing installations using the old default workboard_urgent_update are automatically migrated to workboard_urgentmessage.
+- Updated the Settings template preview to the new three-variable message format.

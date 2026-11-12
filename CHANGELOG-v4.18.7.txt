@@ -1,0 +1,6 @@
+WorkBoard v4.18.7
+
+- CallSpace Party is now a dropdown populated from active records in Party Master.
+- CallSpace Recipient is now a dropdown populated from active Users.
+- Existing saved Party/Recipient values are preserved while editing older entries.
+- Caller remains a normal text field.

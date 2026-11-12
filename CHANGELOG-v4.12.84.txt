@@ -1,0 +1,5 @@
+Workboard v4.12.84
+- Quick Add Assignees and Owners dropdowns are collapsed by default on desktop and mobile.
+- New Quick Add tasks start with no Assignee and no Owner selected.
+- Removed hidden fallback that could still assign the Work Area/default assignee when the user left Assignees blank.
+- Existing saved tasks and task editing are unchanged.

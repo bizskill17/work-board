@@ -1,0 +1,6 @@
+Workboard v4.13.35
+- Math Entry Number is now treated as a contact number.
+- Number accepts digits only (0-9), up to 15 digits.
+- Contact number is stored as text so leading zeroes are preserved.
+- Number now displays below Particular instead of in a separate table column.
+- Amount remains a separate column and Math Area totals continue to use Amount only.

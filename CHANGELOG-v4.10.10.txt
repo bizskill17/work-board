@@ -1,0 +1,6 @@
+Business Board v4.10.10
+
+- Added event-wise Meta WhatsApp Utility template settings and ready-to-submit template bodies.
+- Added separate template mapping for Task Assigned, Task Updated, Due Soon, Overdue and Daily Summary notifications.
+- WhatsApp sending now automatically selects the correct approved template for each notification type.
+- Test WhatsApp uses the Task Assigned template.

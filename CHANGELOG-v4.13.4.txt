@@ -1,0 +1,7 @@
+Workboard v4.13.4
+
+- Fixed Settings → Show Delete Icons in Workspace not reliably hiding delete icons after switching OFF.
+- Unchecked setting is now sent explicitly as 0 and applied immediately after save.
+- Added a defensive app-level visibility class so the setting remains enforced across rerenders.
+- OFF now hides both the Workspace Move-to-Trash icon and the Delete Work Area icon.
+- Permanent delete inside the dedicated Workspace Trash view remains available.

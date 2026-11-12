@@ -1,0 +1,6 @@
+Version 4.14.12
+- Changed the Workboard reminder WP-Cron cadence from every 1 minute to every 5 minutes.
+- Automatically migrates/removes legacy 1-minute reminder events and schedules bb_task_reminder_tick every 5 minutes.
+- Updated reminder fallback timing to match the 5-minute cadence.
+- Updated Hostinger/server cron setup guidance to */5 * * * *.
+- Immediate overdue checks after saving an overdue reminder rule are preserved.

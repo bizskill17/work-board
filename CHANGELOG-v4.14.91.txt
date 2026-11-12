@@ -1,0 +1,5 @@
+Workboard v4.14.91
+- Made spacing between all Workspace toolbar controls equal.
+- Replaced the stretched filter grid with a flexible row so Work Areas, Task Stage, Priorities, Assignees and Labels use equal space.
+- Removed large uneven blank gaps between filter controls.
+- Kept the same spacing whether the left menu is shown or hidden.

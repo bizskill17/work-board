@@ -1,0 +1,11 @@
+Business Board v4.0.4
+
+- Redesigned Workspace task cards using the selected clean Option 2 layout.
+- Task title now gets maximum width and is limited to two lines.
+- Only View/Update and More actions remain visible on the card.
+- Edit, Pin/Unpin, Move Up and Move Down moved into the More menu.
+- Pin indicator appears only when the task is pinned.
+- Recurring icon and compact U/H/M/L priority remain beside the title.
+- Assignee and due date remain on one compact metadata row.
+- Sub Task progress now uses a compact progress bar plus 0/3 style count.
+- Reduced card clutter, stronger typography, cleaner white background, and subtle status-colored left border.

@@ -1,0 +1,5 @@
+Workboard v4.12.22
+- Recurring tasks now display the next scheduled due date whenever the currently retained recurring occurrence date is earlier than today.
+- The actual overdue occurrence remains unchanged for status/history/scoring; only the visible due date advances to the next recurrence.
+- Applied the next recurring due date display to task cards, task details, and live task list.
+- Recurrence exceptions and end dates are respected when calculating the next due date.

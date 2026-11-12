@@ -1,0 +1,6 @@
+Workboard v4.12.54
+
+- Added a new Settings view under Masters.
+- Settings currently contains one organization field: Org Name.
+- Org Name is saved per Workboard site and is available in Workboard state/backup data.
+- Settings is restricted to Administrator, Owner and Manager access, consistent with other Masters views.

@@ -1,0 +1,8 @@
+Business Board v4.10.16
+
+- Reworked expanded sub tasks into a compact Todoist-style list.
+- Each sub task now uses a small drag handle, checkbox and clean single-line text row.
+- Added a simple “+ List item” row at the bottom of the expanded list.
+- Clicking “+ List item” turns that row into an inline text field; press Enter to add, or × to cancel.
+- Added drag-and-drop reordering directly in the expanded card subtask list.
+- Main task completion remains separate; completing all sub tasks does not auto-complete the main task.

@@ -1,0 +1,3 @@
+v4.15.78
+- Removed stray duplicate reminder fields appearing below the Cancel/Update Task footer in Task Edit.
+- Removed the orange dashed summary line from Repeat After Due in the quick Task Add/Edit form.

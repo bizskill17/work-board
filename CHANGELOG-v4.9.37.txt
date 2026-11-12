@@ -1,0 +1,13 @@
+Business Board v4.9.37
+
+- Larger, colorful inline task metadata icons.
+- Fixed inline task title edit duplication caused by display override.
+- Sub-task popover now shows existing sub-tasks and supports adding multiple without closing.
+- Priority options are vertical and auto-save.
+- Removed Save buttons from inline controls; changes auto-save.
+- Added close (×) button on inline popovers.
+- Due-date icon opens the native calendar directly.
+- Recurrence options are vertical and include Custom Interval.
+- Labels are searchable, vertical checkbox selections, support adding a custom label, and auto-save.
+- Assignee checkbox changes auto-save and preserve non-assignee direct assignments.
+- Remarks show earlier remarks and allow fast add without a Save button.

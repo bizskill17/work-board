@@ -1,0 +1,1 @@
+Added Both option to Workspace Status dropdown; includes pending and completed tasks and expands Completed groups on Card view. Existing All/Pending/Overdue/Completed choices retained.

@@ -1,0 +1,4 @@
+Business Board v4.9.15
+
+- Added distinct darker outline borders to Current, Overdue, Upcoming and Completed KPI chips.
+- Each KPI keeps its own status color while using a stronger matching dark border.

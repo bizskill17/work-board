@@ -1,0 +1,4 @@
+Workboard v4.11.25
+- Fixed Workspace Import button on mobile by adding explicit click/pointer handlers instead of relying only on form submit.
+- Prevented duplicate import requests.
+- Added visible server/API error feedback inside Import Workspace modal.

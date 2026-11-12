@@ -1,0 +1,1 @@
+Removed the Dashboard left bullet. Other sidebar items and styling unchanged.

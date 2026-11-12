@@ -1,0 +1,1 @@
+Workspace and Time Sheet direct PDF export, grouped Workspace PDF, alphabetical Move Task Work Areas, Group By Table visibility, instant label and area state refresh, completed section persistence after bulk deletion.

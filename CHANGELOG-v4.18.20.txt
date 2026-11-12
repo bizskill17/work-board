@@ -1,0 +1,7 @@
+WorkBoard v4.18.20
+
+- Reduced Time Sheet Remarks column width on desktop.
+- Kept Remarks fully visible with wrapping.
+- Reduced Date, Time, Work Area, Employee and Task widths further.
+- Action column now remains visible on normal desktop width without horizontal scrolling.
+- Horizontal scrolling remains available on smaller screens.

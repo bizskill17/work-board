@@ -1,0 +1,6 @@
+Workboard v4.13.26
+
+- Fixed Morning Pending Tasks Reminder Meta error #132018 caused by multi-line text being sent inside body variable {{2}}.
+- The task digest is now flattened into a single safe parameter value using separators while preserving Workspace/Work Area/task order.
+- Added Meta error_data.details and error_subcode to the Test result for clearer diagnostics.
+- No change to task selection logic, dynamic Open Workspaces button, or morning schedule.

@@ -1,0 +1,6 @@
+Version 4.14.11
+- Strengthened automatic Due Reminder execution.
+- Multisite now guarantees the main-site reminder cron event so one server cron can scan every Workboard site.
+- Added a safe request-based reminder catch-up when the last cron tick is stale.
+- Saving an already-overdue After Due rule now performs an immediate idempotent reminder check.
+- Existing schedule/source-key duplicate protection remains intact.

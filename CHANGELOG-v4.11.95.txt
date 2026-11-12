@@ -1,0 +1,32 @@
+Workboard v4.11.95
+==================
+
+New
+---
+1. Task card Work Area transfer
+   - New Move icon immediately after the Urgent Reminder bell.
+   - Task Owners can pick another Work Area from the current Workspace.
+   - The task keeps its existing data and moves to the selected Work Area.
+   - Activity Log records the source and destination Work Areas.
+
+2. Notespaces
+   - New Notespace > Note Area > Note Card structure.
+   - Text Note Cards.
+   - Link Note Cards with automatic Open Graph/Twitter/title preview when available.
+   - Link thumbnails are shown when the source page exposes one.
+   - No AI API is used for link previews.
+   - Note Cards can be reordered in a Note Area or moved to another Note Area by drag/drop or the Move action.
+
+3. Common Folders
+   - A Folder can contain both Workspaces and Notespaces.
+   - Folder selection dialog now manages both structures.
+   - Deleting a Folder does not delete its Workspaces or Notespaces.
+
+4. Navigation
+   - Left menu is grouped into Masters, Work and Notes sections.
+   - Notespaces are available in the Notes section.
+
+Compatibility
+-------------
+- New Notes tables are created automatically by the normal Workboard database upgrade routine.
+- Existing Workspaces, Folders, Tasks and previous Folder memberships are retained.

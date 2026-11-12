@@ -1,0 +1,8 @@
+Workboard v4.11.43
+
+- Added global immediate loading feedback for delayed actions.
+- Buttons now show an inline spinner and are temporarily protected from repeat clicking while their request is saving.
+- Added lightweight non-blocking status feedback for drag/reorder saves and background refreshes.
+- Focus remains a small inline action and does not trigger a full-page blocker.
+- Added feedback coverage for Workspace/Work Area/User/settings changes, task/status actions, imports, exports, AI actions and drag persistence.
+- Larger state refresh feedback is delayed briefly to avoid spinner flicker on fast responses.

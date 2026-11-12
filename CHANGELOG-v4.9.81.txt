@@ -1,0 +1,6 @@
+Business Board v4.9.81
+- Overdue filter now hides Work Areas with no matching overdue tasks.
+- Priority, Assignee and Work Area filters combine correctly with Overdue.
+- Work Area score chips and mobile area chips hide when their area has no matching overdue tasks.
+- Work Area creation/insertion controls are hidden while Overdue mode is active.
+- Clear filters also exits Overdue mode.

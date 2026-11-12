@@ -1,0 +1,5 @@
+Workboard v4.16.154 — Note Area Header Count Cleanup
+
+- Removed the note-count badge from Note Area headers.
+- Note Area headers now show only the drag handle, Note Area name, and action buttons.
+- Note cards and all Note Area functionality remain unchanged.

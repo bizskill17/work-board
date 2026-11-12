@@ -1,0 +1,5 @@
+Workboard v4.12.35
+- Made Flash highlighted tasks visibly colorful with an amber/yellow blinking background.
+- Increased highlight visibility with stronger border, glow and left accent bar.
+- Kept Flash-highlighted tasks pinned at the top of the task section.
+- Improved the active Flash icon appearance so users can clearly identify highlighted tasks.

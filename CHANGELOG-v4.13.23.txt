@@ -1,0 +1,6 @@
+Workboard v4.13.23
+
+- Fixed Morning Pending Tasks Reminder Test button fatal error.
+- The test endpoint incorrectly called a non-existent check_ajax() method; it now uses the plugin standard verify() method.
+- The Test button can now reach the real morning pending-task function.
+- Improved admin error display to include HTTP status if a future AJAX/server error occurs.

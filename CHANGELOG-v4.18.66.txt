@@ -1,0 +1,9 @@
+WorkBoard v4.18.66
+
+- Fixed Morning Attendance Late detection for users using Organisation Default Working Hours.
+- Effective Start/End times now normalize both HH:MM and legacy HH:MM:SS values.
+- Attendance punch timestamps and schedule comparison are evaluated consistently in Asia/Kolkata.
+- Grace Minutes continue to apply to Late, Early and Less Working Hours rules.
+- Attendance WhatsApp summary image now uses substantially larger Arial-compatible text.
+- Reduced unnecessary blank image space with dynamic image height.
+- Morning cards remain Total, Present, Absent, Late and On Leave.

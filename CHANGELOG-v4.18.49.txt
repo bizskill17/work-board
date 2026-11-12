@@ -1,0 +1,3 @@
+WorkBoard v4.18.49
+- Replaced the icon-only Work Area Trash control with a named Deleted Work Areas button on desktop.
+- Mobile analysis menu now shows Deleted Work Areas with its count and no trash/delete icon.

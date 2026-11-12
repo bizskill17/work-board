@@ -1,0 +1,8 @@
+Business Board v4.9.2
+
+- Simplified Add/Edit User form.
+- Removed Existing WordPress User selector.
+- Removed Login explanatory section and Permission Rule panel.
+- Added Login ID and Password directly in User Details.
+- New users require a unique Login ID and Password and automatically get a Business Board login.
+- Existing Login ID is retained; New Password is optional when editing.

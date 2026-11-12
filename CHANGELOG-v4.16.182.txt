@@ -1,0 +1,5 @@
+Workboard v4.16.182
+
+- Fixed Add/Remove from Focus control so it keeps the Focus target icon.
+- The global delete-icon normalizer no longer converts "Remove from Focus" into a red trash icon.
+- Focus behavior is unchanged.

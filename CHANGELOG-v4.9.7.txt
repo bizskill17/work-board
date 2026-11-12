@@ -1,0 +1,5 @@
+Business Board v4.9.7
+
+- Work Area column border now uses the Work Area theme color.
+- Work Area header divider also follows the same theme color.
+- Work Area score-card border now uses the matching Work Area theme color.

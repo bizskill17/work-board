@@ -1,0 +1,4 @@
+Workboard v4.12.07
+- Removed the header/view-name search completely on every Workboard view.
+- Added defensive JavaScript and CSS removal so legacy header search markup cannot reappear.
+- Page-level/local search controls remain available and now keep their own search state without relying on the removed global header search.

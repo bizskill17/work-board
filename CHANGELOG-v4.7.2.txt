@@ -1,0 +1,7 @@
+Business Board v4.7.2
+
+- Daily recurring tasks no longer appear in Upcoming.
+- A daily recurring task is shown only when its occurrence is due today (Current), overdue, or completed.
+- After today's daily occurrence is completed, tomorrow's occurrence remains hidden until tomorrow.
+- Weekly, fortnightly, monthly, quarterly, yearly, custom-interval, and one-time future tasks continue to use Upcoming / More Upcoming rules.
+- Upcoming KPI counts also exclude hidden future daily occurrences.

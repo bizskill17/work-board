@@ -1,0 +1,8 @@
+Workboard v4.15.38
+- Fixed Search inside every Pending Tasks filter dropdown.
+- Non-matching Workspace, Work Area, Stage, Owner, Assignee, Priority, Label and Due Status options now hide instantly while typing.
+- Filter search is reset cleanly whenever a filter dropdown is reopened.
+- Refreshed Pending Tasks with a more colorful professional UI.
+- Each filter has a soft distinct color.
+- Table rows are color-coded by Due Status: Overdue, Due Today, Upcoming and No Due Date.
+- Improved table header, Task links, Labels and summary-chip colors.

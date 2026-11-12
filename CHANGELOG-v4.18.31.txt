@@ -1,0 +1,4 @@
+WorkBoard v4.18.31
+- Mobile bottom navigation remains fixed.
+- Removed the top separator/colored line from the fixed mobile bottom navigation.
+- Bottom navigation uses a solid white background so board colors do not bleed into it.

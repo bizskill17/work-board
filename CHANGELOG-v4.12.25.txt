@@ -1,0 +1,5 @@
+Workboard v4.12.25
+- Added a clearly visible Search Work Area box at the top of the Move Task dropdown.
+- Added a clearly visible Search Note Area box at the top of the Move Note dropdown.
+- Search filters the open dropdown options instantly.
+- The selected destination remains visible in the main selector field.

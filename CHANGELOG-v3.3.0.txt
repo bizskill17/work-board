@@ -1,0 +1,22 @@
+Business Board v3.3.0
+
+1. Automatic IDs
+- User IDs are auto-created as USR-0001, USR-0002, etc.
+- Department IDs are auto-created as DEPT-0001, DEPT-0002, etc.
+- IDs are read-only after creation.
+
+2. Workspace-owned Work Areas
+- Removed the separate Work Areas menu/view.
+- Work Areas are created and managed only from inside a Workspace.
+- A Work Area is attached to exactly one Workspace.
+- The same Work Area name may be used independently in different Workspaces.
+- Workspace import/template creation creates Workspace-specific Work Areas rather than reusing global ones.
+
+3. Access View
+- Access remains tabular.
+- First column is User Name.
+- Department access remains inherited; the Access table is for Workspace overrides and extra permissions.
+
+4. Employee renamed to User
+- Frontend/menu/forms now use User/Users terminology.
+- Internal legacy database table/field names remain unchanged for safe upgrades.

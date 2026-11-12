@@ -1,0 +1,9 @@
+Workboard v4.12.101
+
+- Refined the saved-task Notifications & Reminder popup to match the approved mockup.
+- Added a compact Due Date row with calendar icon and date badge.
+- Improved notification/reminder cards, checkbox alignment and info indicators.
+- Improved reminder value/unit/delete alignment.
+- Added clean red trash icon and full-width outlined Add Reminder button.
+- Improved footer spacing and removed desktop horizontal overflow.
+- Reminder functionality and cron logic are unchanged.

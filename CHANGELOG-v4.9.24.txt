@@ -1,0 +1,5 @@
+Business Board v4.9.24
+- Fixed task card width/layout distortion after drag-and-drop reordering.
+- Dragging now changes only task order; card width and internal layout remain stable.
+- Replaced the text drag symbol with a Google Keep-style six-dot grip.
+- Improved touch/desktop drag handle sizing and visual feedback.

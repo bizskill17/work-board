@@ -1,0 +1,4 @@
+Workboard v4.12.93
+- Corrected Fire Option 3 to use a fuller red outer flame with a clearly visible amber inner flame.
+- Increased icon fill area so it remains recognizable at task-card size.
+- Applied consistently in Workspace, Focus and Urgent Reminder popup.

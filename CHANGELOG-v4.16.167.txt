@@ -1,0 +1,3 @@
+Workboard v4.16.167
+- Removed the activity-row count text from the Time Sheet add/edit form footer.
+- Save Activities and Cancel actions remain unchanged.

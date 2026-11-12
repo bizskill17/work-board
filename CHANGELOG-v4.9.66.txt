@@ -1,0 +1,11 @@
+Business Board v4.9.66
+
+Recurring incomplete-occurrence policy
+- Daily recurring tasks reset operationally each day: previous missed daily occurrences stay in Activity/History but do not carry forward as Overdue on the board.
+- Weekly, Fortnightly, Monthly, Quarterly, Yearly and Custom recurrence now default to "Show overdue until next recurrence".
+- Added optional "Keep showing overdue until completed" policy for non-daily recurring tasks.
+- When the next recurrence arrives under the default policy, the previous missed occurrence leaves the operational board but remains preserved in History/Activity.
+- Under Keep policy, older incomplete occurrences remain Overdue while the fresh scheduled occurrence also appears.
+- Added Incomplete Occurrence setting to the full recurring-task form and Repeat quick popover.
+- Daily summary counts now follow the same visible-overdue policy.
+- Workspace templates/imports preserve the new recurring overdue policy.

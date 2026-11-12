@@ -1,0 +1,7 @@
+Workboard v4.15.50
+- Edit Task form no longer shows the Incomplete Occurrence section.
+- Removed from Edit Task:
+  - Show overdue until next recurrence (Default)
+  - Keep showing overdue until completed
+  - Daily recurrence always resets fresh each day.
+- The setting remains available while creating a new recurring Task.

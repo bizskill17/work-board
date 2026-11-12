@@ -1,0 +1,4 @@
+v4.15.84
+- Holiday + Add Row renamed to + Add.
+- + Add now opens a centered popup form with Date and Holiday fields.
+- Holiday moved from Masters menu to Attendance menu.

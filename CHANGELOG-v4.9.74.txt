@@ -1,0 +1,7 @@
+Business Board v4.9.74
+
+- Simplified Task Activity modal header to show only the Task Name.
+- Removed the TASK ACTIVITY eyebrow and the Includes task and sub-task activity subtitle.
+- Removed the duplicate inner close icon; the modal now uses one close X only.
+- Reduced Task Activity modal width on desktop and kept responsive card view on mobile/tablet portrait.
+- Removed unnecessary horizontal overflow from the desktop activity table.

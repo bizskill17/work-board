@@ -1,0 +1,8 @@
+Business Board v4.0.1
+- Adds Share on View / Update Task for effective Owners with Edit rights only.
+- Share supports multiple direct Owners and Assignees with View, Edit, or View + Edit rights.
+- Inherited Workspace / Work Area access is shown read-only and remains intact.
+- Task sharing changes are logged in Activity Log.
+- Compacts the View / Update Task screen: metadata strip, compact people section, latest remark preview.
+- Hides empty Sub Task / Remark summary cards and combines attachments/proof into one operational section.
+- Keeps Sub Task checkboxes, remarks, proof, and latest-first activity timeline in the execution view.

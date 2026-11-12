@@ -1,0 +1,6 @@
+v4.16.46
+- Workspace User sharing now uses the same icon-only ADD / EDIT / DELETE / VIEW UI as Work Area sharing.
+- Workspace Party sharing is shown when Enable Party Share is enabled.
+- Party sharing uses the same icon-only selector/table UI as User sharing.
+- Workspace Party permissions are saved and loaded.
+- Workspace granular User rights are saved with DELETE permission treated as Workspace owner-level control.

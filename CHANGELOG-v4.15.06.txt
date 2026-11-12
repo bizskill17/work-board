@@ -1,0 +1,10 @@
+Workboard v4.15.06
+- Redesigned Add Task Reminder selection for clearer Before/After setup.
+- Removed the native Reminder dropdown from Add Task.
+- Added independent Before Due and After Due checkboxes so either or both can be selected directly.
+- Selecting both automatically uses Before + After reminder logic.
+- Reminder choices remain disabled until both Assignee(s) and Due Date are selected.
+- Before Due configuration opens only when Before Due is selected.
+- After Due configuration opens only when After Due is selected.
+- Existing backend reminder mode and save logic remain compatible through a hidden reminder mode field.
+- Improved mobile reminder UX by avoiding the large native select popup.

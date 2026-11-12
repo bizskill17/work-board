@@ -1,0 +1,3 @@
+Workboard v4.15.25
+- Removed the helper text "Available for Employee and Manager roles." from the Attendance field.
+- Removed the helper text "Base salary for the future Salary Sheet." from the Monthly Salary field.

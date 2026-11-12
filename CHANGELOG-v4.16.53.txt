@@ -1,0 +1,4 @@
+v4.16.53
+- Added visible cell borders to Pending Billing table.
+- Rows change background immediately when a valid Billed Amount is entered.
+- Highlight is removed if Billed Amount is cleared.

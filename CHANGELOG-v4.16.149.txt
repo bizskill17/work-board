@@ -1,0 +1,5 @@
+Workboard v4.16.149 — Sidebar Left-Line Cleanup
+
+- Removed the coloured vertical accent lines from the left side of Work, HR, Notes, Math and Masters sections.
+- Removed the active-view inset left line so navigation rows stay clean and flat.
+- Kept coloured bullets, dark sidebar styling, hover behaviour, active-row highlighting and collapsible subsections unchanged.

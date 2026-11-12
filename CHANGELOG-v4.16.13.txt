@@ -1,0 +1,5 @@
+v4.16.13
+- Net Hours now use First IN to Last OUT/current time minus actual OUT-to-next-IN break gaps.
+- Example: 09:24 IN, 14:08 OUT, 14:49 IN, 19:01 OUT = 9h37m span - 41m actual break = 8h56m Net Hours.
+- Main punch gaps and non-working combo breaks are merged to prevent double deduction.
+- Standard 45-minute break is used only when no actual break gap is recorded and the automatic-break threshold is reached.

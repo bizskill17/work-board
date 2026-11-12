@@ -1,0 +1,16 @@
+Workboard v4.11.92
+
+Telegram Task Inbox (zero-AI / zero paid AI API flow)
+- Added Telegram Bot integration under Workboard Settings.
+- Added secure WordPress REST webhook for Telegram updates using Telegram secret-token verification.
+- Added Bot Token, Allowed Group Chat ID, webhook URL/secret, Save & Connect and Save & Test controls.
+- Added /chatid, /start, /help and /cancel commands.
+- Dedicated group capture flow: paste any WhatsApp/SMS/email/other message once; the pasted text becomes the task without retyping.
+- Full original pasted message is retained in task Description/Notes.
+- Guided Telegram buttons for One Time vs Recurring, Workspace, Work Area, multi-assignee, optional multi-owner and Priority.
+- One Time flow supports Today/Tomorrow/manual Due Date, optional Due Time, no-past-date validation and task Reminder settings.
+- Recurring flow supports Daily, Weekly, Fortnightly, Monthly, Quarterly, Yearly and Custom Interval; Start Date, optional End Date, optional Due Time, overdue policy and Reminder settings.
+- Minutes reminder is shown only when Due Time is available.
+- Final confirmation creates the task directly in Workboard and returns a View Task button.
+- Tasks created from Telegram use the normal Workboard assignment notification mechanism, so existing in-app/email/WhatsApp assignment notifications continue to apply.
+- Added explicit setup instruction to disable Telegram Bot Group Privacy via BotFather so pasted group messages can be received.

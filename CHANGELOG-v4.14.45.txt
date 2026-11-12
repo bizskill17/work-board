@@ -1,0 +1,9 @@
+Workboard v4.14.45
+
+- Morning Pending Tasks WhatsApp template now uses the exact approved Meta template name: workboard_pending_morningreminder.
+- Existing sites still using the previous Workboard default workboard_pending_tasks_reminder are migrated automatically.
+- The Open Workspaces dynamic URL button continues to send only the site-specific suffix:
+  - Main site: workspaces/
+  - VAA: vaa/workspaces/
+  - NSC: nsc/workspaces/
+- Updated the template helper copy in Settings to match the newly approved body.

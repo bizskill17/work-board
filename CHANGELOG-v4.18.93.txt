@@ -1,0 +1,3 @@
+- Aligned the left sidebar visual styling more closely with the approved colorful mockup.
+- Applied full-width colored blocks to all major left-menu sections including Work, HR, Notes, Math and Masters.
+- Added icon-style visual markers and refined spacing, padding and hover states for section headers.

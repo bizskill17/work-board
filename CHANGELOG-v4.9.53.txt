@@ -1,0 +1,7 @@
+Business Board v4.9.53
+
+- Fixed inline Sub Task checkbox completion/reopen persistence.
+- Uses robust upsert against the subtask occurrence unique key to avoid stale progress-row failures.
+- Direct Sub Task Owners/Assignees can now complete their assigned sub tasks.
+- Checkbox is temporarily locked while saving; on failure it cleanly rolls back to the prior state.
+- Parent sub-task progress badge now refreshes from the server-confirmed completed count.

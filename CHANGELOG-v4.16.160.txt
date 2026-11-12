@@ -1,0 +1,6 @@
+Workboard v4.16.160
+
+- Activity Log filter panel is now hidden by default when the view opens.
+- Search remains visible in the toolbar.
+- The Filter icon can still be used to show or hide the Activity Log filter fields.
+- Existing filter, clear-filter, pagination and Excel behavior is unchanged.

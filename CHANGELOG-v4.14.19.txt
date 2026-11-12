@@ -1,0 +1,3 @@
+Version 4.14.19
+- AttendSpace employee-name click now opens an Attendance Detail popup instead of the User Master form.
+- Detail popup shows employee/designation, attendance status, punch timeline, location, IN/OUT actions, add/delete attendance, summary and Punch History.

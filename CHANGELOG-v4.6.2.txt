@@ -1,0 +1,7 @@
+Business Board v4.6.2
+
+- Redesigned Workspace task cards into a strict three-row layout.
+- Row 1: checkbox + task name.
+- Row 2: drag handle, recurring/pin/priority, View/Update, remarks, sub-task progress, attachments and More actions.
+- Row 3: assignee + due date/time.
+- Layout remains compact on desktop, tablet and mobile.

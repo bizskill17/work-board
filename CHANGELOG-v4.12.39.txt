@@ -1,0 +1,6 @@
+Workboard v4.12.39
+- Completing a Flash-highlighted task automatically removes its Flash state.
+- Completed task cards no longer blink or show the colorful Flash background.
+- Flash icon is hidden on completed task cards.
+- For recurring tasks, completing the current occurrence also clears the Flash pin from the recurring task.
+- Optimistic UI removes the Flash effect immediately on completion and restores it if the completion request fails.

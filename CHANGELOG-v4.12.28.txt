@@ -1,0 +1,4 @@
+Workboard v4.12.28
+- Removed the duplicate secondary search field inside the Move Task dropdown.
+- The main Select Work Area field remains searchable and filters Work Areas directly.
+- Move Note remains with its existing single searchable field.

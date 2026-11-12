@@ -1,0 +1,5 @@
+Workboard v4.16.191
+
+- Add Task and Edit Task: clicking Sub-tasks now opens the Sub-tasks panel with the first entry field ready immediately.
+- If no Sub-task row exists yet, the first blank Sub-task field is created automatically.
+- Existing Sub-task rows are preserved and the first row receives focus when the panel opens.

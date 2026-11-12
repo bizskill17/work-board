@@ -1,0 +1,8 @@
+Business Board v4.9.16
+
+- Workspace control/KPI/filter toolbar now scrolls away normally instead of floating above the Workspace title.
+- The main app header / Workspace view name remains sticky and always visible.
+- Added an always-visible bottom horizontal scrollbar on desktop when the Work Area board is wider than the screen.
+- Bottom scrollbar is synchronized bidirectionally with the board horizontal scroll.
+- Scrollbar automatically resizes/repositions when the window, sidebar, or board width changes.
+- Phone layout remains unchanged.

@@ -1,0 +1,4 @@
+Workboard v4.14.76
+- Reduced Work Area header action buttons to a compact 30px size.
+- Reduced spacing and icon size so the Activity icon remains fully inside the Work Area header.
+- Kept all existing actions and order unchanged.

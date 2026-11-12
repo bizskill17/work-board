@@ -1,0 +1,5 @@
+Workboard v4.16.192
+
+- Increased Work Area header action button size on mobile for easier tapping.
+- Increased mobile action SVG icon size while preserving desktop sizing.
+- Kept the action row compact enough to remain inside the Work Area column.

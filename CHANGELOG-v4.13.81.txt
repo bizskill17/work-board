@@ -1,0 +1,6 @@
+Version 4.13.81
+- Fixed Task Owner removal in the inline Assignees & Owners popup.
+- The popup now edits direct Task assignments only; inherited Workspace/Work Area access is shown separately as read-only.
+- Clearing a direct Task Assignee now also clears the legacy assignee_id so removed people do not reappear.
+- Full Task edit respects an explicitly cleared Assignee/Owner selection instead of restoring Work Area defaults.
+- Task edit notification behavior from v4.13.80 remains unchanged.

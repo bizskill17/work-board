@@ -1,0 +1,5 @@
+v4.16.52
+- Pending Billing Action column removed.
+- Billed Amount is directly editable in the table.
+- Added Update button above the table for bulk saving.
+- Only entered Billed Amount rows are saved; saved rows move to Billed Master.

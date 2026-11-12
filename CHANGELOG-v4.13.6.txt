@@ -1,0 +1,7 @@
+Workboard v4.13.6
+
+Workspace search root-cause fix
+- Fixed the desktop Workspace search box being rendered as an empty shell with no input element.
+- removeHeaderSearch() now removes the complete Workspace search wrapper instead of deleting only its input.
+- syncWorkspaceTopPanel() now self-heals and recreates the search input if the wrapper exists without an input.
+- Existing Workspace task/Work Area search filtering remains unchanged.

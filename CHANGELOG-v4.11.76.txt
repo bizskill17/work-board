@@ -1,0 +1,11 @@
+Workboard v4.11.76 — Optional Folders
+
+- Added Folder to the left menu.
+- Folder is completely optional; Workspaces can stay standalone.
+- Create, edit and delete Folders.
+- Manage which existing Workspaces belong to each Folder.
+- Deleting a Folder never deletes its Workspaces; they become standalone.
+- Optional Folder selector added to Workspace create/edit, template creation and JSON import.
+- Normal Workspaces view continues to show all active Workspaces.
+- Folder visibility follows existing Workspace permissions and each Multisite subsite keeps its own Folder data.
+- Added the /folder/ frontend route.

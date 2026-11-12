@@ -1,0 +1,6 @@
+Workboard v4.11.75
+
+- Multisite branding is now network-wide.
+- The logo stored on the WordPress main site is used automatically on every Workboard subsite.
+- Header and login branding on subsites resolve the main-site Media Library attachment correctly.
+- Uploading or removing the Workboard logo updates the shared main-site branding value so all sites stay consistent.

@@ -1,0 +1,6 @@
+Business Board v4.10.11
+
+- Added independent ON/OFF switches for each Meta WhatsApp notification type.
+- Task Assigned, Task Updated, Due Soon, Overdue and Daily Summary WhatsApp messages can now be enabled or disabled separately.
+- Global WhatsApp ON/OFF remains available as the master switch.
+- Disabled WhatsApp event types are skipped by the backend even if their template is configured.

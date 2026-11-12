@@ -1,0 +1,8 @@
+Workboard v4.15.39
+- Pending Tasks filter dropdown options now display one option per line.
+- Removed the colored/red left-side rail from Pending Tasks table rows.
+- Added visible borders to every Pending Tasks table cell.
+- Missing field values now display as blank instead of dash/placeholder text.
+- Columns are automatically hidden when the currently filtered Pending Tasks have no data anywhere in that column.
+- Dynamic columns include Stage, Owner, Assignee, Priority, Labels, Due Date, Due Time and Recurring.
+- Task, Workspace, Work Area, Status and Actions remain available as core columns.

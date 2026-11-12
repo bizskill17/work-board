@@ -1,0 +1,8 @@
+Workboard v4.15.28
+- Added an Employees dropdown under Attendance > Supervisor.
+- The Supervisor employee selector is searchable and supports multiple employee selections.
+- Only active users with Activate in AttendSpace enabled are offered in the dropdown.
+- Supervisors can punch attendance only for their selected employees, plus their own attendance.
+- AttendSpace Team Attendance for a Supervisor shows only the selected employees plus the Supervisor.
+- Backend permission checks enforce the selected employee list.
+- Added attendance_supervisor_employee_ids to the Users table and included the database migration.

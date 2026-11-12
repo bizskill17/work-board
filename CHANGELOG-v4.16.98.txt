@@ -1,0 +1,5 @@
+v4.16.98
+- Fixed Activity Log Excel download error: export now preserves each table row as an array instead of flattening all cells.
+- Activity timestamps are normalized server-side to Asia/Kolkata (IST).
+- Activity Log display, filters, task activity/detail timelines and Activity Excel now use the same Indian date/time.
+- Legacy server-side Activity export also outputs IST.

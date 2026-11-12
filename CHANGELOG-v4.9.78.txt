@@ -1,0 +1,8 @@
+Business Board v4.9.78
+
+- Redesigned Work Area create/edit form into a compact modern panel.
+- Edit title now reads “Edit [Work Area Name]”.
+- Removed Work Area description and explanatory tagline from the form.
+- Core fields now use a compact Name / Status / Accent Color layout.
+- Added a + shortcut in Owners & Assignees to create a new User without leaving the Work Area form.
+- Simplified sharing section and reduced modal width/height usage on desktop and mobile.

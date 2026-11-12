@@ -1,0 +1,5 @@
+Workboard v4.12.85
+- Desktop Workspace header now has a down-arrow button beside the top logo.
+- Default state is expanded.
+- Clicking the arrow hides/shows the Workspace top controls section (toolbar, search and Work Area chips).
+- Remembered per Workspace on desktop.

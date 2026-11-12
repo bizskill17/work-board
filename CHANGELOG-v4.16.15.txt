@@ -1,0 +1,9 @@
+v4.16.15
+- Added Attendance > Leave for employees to submit leave requests with Name, From Date, To Date and Reason.
+- Added Attendance > Pending Leave Approval for Supervisors, Managers, Owners and Administrators.
+- Pending leave can be updated to Approved or Rejected with approval remark; rejected leave requires a remark.
+- Added bb_attendance_leaves table with automatic targeted migration.
+- Approved leave appears as Leave in attendance status; if punches exist, attendance status keeps the punch result and also indicates Leave.
+- Attendance Register status filter includes Leave.
+- Monthly Sheet includes Leave Days.
+- Leave visibility respects self, Supervisor and View Attendance access.

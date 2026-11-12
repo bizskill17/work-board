@@ -1,0 +1,9 @@
+Workboard v4.16.158
+
+- Added a Sub Tasks column to task-related Excel exports.
+- Workspace visible-task Excel export now lists each subtask on its own numbered line.
+- Focus Excel export now lists each subtask on its own numbered line.
+- Pending Tasks Excel export now formats all subtasks as a numbered list.
+- Excel cells preserve line breaks so subtasks appear as:
+  1. First subtask
+  2. Second subtask

@@ -1,0 +1,9 @@
+Business Board v4.9.19
+- Reworked Work Area task cards into a Todoist-style two-line layout.
+- Task name is the visual priority and wraps cleanly for long tasks.
+- Second line shows due date, compact multiple-assignee display (First Name +N), recurrence, and labels.
+- Removed repeated Work Area name from task cards.
+- Eye action remains directly visible for View / Update.
+- Work Area + button now opens the full one-time task form.
+- Work Area grape button opens the full recurring task form.
+- Added comma-separated multiple labels to tasks and displays them on cards.

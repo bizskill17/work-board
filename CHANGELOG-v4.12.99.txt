@@ -1,0 +1,5 @@
+Workboard v4.12.99
+- Clicking the saved-task Notifications & Reminder bell now opens the same compact Notifications & Reminder editor used during Quick Add.
+- The popup includes Send notifications, Set Reminder, multiple reminder rows, + Add Reminder, and delete reminder controls.
+- Saving updates only notification/reminder settings and does not open or alter the full task edit form.
+- The Reminder shortcut below Add Remark uses the same compact editor.

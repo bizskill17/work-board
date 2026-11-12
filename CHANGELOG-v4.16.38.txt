@@ -1,0 +1,4 @@
+v4.16.38
+- Removed Total Parties and Party Types summary cards from Parties view.
+- Removed PARTY MASTER eyebrow, duplicate Parties heading, and descriptive tagline.
+- Main page header, Add Party, search, count, and party table remain.

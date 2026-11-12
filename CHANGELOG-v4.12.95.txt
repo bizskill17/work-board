@@ -1,0 +1,4 @@
+Workboard v4.12.95
+- Desktop Workspace search now always shows in the top header beside the Workspace name.
+- Desktop no longer shows the secondary search bar inside the Workspace controls area.
+- Mobile behavior remains unchanged.

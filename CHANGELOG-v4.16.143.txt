@@ -1,0 +1,6 @@
+Workboard v4.16.143 — Note Area Header Cleanup
+
+- Removed the extra colored vertical marker from the left side of every Note Area header.
+- Kept only the six-dot drag handle before the Note Area name.
+- Note Area drag/reorder behavior remains unchanged.
+- Existing Note Area colors, actions, cards, and saved ordering remain unchanged.

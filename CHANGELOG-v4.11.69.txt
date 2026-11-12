@@ -1,0 +1,6 @@
+Workboard v4.11.69
+
+- Standardized every visible cross / X action across the frontend to a dark-red background with a white cross.
+- Added a darker red hover state and accessible focus ring.
+- Covers modal close, action-sheet close, notification drawer close, inline popovers, recurring popovers, subtask/label cancel and delete X controls, assignment remove X, AI draft remove X, attachment remove X, and the open Quick Add X control.
+- No workflow, permissions, data, or WhatsApp behavior changed.

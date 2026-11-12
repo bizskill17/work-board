@@ -1,0 +1,7 @@
+Business Board v4.9.70
+- Added Work Area-level Show Hidden toggle with archived count.
+- Hidden tasks can be temporarily shown inside the same Work Area without unarchiving.
+- Added Manage Hidden with Select All, multi-select, Unarchive Selected, and per-task Unarchive.
+- Added backend unarchive support for one-time tasks and individual recurring occurrences.
+- Flattened Owner task action sheet: Archive, Delete Task Only, Delete Task + All Activity, View Activity.
+- Archive/unarchive of a recurring occurrence does not stop the recurring series.

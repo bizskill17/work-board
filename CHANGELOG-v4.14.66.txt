@@ -1,0 +1,6 @@
+Workboard v4.14.66
+
+- Reworked the compact AFTER DUE controls into a clean two-line layout.
+- Line 1 now shows Repeat Every number + unit dropdown across the full width.
+- Line 2 now keeps Max Duration and Max Reminders side-by-side.
+- Prevents the unit dropdown from being squeezed or overlapped on narrow task cards.

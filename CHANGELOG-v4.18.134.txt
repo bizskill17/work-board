@@ -1,0 +1,1 @@
+Fixed frontend Workspace navigation after asynchronous task-slice loading: navigateView(workspace) now uses the selected workspace URL instead of generic /workspaces/. Legacy routes and access permissions are preserved.

@@ -1,0 +1,6 @@
+v4.15.88
+- Holiday calendar styling revised to closely match the approved colorful mockup.
+- Larger gradient month headers with visual month icons.
+- Larger centered day numbers and roomier date cells.
+- Sunday-first week layout with stronger weekend tint.
+- More prominent holiday pills, softer rounded cards, shadows and spacing.

@@ -1,0 +1,5 @@
+Workboard v4.11.10
+
+- Added more bottom spacing below Workspace action buttons.
+- Kept Workspace cards compact while preventing action icons from sitting too close to the card border.
+- Applied consistently on desktop and mobile.

@@ -1,0 +1,5 @@
+WorkBoard v4.17.6
+
+- Removed the task-card eye icon completely.
+- Task bottom action icons are now always visible.
+- Kept the sub-task indicator/control unchanged.

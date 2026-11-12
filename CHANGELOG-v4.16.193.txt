@@ -1,0 +1,4 @@
+Workboard v4.16.193
+- Increased the task card bottom action icon sizes on mobile.
+- Improved tap target size for the activity action row under each task card.
+- Kept desktop sizing unchanged.

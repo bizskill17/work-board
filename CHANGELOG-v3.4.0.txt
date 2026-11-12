@@ -1,0 +1,10 @@
+Business Board v3.4.0
+=====================
+- Every Workspace now has a unique auto-generated slug.
+- Direct Workspace URLs use /business-board/workspace/{slug}/.
+- Existing Workspaces receive slugs automatically during upgrade.
+- Workspaces is now the single navigation entry; the separate Workspace menu item was removed.
+- Clicking a Workspace name/action opens its board directly.
+- Workspace board shows a Back to All Workspaces action instead of a duplicate navigation concept.
+- Business Board frontend and login pages now use a plugin-owned blank/full-width app template, independent of the active WordPress theme header/footer/sidebar.
+- Direct Workspace URLs still enforce the existing Department/User access controls.

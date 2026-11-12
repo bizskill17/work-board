@@ -1,0 +1,5 @@
+Workboard v4.10.31
+
+- Made the Workspace search outline darker and more visible on all devices.
+- Added extra vertical spacing below the Workspace search before the Work Area score row.
+- No search logic or other functionality changed.

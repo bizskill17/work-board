@@ -1,0 +1,10 @@
+Business Board v4.6.1
+
+- Restores the polished v4.5 Workspace board layout on desktop and tablets.
+- Phone-only stacked Work Areas use a 640px breakpoint.
+- All Work Areas remain visible on phones, even when empty.
+- Upcoming remains hidden on phones; empty Current/Overdue/Completed sections stay hidden.
+- Adds Google Keep-style drag ordering for tasks and Work Areas without changing card layout.
+- Desktop/tablet Work Areas drag horizontally; phone Work Areas drag vertically.
+- Removes Move Up/Down and Move Left/Right menu actions.
+- Keeps Sub Tasks visible in mobile Edit Task.

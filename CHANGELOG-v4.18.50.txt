@@ -1,0 +1,4 @@
+WorkBoard v4.18.50
+- Mobile Analysis menu now shows named rows for Archived Work Areas, Archived Tasks, and Deleted Work Areas; no trash-only icon row.
+- Desktop Workspace toolbar uses the same clear names for archive/deleted management controls.
+- Removed mobile CSS that converted Work Area archive/trash labels into icon-only buttons.

@@ -1,0 +1,4 @@
+WorkBoard v4.18.47
+- Added a dedicated Archived Tasks button beside Archived Work Areas in Workspace toolbar.
+- Button shows archived-task count for the current Workspace.
+- Archived Tasks opens a management list with Task, Work Area, Due/Archived details, Restore, and Delete Permanently actions.

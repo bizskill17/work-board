@@ -1,0 +1,7 @@
+Workboard v4.12.98
+
+- Fixed desktop Workspace header search so typing filters tasks reliably.
+- Added Notifications & Reminder bell on saved task cards when the task has both an Assignee and a Due Date.
+- Bell shows the reminder count when reminder rules exist.
+- Clicking the bell opens Edit Task so notification/reminder settings can be changed.
+- Retains v4.12.97 Reminder shortcut below Add Remark.

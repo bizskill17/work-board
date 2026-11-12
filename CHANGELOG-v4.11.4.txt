@@ -1,0 +1,4 @@
+Workboard v4.11.4
+- Added Edit Workspace pencil action beside Delete on Workspace cards.
+- Edit opens the existing Workspace edit form for name, status, description, sharing and Work Areas.
+- Delete remains red and continues to move the Workspace to Trash.

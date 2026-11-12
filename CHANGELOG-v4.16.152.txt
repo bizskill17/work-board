@@ -1,0 +1,9 @@
+Workboard v4.16.152 — Settings Helper Text Cleanup
+
+- Removed Organization Settings helper description.
+- Removed Modules helper description.
+- Removed Messaging network policy / retention helper line.
+- Removed WhatsApp notifications helper description.
+- Removed Workboard Wallet pricing-policy helper description.
+- Removed Wallet Transactions audit-trail helper description.
+- No settings functionality or stored data was changed.

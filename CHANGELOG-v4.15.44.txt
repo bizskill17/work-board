@@ -1,0 +1,6 @@
+Workboard v4.15.44
+- Pending Tasks: Search, Show/Hide Filter, Clear Filters and Excel now stay on one line.
+- Activity Log: Search, Show/Hide Filter, Clear Filters and Excel now stay on one line.
+- Replaced the chevron Show/Hide Filter control with a funnel/filter icon.
+- The filter icon shows a small indicator dot while filters are expanded.
+- Mobile layout keeps the same compact single-line toolbar.

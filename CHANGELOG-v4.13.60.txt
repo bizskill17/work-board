@@ -1,0 +1,6 @@
+Workboard v4.13.60 — Reminder Send Date & Time Preview
+
+- Reminder editor now shows the exact scheduled message date and time under every reminder rule.
+- If Due Time is blank, the editor clearly explains that Workboard uses 10:00 AM IST for reminder scheduling.
+- The preview updates instantly when reminder value or unit is changed.
+- Scheduling logic itself is unchanged and continues to match the server-side reminder engine.

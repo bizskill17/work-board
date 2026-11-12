@@ -1,0 +1,5 @@
+Workboard v4.12.91
+- Updated the Send Urgent Reminder fire action on task cards.
+- Uses the approved solid red flame with white inner flame and light-red circular background.
+- Applied consistently in Workspace and Focus views.
+- Kept the existing Send Urgent Reminder click action and WhatsApp popup behavior.

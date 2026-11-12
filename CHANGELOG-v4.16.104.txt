@@ -1,0 +1,7 @@
+Workboard v4.16.104
+
+- Daily Activity entry form is now closed by default.
+- Added + Add Activity button; the form opens only after clicking it.
+- Added Cancel button to close the form without saving.
+- Refined Daily Activity form UI with a compact two-column layout, improved inputs, spacing and actions.
+- After saving an activity, the form closes automatically and the activity list refreshes.

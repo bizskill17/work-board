@@ -1,0 +1,5 @@
+Workboard v4.16.148 — Sidebar Readability Fix
+- Fixed unreadable left-menu labels caused by older pastel section styles overriding Option 2.
+- Forced Work, HR, Notes, Math and Masters to use the dark sidebar base.
+- Section titles, subsection titles and view names now use high-contrast white/light text.
+- Preserved slim coloured section accent lines, coloured bullets and active-view highlights.

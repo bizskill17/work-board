@@ -1,0 +1,7 @@
+Business Board v4.9.57
+
+- Made the desktop Work Area/card horizontal scroller substantially thicker and easier to see/grab.
+- Raised the scroller above the browser edge and added a bordered floating dock.
+- Enlarged left/right slide buttons and scrollbar thumb.
+- Kept the scroller persistent while vertically scrolling the board.
+- Reinforced dragged task ghost sizing so it retains the source task-card width instead of stretching across Work Areas.

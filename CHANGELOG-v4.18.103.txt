@@ -1,0 +1,1 @@
+Workspace Table: added visible cell borders to column headings, data cells and grouped rows.

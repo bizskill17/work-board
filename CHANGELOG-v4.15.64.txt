@@ -1,0 +1,9 @@
+Workboard v4.15.64
+- Added a searchable Workspace Switcher directly in the current Workspace header.
+- Current Workspace name is clickable and shows a dropdown with all accessible active Workspaces.
+- Current Workspace is marked with a check.
+- Search filters the Workspace list live.
+- Selecting another Workspace opens it directly without returning to the Workspaces page.
+- Workspace switching resets old task search, filters and view mode to a clean Card View.
+- Existing back arrow to All Workspaces remains unchanged.
+- Mobile uses the same switcher with a wider touch-friendly menu.

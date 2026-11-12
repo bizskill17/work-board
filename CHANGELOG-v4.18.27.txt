@@ -1,0 +1,6 @@
+WorkBoard v4.18.27
+
+- CallSpace Create Task now opens the same modern Add Task form used from Work Areas/Dashboard.
+- The Add Task form includes the searchable Work Area selector so the destination can be changed before saving.
+- CallSpace Remarks are prefilled into the Task text and retained in Notes/Description.
+- Save & Create Task uses the same Add Task flow after saving the CallSpace entry.

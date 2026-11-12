@@ -1,0 +1,5 @@
+v4.16.49
+- Renamed all User sharing section headings to Share Users.
+- Renamed all Party sharing section headings to Share Party.
+- Applies to Workspace, Work Area, NoteSpace, Note Area, MathSpace, Math Area, and standalone Note/Math share forms.
+- Sharing behavior and permissions are unchanged.

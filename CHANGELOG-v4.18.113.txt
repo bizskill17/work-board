@@ -1,0 +1,1 @@
+Centered custom confirmation dialog for click-triggered delete/remove/trash actions formerly using native browser confirm. Existing deletion and permission logic is retained.

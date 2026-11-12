@@ -1,0 +1,5 @@
+Version 4.13.71
+- New custom Task Stages now receive a distinct pre-selected color automatically.
+- Stage colors rotate through a clear palette to reduce duplicate colors.
+- The pre-selected color remains fully editable before saving.
+- In Progress remains permanently green.

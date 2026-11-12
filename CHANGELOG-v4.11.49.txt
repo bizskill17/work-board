@@ -1,0 +1,7 @@
+Workboard v4.11.49
+- Reworked all five Meta WhatsApp template bodies into short factual operational wording intended to align better with Utility classification.
+- Task Assigned, Task Updated, Task Due and Task Overdue now use {{1}} = task name and {{2}} = due date.
+- Pending Task Summary uses {{1}} = due today count and {{2}} = overdue count.
+- Renamed default template names to neutral names without the _utility suffix; untouched legacy defaults migrate automatically.
+- Updated the WhatsApp test message parameters to match the new Task Assigned template structure.
+- Meta still makes the final template category decision.

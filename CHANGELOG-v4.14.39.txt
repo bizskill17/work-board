@@ -1,0 +1,6 @@
+Workboard v4.14.39
+
+- Fixed WhatsApp Open Workspaces dynamic URL routing for the main site.
+- Dynamic button values now use plain slugs only: `dashboard`, `vaa`, `nsc`, etc.
+- Removed trailing slash from the dynamic parameter so Meta cannot encode it into the path.
+- With Meta button base `https://board.bizskilledu.com/{{1}}`, the main site resolves to `/dashboard/` via WordPress and subsites resolve to their site roots.

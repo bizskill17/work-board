@@ -1,0 +1,4 @@
+Workboard v4.11.58
+
+- Increased Dashboard workspace card color strength for better visual distinction.
+- Kept the existing full-width layout and card structure unchanged.

@@ -1,0 +1,6 @@
+Business Board v4.9.87
+
+- Fixed Work Area drag/reorder: the six-dot Work Area grip now starts the existing pointer-sort engine on desktop, tablet, and touch devices.
+- Added touch-action protection to the Work Area drag grip for reliable dragging.
+- Improved visual feedback while dragging a Work Area.
+- Made the floating Back to Workspace Top button more colorful and prominent.

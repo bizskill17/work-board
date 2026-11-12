@@ -1,0 +1,8 @@
+Business Board v4.9.68
+- Owner/Admin long-press on a task card opens Task Options.
+- Desktop right-click provides the same Task Options.
+- Added Archive Task (soft archive: hides from operational board and retains history).
+- Added View Activity shortcut.
+- Added Delete Task choices: retain Activity/History, or permanently delete task + all activity.
+- Destructive all-activity deletion requires confirmation.
+- Action sheet is suppressed when interacting with task buttons, checkbox, drag grip or metadata slider.

@@ -1,0 +1,5 @@
+WorkBoard v4.18.40
+
+- Fixed CallSpace task count remaining at 0 after creating a task.
+- Preserves CallSpace source linkage when the Work Area is changed in the Add Task form.
+- Task save now returns the authoritative CallSpace task count and refreshes CallSpace in the background.

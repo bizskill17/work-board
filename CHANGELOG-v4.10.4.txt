@@ -1,0 +1,6 @@
+Business Board v4.10.4
+
+- Fixed workspace/task URLs returning "Page not found" after plugin updates.
+- Rewrite rules are now refreshed only after custom frontend routes are registered on init.
+- Added one-time version-based rewrite refresh so future plugin upgrades do not require manually saving Permalinks.
+- Existing Business Board and Login page self-healing remains enabled.

@@ -1,0 +1,7 @@
+Business Board v4.9.17
+
+- Updated Work Area score cards to show daily completion progress.
+- First number now shows tasks completed today.
+- Second number now shows total tasks for today: pending Current tasks + tasks completed today.
+- Percentage is now based on completed today / total today.
+- Historical completed, overdue and upcoming tasks no longer affect the Work Area daily score cards.

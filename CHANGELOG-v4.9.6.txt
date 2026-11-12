@@ -1,0 +1,6 @@
+Business Board v4.9.6
+
+- Removed the decorative dot from the left of every Work Area name.
+- Removed the Work Area task-count badge from the right side of the header.
+- Fixed Work Area left/right movement so arrow enabled/disabled states update immediately after every move.
+- Work Area score cards and mobile area tabs now move together with the Work Area column, keeping all ordering views synchronized.
