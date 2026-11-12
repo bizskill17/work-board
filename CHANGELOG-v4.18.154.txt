@@ -1,0 +1,3 @@
+Workboard v4.18.154
+- All tables: cells with no data now show blank instead of a dash (on screen and in pop-ups).
+- Excel downloads and PDF exports (AttendSpace, Time Sheet, Reports): empty cells blank instead of a dash.
