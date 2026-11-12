@@ -1,0 +1,2 @@
+Workboard v4.18.161
+- Daily Scoreboard: click Done % to see the tasks done that day (Task, Workspace, Work Area, Due Time, Done At, Result).

@@ -19201,3 +19201,8 @@ body.bb-note-area-sort-active{user-select:none!important;-webkit-user-select:non
 .bb-dsb-modal .bb-form-heading p{margin:4px 0 0;color:#64748b;font-size:12px}
 .bb-dsb-notdone-table td,.bb-dsb-notdone-table th{font-size:12px}
 .bb-dsb-status{display:inline-block;padding:2px 8px;border-radius:999px;background:#fff1f2;color:#be123c;font-size:11px;font-weight:700}
+
+/* v4.18.161: Daily Scoreboard — clickable Done % */
+.bb-dsb-done-link{background:none;border:0;padding:2px 6px;border-radius:6px;color:#15803d;font:inherit;font-weight:800;text-decoration:underline;cursor:pointer}
+.bb-dsb-done-link:hover{background:#dcfce7}
+.bb-dsb-status.is-done{background:#f0fdf4;color:#15803d}
