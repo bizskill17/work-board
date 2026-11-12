@@ -19162,3 +19162,7 @@ body.bb-note-area-sort-active{user-select:none!important;-webkit-user-select:non
 
 /* v4.18.137 — Highlight recognised @User / @Party references in rendered task text. */
 .bb-highlight-mention{color:var(--bb-theme-primary,var(--bb-primary,#4f46e5))!important;font-weight:700!important;white-space:normal}
+
+/* v4.18.151: AttendSpace admin table — visible cell borders */
+.bb-att-admin-table{border-collapse:collapse!important;border:1px solid #d5dbe3!important}
+.bb-att-admin-table th,.bb-att-admin-table td{border:1px solid #d5dbe3!important}

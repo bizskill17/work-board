@@ -1,0 +1,2 @@
+Workboard v4.18.151
+- AttendSpace: added cell borders to the daily attendance table (header and all cells).
