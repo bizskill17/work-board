@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.174
+ * Version: 4.18.175
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.174';
+    const VERSION = '4.18.175';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -10097,7 +10097,7 @@ JS
         if($from<=$to && $employee_id!==-1){
             $daily="t.is_template=1 AND t.task_type='Recurring' AND COALESCE(NULLIF(t.frequency,''),'Daily')='Daily'";
             $emp_sql=$employee_id?$wpdb->prepare(' AND h.assignee_id=%d',$employee_id):'';
-            $rows=$wpdb->get_results($wpdb->prepare("SELECT h.assignee_id,h.due_date,h.occurrence_date,h.workspace_id,h.status,h.due_time,h.result,h.completed_at,t.id task_id,t.task_name,t.goal_target,t.goal_unit,w.name workspace_name,a.name work_area_name FROM {$this->tables['history']} h JOIN {$this->tables['tasks']} t ON t.id=h.task_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=h.workspace_id LEFT JOIN {$this->tables['work_areas']} a ON a.id=h.work_area_id WHERE {$daily} AND h.assignee_id IS NOT NULL AND h.due_date BETWEEN %s AND %s AND (w.status IS NULL OR w.status NOT IN ('trash')){$emp_sql}",$from,$to));
+            $rows=$wpdb->get_results($wpdb->prepare("SELECT h.assignee_id,h.due_date,h.occurrence_date,h.workspace_id,h.status,h.due_time,h.result,h.completed_at,t.id task_id,t.task_name,t.goal_target,t.goal_unit,w.name workspace_name,a.name work_area_name FROM {$this->tables['history']} h JOIN {$this->tables['tasks']} t ON t.id=h.task_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=h.workspace_id LEFT JOIN {$this->tables['work_areas']} a ON a.id=h.work_area_id WHERE {$daily} AND h.assignee_id IS NOT NULL AND h.due_date BETWEEN %s AND %s AND (w.status IS NULL OR w.status NOT IN ('trash')) AND (a.status IS NULL OR a.status NOT IN ('trash')) AND t.archived_at IS NULL{$emp_sql}",$from,$to));
             // v4.18.163: update remarks per task occurrence (occurrence_key = occurrence date).
             $remarks=[];
             $tids=array_values(array_unique(array_map(fn($x)=>(int)$x->task_id,$rows)));

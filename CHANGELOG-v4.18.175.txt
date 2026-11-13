@@ -1,0 +1,2 @@
+Workboard v4.18.175
+- Daily Scoreboard: tasks in deleted (Trash) Work Areas and deleted/archived recurring tasks are no longer counted, including their past Missed days.
