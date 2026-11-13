@@ -1,0 +1,2 @@
+Workboard v4.18.180
+- Add/Edit Task: removed the help line under the Goal fields.
