@@ -861,8 +861,8 @@ App.goalNum=function(v){return Number(v||0).toLocaleString('en-IN');};
 App.taskGoalBar=function(t){
   const target=Number(t&&t.goal_target||0);if(!(target>0))return '';
   const done=Math.max(0,Number(t.goal_done||0)),pct=Math.min(100,Math.round(done*100/target)),reached=done>=target,unit=String(t.goal_unit||'');
-  const isTpl=!!(t.is_template&&!t.template_id);
-  return `<div class="bb-task-goal ${reached?'is-reached':''}" data-goal-task="${this.attr(t.id)}" title="${isTpl?'Goal per day':'Update Progress'}"><div class="bb-task-goal-top"><span class="bb-task-goal-label">🎯 ${this.goalNum(done)} / ${this.goalNum(target)}${unit?` ${this.esc(unit)}`:''}</span>${isTpl||t.status==='Completed'?'':`<button type="button" class="bb-task-goal-btn" data-goal-open="${this.attr(t.id)}">+ Progress</button>`}</div><div class="bb-task-goal-track"><span style="width:${pct}%"></span></div></div>`;
+  const isTpl=!!(t.is_template&&!t.template_id),canPlus=!isTpl&&t.status!=='Completed';
+  return `<div class="bb-task-goal ${reached?'is-reached':''}" data-goal-task="${this.attr(t.id)}"><button type="button" class="bb-task-goal-label" data-goal-open="${this.attr(t.id)}" title="Show progress history">🎯 <b>${this.goalNum(done)}</b>/${this.goalNum(target)}${unit?` ${this.esc(unit)}`:''}</button><span class="bb-task-goal-track"><span style="width:${pct}%"></span></span>${canPlus?`<button type="button" class="bb-task-goal-plus" data-goal-plus="${this.attr(t.id)}" title="Add 1" aria-label="Add 1">+1</button>`:''}</div>`;
 };
 App.goalApplyToTask=function(id,p){
   const t=this.taskById&&this.taskById(id);if(!t||!p)return;
@@ -904,7 +904,17 @@ App.goalSubmit=function(id,amount,remark,editId){
 };
 (function(){
   $(document).on('click','[data-goal-open]',e=>{e.preventDefault();e.stopPropagation();App.openGoalProgress(String($(e.currentTarget).attr('data-goal-open')));});
-  $(document).on('click','.bb-task-goal',e=>{if($(e.target).closest('[data-goal-open]').length)return;const id=String($(e.currentTarget).attr('data-goal-task')||'');const t=App.taskById&&App.taskById(id);if(!t||(t.is_template&&!t.template_id))return;e.preventDefault();e.stopPropagation();App.openGoalProgress(id);});
+  $(document).on('click','.bb-task-goal',e=>{e.stopPropagation();});
+  // One tap = +1, straight from the card.
+  $(document).on('click','[data-goal-plus]',e=>{e.preventDefault();e.stopPropagation();const btn=$(e.currentTarget),id=String(btn.attr('data-goal-plus')||''),t=App.taskById&&App.taskById(id);if(!t)return;
+    t.goal_done=Number(t.goal_done||0)+1;t._goalPending=(t._goalPending||0)+1;
+    const bar=btn.closest('.bb-task-goal');bar.replaceWith(App.taskGoalBar(t));
+    App.api('bb_goal_progress_add',{task_id:id,amount:1,remark:''}).done(r=>{t._goalPending=Math.max(0,(t._goalPending||1)-1);
+      if(!r||!r.success){t.goal_done=Math.max(0,Number(t.goal_done||0)-1);$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));if(r?.data?.remark_required){App.toast('This Work Area needs a remark — add it here');App.openGoalProgress(id);}else App.toast(r?.data?.message||'Could not add');return;}
+      if(!t._goalPending){t.goal_done=Number(r.data.total||0);$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));}
+      if(Number(r.data.auto_completed)){App.toast('🎯 Goal reached — task completed');setTimeout(()=>App.refreshStateQuietly(),600);}
+    }).fail(()=>{t._goalPending=Math.max(0,(t._goalPending||1)-1);t.goal_done=Math.max(0,Number(t.goal_done||0)-1);$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));App.toast('Could not add — check internet');});
+  });
   $(document).on('click','[data-goal-quick]',e=>{e.preventDefault();const f=$(e.currentTarget).closest('.bb-goal-form'),id=String(f.attr('data-goal-form')||'');App.goalSubmit(id,Number($(e.currentTarget).attr('data-goal-quick')),String(f.find('[name=goal_remark]').val()||''),'');});
   $(document).on('submit','.bb-goal-form',e=>{e.preventDefault();const f=$(e.currentTarget),id=String(f.attr('data-goal-form')||''),n=Math.floor(Number(f.find('[name=goal_amount]').val()||0));if(!(n>=1)){App.toast('Enter a number of 1 or more');f.find('[name=goal_amount]').focus();return;}App.goalSubmit(id,n,String(f.find('[name=goal_remark]').val()||''),String(f.find('[name=goal_edit_id]').val()||''));});
   $(document).on('click','[data-goal-edit]',e=>{e.preventDefault();const b=$(e.currentTarget),f=$('.bb-goal-form').first();f.find('[name=goal_amount]').val(b.attr('data-amount')).focus();f.find('[name=goal_remark]').val(b.attr('data-remark')||'');f.find('[name=goal_edit_id]').val(b.attr('data-goal-edit'));f.find('button[type=submit]').text('Save');f.find('.bb-goal-quick').hide();});

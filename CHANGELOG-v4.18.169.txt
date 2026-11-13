@@ -1,0 +1,4 @@
+Workboard v4.18.169
+- Goals: task card shows one compact line "🎯 done/target unit", a thin progress bar and a +1 button.
+- +1 adds one instantly from the card (tap twice for 2). Tap the count to see history, enter a bigger number or fix a wrong tap.
+- Fixed: goal strip was squeezed beside the drag handle; it now spans the card width.

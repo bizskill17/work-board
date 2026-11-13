@@ -19269,3 +19269,16 @@ body.bb-note-area-sort-active{user-select:none!important;-webkit-user-select:non
 .bb-goal-override{margin-top:10px;text-align:right}
 @media(max-width:600px){.bb-goal-inputs{grid-template-columns:1fr 1fr}.bb-goal-inputs button{grid-column:1/-1}.bb-quick-goal-grid{grid-template-columns:1fr 1fr!important}}
 .bb-dsb-goal{font-size:11px;font-weight:700;color:#4338ca;margin-top:2px}
+
+/* v4.18.169: compact one-line Goal on task cards — 🎯 3/8 unit ▬▬▬ [+1] */
+.bb-task.bb-task-todo > .bb-task-goal{grid-column:1 / -1!important;width:auto!important;margin:4px 0 2px 24px!important}
+.bb-task-goal{display:flex!important;align-items:center;gap:8px;padding:4px 4px 4px 8px!important;border-radius:999px!important;cursor:default!important;min-width:0}
+.bb-task-goal .bb-task-goal-label{border:0;background:none;padding:0;margin:0;font:inherit;font-size:11px;font-weight:700;color:#3730a3;white-space:nowrap;cursor:pointer;flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;max-width:60%}
+.bb-task-goal .bb-task-goal-label b{font-weight:900}
+.bb-task-goal .bb-task-goal-label:hover{text-decoration:underline}
+.bb-task-goal.is-reached .bb-task-goal-label{color:#15803d}
+.bb-task-goal > .bb-task-goal-track{flex:1 1 40px;min-width:30px;height:5px!important;margin:0!important}
+.bb-task-goal-plus{flex:0 0 auto;width:30px;height:24px;border:0;border-radius:999px;background:#4f46e5;color:#fff;font-size:11px;font-weight:900;cursor:pointer;line-height:24px;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.bb-task-goal-plus:hover{background:#4338ca}
+.bb-task-goal-plus:active{transform:scale(.92)}
+.bb-task-goal.is-reached .bb-task-goal-plus{background:#16a34a}
