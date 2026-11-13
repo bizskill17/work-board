@@ -900,20 +900,20 @@ App.goalSubmit=function(id,amount,remark,editId){
     const p=r.data;this.renderGoalModal(id,p);
     if(Number(p.auto_completed)){this.toast('🎯 Goal reached — task completed');setTimeout(()=>{this.closeModal();this.refreshStateQuietly();},900);}
     else this.toast(editId?'Progress updated':`Added — ${this.goalNum(p.total)} / ${this.goalNum(p.target)}`);
-  }).fail(()=>{this.toast('Could not save progress');$('.bb-goal-form button').prop('disabled',false);});
+  }).fail(x=>{let j=null;try{j=JSON.parse(String(x&&x.responseText||''));}catch(_e){}this.toast((j&&j.data&&j.data.message)||'Could not save progress');$('.bb-goal-form button').prop('disabled',false);});
 };
 (function(){
   $(document).on('click','[data-goal-open]',e=>{e.preventDefault();e.stopPropagation();App.openGoalProgress(String($(e.currentTarget).attr('data-goal-open')));});
   $(document).on('click','.bb-task-goal',e=>{e.stopPropagation();});
   // One tap = +1, straight from the card.
-  $(document).on('click','[data-goal-plus]',e=>{e.preventDefault();e.stopPropagation();const btn=$(e.currentTarget),id=String(btn.attr('data-goal-plus')||''),t=App.taskById&&App.taskById(id);if(!t)return;
+  $(document).on('click','[data-goal-plus]',e=>{e.preventDefault();e.stopPropagation();const btn=$(e.currentTarget),id=String(btn.attr('data-goal-plus')||''),t=App.taskById&&App.taskById(id);if(!t||!t.id){App.toast('Task not found — refresh the page');return;}
     t.goal_done=Number(t.goal_done||0)+1;t._goalPending=(t._goalPending||0)+1;
     const bar=btn.closest('.bb-task-goal');bar.replaceWith(App.taskGoalBar(t));
     App.api('bb_goal_progress_add',{task_id:id,amount:1,remark:''}).done(r=>{t._goalPending=Math.max(0,(t._goalPending||1)-1);
-      if(!r||!r.success){t.goal_done=Math.max(0,Number(t.goal_done||0)-1);$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));if(r?.data?.remark_required){App.toast('This Work Area needs a remark — add it here');App.openGoalProgress(id);}else App.toast(r?.data?.message||'Could not add');return;}
+      if(!r||!r.success){t.goal_done=Math.max(0,Number(t.goal_done||0)-1);$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));if(r?.data?.remark_required){App.toast('This Work Area needs a remark — add it here');App.openGoalProgress(id);}else{App.toast('Could not add: '+(r?.data?.message||'server error'));console.error('[Workboard Goal +1]',r);}return;}
       if(!t._goalPending){t.goal_done=Number(r.data.total||0);$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));}
       if(Number(r.data.auto_completed)){App.toast('🎯 Goal reached — task completed');setTimeout(()=>App.refreshStateQuietly(),600);}
-    }).fail(()=>{t._goalPending=Math.max(0,(t._goalPending||1)-1);t.goal_done=Math.max(0,Number(t.goal_done||0)-1);$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));App.toast('Could not add — check internet');});
+    }).fail(x=>{t._goalPending=Math.max(0,(t._goalPending||1)-1);t.goal_done=Math.max(0,Number(t.goal_done||0)-1);$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));let j=null;try{j=JSON.parse(String(x&&x.responseText||''));}catch(_e){}if(j&&j.data&&j.data.remark_required){App.toast('This Work Area needs a remark — add it here');App.openGoalProgress(id);return;}const txt=(j&&j.data&&j.data.message)||String(x&&x.responseText||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,160);App.toast('Could not add'+(txt?': '+txt:' — check internet'));console.error('[Workboard Goal +1]',x&&x.status,x&&x.responseText);});
   });
   $(document).on('click','[data-goal-quick]',e=>{e.preventDefault();const f=$(e.currentTarget).closest('.bb-goal-form'),id=String(f.attr('data-goal-form')||'');App.goalSubmit(id,Number($(e.currentTarget).attr('data-goal-quick')),String(f.find('[name=goal_remark]').val()||''),'');});
   $(document).on('submit','.bb-goal-form',e=>{e.preventDefault();const f=$(e.currentTarget),id=String(f.attr('data-goal-form')||''),n=Math.floor(Number(f.find('[name=goal_amount]').val()||0));if(!(n>=1)){App.toast('Enter a number of 1 or more');f.find('[name=goal_amount]').focus();return;}App.goalSubmit(id,n,String(f.find('[name=goal_remark]').val()||''),String(f.find('[name=goal_edit_id]').val()||''));});

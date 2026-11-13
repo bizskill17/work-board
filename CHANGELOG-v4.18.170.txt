@@ -1,0 +1,3 @@
+Workboard v4.18.170
+- Goals: progress table is now created with a direct CREATE TABLE IF NOT EXISTS (and re-checked on every progress update), fixing +1 not saving when the first automatic setup did not create it.
+- Goals: if +1 cannot be saved, the card shows the exact reason instead of silently going back to 0.
