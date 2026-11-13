@@ -934,6 +934,38 @@ App.goalSubmit=function(id,amount,remark,editId){
   };
 })();
 
+// v4.18.173: Universal search on the Workspaces page — also finds Work Areas, Tasks and Folders.
+App.universalSearchCache={};
+App.universalSearchBlock=function(q){
+  q=String(q||'').trim();if(q.length<2)return '';
+  const key=q.toLowerCase(),res=this.universalSearchCache[key];
+  if(!res){
+    if(this._usLoading!==key){this._usLoading=key;
+      this.api('bb_universal_search',{q}).done(r=>{this.universalSearchCache[key]=r&&r.success?r.data:{areas:[],tasks:[],folders:[]};}).fail(()=>{this.universalSearchCache[key]={areas:[],tasks:[],folders:[],failed:1};}).always(()=>{this._usLoading='';const box=$('#bb-universal-results');if(box.length&&String(box.attr('data-q')||'')===key)box.replaceWith(this.universalSearchBlock(q));});}
+    return `<div id="bb-universal-results" class="bb-us-results" data-q="${this.attr(key)}"><div class="bb-us-loading">Searching Work Areas, Tasks and Folders…</div></div>`;
+  }
+  const hl=txt=>{const t=String(txt||''),i=t.toLowerCase().indexOf(key);return i<0?this.esc(t):this.esc(t.slice(0,i))+'<mark>'+this.esc(t.slice(i,i+key.length))+'</mark>'+this.esc(t.slice(i+key.length));};
+  const dd=v=>v?String(v).slice(0,10).split('-').reverse().join('/'):'';
+  const areas=(res.areas||[]).map(a=>`<button type="button" class="bb-us-item" data-us-workspace="${this.attr(a.workspace_id)}" data-us-area="${this.attr(a.id)}"><span class="bb-us-dot" style="background:${this.attr(a.color||'#4f46e5')}"></span><span class="bb-us-main"><strong>${hl(a.name)}</strong><small>Work Area · ${this.esc(a.workspace)}</small></span></button>`).join('');
+  const tasks=(res.tasks||[]).map(t=>`<a class="bb-us-item" href="${this.attr(t.slug?BB.taskBase+encodeURIComponent(t.slug)+'/':'#')}" data-us-task="${this.attr(t.id)}"><span class="bb-us-status ${String(t.status).toLowerCase().replace(/[^a-z]/g,'')}">${this.esc(t.frequency||t.status)}</span><span class="bb-us-main"><strong>${hl(t.name)}</strong><small>${this.esc(t.workspace)}${t.work_area?' › '+this.esc(t.work_area):''}${t.assignee?' · '+this.esc(t.assignee):''}${t.due_date?' · Due '+dd(t.due_date):''}</small></span></a>`).join('');
+  const folders=(res.folders||[]).map(f=>`<button type="button" class="bb-us-item" data-us-folder="${this.attr(f.id)}"><span class="bb-us-dot" style="background:${this.attr(f.color||'#64748b')}"></span><span class="bb-us-main"><strong>📁 ${hl(f.name)}</strong><small>Folder</small></span></button>`).join('');
+  const group=(title,n,html)=>n?`<section class="bb-us-group"><h4>${title} <span>${n}</span></h4><div class="bb-us-list">${html}</div></section>`:'';
+  const total=(res.areas||[]).length+(res.tasks||[]).length+(res.folders||[]).length;
+  return `<div id="bb-universal-results" class="bb-us-results" data-q="${this.attr(key)}">${total?group('Tasks',(res.tasks||[]).length,tasks)+group('Work Areas',(res.areas||[]).length,areas)+group('Folders',(res.folders||[]).length,folders):`<div class="bb-us-empty">No Work Areas, Tasks or Folders match “${this.esc(q)}”</div>`}</div>`;
+};
+(function(){
+  const prev=App.renderWorkspaces;
+  App.renderWorkspaces=function(q=''){
+    const r=prev.apply(this,arguments);
+    const mode=this.workspaceTrashMode?'trash':(this.workspaceArchiveMode?'archive':'active');
+    const query=String(q||this.searchQuery||'').trim();
+    if(mode==='active'&&query.length>=2){const shell=$('#bb-content .bb-workspace-list-shell').first();if(shell.length&&!shell.find('#bb-universal-results').length)shell.append(this.universalSearchBlock(query));}
+    return r;
+  };
+  $(document).on('click','[data-us-workspace]',e=>{e.preventDefault();const wid=String($(e.currentTarget).attr('data-us-workspace')||''),aid=String($(e.currentTarget).attr('data-us-area')||'');App.openWorkspace(wid);if(aid)setTimeout(()=>{const col=$(`.bb-workarea-column[data-area-id="${CSS.escape(aid)}"]`).first();if(col.length){col[0].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});col.addClass('bb-us-flash');setTimeout(()=>col.removeClass('bb-us-flash'),1800);}},700);});
+  $(document).on('click','[data-us-folder]',e=>{e.preventDefault();const fid=String($(e.currentTarget).attr('data-us-folder')||'');App.searchQuery='';App.activeFolder=fid;if(typeof App.navigateView==='function')App.navigateView('folders');setTimeout(()=>{App.activeFolder=fid;App.renderFolders('');},50);});
+})();
+
 // v4.18.158: Daily Recurring Tasks Scoreboard — Year, Month, Employee, Date, Daily Due, Daily Done, Done %, Not Done %.
 App.dailyScoreFilters={month:'',employee:''};
 App.renderDailyScoreboard=function(){
@@ -2181,7 +2213,7 @@ const canReorder=mode==='active'&&canManageWorkspaceActions&&!q;
 let cards=filtered.map((w,i)=>{let actions='';if(canManageWorkspaceActions){if(mode==='trash')actions=`<button type="button" class="bb-workspace-action restore" data-restore-workspace="${w.id}" title="Restore Workspace" aria-label="Restore Workspace">↶</button><button type="button" class="bb-workspace-action danger" data-permanent-delete-workspace="${w.id}" title="Delete Permanently" aria-label="Delete Permanently">${trashIcon}</button>`;else if(mode==='archive')actions=`<button type="button" class="bb-workspace-action unarchive" data-unarchive-workspace="${w.id}" title="Unarchive Workspace" aria-label="Unarchive Workspace">${unarchiveIcon}</button><button type="button" class="bb-workspace-action danger" data-delete-workspace="${w.id}" title="Move to Trash" aria-label="Move to Trash">${trashIcon}</button>`;else actions=`<button type="button" class="bb-workspace-action edit" data-edit-workspace="${w.id}" title="Edit Workspace" aria-label="Edit Workspace">${editIcon}</button><button type="button" class="bb-workspace-action archive" data-archive-workspace="${w.id}" title="Archive Workspace" aria-label="Archive Workspace">${archiveIcon}</button><button type="button" class="bb-workspace-action danger" data-delete-workspace="${w.id}" title="Move to Trash" aria-label="Move to Trash">${trashIcon}</button>`;}return `<div class="bb-workspace-card-wrap bb-workspace-tone-${(i%6)+1} ${canManageWorkspaceActions?'':'bb-workspace-readonly'}" data-workspace-card-id="${w.id}">${canReorder?`<button type="button" class="bb-workspace-drag-handle" title="Drag to reorder Workspace" aria-label="Drag to reorder Workspace"><span></span><span></span><span></span><span></span><span></span><span></span></button>`:''}<button type="button" class="bb-workspace-name-card" ${mode==='active'?'data-open-workspace="'+w.id+'"':''}><span>${this.esc(w.name)}</span></button>${canManageWorkspaceActions?`<div class="bb-workspace-card-actions">${actions}</div>`:''}</div>`;}).join('');
 const archiveCount=(this.state.archivedWorkspaces||[]).length,trashCount=(this.state.trashedWorkspaces||[]).length;
 let modeActions='';if(BB.canManage){if(mode==='trash')modeActions=`<div class="bb-hero-actions"><button class="bb-btn light" data-hide-workspace-trash>← Workspaces</button></div>`;else if(mode==='archive')modeActions=`<div class="bb-hero-actions"><button class="bb-btn light" data-hide-workspace-archive>← Workspaces</button><button class="bb-btn light" data-show-workspace-trash>🗑 Trash${trashCount?' ('+trashCount+')':''}</button></div>`;else modeActions=`<div class="bb-hero-actions"><button class="bb-btn light" data-show-workspace-archive>▣ Archived${archiveCount?' ('+archiveCount+')':''}</button><button class="bb-btn light" data-show-workspace-trash>🗑 Trash${trashCount?' ('+trashCount+')':''}</button><button class="bb-btn light" id="bb-import-workspace">⇧ Import</button><button class="bb-btn primary" data-add-workspace>+ Add Workspace</button></div>`;}
-const placeholder=mode==='trash'?'Search Trash...':(mode==='archive'?'Search Archived Workspaces...':'Search Workspaces...');
+const placeholder=mode==='trash'?'Search Trash...':(mode==='archive'?'Search Archived Workspaces...':'Search Workspaces, Work Areas, Tasks, Folders...');
 const empty=mode==='trash'?'Trash is empty':(mode==='archive'?'No archived Workspaces':'No Workspaces created yet');
 const emptyMarkup=cards?'':(source.length?'' : `<div class="bb-empty">${empty}</div>`);
 $('#bb-content').html(`<div class="bb-workspace-list-shell"><div class="bb-workspace-list-actions"><div class="bb-inline-search bb-workspace-search">⌕ <input class="bb-local-search" placeholder="${placeholder}" value="${this.attr(q)}"></div>${modeActions}</div><div class="bb-workspace-name-grid">${cards||emptyMarkup}</div></div>`);

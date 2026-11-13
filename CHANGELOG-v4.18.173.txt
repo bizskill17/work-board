@@ -1,0 +1,3 @@
+Workboard v4.18.173
+- Workspaces page: the search box is now universal. Besides Workspace cards it finds Tasks (one-time and recurring; by name, description or labels), Work Areas and Folders across all accessible Workspaces.
+- Results appear below the Workspace cards, grouped, with the match highlighted. Click a Task to open it, a Work Area to open its Workspace and jump to that column, a Folder to open it.

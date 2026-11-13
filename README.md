@@ -1,3 +1,3 @@
 # work-board
 
-Workboard WordPress plugin (folder name on server: `business-board`). Current version: 4.18.172.
+Workboard WordPress plugin (folder name on server: `business-board`). Current version: 4.18.173.

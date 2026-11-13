@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.172
+ * Version: 4.18.173
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.172';
+    const VERSION = '4.18.173';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -131,7 +131,7 @@ final class BizSkill_Business_Board {
             'sync_workspace_from_template','detach_workspace_template','workspace_template_diff',
             'save_access','delete_access','pause_recurrence','resume_recurrence','skip_next_occurrence',
             'upload_attachment','delete_attachment','mark_notifications_read','save_notification_settings','test_meta_whatsapp','test_morning_pending_digest','save_site_messaging_settings','wallet_create_recharge','wallet_verify_recharge','get_message_log','save_telegram_settings','test_telegram','save_branding_settings','save_ai_settings','ai_simplify_task_text','ai_generate_workspace','ai_create_workspace','ai_generate_workspace_changes','ai_apply_workspace_changes',
-            'get_report','get_daily_recurring_scoreboard','goal_progress_list','goal_progress_add','goal_progress_update','goal_progress_delete','rollback_template_version','import_workspace_package','toggle_pin_task','toggle_task_focus','send_urgent_reminder','update_task_reminders','duplicate_task','duplicate_note_card','move_work_area','reorder_work_areas','reorder_tasks','move_task_work_area','toggle_subtask','save_entity_assignments','add_task_remark','set_task_status','update_task_field','add_inline_subtask','update_inline_subtask','delete_inline_subtask','reorder_inline_subtasks','get_timesheet_entries','get_timesheet_task_options','save_timesheet_entry','delete_timesheet_entry','get_callspace_entries','save_callspace_entry','delete_callspace_entry','get_docspace_entries','save_docspace_entry','delete_docspace_entry'
+            'get_report','get_daily_recurring_scoreboard','universal_search','goal_progress_list','goal_progress_add','goal_progress_update','goal_progress_delete','rollback_template_version','import_workspace_package','toggle_pin_task','toggle_task_focus','send_urgent_reminder','update_task_reminders','duplicate_task','duplicate_note_card','move_work_area','reorder_work_areas','reorder_tasks','move_task_work_area','toggle_subtask','save_entity_assignments','add_task_remark','set_task_status','update_task_field','add_inline_subtask','update_inline_subtask','delete_inline_subtask','reorder_inline_subtasks','get_timesheet_entries','get_timesheet_task_options','save_timesheet_entry','delete_timesheet_entry','get_callspace_entries','save_callspace_entry','delete_callspace_entry','get_docspace_entries','save_docspace_entry','delete_docspace_entry'
         ] as $a){
             add_action('wp_ajax_bb_'.$a,[$this,'ajax_'.$a]);
         }
@@ -8981,6 +8981,38 @@ JS
         $wpdb->update($this->tables['tasks'],['pinned_at'=>$pin?current_time('mysql'):null,'updated_at'=>current_time('mysql')],['id'=>$id]);
         $this->log_activity($pin?'task_pinned':'task_unpinned',$task->task_name,$task->workspace_id,$task->work_area_id,$task->id,$occurrence_date?:null);
         wp_send_json_success(['pinned_at'=>$pin?current_time('mysql'):null]);
+    }
+
+    // v4.18.173: Universal search — Work Areas, Tasks (incl. recurring) and Folders across every Workspace the user can access.
+    public function ajax_universal_search(){
+        $this->verify(); global $wpdb;
+        $q=trim(sanitize_text_field(wp_unslash($_POST['q']??'')));
+        if(mb_strlen($q)<2) wp_send_json_success(['q'=>$q,'areas'=>[],'tasks'=>[],'folders'=>[]]);
+        $like='%'.$wpdb->esc_like($q).'%';
+        $allowed=$this->allowed_workspace_ids();
+        $ws_ok=function($wid) use($allowed){ return $allowed===null || in_array((int)$wid,$allowed,true); };
+        // Work Areas
+        $areas=[];
+        $rows=$wpdb->get_results($wpdb->prepare("SELECT a.id,a.name,a.color,wa.workspace_id,w.name workspace_name,w.slug workspace_slug FROM {$this->tables['work_areas']} a JOIN {$this->tables['workspace_areas']} wa ON wa.work_area_id=a.id JOIN {$this->tables['workspaces']} w ON w.id=wa.workspace_id WHERE a.name LIKE %s AND COALESCE(a.status,'active') NOT IN ('trash','archived') AND COALESCE(w.status,'active')='active' ORDER BY a.name LIMIT 60",$like));
+        foreach($rows as $r){ if(!$ws_ok($r->workspace_id)) continue; $areas[]=['id'=>(int)$r->id,'name'=>(string)$r->name,'color'=>(string)$r->color,'workspace_id'=>(int)$r->workspace_id,'workspace'=>(string)$r->workspace_name,'workspace_slug'=>(string)$r->workspace_slug]; if(count($areas)>=20) break; }
+        // Tasks: one-time tasks and recurring task templates (name, description, labels)
+        $tasks=[];
+        $rows=$wpdb->get_results($wpdb->prepare("SELECT t.id,t.task_name,t.slug,t.status,t.task_type,t.frequency,t.is_template,t.due_date,t.due_time,t.workspace_id,t.work_area_id,t.assignee_id,COALESCE(t.recurrence_status,'active') recurrence_status,w.name workspace_name,a.name work_area_name,e.name assignee_name FROM {$this->tables['tasks']} t LEFT JOIN {$this->tables['workspaces']} w ON w.id=t.workspace_id LEFT JOIN {$this->tables['work_areas']} a ON a.id=t.work_area_id LEFT JOIN {$this->tables['employees']} e ON e.id=t.assignee_id WHERE t.archived_at IS NULL AND t.template_id IS NULL AND (t.task_name LIKE %s OR t.description LIKE %s OR t.labels LIKE %s) AND COALESCE(w.status,'active')='active' AND (a.status IS NULL OR a.status NOT IN ('trash','archived')) ORDER BY (t.status='Completed' AND t.is_template=0), (t.task_name LIKE %s) DESC, t.updated_at DESC LIMIT 150",$like,$like,$like,$like));
+        foreach($rows as $r){
+            if(!$ws_ok($r->workspace_id)) continue;
+            if(!$this->task_permission((int)$r->id,'view')) continue;
+            $recurring=(int)$r->is_template===1;
+            $tasks[]=['id'=>(int)$r->id,'name'=>(string)$r->task_name,'slug'=>(string)$r->slug,'status'=>$recurring?($r->recurrence_status==='paused'?'Paused':'Recurring'):(string)($r->status?:'Pending'),'frequency'=>$recurring?(string)($r->frequency?:'Daily'):'','due_date'=>(string)($r->due_date?:''),'workspace_id'=>(int)$r->workspace_id,'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'assignee'=>(string)($r->assignee_name?:'')];
+            if(count($tasks)>=40) break;
+        }
+        // Folders (any folder that holds at least one accessible Workspace, or all for Owner/Manager)
+        $folders=[];
+        $rows=$wpdb->get_results($wpdb->prepare("SELECT f.id,f.name,f.color FROM {$this->tables['folders']} f WHERE f.name LIKE %s ORDER BY f.name LIMIT 30",$like));
+        foreach($rows as $r){
+            if($allowed!==null){ $wids=array_map('intval',$wpdb->get_col($wpdb->prepare("SELECT workspace_id FROM {$this->tables['folder_workspaces']} WHERE folder_id=%d",(int)$r->id))); if(!array_intersect($wids,$allowed)) continue; }
+            $folders[]=['id'=>(int)$r->id,'name'=>(string)$r->name,'color'=>(string)$r->color];
+        }
+        wp_send_json_success(['q'=>$q,'areas'=>$areas,'tasks'=>$tasks,'folders'=>$folders]);
     }
 
     // ===== v4.18.168: Goals (target count) on tasks =====
