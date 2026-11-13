@@ -1,2 +1,4 @@
 Workboard v4.18.183
 - Monthly Sheet CL: counted from October 2026 onward. Months before October 2026 are ignored (no CL credit, no CL used); for earlier months the CL columns stay blank.
+
+- Re-deploy trigger.
