@@ -1,0 +1,2 @@
+Workboard v4.18.177
+- Workspaces page: the card being dragged now really keeps the compact one-row size, colour and small icons (fixed the style targeting the wrong drag element).
