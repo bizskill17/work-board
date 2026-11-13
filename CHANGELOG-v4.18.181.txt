@@ -1,0 +1,3 @@
+Workboard v4.18.181
+- Medium screens / zoomed-in windows (901-1100px wide): sidebar stays a readable 210px text menu instead of the old 80px icon rail that cut off menu names.
+- Workspaces / Folders toolbar: the search box grows and the Archived, Trash, Import and Add buttons wrap together as one tidy row.
