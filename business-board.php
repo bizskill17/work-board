@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.164
+ * Version: 4.18.165
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.164';
+    const VERSION = '4.18.165';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -8525,6 +8525,8 @@ JS
         // may be used as the create-time default assignee. The legacy head_employee_id
         // field can contain a Work Area Owner, so it is intentionally not used here.
         if(!$assignee_id && (!$id || !$assignments_posted)) $assignee_id=absint($wpdb->get_var($wpdb->prepare("SELECT employee_id FROM {$this->tables['entity_assignments']} WHERE entity_type='work_area' AND entity_id=%d AND relation_type='assignee' AND archived_at IS NULL ORDER BY id LIMIT 1",$work_area_id)));
+        // v4.18.165: every task needs at least one Assignee.
+        if(!$assignee_id) wp_send_json_error(['message'=>'Select at least one Assignee'],422);
         $task_name=sanitize_text_field(wp_unslash($_POST['task_name']??''));
         if(!$task_name) wp_send_json_error(['message'=>'Task name is required'],422);
         $task_name_length=$this->task_name_length($task_name);

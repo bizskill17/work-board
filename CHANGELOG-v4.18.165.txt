@@ -1,0 +1,4 @@
+Workboard v4.18.165
+- Tasks: Assignee is now required. Add Task and Edit Task cannot be saved without at least one Assignee ("Select at least one Assignee").
+- Assignees & Owners pop-up on a task: cannot remove the last Assignee.
+- Server also rejects saving a task with no Assignee (Work Area default Assignee still fills in for new tasks).

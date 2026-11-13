@@ -19217,3 +19217,6 @@ body.bb-note-area-sort-active{user-select:none!important;-webkit-user-select:non
 /* v4.18.164: Daily Scoreboard — clickable Employee Name */
 .bb-dsb-emp-link{background:none;border:0;padding:0;font:inherit;font-weight:800;color:#1d4ed8;text-align:left;cursor:pointer}
 .bb-dsb-emp-link:hover{text-decoration:underline}
+
+/* v4.18.165: highlight the quick task card when no Assignee is selected */
+.bb-quick-task-card.bb-assignee-missing{box-shadow:0 0 0 2px #ef4444!important;border-radius:12px}
