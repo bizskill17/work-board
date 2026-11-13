@@ -1,0 +1,12 @@
+Workboard v4.18.168 — Goals (target count) on tasks
+- Add/Edit Task: new optional "Goal (Target)" and "Goal Unit" fields (e.g. 8 reports, 100 calls, 1000 contacts).
+  - Recurring tasks: Goal per day (resets every occurrence). One Time tasks: Goal in total.
+- Task card: progress bar "done / target unit" with a "+ Progress" button.
+- Update Progress pop-up: +1 / +5 / +10 or any number, optional remark; list of updates (time IST, who, remark) with edit/delete
+  (own entries, or any entry for Owner/Manager). One Time tasks also show day-wise totals and the per-day pace needed to meet the due date.
+- Task completes automatically when the Goal is reached (normal Early/On Time/Late result, activity log, owner notification).
+  Sub-tasks must still be complete first. Remark-required Work Areas need a remark on each progress update.
+- Ticking Done before the Goal is reached opens Update Progress instead. Owner/Manager can "Mark Complete anyway".
+- Daily Scoreboard: unfinished goal tasks give part-credit (e.g. 5/8 = 0.63 done); pop-ups show "done / target unit".
+- Activity Log: Goal Progress / Goal Progress Edited / Goal Progress Deleted entries.
+- Database: tasks.goal_target, tasks.goal_unit and new table bb_task_goal_progress (created automatically, once).
