@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.178
+ * Version: 4.18.179
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.178';
+    const VERSION = '4.18.179';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -493,12 +493,13 @@ final class BizSkill_Business_Board {
 
     private function ensure_goal_schema($force=false){
         global $wpdb;
-        if(!$force && (string)get_option('bb_goal_schema','')==='3') return;
+        if(!$force && (string)get_option('bb_goal_schema','')==='4') return;
         $table=$this->tables['tasks']; $gp=$this->tables['goal_progress']??'';
         if(!$table || !$gp || $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s",$table))!==$table) return;
         $cols=$wpdb->get_col("DESC {$table}",0);
         if(!in_array('goal_target',$cols,true)) $wpdb->query("ALTER TABLE {$table} ADD COLUMN goal_target int unsigned NOT NULL DEFAULT 0");
         if(!in_array('goal_unit',$cols,true)) $wpdb->query("ALTER TABLE {$table} ADD COLUMN goal_unit varchar(40) NOT NULL DEFAULT ''");
+        if(!in_array('goal_gap_minutes',$cols,true)) $wpdb->query("ALTER TABLE {$table} ADD COLUMN goal_gap_minutes int unsigned NOT NULL DEFAULT 0");
         $charset=$wpdb->get_charset_collate();
         $wpdb->query("CREATE TABLE IF NOT EXISTS {$gp} (
             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -525,7 +526,8 @@ final class BizSkill_Business_Board {
             }
             $ok_tbl=in_array('goal_target',$wpdb->get_col("DESC {$gp}",0),true);
         }
-        if($ok_cols && $ok_tbl){ update_option('bb_goal_schema','3'); return true; }
+        $ok_cols=$ok_cols && in_array('goal_gap_minutes',$wpdb->get_col("DESC {$table}",0),true);
+        if($ok_cols && $ok_tbl){ update_option('bb_goal_schema','4'); return true; }
         update_option('bb_goal_schema_error',$wpdb->last_error?:'unknown');
         return false;
     }
@@ -5686,17 +5688,18 @@ JS
             }
             // v4.18.168: Goals — target, unit and progress for this occurrence (recurring) or in total (one-time).
             $goal_ids=[];
-            if($ids){ foreach($wpdb->get_results("SELECT id,goal_target,goal_unit FROM {$this->tables['tasks']} WHERE id IN (".implode(',',$ids).") AND goal_target>0") as $g) $goal_ids[(int)$g->id]=$g; }
+            if($ids){ foreach($wpdb->get_results("SELECT id,goal_target,goal_unit,goal_gap_minutes FROM {$this->tables['tasks']} WHERE id IN (".implode(',',$ids).") AND goal_target>0") as $g) $goal_ids[(int)$g->id]=$g; }
             $goal_sum=[];
-            if($goal_ids){ foreach($wpdb->get_results("SELECT task_id,occurrence_key,SUM(amount) total,COUNT(*) entries,SUBSTRING_INDEX(GROUP_CONCAT(NULLIF(goal_target,0) ORDER BY id DESC),',',1) day_target,SUBSTRING_INDEX(GROUP_CONCAT(IF(goal_target>0,goal_unit,NULL) ORDER BY id DESC SEPARATOR '\x1f'),'\x1f',1) day_unit FROM {$this->tables['goal_progress']} WHERE task_id IN (".implode(',',array_keys($goal_ids)).") GROUP BY task_id,occurrence_key") as $g) $goal_sum[(int)$g->task_id.'|'.$g->occurrence_key]=$g; }
+            if($goal_ids){ foreach($wpdb->get_results("SELECT task_id,occurrence_key,SUM(amount) total,COUNT(*) entries,MAX(created_at) last_at,SUBSTRING_INDEX(GROUP_CONCAT(NULLIF(goal_target,0) ORDER BY id DESC),',',1) day_target,SUBSTRING_INDEX(GROUP_CONCAT(IF(goal_target>0,goal_unit,NULL) ORDER BY id DESC SEPARATOR '\x1f'),'\x1f',1) day_unit FROM {$this->tables['goal_progress']} WHERE task_id IN (".implode(',',array_keys($goal_ids)).") GROUP BY task_id,occurrence_key") as $g) $goal_sum[(int)$g->task_id.'|'.$g->occurrence_key]=$g; }
             foreach(array_merge($tasks,$templates) as $t){
                 $base=(int)preg_replace('/^r_(\d+).*$/','$1',(string)($t->template_id ?: $t->id));
                 $g=$goal_ids[$base]??null;
-                if(!$g){ $t->goal_target=0; $t->goal_unit=''; $t->goal_done=0; $t->goal_entries=0; continue; }
+                if(!$g){ $t->goal_target=0; $t->goal_unit=''; $t->goal_done=0; $t->goal_entries=0; $t->goal_gap=0; $t->goal_next_at=''; continue; }
                 $occ=($t->template_id || !empty($t->is_template))?(string)($t->occurrence_date ?: $t->due_date ?: ''):'one';
                 $sum=$goal_sum[$base.'|'.$occ]??null;
                 $t->goal_target=($sum && (int)$sum->day_target>0)?(int)$sum->day_target:(int)$g->goal_target; $t->goal_unit=($sum && (int)$sum->day_target>0)?(string)$sum->day_unit:(string)$g->goal_unit;
                 $t->goal_done=$sum?(int)$sum->total:0; $t->goal_entries=$sum?(int)$sum->entries:0;
+                $t->goal_gap=(int)($g->goal_gap_minutes??0); $nx=($t->goal_gap>0 && $sum && $sum->last_at)?strtotime($sum->last_at)+$t->goal_gap*60:0; $t->goal_next_at=($nx && $nx>current_time('timestamp'))?$this->goal_local_to_ist($nx):'';
             }
         }else{
             $today=current_time('Y-m-d');
@@ -8597,7 +8600,7 @@ JS
             'occurrence_date'=>$is_recurring?null:(sanitize_text_field($_POST['due_date']??'')?:null),'description'=>sanitize_textarea_field($_POST['description']??''),'labels'=>sanitize_text_field($_POST['labels']??''),'estimated_minutes'=>absint($_POST['estimated_minutes']??0),'is_billable'=>!empty($_POST['is_billable'])?1:0,'billable_amount'=>(!empty($_POST['is_billable']) && isset($_POST['billable_amount']) && $_POST['billable_amount']!=='')?max(0,(float)$_POST['billable_amount']):null,'notify_enabled'=>isset($_POST['notify_enabled'])?(!empty($_POST['notify_enabled'])?1:0):($existing_task?((int)($existing_task->notify_enabled??1)):1),'reminder_enabled'=>isset($_POST['reminder_enabled'])?(!empty($_POST['reminder_enabled'])?1:0):($existing_task?((int)($existing_task->reminder_enabled??0)):0),'reminder_value'=>isset($_POST['reminder_value'])?max(1,min(9999,absint($_POST['reminder_value']))):($existing_task?max(1,(int)($existing_task->reminder_value??1)):1),'reminder_unit'=>isset($_POST['reminder_unit'])?sanitize_text_field($_POST['reminder_unit']):($existing_task?sanitize_text_field($existing_task->reminder_unit??'Hours'):'Hours'),'sunday_reminder_enabled'=>isset($_POST['sunday_reminder_enabled'])?(!empty($_POST['sunday_reminder_enabled'])?1:0):($existing_task?((int)($existing_task->sunday_reminder_enabled??0)):0),'recurrence_status'=>$is_recurring?sanitize_key($_POST['recurrence_status']??'active'):'active','overdue_policy'=>$is_recurring?(sanitize_key($_POST['overdue_policy']??'until_next')==='keep'?'keep':'until_next'):'until_next','updated_at'=>current_time('mysql')
         ];
         if((int)get_option('bb_show_module_billing',0)!==1){ $data['is_billable']=0; $data['billable_amount']=null; }
-        if(isset($_POST['goal_target'])){ $data['goal_target']=min(1000000,absint($_POST['goal_target'])); $data['goal_unit']=$data['goal_target']?mb_substr(sanitize_text_field(wp_unslash($_POST['goal_unit']??'')),0,40):''; }
+        if(isset($_POST['goal_target'])){ $data['goal_target']=min(1000000,absint($_POST['goal_target'])); $data['goal_unit']=$data['goal_target']?mb_substr(sanitize_text_field(wp_unslash($_POST['goal_unit']??'')),0,40):''; $data['goal_gap_minutes']=$data['goal_target']?min(1440,absint($_POST['goal_gap_minutes']??0)):0; }
         if(empty($data['is_billable'])){ $data['billable_amount']=null; $data['billed_amount']=null; $data['billing_updated_at']=null; }
         $posted_reminders=null;
         if(isset($_POST['reminders'])){
@@ -9027,6 +9030,17 @@ JS
         if($row) return [(int)$row->goal_target,(string)$row->goal_unit];
         return [(int)($task->goal_target??0),(string)($task->goal_unit??'')];
     }
+    // Gap between updates: returns [last entry time (WP local), next allowed timestamp or 0].
+    private function goal_gap_state($task,$occ){
+        global $wpdb;
+        $gap=(int)($task->goal_gap_minutes??0);
+        $last=(string)$wpdb->get_var($wpdb->prepare("SELECT MAX(created_at) FROM {$this->tables['goal_progress']} WHERE task_id=%d AND occurrence_key=%s",(int)$task->id,(string)$occ));
+        if($gap<=0 || $last==='') return [$last,0];
+        $next=strtotime($last)+$gap*60;
+        return [$last,$next>current_time('timestamp')?$next:0];
+    }
+    private function goal_gap_label($m){ $m=(int)$m; if($m<=0) return ''; if($m%60===0) return ($m/60).' hour'.($m===60?'':'s'); return $m.' min'; }
+    private function goal_local_to_ist($ts){ return $ts?$this->activity_time_ist(date('Y-m-d H:i:s',$ts)):''; }
     private function goal_allows_completion($task,$occ){
         if((int)($task->goal_target??0)<=0) return true;
         if($this->is_privileged_user()) return true;
@@ -9084,7 +9098,8 @@ JS
             $entries[]=['id'=>(int)$r->id,'amount'=>(int)$r->amount,'remark'=>(string)($r->remark??''),'employee_id'=>(int)$r->employee_id,'employee_name'=>(string)($r->employee_name?:'User'),'created_at'=>$r->created_at?$this->activity_time_ist($r->created_at):'','day'=>$r->created_at?substr($this->activity_time_ist($r->created_at),0,10):'','can_edit'=>($priv || ($me && (int)$me->id===(int)$r->employee_id))?1:0];
         }
         [$dt,$du]=$this->goal_day_target($task,$occ);
-        return ['task_id'=>(int)$task->id,'occurrence'=>$occ,'recurring'=>$recurring?1:0,'target'=>$dt,'unit'=>$du,'total'=>$total,'completed'=>$this->goal_is_completed($task,$occ,$recurring)?1:0,'entries'=>$entries,'can_complete_anyway'=>$priv?1:0];
+        [$gap_last,$gap_next]=$this->goal_gap_state($task,$occ);
+        return ['task_id'=>(int)$task->id,'occurrence'=>$occ,'recurring'=>$recurring?1:0,'target'=>$dt,'unit'=>$du,'gap'=>(int)($task->goal_gap_minutes??0),'next_at'=>$this->goal_local_to_ist($gap_next),'total'=>$total,'completed'=>$this->goal_is_completed($task,$occ,$recurring)?1:0,'entries'=>$entries,'can_complete_anyway'=>$priv?1:0];
     }
     public function ajax_goal_progress_list(){
         $this->verify(); $this->ensure_goal_schema(true);
@@ -9105,6 +9120,9 @@ JS
         $remark=trim(sanitize_textarea_field(wp_unslash($_POST['remark']??'')));
         // v4.18.171: quick progress taps never need a remark (the Work Area remark rule applies to status changes / completion).
         $this->ensure_goal_schema(true);
+        $task=$wpdb->get_row($wpdb->prepare("SELECT * FROM {$this->tables['tasks']} WHERE id=%d",(int)$task->id));
+        [$gap_last,$gap_next]=$this->goal_gap_state($task,$occ);
+        if($gap_next){ $ist=$this->goal_local_to_ist($gap_next); wp_send_json_error(['message'=>'Next update allowed after '.date('g:i A',strtotime($ist)).' (gap '.$this->goal_gap_label((int)$task->goal_gap_minutes).')','gap_locked'=>1,'next_at'=>$ist],422); }
         $me=$this->current_employee(); $at=current_time('mysql');
         [$dt,$du]=($recurring && $occ<current_time('Y-m-d'))?$this->goal_day_target($task,$occ):[(int)$task->goal_target,(string)$task->goal_unit];
         $wpdb->insert($this->tables['goal_progress'],['task_id'=>(int)$task->id,'occurrence_key'=>$occ,'employee_id'=>$me?(int)$me->id:null,'amount'=>$amount,'goal_target'=>$dt,'goal_unit'=>$du,'remark'=>$remark,'created_at'=>$at,'updated_at'=>$at]);
@@ -10108,7 +10126,7 @@ JS
                 foreach($rm as $x){ $remarks[(int)$x->task_id.'|'.$x->occurrence_key][]=['remark'=>(string)$x->remark,'at'=>$x->created_at?$this->activity_time_ist($x->created_at):'']; }
             }
             $goal_map=[]; $goal_day=[];
-            if($tids && in_array((string)get_option('bb_goal_schema',''),['1','2','3'],true)){
+            if($tids && in_array((string)get_option('bb_goal_schema',''),['1','2','3','4'],true)){
                 $in=implode(',',array_map('intval',$tids));
                 foreach($wpdb->get_results($wpdb->prepare("SELECT task_id,occurrence_key,SUM(amount) total,SUBSTRING_INDEX(GROUP_CONCAT(NULLIF(goal_target,0) ORDER BY id DESC),',',1) day_target,SUBSTRING_INDEX(GROUP_CONCAT(IF(goal_target>0,goal_unit,NULL) ORDER BY id DESC SEPARATOR '\x1f'),'\x1f',1) day_unit FROM {$this->tables['goal_progress']} WHERE task_id IN ({$in}) AND occurrence_key BETWEEN %s AND %s GROUP BY task_id,occurrence_key",$from,$to)) as $x){ $goal_map[(int)$x->task_id.'|'.$x->occurrence_key]=(int)$x->total; $goal_day[(int)$x->task_id.'|'.$x->occurrence_key]=[(int)$x->day_target,(string)$x->day_unit]; }
             }

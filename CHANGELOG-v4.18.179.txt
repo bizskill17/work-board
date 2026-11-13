@@ -1,0 +1,3 @@
+Workboard v4.18.179
+- Goals: new "Gap between updates" (No limit, 15 min ... 8 hours) next to Goal Unit in Add/Edit Task.
+- When set, a new progress update is refused until the gap has passed since the previous update for that day (or in total for One Time tasks). The card shows "⏳ 5:20 PM" instead of +1 until then and unlocks automatically.
