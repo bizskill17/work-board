@@ -1,0 +1,2 @@
+Workboard v4.18.164
+- Daily Scoreboard: click an Employee Name to see all Daily recurring tasks assigned to that User (Task, Workspace, Work Area, Repeats, Due Time, Start/End Date, Active/Paused).

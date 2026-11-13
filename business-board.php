@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.163
+ * Version: 4.18.164
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.163';
+    const VERSION = '4.18.164';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -9908,7 +9908,18 @@ JS
                 }
             }
         }
-        wp_send_json_success(['month'=>$month,'from'=>$from,'to'=>$to,'rows'=>array_values($out)]);
+        // v4.18.164: all Daily recurring tasks assigned to each User (the master list), for the Employee Name pop-up.
+        $assigned=[];
+        if($employee_id!==-1){
+            $daily_t="t.is_template=1 AND t.task_type='Recurring' AND COALESCE(NULLIF(t.frequency,''),'Daily')='Daily'";
+            $te=$employee_id?$wpdb->prepare(' AND t.assignee_id=%d',$employee_id):'';
+            $list=$wpdb->get_results("SELECT t.id,t.assignee_id,t.workspace_id,t.task_name,t.due_time,t.start_date,t.end_date,t.interval_value,COALESCE(t.recurrence_status,'active') recurrence_status,w.name workspace_name,a.name work_area_name FROM {$this->tables['tasks']} t LEFT JOIN {$this->tables['work_areas']} a ON a.id=t.work_area_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=t.workspace_id WHERE {$daily_t} AND t.assignee_id IS NOT NULL AND t.archived_at IS NULL AND (a.status IS NULL OR a.status NOT IN ('trash','archived')) AND (w.status IS NULL OR w.status NOT IN ('trash','archived')){$te} ORDER BY w.name,a.name,t.task_name");
+            foreach($list as $t){
+                if($allowed!==null && !in_array((int)$t->workspace_id,$allowed,true)) continue;
+                $assigned[(string)(int)$t->assignee_id][]=['task_id'=>(int)$t->id,'task_name'=>(string)($t->task_name?:'Recurring Task'),'workspace'=>(string)($t->workspace_name?:''),'work_area'=>(string)($t->work_area_name?:''),'due_time'=>(string)($t->due_time?:''),'start_date'=>(string)($t->start_date?:''),'end_date'=>(string)($t->end_date?:''),'interval'=>max(1,(int)$t->interval_value),'status'=>(string)$t->recurrence_status];
+            }
+        }
+        wp_send_json_success(['month'=>$month,'from'=>$from,'to'=>$to,'rows'=>array_values($out),'assigned'=>$assigned]);
     }
 
     public function ajax_get_report(){
