@@ -1,0 +1,3 @@
+Workboard v4.18.172
+- Goals: each progress entry now saves the Goal that applied at that time. Changing a task's Goal applies from that day onward; past days keep their own Goal in the task history, Daily Scoreboard part-credit and pop-ups.
+- Existing progress entries are stamped once with the task's current Goal.
