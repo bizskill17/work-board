@@ -19444,3 +19444,9 @@ body > .bb-workspace-card-wrap.bb-folder-drag-ghost .bb-workspace-name-card{padd
 .bb-monthly-att-table tbody td:nth-last-child(-n+4){background:#f7fbff;color:#0c4a6e;font-weight:700;text-align:center}
 .bb-monthly-att-table tbody td.bb-cl-used{color:#b45309}
 .bb-monthly-att-table tbody td.bb-cl-remaining{color:#0369a1}
+
+/* v4.18.185: mobile — search box stays one normal-height line (the 280px flex-basis became a height in the stacked toolbar) */
+@media(max-width:900px){
+  .bb-workspace-list-shell .bb-workspace-list-actions .bb-workspace-search,.bb-folder-shell > .bb-workspace-list-actions .bb-workspace-search{flex:0 0 auto!important;width:100%!important;max-width:none!important;min-width:0!important;height:auto!important;min-height:0!important;align-self:stretch!important}
+  .bb-workspace-list-shell .bb-workspace-list-actions .bb-hero-actions{margin-left:0!important;justify-content:flex-start!important}
+}

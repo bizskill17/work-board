@@ -1,0 +1,2 @@
+Workboard v4.18.185
+- Mobile: Workspaces / Folders search box is a normal one-line field again (it had become a tall empty box in v4.18.181).
