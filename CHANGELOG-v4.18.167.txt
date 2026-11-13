@@ -1,0 +1,2 @@
+Workboard v4.18.167
+- Daily Scoreboard: rows for tasks assigned to Users who no longer exist (shown as "User") are removed from the table, totals and Excel.
