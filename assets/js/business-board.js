@@ -843,7 +843,8 @@ App.renderAttendanceSettings=function(){
 
 // v4.18.182: CL (Casual Leave) — 1 CL per month from the joining month; CL is used against Absent days;
 // unused CL carries forward, looking back over the last 6 months.
-App.clPreviousMonths=function(month){const [y,m]=String(month).split('-').map(Number),out=[];for(let k=6;k>=1;k--){const d=new Date(Date.UTC(y,m-1-k,1));out.push(`${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,'0')}`);}return out;};
+App.CL_START_MONTH='2026-10'; // v4.18.183: CL is counted from October 2026 onward
+App.clPreviousMonths=function(month){const [y,m]=String(month).split('-').map(Number),out=[];for(let k=6;k>=1;k--){const d=new Date(Date.UTC(y,m-1-k,1)),mm=`${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,'0')}`;if(mm>=App.CL_START_MONTH)out.push(mm);}return out;};
 App.loadClMonths=function(months,done){
   this._clMonthData=this._clMonthData||{};let left=months.length;if(!left){done&&done();return;}
   months.forEach(mm=>{this.api('bb_get_attendance_month',{month:mm}).done(r=>{this._clMonthData[mm]=r&&r.success?{month:mm,events:r.data?.events||[],holidays:r.data?.holidays||[],claims:r.data?.claims||[]}:{month:mm,events:[],holidays:[],claims:[],failed:1};}).fail(()=>{this._clMonthData[mm]={month:mm,events:[],holidays:[],claims:[],failed:1};}).always(()=>{left--;if(!left)done&&done();});});
@@ -855,7 +856,7 @@ App.clAbsentInMonth=function(emp,mm,data){
 };
 App.clForEmployee=function(emp,month,absentNow,prevMonths){
   const joinMonth=String(emp.joined_on||'').slice(0,7);
-  if(joinMonth&&joinMonth>month)return {eligible:false,previous:0,credit:0,used:0,remaining:0};
+  if((joinMonth&&joinMonth>month)||month<App.CL_START_MONTH)return {eligible:false,previous:0,credit:0,used:0,remaining:0};
   let bal=0;
   (prevMonths||[]).forEach(mm=>{if(joinMonth&&mm<joinMonth)return;const data=(this._clMonthData||{})[mm];if(!data||data.failed)return;bal+=1;const used=Math.min(bal,this.clAbsentInMonth(emp,mm,data));bal-=used;});
   const credit=1,avail=bal+credit,used=Math.min(avail,Math.max(0,Number(absentNow||0)));
