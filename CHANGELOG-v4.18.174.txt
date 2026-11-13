@@ -1,0 +1,2 @@
+Workboard v4.18.174
+- Workspaces page: compact cards. Each Workspace is one slim row (drag dots, name, small edit/archive/delete icons), 13px text, tighter grid that fits more cards per row. Long names are shortened with "…".
