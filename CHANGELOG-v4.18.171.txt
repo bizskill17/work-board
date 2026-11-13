@@ -1,0 +1,2 @@
+Workboard v4.18.171
+- Goals: +1 / progress updates no longer require a remark, even in Work Areas where remarks are mandatory. +1 now saves straight from the card without opening the pop-up.

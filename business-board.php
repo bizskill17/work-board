@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.170
+ * Version: 4.18.171
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.170';
+    const VERSION = '4.18.171';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -9052,7 +9052,7 @@ JS
         $amount=(int)($_POST['amount']??0);
         if($amount<1 || $amount>1000000) wp_send_json_error(['message'=>'Enter a number of 1 or more'],422);
         $remark=trim(sanitize_textarea_field(wp_unslash($_POST['remark']??'')));
-        if($remark==='' && $this->work_area_update_remarks_required((int)$task->work_area_id)) wp_send_json_error(['message'=>'Remarks are required for task updates in this Work Area.','remark_required'=>1],422);
+        // v4.18.171: quick progress taps never need a remark (the Work Area remark rule applies to status changes / completion).
         $this->ensure_goal_schema(true);
         $me=$this->current_employee(); $at=current_time('mysql');
         $wpdb->insert($this->tables['goal_progress'],['task_id'=>(int)$task->id,'occurrence_key'=>$occ,'employee_id'=>$me?(int)$me->id:null,'amount'=>$amount,'remark'=>$remark,'created_at'=>$at,'updated_at'=>$at]);
