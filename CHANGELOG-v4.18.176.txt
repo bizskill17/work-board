@@ -1,0 +1,2 @@
+Workboard v4.18.176
+- Workspaces page: while dragging a Workspace to reorder, the moving card keeps the same compact size and colour.
