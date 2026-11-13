@@ -19428,3 +19428,19 @@ body > .bb-workspace-card-wrap.bb-folder-drag-ghost .bb-workspace-name-card{padd
 .bb-workspace-list-shell .bb-workspace-list-actions .bb-workspace-search,.bb-folder-shell > .bb-workspace-list-actions .bb-workspace-search{flex:1 1 280px!important;min-width:220px!important;max-width:560px!important;margin:0!important}
 .bb-workspace-list-shell .bb-workspace-list-actions .bb-hero-actions{display:flex!important;flex-wrap:wrap!important;gap:8px!important;margin:0 0 0 auto!important;justify-content:flex-end!important}
 .bb-workspace-list-shell .bb-workspace-list-actions .bb-hero-actions .bb-btn{white-space:nowrap!important}
+
+/* v4.18.182: Monthly Sheet — colours after adding Previous CL, CL, CL Used, Remaining CL (positions counted from the right) */
+.bb-monthly-att-table thead th:nth-last-child(9){background:#fef2f2;color:#be123c}
+.bb-monthly-att-table thead th:nth-last-child(8){background:#eef2ff;color:#4338ca}
+.bb-monthly-att-table thead th:nth-last-child(7){background:#fff7e8;color:#b45309}
+.bb-monthly-att-table thead th:nth-last-child(6){background:#f8fafc;color:#475569}
+.bb-monthly-att-table thead th:nth-last-child(5){background:#ecfdf3;color:#15803d}
+.bb-monthly-att-table thead th:nth-last-child(-n+4){background:#f0f9ff;color:#0369a1}
+.bb-monthly-att-table tbody td:nth-last-child(9){background:inherit;color:#be123c;font-weight:700}
+.bb-monthly-att-table tbody td:nth-last-child(8){background:#f3f0ff;color:#4338ca;font-weight:800}
+.bb-monthly-att-table tbody td:nth-last-child(7){background:#fff8eb;color:#b45309;font-weight:700}
+.bb-monthly-att-table tbody td:nth-last-child(6){background:#fcfdff;color:#334155;font-weight:600}
+.bb-monthly-att-table tbody td:nth-last-child(5){background:#f0fdf4;color:#15803d;font-weight:800}
+.bb-monthly-att-table tbody td:nth-last-child(-n+4){background:#f7fbff;color:#0c4a6e;font-weight:700;text-align:center}
+.bb-monthly-att-table tbody td.bb-cl-used{color:#b45309}
+.bb-monthly-att-table tbody td.bb-cl-remaining{color:#0369a1}

@@ -1,0 +1,6 @@
+Workboard v4.18.182
+- Monthly Sheet: new columns Previous CL, CL, CL Used, Remaining CL (also in Excel).
+  - 1 CL is credited every month from the joining month.
+  - CL is used against Absent days (CL Used = smaller of Absent and available CL).
+  - Unused CL carries forward: Previous CL is worked out from the last 6 months' attendance.
+  - Payable Days = Working Days + Sunday + Holiday + CL Used (Payable Salary follows).
