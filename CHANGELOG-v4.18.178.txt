@@ -1,0 +1,2 @@
+Workboard v4.18.178
+- Folders page: compact layout. Folder cards are one slim row (name, item count, small icons); Workspace and Notespace cards (Without Folder and inside a Folder) use the same compact rows as the Workspaces page, including while dragging a Workspace into a Folder.
