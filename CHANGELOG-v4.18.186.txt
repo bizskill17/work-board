@@ -1,0 +1,2 @@
+Workboard v4.18.186
+- Time Sheet: Action column widened (list 92px, entry form 96px) so the Edit/Delete and +/Delete buttons no longer overflow past the table edge; Remarks takes the remaining width in the entry form.

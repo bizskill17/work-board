@@ -19450,3 +19450,17 @@ body > .bb-workspace-card-wrap.bb-folder-drag-ghost .bb-workspace-name-card{padd
   .bb-workspace-list-shell .bb-workspace-list-actions .bb-workspace-search,.bb-folder-shell > .bb-workspace-list-actions .bb-workspace-search{flex:0 0 auto!important;width:100%!important;max-width:none!important;min-width:0!important;height:auto!important;min-height:0!important;align-self:stretch!important}
   .bb-workspace-list-shell .bb-workspace-list-actions .bb-hero-actions{margin-left:0!important;justify-content:flex-start!important}
 }
+
+/* v4.18.186: Time Sheet — Action column wide enough for both buttons (no overflow past the table edge) */
+.bb-timesheet-table-modern th.bb-ts-action-head,.bb-timesheet-table-modern td.bb-ts-action-cell{width:92px!important;min-width:92px!important;max-width:92px!important;padding:6px 8px!important}
+.bb-timesheet-table-modern .bb-timesheet-table-actions,.bb-timesheet-form-table .bb-timesheet-row-actions{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:center!important;gap:6px!important;width:auto!important;margin:0!important}
+.bb-timesheet-table-modern .bb-timesheet-table-actions .bb-icon-btn,.bb-timesheet-form-table .bb-timesheet-row-actions .bb-icon-btn{flex:0 0 32px!important;width:32px!important;height:32px!important;min-width:32px!important;min-height:0!important;padding:0!important;margin:0!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:8px!important}
+.bb-timesheet-table-modern .bb-timesheet-table-actions .bb-icon-btn svg,.bb-timesheet-form-table .bb-timesheet-row-actions .bb-icon-btn svg{width:15px!important;height:15px!important}
+.bb-timesheet-form-table th:last-child,.bb-timesheet-form-table td:last-child{width:92px!important;min-width:92px!important;max-width:92px!important;padding:6px 8px!important;text-align:center!important;vertical-align:middle!important}
+@media(max-width:900px){.bb-timesheet-form-table td:last-child,.bb-timesheet-form-table th:last-child{width:auto!important;max-width:none!important}}
+/* v4.18.186: Time Sheet entry form — fixed 96px Action column, Remarks takes the remaining width */
+#bb-app .bb-timesheet-form-table.bb-timesheet-minutes-mode :is(th,td):nth-child(5){width:auto!important}
+#bb-app .bb-timesheet-form-table.bb-timesheet-minutes-mode :is(th,td):last-child{width:96px!important;min-width:96px!important;max-width:96px!important}
+#bb-app .bb-timesheet-form-table:not(.bb-timesheet-minutes-mode) :is(th,td):nth-child(6){width:auto!important}
+#bb-app .bb-timesheet-form-table:not(.bb-timesheet-minutes-mode) :is(th,td):last-child{width:96px!important;min-width:96px!important;max-width:96px!important}
+@media(max-width:900px){#bb-app .bb-timesheet-form-table :is(th,td):last-child{width:auto!important;min-width:0!important;max-width:none!important}}
