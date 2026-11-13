@@ -19220,3 +19220,13 @@ body.bb-note-area-sort-active{user-select:none!important;-webkit-user-select:non
 
 /* v4.18.165: highlight the quick task card when no Assignee is selected */
 .bb-quick-task-card.bb-assignee-missing{box-shadow:0 0 0 2px #ef4444!important;border-radius:12px}
+
+/* v4.18.166: AttendSpace (User view) Status cell — keep it a real table cell so borders and widths line up on mobile */
+.bb-employee-att-table td.bb-emp-att-status-cell{display:table-cell!important;min-width:0!important;white-space:nowrap;text-align:left}
+.bb-employee-att-table td.bb-emp-att-status-cell .bb-att-status{display:inline-block;vertical-align:middle;max-width:calc(100% - 18px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bb-employee-att-table td.bb-emp-att-status-cell .bb-emp-att-chevron{display:inline-block;vertical-align:middle;float:right;margin-left:4px}
+@media(max-width:700px){
+  .bb-employee-att-table:not(.is-team-table) td.bb-emp-att-status-cell{padding-left:4px;padding-right:4px}
+  .bb-employee-att-table:not(.is-team-table) td.bb-emp-att-status-cell .bb-att-status{padding-left:6px;padding-right:6px;font-size:9px}
+  .bb-employee-att-table:not(.is-team-table) td.bb-emp-att-status-cell .bb-emp-att-chevron{font-size:18px}
+}

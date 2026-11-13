@@ -1,0 +1,2 @@
+Workboard v4.18.166
+- AttendSpace (User view, mobile): Status column no longer overflows; status pill and arrow stay inside the cell with the table borders.
