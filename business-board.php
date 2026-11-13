@@ -2,17 +2,19 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.183
+ * Version: 4.18.184
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.183';
+    const VERSION = '4.18.184';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
+    // v4.18.184: per-request cache of skipped recurring dates (task_id => [date=>true]).
+    private $bb_exc_cache = [];
     private $tables = [];
     private $network_tables = [];
     // Captures the most recent WhatsApp API result for diagnostics without changing legacy callers.
@@ -88,6 +90,7 @@ final class BizSkill_Business_Board {
         ];
         register_activation_hook(__FILE__,[$this,'activate']);
         add_action('plugins_loaded',[$this,'maybe_upgrade']);
+        add_filter('query',function($q){ if($this->bb_exc_cache && stripos($q,'recurrence_exceptions')!==false && preg_match('/^\s*(INSERT|DELETE|UPDATE|REPLACE)/i',$q)) $this->bb_exc_cache=[]; return $q; });
         add_action('admin_menu',[$this,'admin_menu']);
         add_action('network_admin_menu',[$this,'network_admin_menu']);
         add_filter('wp_handle_upload_prefilter',[$this,'enforce_site_storage_quota']);
@@ -402,34 +405,39 @@ final class BizSkill_Business_Board {
 
         // Multiple task reminders use a small dedicated table. This is a targeted CREATE TABLE
         // and does not rerun the full Workboard dbDelta migration on UI/plugin updates.
-        $this->ensure_task_reminders_table();
-        $this->ensure_task_overdue_reminders_table();
-        $this->ensure_reminder_delivery_table();
-        $this->ensure_pending_performance_indexes();
-        $this->ensure_math_tables();
-        // v4.15.52: Supervisors can live-punch assigned employees. Keep attendance
-        // columns repaired independently from the full dbDelta upgrade.
-        $this->ensure_attendance_live_punch_schema();
-        $this->ensure_attendance_leave_table();
-        $this->ensure_task_billing_columns();
-        // v4.18.168: task Goals (target count) + progress updates.
-        $this->ensure_goal_schema();
-        // v4.16.133: task-level Sunday reminder permission (off by default).
-        $this->ensure_task_sunday_reminder_column();
-        $this->ensure_party_share_schema();
-        // v4.16.102: optional Time Sheet module with Daily Activity entries.
-        $this->ensure_timesheet_table();
-        // v4.18.0: communication and physical-document registers.
-        $this->ensure_callspace_docspace_tables();
-        // v4.14.31: Note Areas can optionally declare that Notes require a date.
-        $this->ensure_note_area_date_columns();
-        // v4.14.32: Store the actual applicable date on each Note, not on the Note Area.
-        $this->ensure_note_card_date_column();
-        // v4.14.34: Work Areas can require a remark for every task workflow/status update.
-        $this->ensure_work_area_update_remarks_column();
+        // v4.18.184: these schema repairs (≈18 DESC/SHOW queries) used to run on EVERY request, including every
+        // admin-ajax call. Run them once per plugin version (and on a fresh site), then skip.
+        if((string)get_option('bb_schema_checked_version','')!==self::VERSION){
+            $this->ensure_task_reminders_table();
+            $this->ensure_task_overdue_reminders_table();
+            $this->ensure_reminder_delivery_table();
+            $this->ensure_pending_performance_indexes();
+            $this->ensure_math_tables();
+            // v4.15.52: Supervisors can live-punch assigned employees. Keep attendance
+            // columns repaired independently from the full dbDelta upgrade.
+            $this->ensure_attendance_live_punch_schema();
+            $this->ensure_attendance_leave_table();
+            $this->ensure_task_billing_columns();
+            // v4.18.168: task Goals (target count) + progress updates.
+            $this->ensure_goal_schema();
+            // v4.16.133: task-level Sunday reminder permission (off by default).
+            $this->ensure_task_sunday_reminder_column();
+            $this->ensure_party_share_schema();
+            // v4.16.102: optional Time Sheet module with Daily Activity entries.
+            $this->ensure_timesheet_table();
+            // v4.18.0: communication and physical-document registers.
+            $this->ensure_callspace_docspace_tables();
+            // v4.14.31: Note Areas can optionally declare that Notes require a date.
+            $this->ensure_note_area_date_columns();
+            // v4.14.32: Store the actual applicable date on each Note, not on the Note Area.
+            $this->ensure_note_card_date_column();
+            // v4.14.34: Work Areas can require a remark for every task workflow/status update.
+            $this->ensure_work_area_update_remarks_column();
 
-        // v4.13.0: network-level messaging, wallet, recharge and immutable message-log tables.
-        $this->ensure_network_messaging_tables();
+            // v4.13.0: network-level messaging, wallet, recharge and immutable message-log tables.
+            $this->ensure_network_messaging_tables();
+            update_option('bb_schema_checked_version',self::VERSION,false);
+        }
         if($old_plugin_version !== self::VERSION || !get_option('bb_messaging_site_initialized',0)) $this->ensure_current_site_messaging_config();
         $this->ensure_network_message_cleanup_cron();
 
@@ -2734,7 +2742,13 @@ JS
         update_option('bb_pending_perf_indexes_v1','1',false);
     }
 
-    private function is_exception($task_id,$date){ global $wpdb; return (bool)$wpdb->get_var($wpdb->prepare("SELECT id FROM {$this->tables['recurrence_exceptions']} WHERE task_id=%d AND occurrence_date=%s LIMIT 1",$task_id,$date)); }
+    private function is_exception($task_id,$date){
+        global $wpdb; $task_id=(int)$task_id;
+        if(!isset($this->bb_exc_cache[$task_id])){
+            $this->bb_exc_cache[$task_id]=array_fill_keys(array_map('strval',(array)$wpdb->get_col($wpdb->prepare("SELECT occurrence_date FROM {$this->tables['recurrence_exceptions']} WHERE task_id=%d",$task_id))),true);
+        }
+        return isset($this->bb_exc_cache[$task_id][(string)$date]);
+    }
 
     /**
      * Rebuild site-scoped table names after switch_to_blog().
@@ -4626,11 +4640,12 @@ JS
         // date must not shift all future Yearly/Monthly/Weekly occurrences.
         $valid_dates=$this->scheduled_occurrence_set($tpl,$start,$today);
         $this->cleanup_invalid_auto_recurring_history($tpl,$valid_dates,$start,$today);
+        // v4.18.184: one query for all existing history dates instead of one query per day.
+        $have=array_fill_keys(array_map('strval',(array)$wpdb->get_col($wpdb->prepare("SELECT occurrence_date FROM {$this->tables['history']} WHERE task_id=%d AND occurrence_date>=%s AND occurrence_date<=%s",$tpl->id,$start,$today))),true);
 
         foreach(array_keys($valid_dates) as $date){
+            if(isset($have[(string)$date])) continue;
             if($this->is_exception($tpl->id,$date)) continue;
-            $exists=$wpdb->get_var($wpdb->prepare("SELECT id FROM {$this->tables['history']} WHERE task_id=%d AND occurrence_date=%s LIMIT 1",$tpl->id,$date));
-            if($exists) continue;
             $due_ts=strtotime($date.' '.($tpl->due_time ?: '23:59:59'));
             if($due_ts && $due_ts<$now){
                 $wpdb->insert($this->tables['history'],[
@@ -5507,7 +5522,7 @@ JS
         $parties=$this->is_privileged_user()
             ? $wpdb->get_results("SELECT * FROM {$this->tables['parties']} WHERE status='active' ORDER BY party_name,id")
             : $wpdb->get_results("SELECT id,party_name,party_type,city,state,status FROM {$this->tables['parties']} WHERE status='active' ORDER BY party_name,id");
-        $this->sync_people_masters();
+        if(!get_transient('bb_people_masters_synced')){ $this->sync_people_masters(); set_transient('bb_people_masters_synced',1,600); }
         $departments=$this->is_privileged_user()?$wpdb->get_results("SELECT id,department_code,name,status,created_at,updated_at FROM {$this->tables['departments']} ORDER BY name,id"):[];
         $designations=$this->is_privileged_user()?$wpdb->get_results("SELECT * FROM {$this->tables['designations']} ORDER BY name,id"):[];
         $employee_departments=[]; $workspace_departments=[];

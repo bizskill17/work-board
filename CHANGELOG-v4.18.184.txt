@@ -1,0 +1,5 @@
+Workboard v4.18.184 — speed
+- Schema repair checks (about 18 database structure queries) now run once after each plugin update instead of on every page load and every data call.
+- Recurring refresh (runs about once a minute inside the data load): existing history dates and skipped dates are loaded once per recurring task instead of 2 queries for every day since the task started. A daily task started 100 days ago went from ~200 queries to ~3.
+- Skipped recurring dates are cached per request (also speeds up the Daily Scoreboard and task lists).
+- Department/Designation master sync runs at most every 10 minutes instead of on every data load.
