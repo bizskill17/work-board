@@ -1,0 +1,2 @@
+Workboard v4.18.188
+- Monthly Sheet: Users with the Owner role are no longer listed (table, User filter and Excel).
