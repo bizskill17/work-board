@@ -1,0 +1,3 @@
+Workboard v4.18.187
+- Monthly Sheet: Per Day Salary and Payable Salary rounded to whole rupees (Payable Salary is worked out from the exact per-day amount, then rounded).
+- Monthly Sheet: CL columns now in the order CL, Previous CL, CL Used, Remaining CL (screen and Excel).
