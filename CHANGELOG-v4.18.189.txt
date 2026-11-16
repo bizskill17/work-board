@@ -1,0 +1,13 @@
+Workboard v4.18.189
+
+New: Create tasks from WhatsApp (voice note or text) - admin only
+- Owners and Managers send a voice note or message to the site's WhatsApp Business number.
+- Gemini (Workboard AI key) understands Hindi/English/Hinglish and fills task name, assignee,
+  workspace, work area, due date/time, priority, recurring and goal.
+- Missing workspace/work area is asked with a WhatsApp list; missing assignee is asked by text.
+- Nothing is saved until the admin taps "Create". Send another message to change any field; "Cancel" discards.
+- The voice transcript is added to the task description; the reply contains the task link.
+- Unknown numbers and non-admin employees get a polite refusal (once a day).
+- Mobile numbers match on the last 10 digits, ignoring spaces, +91 and dashes.
+- Messages are stored first and processed in the background so Meta's webhook always gets a fast 200.
+- Duplicate deliveries from Meta are ignored; messages older than 30 minutes are skipped.

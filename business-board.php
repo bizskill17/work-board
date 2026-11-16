@@ -2,17 +2,18 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.188
+ * Version: 4.18.189
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.188';
+    const VERSION = '4.18.189';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
+    private $wa_inbox_new = 0;
     // v4.18.184: per-request cache of skipped recurring dates (task_id => [date=>true]).
     private $bb_exc_cache = [];
     private $tables = [];
@@ -90,6 +91,9 @@ final class BizSkill_Business_Board {
         ];
         register_activation_hook(__FILE__,[$this,'activate']);
         add_action('plugins_loaded',[$this,'maybe_upgrade']);
+        add_action('wp_ajax_nopriv_bb_wa_process',[$this,'ajax_wa_process']);
+        add_action('wp_ajax_bb_wa_process',[$this,'ajax_wa_process']);
+        add_action('bb_wa_process_cron',[$this,'wa_process_pending']);
         add_filter('query',function($q){ if($this->bb_exc_cache && stripos($q,'recurrence_exceptions')!==false && preg_match('/^\s*(INSERT|DELETE|UPDATE|REPLACE)/i',$q)) $this->bb_exc_cache=[]; return $q; });
         add_action('admin_menu',[$this,'admin_menu']);
         add_action('network_admin_menu',[$this,'network_admin_menu']);
@@ -12308,6 +12312,305 @@ JS
         ]);
     }
 
+    // =====================================================================================
+    // v4.18.189: Create tasks from WhatsApp (voice note or text) — Owners/Managers only.
+    // Flow: Meta webhook → inbox row → background processor → Gemini (listen + extract task)
+    //       → WhatsApp summary with [Create] [Cancel] → task saved through the normal Save Task code.
+    // =====================================================================================
+    private function wa_tables(){ global $wpdb; return ['inbox'=>$wpdb->base_prefix.'bb_wa_inbox','drafts'=>$wpdb->base_prefix.'bb_wa_drafts']; }
+    private function wa_ensure_tables(){
+        global $wpdb; if((string)get_site_option('bb_wa_inbox_schema','')==='1') return;
+        $t=$this->wa_tables(); $c=$wpdb->get_charset_collate();
+        $wpdb->query("CREATE TABLE IF NOT EXISTS {$t['inbox']} (
+            id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+            wa_message_id varchar(191) NOT NULL,
+            phone_number_id varchar(40) NOT NULL DEFAULT '',
+            from_phone varchar(30) NOT NULL DEFAULT '',
+            msg_type varchar(30) NOT NULL DEFAULT '',
+            body longtext NULL,
+            status varchar(20) NOT NULL DEFAULT 'pending',
+            blog_id bigint(20) unsigned DEFAULT NULL,
+            error text NULL,
+            created_at datetime NULL DEFAULT NULL,
+            processed_at datetime NULL DEFAULT NULL,
+            PRIMARY KEY (id), UNIQUE KEY wa_message_id (wa_message_id), KEY status (status)
+        ) {$c}");
+        $wpdb->query("CREATE TABLE IF NOT EXISTS {$t['drafts']} (
+            id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+            blog_id bigint(20) unsigned NOT NULL DEFAULT 0,
+            employee_id bigint(20) unsigned DEFAULT NULL,
+            wp_user_id bigint(20) unsigned DEFAULT NULL,
+            from_phone varchar(30) NOT NULL DEFAULT '',
+            draft longtext NULL,
+            status varchar(20) NOT NULL DEFAULT 'open',
+            task_id bigint(20) unsigned DEFAULT NULL,
+            created_at datetime NULL DEFAULT NULL,
+            updated_at datetime NULL DEFAULT NULL,
+            PRIMARY KEY (id), KEY phone_status (from_phone,status)
+        ) {$c}");
+        if($wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s",$t['drafts']))===$t['drafts']) update_site_option('bb_wa_inbox_schema','1');
+    }
+    private function wa_inbox_store($value){
+        global $wpdb; $this->wa_ensure_tables(); $t=$this->wa_tables(); $n=0;
+        $pid=preg_replace('/\D+/','',(string)($value['metadata']['phone_number_id']??''));
+        foreach((array)($value['messages']??[]) as $m){
+            $mid=(string)($m['id']??''); $from=preg_replace('/\D+/','',(string)($m['from']??''));
+            if($mid===''||$from==='') continue;
+            // Ignore messages older than 30 minutes (Meta retries / backlog after downtime).
+            $ts=(int)($m['timestamp']??0); if($ts && $ts<time()-1800) continue;
+            $ok=$wpdb->query($wpdb->prepare("INSERT IGNORE INTO {$t['inbox']} (wa_message_id,phone_number_id,from_phone,msg_type,body,status,created_at) VALUES (%s,%s,%s,%s,%s,'pending',%s)",$mid,$pid,$from,sanitize_key((string)($m['type']??'')),wp_json_encode($m),current_time('mysql')));
+            if($ok){ $n++; $this->wa_inbox_new++; }
+        }
+        return $n;
+    }
+    private function wa_process_key(){ $k=(string)get_site_option('bb_wa_process_key',''); if(!$k){ $k=wp_generate_password(40,false,false); update_site_option('bb_wa_process_key',$k); } return $k; }
+    private function wa_kick_processor(){
+        // Answer Meta immediately; do the slow work (download, AI) in a separate background request.
+        wp_remote_post(admin_url('admin-ajax.php'),['blocking'=>false,'timeout'=>0.5,'sslverify'=>false,'body'=>['action'=>'bb_wa_process','key'=>$this->wa_process_key()]]);
+        if(!wp_next_scheduled('bb_wa_process_cron')) wp_schedule_single_event(time()+60,'bb_wa_process_cron');
+    }
+    public function ajax_wa_process(){
+        if(!hash_equals($this->wa_process_key(),(string)($_POST['key']??''))) wp_die('',403);
+        ignore_user_abort(true); @set_time_limit(180);
+        $this->wa_process_pending();
+        wp_die('ok');
+    }
+    public function wa_process_pending(){
+        global $wpdb; $this->wa_ensure_tables(); $t=$this->wa_tables();
+        if(get_site_transient('bb_wa_processing')) return;
+        set_site_transient('bb_wa_processing',1,170);
+        try{
+            for($round=0;$round<4;$round++){
+            $rows=$wpdb->get_results("SELECT * FROM {$t['inbox']} WHERE status='pending' ORDER BY id ASC LIMIT 15");
+            if(!$rows) break;
+            foreach($rows as $row){
+                $wpdb->update($t['inbox'],['status'=>'working'],['id'=>$row->id,'status'=>'pending']);
+                $err='';
+                try{ $err=(string)$this->wa_handle_message($row); }catch(\Throwable $e){ $err=$e->getMessage(); }
+                if(is_multisite()) restore_current_blog();
+                $this->refresh_site_tables();
+                wp_set_current_user(0);
+                $wpdb->update($t['inbox'],['status'=>$err===''?'done':'failed','error'=>$err,'processed_at'=>current_time('mysql')],['id'=>$row->id]);
+            }
+            }
+            // Rows stuck in 'working' (server stopped mid-way) are marked failed after 5 minutes.
+            $wpdb->query($wpdb->prepare("UPDATE {$t['inbox']} SET status='failed',error='timed out' WHERE status='working' AND created_at<%s",date('Y-m-d H:i:s',current_time('timestamp')-300)));
+        } finally { delete_site_transient('bb_wa_processing'); }
+    }
+    // Find the Workboard site + admin for this sender. Leaves the matching blog switched in.
+    private function wa_resolve_sender($phone_number_id,$from){
+        global $wpdb; $last10=substr(preg_replace('/\D+/','',$from),-10);
+        $blogs=is_multisite()?array_map(fn($b)=>(int)$b->blog_id,get_sites(['number'=>500,'deleted'=>0,'archived'=>0,'spam'=>0])):[get_current_blog_id()];
+        $found=null; $creds_for_reply=null; $not_admin=false;
+        foreach($blogs as $bid){
+            if(is_multisite()) switch_to_blog($bid);
+            $this->refresh_site_tables();
+            $creds=$this->resolved_messaging_credentials();
+            $ok_number=($creds['error']??'')==='' && preg_replace('/\D+/','',(string)($creds['phone_id']??''))===$phone_number_id;
+            if($ok_number){
+                if(!$creds_for_reply) $creds_for_reply=$creds;
+                $emps=strlen($last10)===10?$wpdb->get_results("SELECT * FROM {$this->tables['employees']} WHERE COALESCE(status,'active')='active' AND mobile IS NOT NULL AND mobile<>''"):[];
+                foreach($emps as $e){
+                    if(substr(preg_replace('/\D+/','',(string)$e->mobile),-10)!==$last10) continue;
+                    $admin=in_array(strtolower((string)$e->system_role),['owner','manager'],true) || ($e->wp_user_id && user_can((int)$e->wp_user_id,'manage_options'));
+                    if($admin && (int)$e->wp_user_id){ $found=['blog_id'=>$bid,'employee'=>$e,'creds'=>$creds]; break; }
+                    $not_admin=true;
+                }
+            }
+            if($found) break;
+            if(is_multisite()) restore_current_blog();
+        }
+        if(!$found) $this->refresh_site_tables();
+        return ['found'=>$found,'creds'=>$creds_for_reply,'not_admin'=>$not_admin];
+    }
+    private function wa_send($creds,$to,$payload){
+        $ver=trim((string)($creds['api_version']??'v25.0')); if(!preg_match('/^v\d+\.\d+$/',$ver)) $ver='v25.0';
+        $body=array_merge(['messaging_product'=>'whatsapp','recipient_type'=>'individual','to'=>$to],$payload);
+        $r=wp_remote_post('https://graph.facebook.com/'.$ver.'/'.rawurlencode((string)$creds['phone_id']).'/messages',['timeout'=>20,'headers'=>['Authorization'=>'Bearer '.$creds['token'],'Content-Type'=>'application/json'],'body'=>wp_json_encode($body)]);
+        if(is_wp_error($r)) return $r->get_error_message();
+        $code=(int)wp_remote_retrieve_response_code($r); return ($code>=200&&$code<300)?'':('WhatsApp send HTTP '.$code.': '.substr((string)wp_remote_retrieve_body($r),0,300));
+    }
+    private function wa_text($creds,$to,$text){ return $this->wa_send($creds,$to,['type'=>'text','text'=>['preview_url'=>true,'body'=>mb_substr($text,0,4000)]]); }
+    private function wa_buttons($creds,$to,$text,$buttons){
+        $b=[]; foreach(array_slice($buttons,0,3) as $id=>$title) $b[]=['type'=>'reply','reply'=>['id'=>(string)$id,'title'=>mb_substr($title,0,20)]];
+        return $this->wa_send($creds,$to,['type'=>'interactive','interactive'=>['type'=>'button','body'=>['text'=>mb_substr($text,0,1024)],'action'=>['buttons'=>$b]]]);
+    }
+    private function wa_list($creds,$to,$text,$button,$rows){
+        $r=[]; foreach(array_slice($rows,0,10) as $row) $r[]=['id'=>(string)$row['id'],'title'=>mb_substr((string)$row['title'],0,24),'description'=>mb_substr((string)($row['description']??''),0,72)];
+        return $this->wa_send($creds,$to,['type'=>'interactive','interactive'=>['type'=>'list','body'=>['text'=>mb_substr($text,0,1024)],'action'=>['button'=>mb_substr($button,0,20),'sections'=>[['title'=>'Choose','rows'=>$r]]]]]);
+    }
+    private function wa_download_media($creds,$media_id){
+        $ver=trim((string)($creds['api_version']??'v25.0')); if(!preg_match('/^v\d+\.\d+$/',$ver)) $ver='v25.0';
+        $h=['Authorization'=>'Bearer '.$creds['token']];
+        $r=wp_remote_get('https://graph.facebook.com/'.$ver.'/'.rawurlencode($media_id),['timeout'=>20,'headers'=>$h]);
+        if(is_wp_error($r)) return new WP_Error('media',$r->get_error_message());
+        $j=json_decode((string)wp_remote_retrieve_body($r),true); $url=(string)($j['url']??''); $mime=(string)($j['mime_type']??'audio/ogg');
+        if(!$url) return new WP_Error('media','Could not get the voice note from WhatsApp.');
+        if((int)($j['file_size']??0)>15*1048576) return new WP_Error('media','Voice note is too long. Please keep it under about 10 minutes.');
+        $f=wp_remote_get($url,['timeout'=>40,'headers'=>$h]);
+        if(is_wp_error($f)) return new WP_Error('media',$f->get_error_message());
+        $bytes=(string)wp_remote_retrieve_body($f); if($bytes==='') return new WP_Error('media','Voice note download was empty.');
+        return ['mime'=>trim(explode(';',$mime)[0])?:'audio/ogg','base64'=>base64_encode($bytes)];
+    }
+    // Workspaces / Work Areas / people this admin may use — given to Gemini and used to validate its answer.
+    private function wa_context(){
+        global $wpdb;
+        $allowed=$this->allowed_workspace_ids();
+        $ws_sql=$allowed===null?'':($allowed?' AND w.id IN ('.implode(',',array_map('intval',$allowed)).')':' AND 1=0');
+        $rows=$wpdb->get_results("SELECT w.id ws_id,w.name ws_name,a.id area_id,a.name area_name FROM {$this->tables['workspaces']} w JOIN {$this->tables['workspace_areas']} wa ON wa.workspace_id=w.id JOIN {$this->tables['work_areas']} a ON a.id=wa.work_area_id WHERE COALESCE(w.status,'active')='active' AND COALESCE(a.status,'active') NOT IN ('trash','archived'){$ws_sql} ORDER BY w.sort_order,w.name,a.name");
+        $ws=[]; foreach($rows as $r){ $id=(int)$r->ws_id; if(!isset($ws[$id])) $ws[$id]=['id'=>$id,'name'=>(string)$r->ws_name,'work_areas'=>[]]; $ws[$id]['work_areas'][]=['id'=>(int)$r->area_id,'name'=>(string)$r->area_name]; }
+        $people=[]; foreach($wpdb->get_results("SELECT id,name,designation FROM {$this->tables['employees']} WHERE COALESCE(status,'active')='active' ORDER BY name") as $e) $people[]=['id'=>(int)$e->id,'name'=>(string)$e->name,'designation'=>(string)$e->designation];
+        return ['workspaces'=>array_values($ws),'people'=>$people];
+    }
+    private function wa_ai_extract($ctx,$draft,$text,$audio,$sender_name){
+        $today=current_time('Y-m-d'); $dow=date('l',current_time('timestamp'));
+        $instruction="You turn a manager's WhatsApp voice note or text into ONE Workboard task. The manager is {$sender_name}. Today is {$dow}, {$today} (India time).\n"
+            ."Speech may be English, Hindi, Assamese, Bengali or a mix. Understand it and write the task in clear, short English (keep names of people/companies as said).\n"
+            ."Use ONLY ids from this list of workspaces, work areas and people:\n".wp_json_encode($ctx)."\n"
+            ."Rules: match people by name (fuzzy, first names ok). 'me'/'myself' = {$sender_name}. If no assignee is said, use [] (the manager will be asked).\n"
+            ."Pick the workspace and work area that fit best; if unclear use null. Dates: 'today', 'tomorrow', 'Monday', 'next week' etc. → YYYY-MM-DD. Times → HH:MM 24h. No time said → null.\n"
+            ."recurring: one of None, Daily, Weekly, Fortnightly, Monthly, Quarterly, Yearly ('every day' = Daily). priority: Urgent, High, Medium or Low (default Medium; 'urgent'/'asap' = Urgent).\n"
+            ."goal_target: a count if they say e.g. '8 times', '100 calls' (else 0); goal_unit e.g. 'times','calls'.\n"
+            .($draft?"There is a CURRENT DRAFT below. The new message is a CHANGE to it: keep everything not mentioned, apply what is asked.\nCURRENT DRAFT: ".wp_json_encode($draft)."\n":"")
+            ."Return ONLY JSON: {\"understood\":true|false,\"transcript\":\"what was said, in its language\",\"task_name\":\"\",\"description\":\"\",\"assignee_ids\":[],\"workspace_id\":null,\"work_area_id\":null,\"due_date\":null,\"due_time\":null,\"recurring\":\"None\",\"priority\":\"Medium\",\"goal_target\":0,\"goal_unit\":\"\"}. understood=false only if no task can be found.";
+        $ai_ctx=$audio?['kind'=>'file','mime'=>$audio['mime'],'base64'=>$audio['base64'],'name'=>'voice-note']:null;
+        $out=$this->ai_call_gemini($instruction,$text!==''?$text:'(The task is in the attached voice note.)',$ai_ctx);
+        if(is_wp_error($out)) return $out;
+        $clean=trim(preg_replace('/^```(?:json)?|```$/m','',(string)$out));
+        $j=json_decode($clean,true); if(!is_array($j)) return new WP_Error('ai','Could not read the AI answer.');
+        return $j;
+    }
+    // Keep only valid ids / values from the AI answer.
+    private function wa_clean_draft($j,$ctx){
+        $ws=[]; $areas=[]; foreach($ctx['workspaces'] as $w){ $ws[$w['id']]=$w; foreach($w['work_areas'] as $a) $areas[$a['id']]=$w['id']; }
+        $people=[]; foreach($ctx['people'] as $p) $people[$p['id']]=$p['name'];
+        $d=['task_name'=>mb_substr(trim((string)($j['task_name']??'')),0,220),'description'=>trim((string)($j['description']??'')),'transcript'=>trim((string)($j['transcript']??'')),
+            'assignee_ids'=>array_values(array_unique(array_filter(array_map('intval',(array)($j['assignee_ids']??[])),fn($i)=>isset($people[$i])))),
+            'workspace_id'=>(int)($j['workspace_id']??0),'work_area_id'=>(int)($j['work_area_id']??0),
+            'due_date'=>preg_match('/^\d{4}-\d{2}-\d{2}$/',(string)($j['due_date']??''))?(string)$j['due_date']:'',
+            'due_time'=>preg_match('/^\d{1,2}:\d{2}$/',(string)($j['due_time']??''))?sprintf('%05s',(string)$j['due_time']):'',
+            'recurring'=>in_array(($j['recurring']??''),['Daily','Weekly','Fortnightly','Monthly','Quarterly','Yearly'],true)?$j['recurring']:'None',
+            'priority'=>in_array(($j['priority']??''),['Urgent','High','Medium','Low'],true)?$j['priority']:'Medium',
+            'goal_target'=>max(0,min(1000000,(int)($j['goal_target']??0))),'goal_unit'=>mb_substr(trim((string)($j['goal_unit']??'')),0,40)];
+        if($d['work_area_id'] && !isset($areas[$d['work_area_id']])) $d['work_area_id']=0;
+        if($d['work_area_id']) $d['workspace_id']=$areas[$d['work_area_id']];
+        if($d['workspace_id'] && !isset($ws[$d['workspace_id']])) $d['workspace_id']=0;
+        if($d['workspace_id'] && !$d['work_area_id'] && count($ws[$d['workspace_id']]['work_areas'])===1) $d['work_area_id']=(int)$ws[$d['workspace_id']]['work_areas'][0]['id'];
+        if(!$d['goal_target']) $d['goal_unit']='';
+        return $d;
+    }
+    private function wa_draft_summary($d,$ctx){
+        $ws=''; $area=''; foreach($ctx['workspaces'] as $w){ if($w['id']==$d['workspace_id']){ $ws=$w['name']; foreach($w['work_areas'] as $a) if($a['id']==$d['work_area_id']) $area=$a['name']; } }
+        $names=[]; foreach($ctx['people'] as $p) if(in_array($p['id'],$d['assignee_ids'],true)) $names[]=$p['name'];
+        $when=$d['due_date']?date_i18n('D j M',strtotime($d['due_date'])):($d['recurring']!=='None'?'from today':'No due date');
+        if($d['due_time']) $when.=', '.date('g:i A',strtotime('2000-01-01 '.$d['due_time']));
+        $lines=["📝 *New task*","*".$d['task_name']."*"];
+        $lines[]='👤 '.($names?implode(', ',$names):'_No assignee_');
+        $lines[]='📅 '.$when.($d['recurring']!=='None'?' · 🔁 '.$d['recurring']:'');
+        $lines[]='📁 '.($ws?$ws.($area?' › '.$area:''):'_Workspace not set_');
+        if($d['priority']!=='Medium') $lines[]='⚡ '.$d['priority'];
+        if($d['goal_target']) $lines[]='🎯 '.$d['goal_target'].' '.$d['goal_unit'].($d['recurring']!=='None'?' per day':'');
+        if($d['description']!=='') $lines[]='📝 '.mb_substr($d['description'],0,300);
+        $lines[]="\n_To change anything, just send another voice note or message._";
+        return implode("\n",$lines);
+    }
+    private function wa_next_step($creds,$to,$draft_row,$d,$ctx){
+        // Ask for what is missing, else show the summary with Create / Cancel.
+        if(!$d['workspace_id']){
+            $rows=[]; foreach(array_slice($ctx['workspaces'],0,10) as $w) $rows[]=['id'=>'bbwa_ws_'.$draft_row.'_'.$w['id'],'title'=>$w['name'],'description'=>count($w['work_areas']).' work area(s)'];
+            return $this->wa_list($creds,$to,"📝 *".$d['task_name']."*\nWhich *Workspace*? (or say it in a voice note)",'Choose Workspace',$rows);
+        }
+        if(!$d['work_area_id']){
+            $rows=[]; foreach($ctx['workspaces'] as $w) if($w['id']==$d['workspace_id']) foreach(array_slice($w['work_areas'],0,10) as $a) $rows[]=['id'=>'bbwa_wa_'.$draft_row.'_'.$a['id'],'title'=>$a['name']];
+            return $this->wa_list($creds,$to,"📝 *".$d['task_name']."*\nWhich *Work Area*?",'Choose Work Area',$rows);
+        }
+        if(!$d['assignee_ids']){
+            return $this->wa_text($creds,$to,"📝 *".$d['task_name']."*\nWho should do this? Reply with the person's name.");
+        }
+        return $this->wa_buttons($creds,$to,$this->wa_draft_summary($d,$ctx),['bbwa_c_'.$draft_row=>'✅ Create','bbwa_x_'.$draft_row=>'❌ Cancel']);
+    }
+    // Save through the normal Save Task code as the admin (same validation, permissions, notifications).
+    private function wa_create_task($d){
+        $recurring=$d['recurring']!=='None';
+        $assignments=[]; foreach($d['assignee_ids'] as $id) $assignments[]=['employee_id'=>(int)$id,'relation_type'=>'assignee','rights'=>'view'];
+        $post=['id'=>'','workspace_id'=>$d['workspace_id'],'work_area_id'=>$d['work_area_id'],'task_name'=>$d['task_name'],'priority'=>$d['priority'],'is_billable'=>0,'billable_amount'=>'',
+            'task_type'=>$recurring?'Recurring':'One Time','frequency'=>$recurring?$d['recurring']:'None','start_date'=>$recurring?($d['due_date']?:current_time('Y-m-d')):'','end_date'=>'','interval_value'=>1,'interval_unit'=>'Days',
+            'due_date'=>$recurring?'':$d['due_date'],'due_time'=>$d['due_time'],'assignee_id'=>$d['assignee_ids'][0]??'','status'=>'Pending','labels'=>'','description'=>trim($d['description'].($d['transcript']!==''?"\n\n🎙 WhatsApp: ".$d['transcript']:'')),
+            'goal_target'=>$d['goal_target'],'goal_unit'=>$d['goal_unit'],'goal_gap_minutes'=>0,'notify_enabled'=>0,'reminder_enabled'=>0,'reminders'=>'[]','after_due_enabled'=>0,
+            'focus_enabled'=>0,'flash_enabled'=>0,'recurrence_status'=>'active','overdue_policy'=>'until_next','assignments'=>wp_json_encode($assignments),'checklist'=>'[]'];
+        $nonce=wp_create_nonce('bb_nonce'); $post['nonce']=$nonce;
+        $old_post=$_POST; $old_req=$_REQUEST; $_POST=$post; $_REQUEST=$post;
+        $halt=function(){ throw new \RuntimeException('__bb_halt__'); };
+        add_filter('wp_doing_ajax','__return_true',999); add_filter('wp_die_ajax_handler',fn()=>$halt,999); add_filter('wp_die_handler',fn()=>$halt,999);
+        ob_start(); $out='';
+        try{ $this->ajax_save_task(); }catch(\RuntimeException $e){ if($e->getMessage()!=='__bb_halt__'){ ob_end_clean(); $_POST=$old_post; $_REQUEST=$old_req; return new WP_Error('save',$e->getMessage()); } }
+        $out=(string)ob_get_clean(); $_POST=$old_post; $_REQUEST=$old_req;
+        remove_all_filters('wp_die_ajax_handler',999); remove_all_filters('wp_die_handler',999); remove_filter('wp_doing_ajax','__return_true',999);
+        $j=json_decode($out,true);
+        if(!is_array($j) || empty($j['success'])) return new WP_Error('save',(string)($j['data']['message']??'Task could not be saved.'));
+        return (int)($j['data']['task_id']??$j['data']['id']??0);
+    }
+    private function wa_handle_message($row){
+        global $wpdb; $t=$this->wa_tables();
+        $m=json_decode((string)$row->body,true)?:[]; $from=(string)$row->from_phone;
+        $who=$this->wa_resolve_sender((string)$row->phone_number_id,$from);
+        if(!$who['found']){
+            if($who['creds'] && !get_site_transient('bb_wa_nag_'.$from)){
+                set_site_transient('bb_wa_nag_'.$from,1,DAY_IN_SECONDS);
+                $this->wa_text($who['creds'],$from,$who['not_admin']?'Creating tasks by WhatsApp is available only for Workboard Owners and Managers.':'This number is not registered in Workboard. Ask your admin to add your mobile number to your Workboard profile.');
+            }
+            return 'sender not allowed';
+        }
+        $emp=$who['found']['employee']; $creds=$who['found']['creds']; $blog=(int)$who['found']['blog_id'];
+        $wpdb->update($t['inbox'],['blog_id'=>$blog],['id'=>$row->id]);
+        if((int)get_option('bb_wa_tasks_enabled',1)!==1) return 'disabled on this site';
+        if(trim((string)get_option('bb_ai_api_key',''))==='') { $this->wa_text($creds,$from,'WhatsApp task creation needs the Gemini AI key in Workboard → Settings → AI.'); return 'no AI key'; }
+        wp_set_current_user((int)$emp->wp_user_id);
+        $ctx=$this->wa_context();
+        $open=$wpdb->get_row($wpdb->prepare("SELECT * FROM {$t['drafts']} WHERE blog_id=%d AND from_phone=%s AND status='open' AND updated_at>=%s ORDER BY id DESC LIMIT 1",$blog,$from,date('Y-m-d H:i:s',current_time('timestamp')-6*HOUR_IN_SECONDS)));
+        $type=(string)($m['type']??'');
+        // Button / list taps
+        if($type==='interactive'){
+            $rid=(string)($m['interactive']['button_reply']['id']??$m['interactive']['list_reply']['id']??'');
+            if(!preg_match('/^bbwa_(c|x|ws|wa)_(\d+)(?:_(\d+))?$/',$rid,$mm)) return 'unknown button';
+            $draft=$wpdb->get_row($wpdb->prepare("SELECT * FROM {$t['drafts']} WHERE id=%d AND blog_id=%d AND from_phone=%s",(int)$mm[2],$blog,$from));
+            if(!$draft || $draft->status!=='open'){ $this->wa_text($creds,$from,'That task draft is no longer open. Send a new voice note to start again.'); return ''; }
+            $d=json_decode((string)$draft->draft,true)?:[];
+            if($mm[1]==='x'){ $wpdb->update($t['drafts'],['status'=>'cancelled','updated_at'=>current_time('mysql')],['id'=>$draft->id]); $this->wa_text($creds,$from,'❌ Cancelled. Nothing was created.'); return ''; }
+            if($mm[1]==='ws'){ $d['workspace_id']=(int)$mm[3]; $d['work_area_id']=0; $d=$this->wa_clean_draft($d,$ctx); }
+            if($mm[1]==='wa'){ $d['work_area_id']=(int)$mm[3]; $d=$this->wa_clean_draft($d,$ctx); }
+            if($mm[1]==='c'){
+                if(!$d['workspace_id']||!$d['work_area_id']||!$d['assignee_ids']) return (string)$this->wa_next_step($creds,$from,(int)$draft->id,$d,$ctx);
+                $tid=$this->wa_create_task($d);
+                if(is_wp_error($tid)){ $this->wa_text($creds,$from,'⚠️ Could not create the task: '.$tid->get_error_message()); return $tid->get_error_message(); }
+                $wpdb->update($t['drafts'],['status'=>'created','task_id'=>$tid,'updated_at'=>current_time('mysql')],['id'=>$draft->id]);
+                $slug=(string)$wpdb->get_var($wpdb->prepare("SELECT slug FROM {$this->tables['tasks']} WHERE id=%d",$tid));
+                $this->wa_text($creds,$from,"✅ *Task created*\n".$d['task_name'].($slug?"\n".home_url('/business-board/task/'.$slug.'/'):''));
+                return '';
+            }
+            $wpdb->update($t['drafts'],['draft'=>wp_json_encode($d),'updated_at'=>current_time('mysql')],['id'=>$draft->id]);
+            return (string)$this->wa_next_step($creds,$from,(int)$draft->id,$d,$ctx);
+        }
+        // Voice note or text
+        $text=''; $audio=null;
+        if($type==='text') $text=trim((string)($m['text']['body']??''));
+        elseif($type==='audio'){ $audio=$this->wa_download_media($creds,(string)($m['audio']['id']??'')); if(is_wp_error($audio)){ $this->wa_text($creds,$from,'⚠️ '.$audio->get_error_message()); return $audio->get_error_message(); } }
+        else { $this->wa_text($creds,$from,'Send a *voice note* or *text* describing the task to create it in Workboard.'); return 'unsupported type'; }
+        if($text!=='' && preg_match('/^\s*(cancel|stop|no)\s*$/i',$text)){
+            if($open){ $wpdb->update($t['drafts'],['status'=>'cancelled','updated_at'=>current_time('mysql')],['id'=>$open->id]); $this->wa_text($creds,$from,'❌ Cancelled. Nothing was created.'); }
+            return '';
+        }
+        $prev=$open?(json_decode((string)$open->draft,true)?:null):null;
+        $j=$this->wa_ai_extract($ctx,$prev,$text,$audio,(string)$emp->name);
+        if(is_wp_error($j)){ $this->wa_text($creds,$from,'⚠️ Sorry, I could not understand that ('.$j->get_error_message().'). Please try again or type the task.'); return $j->get_error_message(); }
+        if(empty($j['understood']) && !$prev){ $this->wa_text($creds,$from,"🤔 I couldn't find a task in that. Try: _\"Manash, send the GST report to Siddvin by tomorrow 5 pm, BizSkill Operations\"_"); return 'not understood'; }
+        $d=$this->wa_clean_draft(array_merge((array)$prev,$j),$ctx);
+        if($d['task_name']===''){ $this->wa_text($creds,$from,'🤔 What is the task? Please say it again.'); return 'no task name'; }
+        if($open){ $draft_id=(int)$open->id; $wpdb->update($t['drafts'],['draft'=>wp_json_encode($d),'updated_at'=>current_time('mysql')],['id'=>$draft_id]); }
+        else { $wpdb->insert($t['drafts'],['blog_id'=>$blog,'employee_id'=>(int)$emp->id,'wp_user_id'=>(int)$emp->wp_user_id,'from_phone'=>$from,'draft'=>wp_json_encode($d),'status'=>'open','created_at'=>current_time('mysql'),'updated_at'=>current_time('mysql')]); $draft_id=(int)$wpdb->insert_id; }
+        return (string)$this->wa_next_step($creds,$from,$draft_id,$d,$ctx);
+    }
+
     public function whatsapp_webhook($request){
         $verify=(string)get_site_option('bb_network_meta_webhook_verify_token','');
         if(!$verify){ $verify=wp_generate_password(32,false,false); update_site_option('bb_network_meta_webhook_verify_token',$verify); }
@@ -12341,8 +12644,12 @@ JS
                     }
                     if($id && $this->apply_whatsapp_delivery_status($id,$status,$error)) $processed++;
                 }
+                // v4.18.189: incoming messages (voice notes / text / button taps) → WhatsApp task creation.
+                $value=(array)($change['value']??[]);
+                if(!empty($value['messages'])) $processed+=$this->wa_inbox_store($value);
             }
         }
+        if(!empty($this->wa_inbox_new)) $this->wa_kick_processor();
         return new WP_REST_Response(['ok'=>true,'processed'=>$processed],200);
     }
 
