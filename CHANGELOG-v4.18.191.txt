@@ -1,0 +1,4 @@
+Workboard v4.18.191
+
+- Durations drop zero parts: "1h" instead of "1h 00m", "45m" instead of "0h 45m" (Monthly Sheet, AttendSpace, Register and other attendance views).
+- Monthly Sheet shift times show HH:MM (no seconds), e.g. 15:00–20:00.
