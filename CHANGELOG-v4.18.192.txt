@@ -1,0 +1,3 @@
+Workboard v4.18.192
+
+- Monthly Sheet: removed the shift time line (e.g. 09:30-19:00 · 8h 45m) under employee names.
