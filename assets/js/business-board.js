@@ -4693,7 +4693,6 @@ attendanceDateList(){const today=String(this.state.attendanceToday||this.state.t
 attendanceDateTitle(date){const m=String(date).match(/^(\d{4})-(\d{2})-(\d{2})$/);if(!m)return date;const months=['January','February','March','April','May','June','July','August','September','October','November','December'];return `${Number(m[3])} ${months[Number(m[2])-1]} ${m[1]}`;},
 attendanceTime(v){const s=String(v||'');if(s.length<16)return'';const hm=s.slice(11,16).split(':').map(Number),h=hm[0],min=String(hm[1]).padStart(2,'0');return `${h%12||12}:${min} ${h>=12?'PM':'AM'}`;},
 attendanceMinutesLabel(v){v=Math.max(0,Math.round(Number(v)||0));const h=Math.floor(v/60),m=v%60;if(!m)return `${h}h`;if(!h)return `${m}m`;return `${h}h ${String(m).padStart(2,'0')}m`;},
-attendanceHHMM(v){const m=String(v||'').match(/^(\d{1,2}):(\d{2})/);return m?`${m[1].padStart(2,'0')}:${m[2]}`:String(v||'');},
 attendanceHHMM(v){v=Math.max(0,Math.round(Number(v)||0));const h=Math.floor(v/60),m=v%60;return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;},
 attendanceMinuteStampTime(v){v=Math.round(Number(v)||0);let mins=((v%1440)+1440)%1440,h=Math.floor(mins/60),m=mins%60;return `${h%12||12}:${String(m).padStart(2,'0')} ${h>=12?'PM':'AM'}`;},
 attendanceBreakDurationLabel(minutes){minutes=Math.max(0,Math.round(Number(minutes)||0));if(!minutes)return'—';const h=Math.floor(minutes/60),m=minutes%60;if(h&&m)return `${h}h ${m}min`;if(h)return `${h}h`;return `${m} min`;},
