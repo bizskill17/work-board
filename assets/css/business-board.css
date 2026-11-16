@@ -19473,3 +19473,6 @@ body > .bb-workspace-card-wrap.bb-folder-drag-ghost .bb-workspace-name-card{padd
 .bb-goal-remark-chips{display:flex;flex-wrap:wrap;gap:6px;}
 .bb-goal-remark-chips .bb-btn{padding:4px 10px!important;font-size:12px!important;min-height:0!important;}
 .bb-goal-remark-actions{display:flex;justify-content:flex-end;gap:8px;}
+
+/* v4.18.194: wider Work Area columns on desktop so the task meta line (M · name · date · D) stays on one line */
+@media(min-width:701px){.bb-board > .bb-workarea-column:not(.bb-quick-create-open){min-width:322px!important;width:322px!important;flex:0 0 322px!important}}

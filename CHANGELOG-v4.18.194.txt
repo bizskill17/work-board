@@ -1,0 +1,3 @@
+Workboard v4.18.194
+
+- Work Area columns are a little wider on desktop (322px) so the task line M · name · date · D stays on one line.
