@@ -951,9 +951,7 @@ App.goalSubmit=function(id,amount,remark,editId){
   App.openGoalRemarkPlus=function(id){
     const t=this.taskById&&this.taskById(id);if(!t||!t.id){this.toast('Task not found — refresh the page');return;}
     {const nx=this.goalNextMs(t);if(nx>Date.now()){this.toast(`Next update allowed after ${this.goalTimeLabel(nx)} (gap between updates)`);return;}}
-    const chips=['Absent: ','Late: ','Half day: ','On leave: ','All present'];
     this.openModal(`<div class="bb-form bb-goal-remark-modal" data-goal-remark-modal="${this.attr(id)}"><div class="bb-form-heading"><div><h2>+1 with Remark</h2><p>${this.esc(t.task_name||'Task')} · 🎯 ${this.goalNum(t.goal_done||0)}/${this.goalNum(t.goal_target||0)}${t.goal_unit?' '+this.esc(t.goal_unit):''}</p></div></div>
-      <div class="bb-goal-remark-chips">${chips.map(c=>`<button type="button" class="bb-btn light" data-goal-chip="${this.attr(c)}">${this.esc(c.replace(/: $/,''))}</button>`).join('')}</div>
       <textarea name="goal_plus_remark" rows="3" maxlength="500" placeholder="e.g. Rahul absent, Priya on leave"></textarea>
       <div class="bb-goal-remark-actions"><button type="button" class="bb-btn light" data-goal-remark-cancel>Cancel</button><button type="button" class="bb-btn primary" data-goal-remark-save="${this.attr(id)}">Save +1</button></div></div>`);
     setTimeout(()=>$('[name=goal_plus_remark]').trigger('focus'),60);

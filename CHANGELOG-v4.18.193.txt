@@ -1,0 +1,3 @@
+Workboard v4.18.193
+
+- +1 with Remark: removed the quick chips (Absent, Late, Half day, On leave, All present). Just type the remark.

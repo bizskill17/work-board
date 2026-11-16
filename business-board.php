@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.192
+ * Version: 4.18.193
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.192';
+    const VERSION = '4.18.193';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -10148,7 +10148,7 @@ JS
             if($tids && in_array((string)get_option('bb_goal_schema',''),['1','2','3','4'],true)){
                 $in=implode(',',array_map('intval',$tids));
                 foreach($wpdb->get_results($wpdb->prepare("SELECT task_id,occurrence_key,SUM(amount) total,SUBSTRING_INDEX(GROUP_CONCAT(NULLIF(goal_target,0) ORDER BY id DESC),',',1) day_target,SUBSTRING_INDEX(GROUP_CONCAT(IF(goal_target>0,goal_unit,NULL) ORDER BY id DESC SEPARATOR '\x1f'),'\x1f',1) day_unit FROM {$this->tables['goal_progress']} WHERE task_id IN ({$in}) AND occurrence_key BETWEEN %s AND %s GROUP BY task_id,occurrence_key",$from,$to)) as $x){ $goal_map[(int)$x->task_id.'|'.$x->occurrence_key]=(int)$x->total; $goal_day[(int)$x->task_id.'|'.$x->occurrence_key]=[(int)$x->day_target,(string)$x->day_unit]; }
-                // v4.18.192: remarks added with goal updates (+1 💬) show in Update Remarks too.
+                // v4.18.193: remarks added with goal updates (+1 💬) show in Update Remarks too.
                 foreach($wpdb->get_results($wpdb->prepare("SELECT task_id,occurrence_key,amount,remark,created_at FROM {$this->tables['goal_progress']} WHERE task_id IN ({$in}) AND occurrence_key BETWEEN %s AND %s AND remark IS NOT NULL AND remark<>'' ORDER BY created_at,id",$from,$to)) as $x){ $remarks[(int)$x->task_id.'|'.$x->occurrence_key][]=['remark'=>'+'.(int)$x->amount.' — '.(string)$x->remark,'at'=>$x->created_at?$this->activity_time_ist($x->created_at):'']; }
                 foreach($remarks as $rk_key=>$rk_list){ usort($rk_list,fn($a,$b)=>strcmp((string)$a['at'],(string)$b['at'])); $remarks[$rk_key]=$rk_list; }
             }
@@ -12316,7 +12316,7 @@ JS
     }
 
     // =====================================================================================
-    // v4.18.192: Create tasks from WhatsApp (voice note or text) — Owners/Managers only.
+    // v4.18.193: Create tasks from WhatsApp (voice note or text) — Owners/Managers only.
     // Flow: Meta webhook → inbox row → background processor → Gemini (listen + extract task)
     //       → WhatsApp summary with [Create] [Cancel] → task saved through the normal Save Task code.
     // =====================================================================================
@@ -12647,7 +12647,7 @@ JS
                     }
                     if($id && $this->apply_whatsapp_delivery_status($id,$status,$error)) $processed++;
                 }
-                // v4.18.192: incoming messages (voice notes / text / button taps) → WhatsApp task creation.
+                // v4.18.193: incoming messages (voice notes / text / button taps) → WhatsApp task creation.
                 $value=(array)($change['value']??[]);
                 if(!empty($value['messages'])) $processed+=$this->wa_inbox_store($value);
             }
