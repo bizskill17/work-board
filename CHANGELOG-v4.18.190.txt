@@ -1,0 +1,8 @@
+Workboard v4.18.190
+
+New: "+1 💬" (+1 with remark) next to +1 on goal tasks
+- Opens a small box with quick chips (Absent, Late, Half day, On leave, All present) and a remark field.
+- Saves +1 to the goal together with the remark (remark is required here; plain +1 is unchanged).
+- Same time-gap rule as +1: locked until the next allowed time.
+- A 💬 badge on the card shows how many updates today have remarks; tap it to see them.
+- Remarks also appear in Update Progress history, Activity Log and the Daily Scoreboard's Update Remarks column.

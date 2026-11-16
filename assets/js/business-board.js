@@ -889,13 +889,13 @@ App.taskGoalBar=function(t){
   const done=Math.max(0,Number(t.goal_done||0)),pct=Math.min(100,Math.round(done*100/target)),reached=done>=target,unit=String(t.goal_unit||'');
   const isTpl=!!(t.is_template&&!t.template_id),canPlus=!isTpl&&t.status!=='Completed';
   const nextMs=this.goalNextMs(t),locked=nextMs>Date.now(),nextLbl=locked?this.goalTimeLabel(nextMs):'';
-  return `<div class="bb-task-goal ${reached?'is-reached':''} ${locked?'is-locked':''}" data-goal-task="${this.attr(t.id)}"><button type="button" class="bb-task-goal-label" data-goal-open="${this.attr(t.id)}" title="Show progress history">🎯 <b>${this.goalNum(done)}</b>/${this.goalNum(target)}${unit?` ${this.esc(unit)}`:''}</button><span class="bb-task-goal-track"><span style="width:${pct}%"></span></span>${canPlus?(locked?`<button type="button" class="bb-task-goal-plus is-locked" data-goal-plus="${this.attr(t.id)}" title="Next update allowed after ${this.attr(nextLbl)}" aria-label="Next update after ${this.attr(nextLbl)}">⏳ ${this.esc(nextLbl)}</button>`:`<button type="button" class="bb-task-goal-plus" data-goal-plus="${this.attr(t.id)}" title="Add 1" aria-label="Add 1">+1</button>`):''}</div>`;
+  return `<div class="bb-task-goal ${reached?'is-reached':''} ${locked?'is-locked':''}" data-goal-task="${this.attr(t.id)}"><button type="button" class="bb-task-goal-label" data-goal-open="${this.attr(t.id)}" title="Show progress history">🎯 <b>${this.goalNum(done)}</b>/${this.goalNum(target)}${unit?` ${this.esc(unit)}`:''}</button><span class="bb-task-goal-track"><span style="width:${pct}%"></span></span>${canPlus?(locked?`<button type="button" class="bb-task-goal-plus is-locked" data-goal-plus="${this.attr(t.id)}" title="Next update allowed after ${this.attr(nextLbl)}" aria-label="Next update after ${this.attr(nextLbl)}">⏳ ${this.esc(nextLbl)}</button>`:`<button type="button" class="bb-task-goal-plus" data-goal-plus="${this.attr(t.id)}" title="Add 1" aria-label="Add 1">+1</button><button type="button" class="bb-task-goal-plus bb-task-goal-plus-remark" data-goal-plus-remark="${this.attr(t.id)}" title="Add 1 with a remark (e.g. someone absent)" aria-label="Add 1 with remark">+1 💬</button>`):''}${Number(t.goal_remarks||0)>0?`<button type="button" class="bb-task-goal-rbadge" data-goal-open="${this.attr(t.id)}" title="${this.attr(t.goal_remarks+' update(s) with remarks — tap to see')}">💬${Number(t.goal_remarks)>1?Number(t.goal_remarks):''}</button>`:''}</div>`;
 };
 App.goalNextMs=function(t){const v=String(t&&t.goal_next_at||'');if(!v)return 0;const ms=Date.parse(v.replace(' ','T')+'+05:30');return isNaN(ms)?0:ms;};
 App.goalTimeLabel=function(ms){const d=new Date(ms+(330+new Date().getTimezoneOffset())*60000);let h=d.getHours();const m=String(d.getMinutes()).padStart(2,'0'),ap=h>=12?'PM':'AM';h=h%12||12;return `${h}:${m} ${ap}`;};
 App.goalApplyToTask=function(id,p){
   const t=this.taskById&&this.taskById(id);if(!t||!p)return;
-  t.goal_target=Number(p.target||0);t.goal_unit=p.unit||'';t.goal_done=Number(p.total||0);t.goal_entries=(p.entries||[]).length;t.goal_gap=Number(p.gap||0);t.goal_next_at=p.next_at||'';
+  t.goal_target=Number(p.target||0);t.goal_unit=p.unit||'';t.goal_done=Number(p.total||0);t.goal_entries=(p.entries||[]).length;t.goal_remarks=(p.entries||[]).filter(e=>String(e.remark||'').trim()!=='').length;t.goal_gap=Number(p.gap||0);t.goal_next_at=p.next_at||'';
   const card=$(`.bb-task[data-task-id="${CSS.escape(String(id))}"] .bb-task-goal`).first();
   if(card.length)card.replaceWith(this.taskGoalBar(t));
 };
@@ -946,6 +946,29 @@ App.goalSubmit=function(id,amount,remark,editId){
       if(!t._goalPending){t.goal_done=Number(r.data.total||0);$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));}
       if(Number(r.data.auto_completed)){App.toast('🎯 Goal reached — task completed');setTimeout(()=>App.refreshStateQuietly(),600);}
     }).fail(x=>{t._goalPending=Math.max(0,(t._goalPending||1)-1);t.goal_done=Math.max(0,Number(t.goal_done||0)-1);$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));let j=null;try{j=JSON.parse(String(x&&x.responseText||''));}catch(_e){}if(j&&j.data&&j.data.remark_required){App.toast('This Work Area needs a remark — add it here');App.openGoalProgress(id);return;}if(j&&j.data&&j.data.gap_locked){t.goal_next_at=j.data.next_at||'';$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));App.toast(j.data.message);return;}const txt=(j&&j.data&&j.data.message)||String(x&&x.responseText||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,160);App.toast('Could not add'+(txt?': '+txt:' — check internet'));console.error('[Workboard Goal +1]',x&&x.status,x&&x.responseText);});
+  });
+  // v4.18.190: +1 with a remark (e.g. "Rahul absent") straight from the card.
+  App.openGoalRemarkPlus=function(id){
+    const t=this.taskById&&this.taskById(id);if(!t||!t.id){this.toast('Task not found — refresh the page');return;}
+    {const nx=this.goalNextMs(t);if(nx>Date.now()){this.toast(`Next update allowed after ${this.goalTimeLabel(nx)} (gap between updates)`);return;}}
+    const chips=['Absent: ','Late: ','Half day: ','On leave: ','All present'];
+    this.openModal(`<div class="bb-form bb-goal-remark-modal" data-goal-remark-modal="${this.attr(id)}"><div class="bb-form-heading"><div><h2>+1 with Remark</h2><p>${this.esc(t.task_name||'Task')} · 🎯 ${this.goalNum(t.goal_done||0)}/${this.goalNum(t.goal_target||0)}${t.goal_unit?' '+this.esc(t.goal_unit):''}</p></div></div>
+      <div class="bb-goal-remark-chips">${chips.map(c=>`<button type="button" class="bb-btn light" data-goal-chip="${this.attr(c)}">${this.esc(c.replace(/: $/,''))}</button>`).join('')}</div>
+      <textarea name="goal_plus_remark" rows="3" maxlength="500" placeholder="e.g. Rahul absent, Priya on leave"></textarea>
+      <div class="bb-goal-remark-actions"><button type="button" class="bb-btn light" data-goal-remark-cancel>Cancel</button><button type="button" class="bb-btn primary" data-goal-remark-save="${this.attr(id)}">Save +1</button></div></div>`);
+    setTimeout(()=>$('[name=goal_plus_remark]').trigger('focus'),60);
+  };
+  $(document).on('click','[data-goal-plus-remark]',e=>{e.preventDefault();e.stopPropagation();App.openGoalRemarkPlus(String($(e.currentTarget).attr('data-goal-plus-remark')||''));});
+  $(document).on('click','[data-goal-chip]',e=>{e.preventDefault();const c=String($(e.currentTarget).attr('data-goal-chip')||''),ta=$('[name=goal_plus_remark]'),v=String(ta.val()||'').trim();ta.val(v?(v.replace(/[,\s]+$/,'')+', '+c):c).trigger('focus');const el=ta.get(0);if(el){const n=el.value.length;el.setSelectionRange(n,n);}});
+  $(document).on('click','[data-goal-remark-cancel]',e=>{e.preventDefault();App.closeModal();});
+  $(document).on('click','[data-goal-remark-save]',e=>{e.preventDefault();const btn=$(e.currentTarget),id=String(btn.attr('data-goal-remark-save')||''),remark=String($('[name=goal_plus_remark]').val()||'').trim().replace(/[,:\s]+$/,'');
+    if(!remark){App.toast('Write a remark, or use the plain +1 button');$('[name=goal_plus_remark]').trigger('focus');return;}
+    btn.prop('disabled',true).text('Saving…');
+    App.api('bb_goal_progress_add',{task_id:id,amount:1,remark}).done(r=>{
+      if(!r||!r.success){btn.prop('disabled',false).text('Save +1');App.toast(r?.data?.message||'Could not save');return;}
+      App.closeModal();App.goalApplyToTask(id,r.data);const t=App.taskById&&App.taskById(id);if(t){t.goal_next_at=r.data.next_at||'';$(`.bb-task-goal[data-goal-task="${CSS.escape(id)}"]`).replaceWith(App.taskGoalBar(t));}
+      if(Number(r.data.auto_completed)){App.toast('🎯 Goal reached — task completed');setTimeout(()=>App.refreshStateQuietly(),600);}else App.toast(`+1 saved with remark — ${App.goalNum(r.data.total)} / ${App.goalNum(r.data.target)}`);
+    }).fail(x=>{btn.prop('disabled',false).text('Save +1');let j=null;try{j=JSON.parse(String(x&&x.responseText||''));}catch(_e){}App.toast((j&&j.data&&j.data.message)||'Could not save — check internet');});
   });
   $(document).on('click','[data-goal-quick]',e=>{e.preventDefault();const f=$(e.currentTarget).closest('.bb-goal-form'),id=String(f.attr('data-goal-form')||'');App.goalSubmit(id,Number($(e.currentTarget).attr('data-goal-quick')),String(f.find('[name=goal_remark]').val()||''),'');});
   $(document).on('submit','.bb-goal-form',e=>{e.preventDefault();const f=$(e.currentTarget),id=String(f.attr('data-goal-form')||''),n=Math.floor(Number(f.find('[name=goal_amount]').val()||0));if(!(n>=1)){App.toast('Enter a number of 1 or more');f.find('[name=goal_amount]').focus();return;}App.goalSubmit(id,n,String(f.find('[name=goal_remark]').val()||''),String(f.find('[name=goal_edit_id]').val()||''));});

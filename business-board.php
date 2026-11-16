@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.189
+ * Version: 4.18.190
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.189';
+    const VERSION = '4.18.190';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -5709,15 +5709,15 @@ JS
             $goal_ids=[];
             if($ids){ foreach($wpdb->get_results("SELECT id,goal_target,goal_unit,goal_gap_minutes FROM {$this->tables['tasks']} WHERE id IN (".implode(',',$ids).") AND goal_target>0") as $g) $goal_ids[(int)$g->id]=$g; }
             $goal_sum=[];
-            if($goal_ids){ foreach($wpdb->get_results("SELECT task_id,occurrence_key,SUM(amount) total,COUNT(*) entries,MAX(created_at) last_at,SUBSTRING_INDEX(GROUP_CONCAT(NULLIF(goal_target,0) ORDER BY id DESC),',',1) day_target,SUBSTRING_INDEX(GROUP_CONCAT(IF(goal_target>0,goal_unit,NULL) ORDER BY id DESC SEPARATOR '\x1f'),'\x1f',1) day_unit FROM {$this->tables['goal_progress']} WHERE task_id IN (".implode(',',array_keys($goal_ids)).") GROUP BY task_id,occurrence_key") as $g) $goal_sum[(int)$g->task_id.'|'.$g->occurrence_key]=$g; }
+            if($goal_ids){ foreach($wpdb->get_results("SELECT task_id,occurrence_key,SUM(amount) total,COUNT(*) entries,SUM(CASE WHEN remark IS NOT NULL AND remark<>'' THEN 1 ELSE 0 END) remarked,MAX(created_at) last_at,SUBSTRING_INDEX(GROUP_CONCAT(NULLIF(goal_target,0) ORDER BY id DESC),',',1) day_target,SUBSTRING_INDEX(GROUP_CONCAT(IF(goal_target>0,goal_unit,NULL) ORDER BY id DESC SEPARATOR '\x1f'),'\x1f',1) day_unit FROM {$this->tables['goal_progress']} WHERE task_id IN (".implode(',',array_keys($goal_ids)).") GROUP BY task_id,occurrence_key") as $g) $goal_sum[(int)$g->task_id.'|'.$g->occurrence_key]=$g; }
             foreach(array_merge($tasks,$templates) as $t){
                 $base=(int)preg_replace('/^r_(\d+).*$/','$1',(string)($t->template_id ?: $t->id));
                 $g=$goal_ids[$base]??null;
-                if(!$g){ $t->goal_target=0; $t->goal_unit=''; $t->goal_done=0; $t->goal_entries=0; $t->goal_gap=0; $t->goal_next_at=''; continue; }
+                if(!$g){ $t->goal_target=0; $t->goal_unit=''; $t->goal_done=0; $t->goal_entries=0; $t->goal_remarks=0; $t->goal_gap=0; $t->goal_next_at=''; continue; }
                 $occ=($t->template_id || !empty($t->is_template))?(string)($t->occurrence_date ?: $t->due_date ?: ''):'one';
                 $sum=$goal_sum[$base.'|'.$occ]??null;
                 $t->goal_target=($sum && (int)$sum->day_target>0)?(int)$sum->day_target:(int)$g->goal_target; $t->goal_unit=($sum && (int)$sum->day_target>0)?(string)$sum->day_unit:(string)$g->goal_unit;
-                $t->goal_done=$sum?(int)$sum->total:0; $t->goal_entries=$sum?(int)$sum->entries:0;
+                $t->goal_done=$sum?(int)$sum->total:0; $t->goal_entries=$sum?(int)$sum->entries:0; $t->goal_remarks=$sum?(int)($sum->remarked??0):0;
                 $t->goal_gap=(int)($g->goal_gap_minutes??0); $nx=($t->goal_gap>0 && $sum && $sum->last_at)?strtotime($sum->last_at)+$t->goal_gap*60:0; $t->goal_next_at=($nx && $nx>current_time('timestamp'))?$this->goal_local_to_ist($nx):'';
             }
         }else{
@@ -10148,6 +10148,9 @@ JS
             if($tids && in_array((string)get_option('bb_goal_schema',''),['1','2','3','4'],true)){
                 $in=implode(',',array_map('intval',$tids));
                 foreach($wpdb->get_results($wpdb->prepare("SELECT task_id,occurrence_key,SUM(amount) total,SUBSTRING_INDEX(GROUP_CONCAT(NULLIF(goal_target,0) ORDER BY id DESC),',',1) day_target,SUBSTRING_INDEX(GROUP_CONCAT(IF(goal_target>0,goal_unit,NULL) ORDER BY id DESC SEPARATOR '\x1f'),'\x1f',1) day_unit FROM {$this->tables['goal_progress']} WHERE task_id IN ({$in}) AND occurrence_key BETWEEN %s AND %s GROUP BY task_id,occurrence_key",$from,$to)) as $x){ $goal_map[(int)$x->task_id.'|'.$x->occurrence_key]=(int)$x->total; $goal_day[(int)$x->task_id.'|'.$x->occurrence_key]=[(int)$x->day_target,(string)$x->day_unit]; }
+                // v4.18.190: remarks added with goal updates (+1 💬) show in Update Remarks too.
+                foreach($wpdb->get_results($wpdb->prepare("SELECT task_id,occurrence_key,amount,remark,created_at FROM {$this->tables['goal_progress']} WHERE task_id IN ({$in}) AND occurrence_key BETWEEN %s AND %s AND remark IS NOT NULL AND remark<>'' ORDER BY created_at,id",$from,$to)) as $x){ $remarks[(int)$x->task_id.'|'.$x->occurrence_key][]=['remark'=>'+'.(int)$x->amount.' — '.(string)$x->remark,'at'=>$x->created_at?$this->activity_time_ist($x->created_at):'']; }
+                foreach($remarks as $rk_key=>$rk_list){ usort($rk_list,fn($a,$b)=>strcmp((string)$a['at'],(string)$b['at'])); $remarks[$rk_key]=$rk_list; }
             }
             $seen_today=[];
             foreach($rows as $r){
@@ -12313,7 +12316,7 @@ JS
     }
 
     // =====================================================================================
-    // v4.18.189: Create tasks from WhatsApp (voice note or text) — Owners/Managers only.
+    // v4.18.190: Create tasks from WhatsApp (voice note or text) — Owners/Managers only.
     // Flow: Meta webhook → inbox row → background processor → Gemini (listen + extract task)
     //       → WhatsApp summary with [Create] [Cancel] → task saved through the normal Save Task code.
     // =====================================================================================
@@ -12644,7 +12647,7 @@ JS
                     }
                     if($id && $this->apply_whatsapp_delivery_status($id,$status,$error)) $processed++;
                 }
-                // v4.18.189: incoming messages (voice notes / text / button taps) → WhatsApp task creation.
+                // v4.18.190: incoming messages (voice notes / text / button taps) → WhatsApp task creation.
                 $value=(array)($change['value']??[]);
                 if(!empty($value['messages'])) $processed+=$this->wa_inbox_store($value);
             }

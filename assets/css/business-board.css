@@ -19464,3 +19464,12 @@ body > .bb-workspace-card-wrap.bb-folder-drag-ghost .bb-workspace-name-card{padd
 #bb-app .bb-timesheet-form-table:not(.bb-timesheet-minutes-mode) :is(th,td):nth-child(6){width:auto!important}
 #bb-app .bb-timesheet-form-table:not(.bb-timesheet-minutes-mode) :is(th,td):last-child{width:96px!important;min-width:96px!important;max-width:96px!important}
 @media(max-width:900px){#bb-app .bb-timesheet-form-table :is(th,td):last-child{width:auto!important;min-width:0!important;max-width:none!important}}
+
+/* v4.18.190: +1 with remark */
+.bb-task-goal .bb-task-goal-plus.bb-task-goal-plus-remark{width:auto!important;white-space:nowrap;padding:0 7px!important;background:#0f766e;}
+.bb-task-goal.is-reached .bb-task-goal-plus.bb-task-goal-plus-remark{background:#15803d;}
+.bb-task-goal .bb-task-goal-rbadge{border:0;background:#fff7e6;color:#9a5b00;border-radius:999px;font-size:11px;font-weight:700;padding:1px 6px;line-height:18px;cursor:pointer;flex:0 0 auto;}
+.bb-goal-remark-modal textarea{width:100%;box-sizing:border-box;border:1px solid #d6dbe6;border-radius:10px;padding:10px;font:inherit;font-size:14px;resize:vertical;margin:8px 0 12px;}
+.bb-goal-remark-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.bb-goal-remark-chips .bb-btn{padding:4px 10px!important;font-size:12px!important;min-height:0!important;}
+.bb-goal-remark-actions{display:flex;justify-content:flex-end;gap:8px;}
