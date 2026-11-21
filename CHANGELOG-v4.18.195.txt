@@ -1,0 +1,4 @@
+Workboard v4.18.195
+
+- Recurring tasks: new option "Delete All Days (Stop Repeating)" in Task Options. It removes the whole recurring task so it does not come back the next day.
+- The old options are relabelled "Delete Today Only" for recurring tasks, so it is clear they remove just that day.
