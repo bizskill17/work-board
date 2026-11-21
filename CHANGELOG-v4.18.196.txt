@@ -1,0 +1,3 @@
+Workboard v4.18.196
+
+- AttendSpace Time column (short / overtime) shows minutes like 2m, 17m or 1h 05m instead of 00:02. Same in PDF and Excel.
