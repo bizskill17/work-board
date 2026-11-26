@@ -7113,7 +7113,8 @@ body.bb-note-sort-active{user-select:none!important}
   text-overflow:ellipsis;
   white-space:nowrap;
   color:#fff;
-  font-size:14px;
+  font-size:20px;
+  text-align:center;
   font-weight:800;
   line-height:1.2;
 }
@@ -7147,20 +7148,25 @@ body.bb-note-sort-active{user-select:none!important}
 }
 @media(max-width:900px){
   .bb-mobile-sidebar-head{
+    display:grid!important;
+    grid-template-columns:32px minmax(0,1fr) 32px;
     height:auto!important;
     min-height:42px!important;
     flex:0 0 auto!important;
-    align-items:flex-start!important;
+    align-items:center!important;
+    padding-inline:8px!important;
   }
   .bb-mobile-sidebar-head .bb-mobile-org-name{
-    max-width:calc(100% - 42px)!important;
+    grid-column:2;
+    max-width:none!important;
+    font-size:20px!important;
+    text-align:center;
     white-space:normal!important;
     overflow:visible!important;
     text-overflow:clip!important;
     overflow-wrap:anywhere;
     word-break:break-word;
     line-height:1.25!important;
-    padding-top:6px;
   }
 }
 
