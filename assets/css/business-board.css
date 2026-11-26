@@ -19193,6 +19193,7 @@ body.bb-note-area-sort-active{user-select:none!important;-webkit-user-select:non
 .bb-dsb-table td.bb-dsb-done{color:#15803d;font-weight:700;background:#f0fdf4}
 .bb-dsb-table td.bb-dsb-notdone{color:#be123c;font-weight:700;background:#fff1f2}
 .bb-dsb-table tfoot td{background:#eef2ff!important;font-size:12px}
+.bb-dsb-table tfoot td:nth-child(n+2){text-align:center}
 
 /* v4.18.160: Daily Scoreboard — clickable Not Done % and task list pop-up */
 .bb-dsb-notdone-link{background:none;border:0;padding:2px 6px;border-radius:6px;color:#be123c;font:inherit;font-weight:800;text-decoration:underline;cursor:pointer}
