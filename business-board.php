@@ -2238,7 +2238,10 @@ JS
         </div>
     <?php return ob_get_clean(); }
 
-    private function app_shell(){ ob_start(); ?>
+    private function app_shell(){
+        $identity=$this->identity();
+        $role_label=$identity['mode']==='admin'?'Administrator':ucfirst($identity['role']);
+        ob_start(); ?>
         <style id="bb-no-legacy-header-search">
             #bb-global-search,.bb-global-search,.bb-topbar input[type="search"],.bb-top-actions input[type="search"]{display:none!important;visibility:hidden!important;width:0!important;min-width:0!important;max-width:0!important;height:0!important;margin:0!important;padding:0!important;border:0!important;overflow:hidden!important;pointer-events:none!important}
         </style>
@@ -2352,7 +2355,7 @@ JS
                         </div>
                     </div>
                 </nav>
-                <div class="bb-user"><div><strong><?php echo esc_html(wp_get_current_user()->display_name ?: 'Administrator'); ?></strong><small id="bb-login-mode"><?php echo current_user_can('manage_options')?'Administrator':'Workboard User'; ?></small></div><button type="button" class="bb-logout-btn" title="Log Off" aria-label="Log Off"><span class="bb-logout-icon">⏻</span><span class="bb-logout-text">Log Off</span></button></div>
+                <div class="bb-user"><div><strong><?php echo esc_html($identity['label']); ?></strong><small id="bb-login-mode"><?php echo esc_html($role_label); ?></small></div><button type="button" class="bb-logout-btn" title="Log Off" aria-label="Log Off"><span class="bb-logout-icon">⏻</span><span class="bb-logout-text">Log Off</span></button></div>
             </aside>
             <main class="bb-main">
                 <header class="bb-topbar"><div class="bb-topbar-left"><button type="button" class="bb-sidebar-toggle" aria-label="Collapse menu" title="Show / hide menu">☰</button><button type="button" class="bb-mobile-menu" aria-label="Show menu" title="Show menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><div><h1 id="bb-page-title">Workspaces</h1><p id="bb-page-subtitle">Select a Workspace to open its operational board</p></div></div><div class="bb-top-actions"><button class="bb-icon-btn bb-mobile-analysis-toggle" type="button" aria-label="Workspace analysis" title="Workspace analysis"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16M6 16V9m6 7V5m6 11v-4"/></svg></button><button class="bb-icon-btn bb-mobile-add-area" type="button" aria-label="Add Work Area" title="Add Work Area"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><button class="bb-icon-btn bb-mobile-filter-top" type="button" aria-label="Filters" title="Filters"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16l-6.5 7.2V18l-3 1v-6.8L4 5z"/></svg></button><button class="bb-icon-btn bb-top-filter-reset" type="button" aria-label="Clear filters" title="Clear filters" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button><button class="bb-icon-btn bb-workspace-top-toggle" type="button" aria-label="Hide workspace controls" title="Hide workspace controls" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button><div class="bb-header-logo" title="WorkBoard"><img class="bb-header-logo-img bb-header-wordmark-img" src="<?php echo esc_url(plugin_dir_url(__FILE__).'assets/img/workboard-header-wordmark.png?v='.self::VERSION); ?>" alt="WorkBoard"></div></div></header>
@@ -2391,7 +2394,12 @@ JS
     private function require_manage(){ if(!$this->is_privileged_user()) wp_send_json_error(['message'=>'Owner or Manager access required'],403); }
 
     private function identity(){
-        if(current_user_can('manage_options')) return ['mode'=>'admin','label'=>'Administrator','employee_id'=>0,'can_manage'=>1,'role'=>'owner'];
+        if(current_user_can('manage_options')){
+            $user=wp_get_current_user();
+            $name=trim($user->display_name);
+            if($name==='' || strcasecmp($name,'Administrator')===0) $name=$user->user_login;
+            return ['mode'=>'admin','label'=>$name,'employee_id'=>0,'can_manage'=>1,'role'=>'owner'];
+        }
         if($party=$this->current_party()) return ['mode'=>'party','label'=>$party->party_name,'employee_id'=>0,'party_id'=>(int)$party->id,'can_manage'=>0,'role'=>'party'];
         if($e=$this->current_employee()){
             $role=strtolower((string)($e->system_role??'employee'));
