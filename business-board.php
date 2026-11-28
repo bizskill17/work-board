@@ -10241,6 +10241,7 @@ JS
                         $out[$k]['approved_count']=($out[$k]['approved_count']??0)+((int)$r->occurrence_approver===(int)$r->task_approver?1:0);
                     }
                     $out[$k]['done_list'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->result?:'Completed'),'completed_at'=>$r->completed_at?$this->activity_time_ist($r->completed_at):'','remarks'=>$rk,'goal_target'=>$gt,'goal_unit'=>$gunit,'goal_done'=>$gd]; $index=count($out[$k]['done_list'])-1;
+                    $out[$k]['done_list'][$index]['auto_approved']=!(int)$r->task_approver;
                     if((int)$r->occurrence_approver>0){
                         $out[$k]['done_list'][$index]['approved_name']=(string)($r->approved_name?:'Former user');
                         $out[$k]['done_list'][$index]['approved_at']=$r->approved_at?$this->activity_time_ist($r->approved_at):'';
