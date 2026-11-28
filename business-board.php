@@ -10257,11 +10257,12 @@ JS
                 }
                 if($r->status==='Completed'){
                     $out[$k]['done']++;
-                    if((int)$r->task_approver>0){
-                        $out[$k]['approved_count']=($out[$k]['approved_count']??0)+(!empty($r->approved_by_wp_user_id) || (int)$r->occurrence_approver===(int)$r->task_approver?1:0);
+                    $auto_approved=!(int)$r->task_approver;
+                    if($auto_approved || !empty($r->approved_by_wp_user_id) || (int)$r->occurrence_approver===(int)$r->task_approver){
+                        $out[$k]['approved_count']=($out[$k]['approved_count']??0)+1;
                     }
                     $out[$k]['done_list'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->result?:'Completed'),'completed_at'=>$r->completed_at?$this->activity_time_ist($r->completed_at):'','remarks'=>$rk,'goal_target'=>$gt,'goal_unit'=>$gunit,'goal_done'=>$gd]; $index=count($out[$k]['done_list'])-1;
-                    $out[$k]['done_list'][$index]['auto_approved']=!(int)$r->task_approver;
+                    $out[$k]['done_list'][$index]['auto_approved']=$auto_approved;
                     $out[$k]['done_list'][$index]['approver_name']=(string)$r->approver_name;
                     if((int)$r->occurrence_approver>0 || !empty($r->approved_by_wp_user_id)){
                         $out[$k]['done_list'][$index]['approved_name']=(string)($r->approved_name?:'Former user');
