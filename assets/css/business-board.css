@@ -19483,3 +19483,39 @@ body > .bb-workspace-card-wrap.bb-folder-drag-ghost .bb-workspace-name-card{padd
 
 /* v4.18.194: wider Work Area columns on desktop so the task meta line (M · name · date · D) stays on one line */
 @media(min-width:701px){.bb-board > .bb-workarea-column:not(.bb-quick-create-open){min-width:322px!important;width:322px!important;flex:0 0 322px!important}}
+
+/* Tasks Done fills the viewport. Keep horizontal scrolling inside the table. */
+html body #bb-modal.open:has(.bb-dsb-done-modal){
+  padding:0!important;
+}
+html body #bb-modal.open:has(.bb-dsb-done-modal) > .bb-modal-card{
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:none!important;
+  height:100dvh!important;
+  max-height:100dvh!important;
+  border-radius:0!important;
+  overflow:hidden!important;
+}
+html body #bb-modal.open:has(.bb-dsb-done-modal) #bb-modal-content{
+  height:100%;
+  max-height:none!important;
+}
+.bb-dsb-modal.bb-dsb-done-modal{
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  min-width:0;
+}
+.bb-dsb-done-modal .bb-form-heading{
+  flex:none;
+  padding-right:40px;
+}
+.bb-dsb-done-modal .bb-table-wrap{
+  min-height:0;
+  overflow:auto;
+}
+.bb-dsb-done-modal .bb-dsb-notdone-table{
+  width:100%;
+}
