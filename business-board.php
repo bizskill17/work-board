@@ -10227,14 +10227,11 @@ JS
                 if($r->status!=='Completed' && $gt>0 && $gd>0){
                     $credit=min(1,$gd/$gt);
                     $out[$k]['done']+=$credit;
-                    if(!(int)$r->task_approver) $out[$k]['automatic_approved']=($out[$k]['automatic_approved']??0)+$credit;
                 }
                 if($r->status==='Completed'){
                     $out[$k]['done']++;
                     if((int)$r->task_approver>0){
                         $out[$k]['approved_count']=($out[$k]['approved_count']??0)+((int)$r->occurrence_approver===(int)$r->task_approver?1:0);
-                    }else{
-                        $out[$k]['automatic_approved']=($out[$k]['automatic_approved']??0)+1;
                     }
                     $out[$k]['done_list'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->result?:'Completed'),'completed_at'=>$r->completed_at?$this->activity_time_ist($r->completed_at):'','remarks'=>$rk,'goal_target'=>$gt,'goal_unit'=>$gunit,'goal_done'=>$gd]; if($can_approve){ $index=count($out[$k]['done_list'])-1; $out[$k]['done_list'][$index]['approval']=['history_id'=>(int)$r->history_id,'approved'=>(int)$r->occurrence_approver===$approver_id]; } }
                 else $out[$k]['not_done'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->status?:'Pending'),'remarks'=>$rk,'goal_target'=>$gt,'goal_unit'=>$gunit,'goal_done'=>$gd];
@@ -10261,7 +10258,6 @@ JS
                     $tg=(int)($tpl->goal_target??0); $td=(int)($goal_map[(int)$tpl->id.'|'.$today]??0); if($tg>0 && $td>0){
                         $credit=min(1,$td/$tg);
                         $out[$k]['done']+=$credit;
-                        if(!(int)$tpl->approved_by_employee_id) $out[$k]['automatic_approved']=($out[$k]['automatic_approved']??0)+$credit;
                     }
                 }
             }

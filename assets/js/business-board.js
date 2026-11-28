@@ -1055,7 +1055,7 @@ App.renderDailyScoreboard=function(){
   const data=cache[key].filter(r=>knownEmp(r.employee_id)||r.employee_name).filter(countable).map(r=>({...r,name:r.employee_name||nameOf(r.employee_id)})).sort((a,b)=>String(b.date).localeCompare(String(a.date))||a.name.localeCompare(b.name));
   let tDue=0,tDone=0,tApproved=0;const rows=[],excel=[];
   data.forEach(r=>{const due=Number(r.due||0),done=Math.round(Number(r.done||0)*100)/100,y=String(r.date).slice(0,4),m=monthNames[Number(String(r.date).slice(5,7))-1]||'',d=String(r.date).split('-').reverse().join('/'),dp=pct(done,due),np=due?Math.round((100-dp)*10)/10:0;tDue+=due;tDone+=done;
-    const approved=Number(r.automatic_approved||0)+Number(r.approved_count||0),approvalPct=pct(approved,due)+'%';
+    const approved=Number(r.approved_count||0),approvalPct=pct(approved,due)+'%';
     tApproved+=approved;
     rows.push(`<tr><td>${y}</td><td>${this.esc(m)}</td><td><button type="button" class="bb-dsb-emp-link" data-dsb-emp="${this.attr(r.employee_id)}" title="Show all daily recurring tasks of ${this.attr(r.name)}">${this.esc(r.name)}</button></td><td>${d}</td><td>${due}</td><td>${+done.toFixed(2)}</td><td class="bb-dsb-done"><button type="button" class="bb-dsb-done-link" data-dsb-list="done" data-dsb-key="${this.attr(r.employee_id+'|'+r.date)}" title="Show tasks done">${dp}%</button></td><td>${approvalPct}</td><td class="bb-dsb-notdone">${(due-done)>0?`<button type="button" class="bb-dsb-notdone-link" data-dsb-list="notdone" data-dsb-key="${this.attr(r.employee_id+'|'+r.date)}" title="Show tasks not done">${np}%</button>`:`${np}%`}</td></tr>`);
     excel.push([y,m,r.name,d,due,+done.toFixed(2),dp+'%',approvalPct,np+'%']);});
