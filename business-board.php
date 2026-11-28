@@ -10193,7 +10193,7 @@ JS
         if($from<=$to && $employee_id!==-1){
             $daily="t.is_template=1 AND t.task_type='Recurring' AND COALESCE(NULLIF(t.frequency,''),'Daily')='Daily'";
             $emp_sql=$employee_id?$wpdb->prepare(' AND h.assignee_id=%d',$employee_id):'';
-            if(!$privileged && $approver_id) $emp_sql=$wpdb->prepare(" AND (h.assignee_id=%d OR (t.approved_by_employee_id=%d AND h.status='Completed'))",$employee_id,$approver_id);
+            if(!$privileged && $approver_id) $emp_sql=$wpdb->prepare(" AND (h.assignee_id=%d OR t.approved_by_employee_id=%d)",$employee_id,$approver_id);
             $rows=$wpdb->get_results($wpdb->prepare("SELECT h.id history_id,h.assignee_id,h.due_date,h.occurrence_date,h.workspace_id,h.status,h.due_time,h.result,h.completed_at,h.approved_by_employee_id occurrence_approver,t.approved_by_employee_id task_approver,e.name employee_name,t.id task_id,t.task_name,t.goal_target,t.goal_unit,w.name workspace_name,a.name work_area_name FROM {$this->tables['history']} h JOIN {$this->tables['tasks']} t ON t.id=h.task_id LEFT JOIN {$this->tables['employees']} e ON e.id=h.assignee_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=h.workspace_id LEFT JOIN {$this->tables['work_areas']} a ON a.id=h.work_area_id WHERE {$daily} AND h.archived_at IS NULL AND h.assignee_id IS NOT NULL AND h.due_date BETWEEN %s AND %s AND (w.status IS NULL OR w.status NOT IN ('trash')) AND (a.status IS NULL OR a.status NOT IN ('trash')) AND t.archived_at IS NULL{$emp_sql}",$from,$to));
             // v4.18.163: update remarks per task occurrence (occurrence_key = occurrence date).
             $remarks=[];
@@ -10215,20 +10215,26 @@ JS
             $seen_today=[];
             foreach($rows as $r){
                 $rk=$remarks[(int)$r->task_id.'|'.($r->occurrence_date?:$r->due_date)]??[];
-                $can_approve=$approver_id && $approver_id===(int)$r->task_approver && $r->status==='Completed';
+                $assigned_approver=$approver_id && $approver_id===(int)$r->task_approver;
+                $can_approve=$assigned_approver && $r->status==='Completed';
                 $review_only=!$privileged && (int)$r->assignee_id!==$employee_id;
-                if(!$can_approve && ($review_only || ($allowed!==null && !in_array((int)$r->workspace_id,$allowed,true)))) continue;
+                if(!$assigned_approver && ($review_only || ($allowed!==null && !in_array((int)$r->workspace_id,$allowed,true)))) continue;
                 $k=(int)$r->assignee_id.'|'.$r->due_date;
                 if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$r->assignee_id,'date'=>$r->due_date,'employee_name'=>(string)$r->employee_name,'review_only'=>$review_only,'due'=>0,'done'=>0,'not_done'=>[],'done_list'=>[]];
                 $out[$k]['due']++;
                 $gkey=(int)$r->task_id.'|'.($r->occurrence_date?:$r->due_date); $gday=$goal_day[$gkey]??[0,''];
                 $gt=$gday[0]>0?$gday[0]:(int)($r->goal_target??0); $gunit=$gday[0]>0?$gday[1]:(string)($r->goal_unit??''); $gd=$gt?($goal_map[$gkey]??0):0;
-                if($r->status!=='Completed' && $gt>0 && $gd>0){ $out[$k]['done']+=min(1,$gd/$gt); }
+                if($r->status!=='Completed' && $gt>0 && $gd>0){
+                    $credit=min(1,$gd/$gt);
+                    $out[$k]['done']+=$credit;
+                    if(!(int)$r->task_approver) $out[$k]['automatic_approved']=($out[$k]['automatic_approved']??0)+$credit;
+                }
                 if($r->status==='Completed'){
                     $out[$k]['done']++;
                     if((int)$r->task_approver>0){
-                        $out[$k]['approval_count']=($out[$k]['approval_count']??0)+1;
                         $out[$k]['approved_count']=($out[$k]['approved_count']??0)+((int)$r->occurrence_approver===(int)$r->task_approver?1:0);
+                    }else{
+                        $out[$k]['automatic_approved']=($out[$k]['automatic_approved']??0)+1;
                     }
                     $out[$k]['done_list'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->result?:'Completed'),'completed_at'=>$r->completed_at?$this->activity_time_ist($r->completed_at):'','remarks'=>$rk,'goal_target'=>$gt,'goal_unit'=>$gunit,'goal_done'=>$gd]; if($can_approve){ $index=count($out[$k]['done_list'])-1; $out[$k]['done_list'][$index]['approval']=['history_id'=>(int)$r->history_id,'approved'=>(int)$r->occurrence_approver===$approver_id]; } }
                 else $out[$k]['not_done'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->status?:'Pending'),'remarks'=>$rk,'goal_target'=>$gt,'goal_unit'=>$gunit,'goal_done'=>$gd];
@@ -10236,20 +10242,27 @@ JS
             // Today's occurrences that are not yet overdue have no history row yet: count them as due, not done.
             if($from<=$today && $today<=$to){
                 $tpl_emp=$employee_id?$wpdb->prepare(' AND t.assignee_id=%d',$employee_id):'';
-                $tpls=$wpdb->get_results("SELECT t.* FROM {$this->tables['tasks']} t LEFT JOIN {$this->tables['work_areas']} a ON a.id=t.work_area_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=t.workspace_id WHERE {$daily} AND t.assignee_id IS NOT NULL AND t.archived_at IS NULL AND COALESCE(t.recurrence_status,'active')='active' AND (a.status IS NULL OR a.status NOT IN ('trash','archived')) AND (w.status IS NULL OR w.status NOT IN ('trash','archived')){$tpl_emp}");
+                if(!$privileged && $approver_id) $tpl_emp=$wpdb->prepare(' AND (t.assignee_id=%d OR t.approved_by_employee_id=%d)',$employee_id,$approver_id);
+                $tpls=$wpdb->get_results("SELECT t.*,e.name employee_name FROM {$this->tables['tasks']} t LEFT JOIN {$this->tables['employees']} e ON e.id=t.assignee_id LEFT JOIN {$this->tables['work_areas']} a ON a.id=t.work_area_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=t.workspace_id WHERE {$daily} AND t.assignee_id IS NOT NULL AND t.archived_at IS NULL AND COALESCE(t.recurrence_status,'active')='active' AND (a.status IS NULL OR a.status NOT IN ('trash','archived')) AND (w.status IS NULL OR w.status NOT IN ('trash','archived')){$tpl_emp}");
                 foreach($tpls as $tpl){
-                    if($allowed!==null && !in_array((int)$tpl->workspace_id,$allowed,true)) continue;
+                    $assigned_approver=$approver_id && $approver_id===(int)$tpl->approved_by_employee_id;
+                    $review_only=!$privileged && (int)$tpl->assignee_id!==$employee_id;
+                    if(!$assigned_approver && ($review_only || ($allowed!==null && !in_array((int)$tpl->workspace_id,$allowed,true)))) continue;
                     if(empty($tpl->start_date) || $tpl->start_date>$today) continue;
                     if(!in_array($today,$this->occurrence_dates($tpl,$today,$today),true)) continue;
                     $has=$wpdb->get_var($wpdb->prepare("SELECT id FROM {$this->tables['history']} WHERE task_id=%d AND occurrence_date=%s LIMIT 1",$tpl->id,$today));
                     if($has) continue;
                     $k=(int)$tpl->assignee_id.'|'.$today;
-                    if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$tpl->assignee_id,'date'=>$today,'due'=>0,'done'=>0,'not_done'=>[],'done_list'=>[]];
+                    if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$tpl->assignee_id,'date'=>$today,'employee_name'=>(string)$tpl->employee_name,'review_only'=>$review_only,'due'=>0,'done'=>0,'not_done'=>[],'done_list'=>[]];
                     $out[$k]['due']++;
                     $ws_name=(string)$wpdb->get_var($wpdb->prepare("SELECT name FROM {$this->tables['workspaces']} WHERE id=%d",(int)$tpl->workspace_id));
                     $wa_name=(string)$wpdb->get_var($wpdb->prepare("SELECT name FROM {$this->tables['work_areas']} WHERE id=%d",(int)$tpl->work_area_id));
                     $out[$k]['not_done'][]=['task_id'=>(int)$tpl->id,'task_name'=>(string)($tpl->task_name?:'Recurring Task'),'workspace'=>$ws_name,'work_area'=>$wa_name,'due_time'=>(string)($tpl->due_time?:''),'status'=>'Pending','remarks'=>$remarks[(int)$tpl->id.'|'.$today]??[],'goal_target'=>(int)($tpl->goal_target??0),'goal_unit'=>(string)($tpl->goal_unit??''),'goal_done'=>(int)($goal_map[(int)$tpl->id.'|'.$today]??0)];
-                    $tg=(int)($tpl->goal_target??0); $td=(int)($goal_map[(int)$tpl->id.'|'.$today]??0); if($tg>0 && $td>0) $out[$k]['done']+=min(1,$td/$tg);
+                    $tg=(int)($tpl->goal_target??0); $td=(int)($goal_map[(int)$tpl->id.'|'.$today]??0); if($tg>0 && $td>0){
+                        $credit=min(1,$td/$tg);
+                        $out[$k]['done']+=$credit;
+                        if(!(int)$tpl->approved_by_employee_id) $out[$k]['automatic_approved']=($out[$k]['automatic_approved']??0)+$credit;
+                    }
                 }
             }
         }
