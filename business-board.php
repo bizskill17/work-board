@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.197
+ * Version: 4.18.198
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.197';
+    const VERSION = '4.18.198';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -138,7 +138,7 @@ final class BizSkill_Business_Board {
             'sync_workspace_from_template','detach_workspace_template','workspace_template_diff',
             'save_access','delete_access','pause_recurrence','resume_recurrence','skip_next_occurrence',
             'upload_attachment','delete_attachment','mark_notifications_read','save_notification_settings','test_meta_whatsapp','test_morning_pending_digest','save_site_messaging_settings','wallet_create_recharge','wallet_verify_recharge','get_message_log','save_telegram_settings','test_telegram','save_branding_settings','save_ai_settings','ai_simplify_task_text','ai_generate_workspace','ai_create_workspace','ai_generate_workspace_changes','ai_apply_workspace_changes',
-            'get_report','get_daily_recurring_scoreboard','universal_search','goal_progress_list','goal_progress_add','goal_progress_update','goal_progress_delete','rollback_template_version','import_workspace_package','toggle_pin_task','toggle_task_focus','send_urgent_reminder','update_task_reminders','duplicate_task','duplicate_note_card','move_work_area','reorder_work_areas','reorder_tasks','move_task_work_area','toggle_subtask','save_entity_assignments','add_task_remark','set_task_status','update_task_field','add_inline_subtask','update_inline_subtask','delete_inline_subtask','reorder_inline_subtasks','get_timesheet_entries','get_timesheet_task_options','save_timesheet_entry','delete_timesheet_entry','get_callspace_entries','save_callspace_entry','delete_callspace_entry','get_docspace_entries','save_docspace_entry','delete_docspace_entry'
+            'get_report','get_daily_recurring_scoreboard','set_daily_task_approval','universal_search','goal_progress_list','goal_progress_add','goal_progress_update','goal_progress_delete','rollback_template_version','import_workspace_package','toggle_pin_task','toggle_task_focus','send_urgent_reminder','update_task_reminders','duplicate_task','duplicate_note_card','move_work_area','reorder_work_areas','reorder_tasks','move_task_work_area','toggle_subtask','save_entity_assignments','add_task_remark','set_task_status','update_task_field','add_inline_subtask','update_inline_subtask','delete_inline_subtask','reorder_inline_subtasks','get_timesheet_entries','get_timesheet_task_options','save_timesheet_entry','delete_timesheet_entry','get_callspace_entries','save_callspace_entry','delete_callspace_entry','get_docspace_entries','save_docspace_entry','delete_docspace_entry'
         ] as $a){
             add_action('wp_ajax_bb_'.$a,[$this,'ajax_'.$a]);
         }
@@ -552,6 +552,10 @@ final class BizSkill_Business_Board {
             $wpdb->query("ALTER TABLE {$table} ADD COLUMN sunday_reminder_enabled tinyint(1) NOT NULL DEFAULT 0 AFTER reminder_unit");
         if(!in_array('approved_by_employee_id',$cols,true))
             $wpdb->query("ALTER TABLE {$table} ADD COLUMN approved_by_employee_id bigint(20) unsigned DEFAULT NULL");
+        $history=$this->tables['history'];
+        $history_cols=$wpdb->get_col("DESC {$history}",0);
+        if($history_cols && !in_array('approved_by_employee_id',$history_cols,true))
+            $wpdb->query("ALTER TABLE {$history} ADD COLUMN approved_by_employee_id bigint(20) unsigned DEFAULT NULL");
     }
 
     private function ensure_attendance_leave_table(){
@@ -1088,6 +1092,7 @@ final class BizSkill_Business_Board {
             stage_name varchar(100) DEFAULT '',
             result varchar(30) DEFAULT '',
             completed_by_employee_id bigint(20) unsigned DEFAULT NULL,
+            approved_by_employee_id bigint(20) unsigned DEFAULT NULL,
             completed_at datetime DEFAULT NULL,
             score_points int DEFAULT 0,
             note varchar(255) DEFAULT '',
@@ -9347,7 +9352,7 @@ JS
 
         if(!$done){
             if($template_id){
-                $wpdb->update($this->tables['history'],['status'=>'Pending','result'=>'','completed_at'=>null,'score_points'=>0,'updated_at'=>current_time('mysql')],['task_id'=>$task_id,'occurrence_date'=>$occurrence_date]);
+                $wpdb->update($this->tables['history'],['status'=>'Pending','result'=>'','completed_at'=>null,'approved_by_employee_id'=>null,'score_points'=>0,'updated_at'=>current_time('mysql')],['task_id'=>$task_id,'occurrence_date'=>$occurrence_date]);
             }else{
                 $due=$task->due_date?strtotime($task->due_date.' '.($task->due_time?:'23:59:59')):false;
                 $st=($due && $due<current_time('timestamp'))?'Overdue':'Pending';
@@ -10148,6 +10153,29 @@ JS
         $due=(int)($r->due??0); return ['due'=>$due,'timely'=>(int)($r->timely??0),'late'=>(int)($r->late??0),'missed'=>(int)($r->missed??0),'skipped'=>(int)($r->skipped??0),'points'=>(int)($r->points??0),'score'=>$due?round(((int)$r->points)/$due,1):0];
     }
 
+
+    private function daily_task_approver_id(){
+        global $wpdb;
+        return (int)$wpdb->get_var($wpdb->prepare("SELECT id FROM {$this->tables['employees']} WHERE wp_user_id=%d AND status='active' ORDER BY id LIMIT 1",get_current_user_id()));
+    }
+
+    public function ajax_set_daily_task_approval(){
+        $this->verify(); global $wpdb;
+        $me=$this->daily_task_approver_id();
+        $id=absint($_POST['history_id']??0);
+        if(!$me || !$id) wp_send_json_error(['message'=>'Only the assigned approver can approve this task'],403);
+        $approved=($_POST['approved']??'')==='1';
+        $history=$this->tables['history'];
+        $tasks=$this->tables['tasks'];
+        $match=" FROM {$history} h JOIN {$tasks} t ON t.id=h.task_id WHERE h.id=%d AND h.status='Completed' AND h.archived_at IS NULL AND t.archived_at IS NULL AND t.is_template=1 AND t.task_type='Recurring' AND t.frequency='Daily' AND t.approved_by_employee_id=%d";
+        $value=$approved?(string)$me:'NULL';
+        $sql="UPDATE {$history} h JOIN {$tasks} t ON t.id=h.task_id SET h.approved_by_employee_id={$value}".substr($match,strpos($match,' WHERE '));
+        $changed=$wpdb->query($wpdb->prepare($sql,$id,$me));
+        if($changed===false) wp_send_json_error(['message'=>'Could not save approval'],500);
+        if(!$changed && !$wpdb->get_var($wpdb->prepare("SELECT h.id".$match,$id,$me))) wp_send_json_error(['message'=>'Only the assigned approver can approve this completed task'],403);
+        wp_send_json_success(['approved'=>$approved]);
+    }
+
     // v4.18.158: Daily Recurring Tasks Scoreboard — per User, per date: occurrences due vs completed.
     public function ajax_get_daily_recurring_scoreboard(){
         $this->verify(); global $wpdb;
@@ -10159,12 +10187,14 @@ JS
         $privileged=$this->is_privileged_user();
         $employee_id=absint($_POST['employee_id']??0);
         if(!$privileged){ $me=$this->current_employee(); $employee_id=$me?(int)$me->id:-1; }
+        $approver_id=$this->daily_task_approver_id();
         $allowed=$this->allowed_workspace_ids();
         $out=[];
         if($from<=$to && $employee_id!==-1){
             $daily="t.is_template=1 AND t.task_type='Recurring' AND COALESCE(NULLIF(t.frequency,''),'Daily')='Daily'";
             $emp_sql=$employee_id?$wpdb->prepare(' AND h.assignee_id=%d',$employee_id):'';
-            $rows=$wpdb->get_results($wpdb->prepare("SELECT h.assignee_id,h.due_date,h.occurrence_date,h.workspace_id,h.status,h.due_time,h.result,h.completed_at,t.id task_id,t.task_name,t.goal_target,t.goal_unit,w.name workspace_name,a.name work_area_name FROM {$this->tables['history']} h JOIN {$this->tables['tasks']} t ON t.id=h.task_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=h.workspace_id LEFT JOIN {$this->tables['work_areas']} a ON a.id=h.work_area_id WHERE {$daily} AND h.assignee_id IS NOT NULL AND h.due_date BETWEEN %s AND %s AND (w.status IS NULL OR w.status NOT IN ('trash')) AND (a.status IS NULL OR a.status NOT IN ('trash')) AND t.archived_at IS NULL{$emp_sql}",$from,$to));
+            if(!$privileged && $approver_id) $emp_sql=$wpdb->prepare(" AND (h.assignee_id=%d OR (t.approved_by_employee_id=%d AND h.status='Completed'))",$employee_id,$approver_id);
+            $rows=$wpdb->get_results($wpdb->prepare("SELECT h.id history_id,h.assignee_id,h.due_date,h.occurrence_date,h.workspace_id,h.status,h.due_time,h.result,h.completed_at,h.approved_by_employee_id occurrence_approver,t.approved_by_employee_id task_approver,e.name employee_name,t.id task_id,t.task_name,t.goal_target,t.goal_unit,w.name workspace_name,a.name work_area_name FROM {$this->tables['history']} h JOIN {$this->tables['tasks']} t ON t.id=h.task_id LEFT JOIN {$this->tables['employees']} e ON e.id=h.assignee_id LEFT JOIN {$this->tables['workspaces']} w ON w.id=h.workspace_id LEFT JOIN {$this->tables['work_areas']} a ON a.id=h.work_area_id WHERE {$daily} AND h.archived_at IS NULL AND h.assignee_id IS NOT NULL AND h.due_date BETWEEN %s AND %s AND (w.status IS NULL OR w.status NOT IN ('trash')) AND (a.status IS NULL OR a.status NOT IN ('trash')) AND t.archived_at IS NULL{$emp_sql}",$from,$to));
             // v4.18.163: update remarks per task occurrence (occurrence_key = occurrence date).
             $remarks=[];
             $tids=array_values(array_unique(array_map(fn($x)=>(int)$x->task_id,$rows)));
@@ -10185,14 +10215,16 @@ JS
             $seen_today=[];
             foreach($rows as $r){
                 $rk=$remarks[(int)$r->task_id.'|'.($r->occurrence_date?:$r->due_date)]??[];
-                if($allowed!==null && !in_array((int)$r->workspace_id,$allowed,true)) continue;
+                $can_approve=$approver_id && $approver_id===(int)$r->task_approver && $r->status==='Completed';
+                $review_only=!$privileged && (int)$r->assignee_id!==$employee_id;
+                if(!$can_approve && ($review_only || ($allowed!==null && !in_array((int)$r->workspace_id,$allowed,true)))) continue;
                 $k=(int)$r->assignee_id.'|'.$r->due_date;
-                if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$r->assignee_id,'date'=>$r->due_date,'due'=>0,'done'=>0,'not_done'=>[],'done_list'=>[]];
+                if(!isset($out[$k])) $out[$k]=['employee_id'=>(int)$r->assignee_id,'date'=>$r->due_date,'employee_name'=>(string)$r->employee_name,'review_only'=>$review_only,'due'=>0,'done'=>0,'not_done'=>[],'done_list'=>[]];
                 $out[$k]['due']++;
                 $gkey=(int)$r->task_id.'|'.($r->occurrence_date?:$r->due_date); $gday=$goal_day[$gkey]??[0,''];
                 $gt=$gday[0]>0?$gday[0]:(int)($r->goal_target??0); $gunit=$gday[0]>0?$gday[1]:(string)($r->goal_unit??''); $gd=$gt?($goal_map[$gkey]??0):0;
                 if($r->status!=='Completed' && $gt>0 && $gd>0){ $out[$k]['done']+=min(1,$gd/$gt); }
-                if($r->status==='Completed'){ $out[$k]['done']++; $out[$k]['done_list'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->result?:'Completed'),'completed_at'=>$r->completed_at?$this->activity_time_ist($r->completed_at):'','remarks'=>$rk,'goal_target'=>$gt,'goal_unit'=>$gunit,'goal_done'=>$gd]; }
+                if($r->status==='Completed'){ $out[$k]['done']++; $out[$k]['done_list'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->result?:'Completed'),'completed_at'=>$r->completed_at?$this->activity_time_ist($r->completed_at):'','remarks'=>$rk,'goal_target'=>$gt,'goal_unit'=>$gunit,'goal_done'=>$gd]; if($can_approve){ $index=count($out[$k]['done_list'])-1; $out[$k]['done_list'][$index]['approval']=['history_id'=>(int)$r->history_id,'approved'=>(int)$r->occurrence_approver===$approver_id]; } }
                 else $out[$k]['not_done'][]=['task_id'=>(int)$r->task_id,'task_name'=>(string)($r->task_name?:'Recurring Task'),'workspace'=>(string)($r->workspace_name?:''),'work_area'=>(string)($r->work_area_name?:''),'due_time'=>(string)($r->due_time?:''),'status'=>(string)($r->status?:'Pending'),'remarks'=>$rk,'goal_target'=>$gt,'goal_unit'=>$gunit,'goal_done'=>$gd];
             }
             // Today's occurrences that are not yet overdue have no history row yet: count them as due, not done.

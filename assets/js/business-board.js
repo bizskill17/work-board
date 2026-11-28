@@ -1043,7 +1043,7 @@ App.renderDailyScoreboard=function(){
         this.api('bb_get_attendance_month',{month:mm}).done(r=>{this._dailyScoreAtt[mm]=r&&r.success?{month:mm,events:r.data?.events||[],holidays:r.data?.holidays||[],claims:r.data?.claims||[],adjustments:r.data?.adjustments||[]}:{month:mm,events:[],holidays:[],claims:[],failed:true};}).fail(()=>{this._dailyScoreAtt[mm]={month:mm,events:[],holidays:[],claims:[],failed:true};}).always(()=>{this._dailyScoreAttLoading='';if(this.view==='daily-scoreboard')this.render();});}
       return;}
   }else att=this.attendanceSelectedMonthData(f.month+'-01');
-  const countable=r=>{const emp=(this.empById&&this.empById(r.employee_id))||(this.state.employees||[]).find(x=>String(x.id)===String(r.employee_id));if(!emp)return true;
+  const countable=r=>{if(r.review_only)return true;const emp=(this.empById&&this.empById(r.employee_id))||(this.state.employees||[]).find(x=>String(x.id)===String(r.employee_id));if(!emp)return true;
     let m=null;try{const ev=att&&!att.failed?this.attendanceEventsFor(emp.id,r.date,att.events):[];m=this.attendanceDayMetrics(emp,r.date,ev,att?.holidays||[],att?.claims||[]);}catch(_e){return true;}
     if(!m)return true;if(m.holiday||m.weeklyOff||m.sundayEligible)return false;
     if(Number(emp.attendance_enabled||0)!==1||!att||att.failed)return true;
@@ -1052,16 +1052,21 @@ App.renderDailyScoreboard=function(){
   const nameOf=id=>{const e=this.empById?this.empById(id):(this.state.employees||[]).find(x=>String(x.id)===String(id));return e?.name||'User';};
   const pct=(a,b)=>b?Math.round(a*1000/b)/10:0;
   const knownEmp=id=>{const e=(this.empById&&this.empById(id))||(this.state.employees||[]).find(x=>String(x.id)===String(id));return !!(e&&String(e.name||'').trim());};
-  const data=cache[key].filter(r=>knownEmp(r.employee_id)).filter(countable).map(r=>({...r,name:nameOf(r.employee_id)})).sort((a,b)=>String(b.date).localeCompare(String(a.date))||a.name.localeCompare(b.name));
-  let tDue=0,tDone=0;const rows=[],excel=[];
+  const data=cache[key].filter(r=>knownEmp(r.employee_id)||r.employee_name).filter(countable).map(r=>({...r,name:r.employee_name||nameOf(r.employee_id)})).sort((a,b)=>String(b.date).localeCompare(String(a.date))||a.name.localeCompare(b.name));
+  const approvals=r=>(r.done_list||[]).filter(x=>x.approval).map(x=>x.approval);
+  const showApproval=data.some(r=>approvals(r).length);
+  let tDue=0,tDone=0,tApproved=0,tReview=0;const rows=[],excel=[];
   data.forEach(r=>{const due=Number(r.due||0),done=Math.round(Number(r.done||0)*100)/100,y=String(r.date).slice(0,4),m=monthNames[Number(String(r.date).slice(5,7))-1]||'',d=String(r.date).split('-').reverse().join('/'),dp=pct(done,due),np=due?Math.round((100-dp)*10)/10:0;tDue+=due;tDone+=done;
-    rows.push(`<tr><td>${y}</td><td>${this.esc(m)}</td><td><button type="button" class="bb-dsb-emp-link" data-dsb-emp="${this.attr(r.employee_id)}" title="Show all daily recurring tasks of ${this.attr(r.name)}">${this.esc(r.name)}</button></td><td>${d}</td><td>${due}</td><td>${+done.toFixed(2)}</td><td class="bb-dsb-done">${done>0&&(r.done_list||[]).length?`<button type="button" class="bb-dsb-done-link" data-dsb-list="done" data-dsb-key="${this.attr(r.employee_id+'|'+r.date)}" title="Show tasks done">${dp}%</button>`:`${dp}%`}</td><td class="bb-dsb-notdone">${(due-done)>0?`<button type="button" class="bb-dsb-notdone-link" data-dsb-list="notdone" data-dsb-key="${this.attr(r.employee_id+'|'+r.date)}" title="Show tasks not done">${np}%</button>`:`${np}%`}</td></tr>`);
-    excel.push([y,m,r.name,d,due,+done.toFixed(2),dp+'%',np+'%']);});
+    const review=approvals(r),approved=review.filter(x=>x.approved).length,approvalPct=review.length?pct(approved,review.length)+'%':'';
+    tApproved+=approved;tReview+=review.length;
+    rows.push(`<tr><td>${y}</td><td>${this.esc(m)}</td><td><button type="button" class="bb-dsb-emp-link" data-dsb-emp="${this.attr(r.employee_id)}" title="Show all daily recurring tasks of ${this.attr(r.name)}">${this.esc(r.name)}</button></td><td>${d}</td><td>${due}</td><td>${+done.toFixed(2)}</td><td class="bb-dsb-done">${done>0&&(r.done_list||[]).length?`<button type="button" class="bb-dsb-done-link" data-dsb-list="done" data-dsb-key="${this.attr(r.employee_id+'|'+r.date)}" title="Show tasks done">${dp}%</button>`:`${dp}%`}</td>${showApproval?`<td>${approvalPct}</td>`:''}<td class="bb-dsb-notdone">${(due-done)>0?`<button type="button" class="bb-dsb-notdone-link" data-dsb-list="notdone" data-dsb-key="${this.attr(r.employee_id+'|'+r.date)}" title="Show tasks not done">${np}%</button>`:`${np}%`}</td></tr>`);
+    excel.push([y,m,r.name,d,due,+done.toFixed(2),dp+'%',...(showApproval?[approvalPct]:[]),np+'%']);});
   const tdp=pct(tDone,tDue),tnp=tDue?Math.round((100-tdp)*10)/10:0;
-  const headers=['Year','Month','Employee Name','Date','Daily Due','Daily Done','Done %','Not Done %'];
-  if(rows.length)excel.push(['','','Total','',tDue,+tDone.toFixed(2),tdp+'%',tnp+'%']);
+  const headers=['Year','Month','Employee Name','Date','Daily Due','Daily Done','Done %',...(showApproval?['Approved %']:[]),'Not Done %'];
+  const totalApprovalPct=tReview?pct(tApproved,tReview)+'%':'';
+  if(rows.length)excel.push(['','','Total','',tDue,+tDone.toFixed(2),tdp+'%',...(showApproval?[totalApprovalPct]:[]),tnp+'%']);
   this._dailyScoreExcel={month:f.month,headers,rows:excel};
-  const foot=rows.length?`<tfoot><tr class="bb-dsb-total"><td colspan="4"><strong>Total</strong></td><td><strong>${tDue}</strong></td><td><strong>${+tDone.toFixed(2)}</strong></td><td class="bb-dsb-done"><strong>${tdp}%</strong></td><td class="bb-dsb-notdone"><strong>${tnp}%</strong></td></tr></tfoot>`:'';
+  const foot=rows.length?`<tfoot><tr class="bb-dsb-total"><td colspan="4"><strong>Total</strong></td><td><strong>${tDue}</strong></td><td><strong>${+tDone.toFixed(2)}</strong></td><td class="bb-dsb-done"><strong>${tdp}%</strong></td>${showApproval?`<td><strong>${totalApprovalPct}</strong></td>`:''}<td class="bb-dsb-notdone"><strong>${tnp}%</strong></td></tr></tfoot>`:'';
   $('#bb-content').html(`<div class="bb-att-report-page bb-dsb-page">${toolbar}<div class="bb-panel bb-master-panel"><div class="bb-table-wrap"><table class="bb-table bb-dsb-table"><thead><tr>${headers.map(h=>`<th>${this.esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.join('')||`<tr><td colspan="${headers.length}" class="bb-empty">No daily recurring tasks were due on working days in this month</td></tr>`}</tbody>${foot}</table></div></div></div>`);
 };
 (function(){
@@ -1078,8 +1083,22 @@ App.renderDailyScoreboard=function(){
   $(document).on('click','[data-dsb-list]',e=>{e.preventDefault();const kind=String($(e.currentTarget).attr('data-dsb-list')||'notdone'),isDone=kind==='done',k=String($(e.currentTarget).attr('data-dsb-key')||''),[eid,date]=k.split('|'),f=App.dailyScoreFilters,rows=(App._dailyScoreCache||{})[f.month+'|'+f.employee]||[],r=rows.find(x=>String(x.employee_id)===eid&&String(x.date)===date);if(!r)return;
     const emp=(App.empById&&App.empById(eid))||{},list=Array.isArray(isDone?r.done_list:r.not_done)?(isDone?r.done_list:r.not_done):[],d=String(date).split('-').reverse().join('/');
     const t=v=>{const m=String(v||'').match(/^(\d{1,2}):(\d{2})/);if(!m)return '';let h=+m[1];const ap=h>=12?'PM':'AM';h=h%12||12;return `${h}:${m[2]} ${ap}`;};
-    const body=list.length?`<div class="bb-table-wrap"><table class="bb-table bb-dsb-notdone-table"><thead><tr><th>#</th><th>Task</th><th>Workspace</th><th>Work Area</th><th>Due Time</th>${isDone?'<th>Done At</th>':''}<th>${isDone?'Result':'Status'}</th><th>Update Remarks</th></tr></thead><tbody>${list.map((x,i)=>`<tr><td>${i+1}</td><td><strong>${App.esc(x.task_name)}</strong>${Number(x.goal_target||0)>0?`<div class="bb-dsb-goal">🎯 ${App.goalNum(x.goal_done||0)} / ${App.goalNum(x.goal_target)} ${App.esc(x.goal_unit||'')}</div>`:''}</td><td>${App.esc(x.workspace)}</td><td>${App.esc(x.work_area)}</td><td>${App.esc(t(x.due_time))}</td>${isDone?`<td>${App.esc(x.completed_at?String(x.completed_at).slice(0,10).split('-').reverse().join('/')+' '+t(String(x.completed_at).slice(11,16)):'')}</td>`:''}<td><span class="bb-dsb-status ${isDone?'is-done':''}">${App.esc(isDone?(x.status||'Completed'):(x.status==='Overdue'?'Missed':x.status))}</span></td><td class="bb-dsb-remarks">${(Array.isArray(x.remarks)?x.remarks:[]).map(rm=>`<div class="bb-dsb-remark"><span>${App.esc(rm.remark)}</span>${rm.at?`<small>${App.esc(String(rm.at).slice(0,10).split('-').reverse().join('/')+' '+t(String(rm.at).slice(11,16)))}</small>`:''}</div>`).join('')}</td></tr>`).join('')}</tbody></table></div>`:'<div class="bb-empty">No task details available</div>';
-    App.openModal(`<div class="bb-form bb-dsb-modal"><div class="bb-form-heading"><div><h2>${isDone?'Tasks Done':'Tasks Not Done'}</h2><p>${App.esc(emp.name||'User')} · ${d} · ${list.length} of ${Number(r.due||0)} ${isDone?'done':'not done'}</p></div></div>${body}</div>`);});
+    const showApproval=isDone&&list.some(x=>x.approval);
+    const body=list.length?`<div class="bb-table-wrap"><table class="bb-table bb-dsb-notdone-table"><thead><tr><th>#</th><th>Task</th><th>Workspace</th><th>Work Area</th><th>Due Time</th>${isDone?'<th>Done At</th>':''}<th>${isDone?'Result':'Status'}</th><th>Update Remarks</th>${showApproval?'<th>Approved</th>':''}</tr></thead><tbody>${list.map((x,i)=>`<tr><td>${i+1}</td><td><strong>${App.esc(x.task_name)}</strong>${Number(x.goal_target||0)>0?`<div class="bb-dsb-goal">🎯 ${App.goalNum(x.goal_done||0)} / ${App.goalNum(x.goal_target)} ${App.esc(x.goal_unit||'')}</div>`:''}</td><td>${App.esc(x.workspace)}</td><td>${App.esc(x.work_area)}</td><td>${App.esc(t(x.due_time))}</td>${isDone?`<td>${App.esc(x.completed_at?String(x.completed_at).slice(0,10).split('-').reverse().join('/')+' '+t(String(x.completed_at).slice(11,16)):'')}</td>`:''}<td><span class="bb-dsb-status ${isDone?'is-done':''}">${App.esc(isDone?(x.status||'Completed'):(x.status==='Overdue'?'Missed':x.status))}</span></td><td class="bb-dsb-remarks">${(Array.isArray(x.remarks)?x.remarks:[]).map(rm=>`<div class="bb-dsb-remark"><span>${App.esc(rm.remark)}</span>${rm.at?`<small>${App.esc(String(rm.at).slice(0,10).split('-').reverse().join('/')+' '+t(String(rm.at).slice(11,16)))}</small>`:''}</div>`).join('')}</td>${showApproval?`<td>${x.approval?`<input type="checkbox" data-dsb-approve="${App.attr(x.approval.history_id)}" aria-label="Approve ${App.attr(x.task_name)}" ${x.approval.approved?'checked':''}>`:''}</td>`:''}</tr>`).join('')}</tbody></table></div>`:'<div class="bb-empty">No task details available</div>';
+    App.openModal(`<div class="bb-form bb-dsb-modal"><div class="bb-form-heading"><div><h2>${isDone?'Tasks Done':'Tasks Not Done'}</h2><p>${App.esc(r.employee_name||emp.name||'User')} · ${d} · ${list.length} of ${Number(r.due||0)} ${isDone?'done':'not done'}</p></div></div>${body}</div>`);});
+
+  $(document).on('change','[data-dsb-approve]',e=>{
+    const box=e.currentTarget,id=String(box.dataset.dsbApprove||''),approved=box.checked;
+    box.disabled=true;
+    const restore=message=>{box.checked=!approved;App.toast(message);};
+    App.api('bb_set_daily_task_approval',{history_id:id,approved:approved?'1':'0'}).done(r=>{
+      if(!r?.success){restore(r?.data?.message||'Could not save approval');return;}
+      Object.values(App._dailyScoreCache||{}).forEach(rows=>rows.forEach(row=>(row.done_list||[]).forEach(task=>{
+        if(String(task.approval?.history_id||'')===id)task.approval.approved=!!r.data.approved;
+      })));
+      if(App.view==='daily-scoreboard')App.renderDailyScoreboard();
+    }).fail(xhr=>restore(xhr.responseJSON?.data?.message||'Could not save approval')).always(()=>{box.disabled=false;});
+  });
   $(document).on('click','[data-dsb-emp]',e=>{e.preventDefault();const eid=String($(e.currentTarget).attr('data-dsb-emp')||''),f=App.dailyScoreFilters,map=(App._dailyScoreAssigned||{})[f.month+'|'+f.employee]||{},list=Array.isArray(map[eid])?map[eid]:[],emp=(App.empById&&App.empById(eid))||{};
     const t=v=>{const m=String(v||'').match(/^(\d{1,2}):(\d{2})/);if(!m)return '';let h=+m[1];const ap=h>=12?'PM':'AM';h=h%12||12;return `${h}:${m[2]} ${ap}`;};
     const dd=v=>v?String(v).slice(0,10).split('-').reverse().join('/'):'';
