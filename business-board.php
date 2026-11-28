@@ -10254,6 +10254,7 @@ JS
                 if($r->status!=='Completed' && $gt>0 && $gd>0){
                     $credit=min(1,$gd/$gt);
                     $out[$k]['done']+=$credit;
+                    if(!(int)$r->task_approver) $out[$k]['approved_count']=($out[$k]['approved_count']??0)+$credit;
                 }
                 if($r->status==='Completed'){
                     $out[$k]['done']++;
@@ -10293,6 +10294,7 @@ JS
                     $tg=(int)($tpl->goal_target??0); $td=(int)($goal_map[(int)$tpl->id.'|'.$today]??0); if($tg>0 && $td>0){
                         $credit=min(1,$td/$tg);
                         $out[$k]['done']+=$credit;
+                        if(!(int)$tpl->approved_by_employee_id) $out[$k]['approved_count']=($out[$k]['approved_count']??0)+$credit;
                     }
                 }
             }
