@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Workboard
  * Description: Industry-neutral operational task management with Workspaces, Work Areas, user-based sharing, recurring tasks, overdue tracking and scoreboards.
- * Version: 4.18.196
+ * Version: 4.18.197
  * Author: BizSkill
  * Text Domain: business-board
  */
 if (!defined('ABSPATH')) exit;
 
 final class BizSkill_Business_Board {
-    const VERSION = '4.18.196';
+    const VERSION = '4.18.197';
     // Full dbDelta schema version. Small later columns use targeted ensure_* migrations.
     const DB_VERSION = '4.15.31';
     private static $instance = null;
@@ -425,7 +425,7 @@ final class BizSkill_Business_Board {
             // v4.18.168: task Goals (target count) + progress updates.
             $this->ensure_goal_schema();
             // v4.16.133: task-level Sunday reminder permission (off by default).
-            $this->ensure_task_sunday_reminder_column();
+            $this->ensure_task_schedule_columns();
             $this->ensure_party_share_schema();
             // v4.16.102: optional Time Sheet module with Daily Activity entries.
             $this->ensure_timesheet_table();
@@ -544,12 +544,14 @@ final class BizSkill_Business_Board {
         return false;
     }
 
-    private function ensure_task_sunday_reminder_column(){
+    private function ensure_task_schedule_columns(){
         global $wpdb; $table=$this->tables['tasks'];
         if(!$table || $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s",$table))!==$table) return;
         $cols=$wpdb->get_col("DESC {$table}",0);
         if(!in_array('sunday_reminder_enabled',$cols,true))
             $wpdb->query("ALTER TABLE {$table} ADD COLUMN sunday_reminder_enabled tinyint(1) NOT NULL DEFAULT 0 AFTER reminder_unit");
+        if(!in_array('approved_by_employee_id',$cols,true))
+            $wpdb->query("ALTER TABLE {$table} ADD COLUMN approved_by_employee_id bigint(20) unsigned DEFAULT NULL");
     }
 
     private function ensure_attendance_leave_table(){
@@ -998,6 +1000,7 @@ final class BizSkill_Business_Board {
             slug varchar(240) DEFAULT NULL,
             workspace_id bigint(20) unsigned DEFAULT NULL,
             work_area_id bigint(20) unsigned DEFAULT NULL,
+            approved_by_employee_id bigint(20) unsigned DEFAULT NULL,
             assignee_id bigint(20) unsigned DEFAULT NULL,
             priority varchar(20) DEFAULT 'Medium',
             status varchar(30) DEFAULT 'Pending',
@@ -5086,7 +5089,7 @@ JS
         if($occ!==''){$sql.=" AND (l.occurrence_date=%s OR l.occurrence_date IS NULL OR l.occurrence_date='')";$args[]=$occ;}
         $sql.=" ORDER BY l.id DESC LIMIT 100";
         $activity=$this->activity_rows_ist($wpdb->get_results($wpdb->prepare($sql,...$args)));
-        wp_send_json_success(['task'=>['id'=>(int)$task->id,'description'=>(string)$task->description],'remarks'=>$remarks,'assignments'=>$assignments,'reminders'=>$reminders,'afterDueReminder'=>$after,'attachments'=>$attachments,'activity'=>$activity]);
+        wp_send_json_success(['task'=>['id'=>(int)$task->id,'description'=>(string)$task->description,'approved_by_employee_id'=>(int)($task->approved_by_employee_id??0)],'remarks'=>$remarks,'assignments'=>$assignments,'reminders'=>$reminders,'afterDueReminder'=>$after,'attachments'=>$attachments,'activity'=>$activity]);
     }
 
     public function ajax_get_task_activity(){
@@ -8626,6 +8629,16 @@ JS
             'due_date'=>$is_recurring?null:(sanitize_text_field($_POST['due_date']??'')?:null),'due_time'=>sanitize_text_field($_POST['due_time']??'')?:null,
             'occurrence_date'=>$is_recurring?null:(sanitize_text_field($_POST['due_date']??'')?:null),'description'=>sanitize_textarea_field($_POST['description']??''),'labels'=>sanitize_text_field($_POST['labels']??''),'estimated_minutes'=>absint($_POST['estimated_minutes']??0),'is_billable'=>!empty($_POST['is_billable'])?1:0,'billable_amount'=>(!empty($_POST['is_billable']) && isset($_POST['billable_amount']) && $_POST['billable_amount']!=='')?max(0,(float)$_POST['billable_amount']):null,'notify_enabled'=>isset($_POST['notify_enabled'])?(!empty($_POST['notify_enabled'])?1:0):($existing_task?((int)($existing_task->notify_enabled??1)):1),'reminder_enabled'=>isset($_POST['reminder_enabled'])?(!empty($_POST['reminder_enabled'])?1:0):($existing_task?((int)($existing_task->reminder_enabled??0)):0),'reminder_value'=>isset($_POST['reminder_value'])?max(1,min(9999,absint($_POST['reminder_value']))):($existing_task?max(1,(int)($existing_task->reminder_value??1)):1),'reminder_unit'=>isset($_POST['reminder_unit'])?sanitize_text_field($_POST['reminder_unit']):($existing_task?sanitize_text_field($existing_task->reminder_unit??'Hours'):'Hours'),'sunday_reminder_enabled'=>isset($_POST['sunday_reminder_enabled'])?(!empty($_POST['sunday_reminder_enabled'])?1:0):($existing_task?((int)($existing_task->sunday_reminder_enabled??0)):0),'recurrence_status'=>$is_recurring?sanitize_key($_POST['recurrence_status']??'active'):'active','overdue_policy'=>$is_recurring?(sanitize_key($_POST['overdue_policy']??'until_next')==='keep'?'keep':'until_next'):'until_next','updated_at'=>current_time('mysql')
         ];
+        if($data['frequency']!=='Daily'){
+            if(!empty($existing_task->approved_by_employee_id)) $data['approved_by_employee_id']=null;
+        }elseif(isset($_POST['approved_by_employee_id'])){
+            $approver_id=absint($_POST['approved_by_employee_id']);
+            if($approver_id && $approver_id!==(int)($existing_task->approved_by_employee_id??0) &&
+               !$wpdb->get_var($wpdb->prepare("SELECT id FROM {$this->tables['employees']} WHERE id=%d AND status<>'inactive'",$approver_id))){
+                wp_send_json_error(['message'=>'Select an active user for Approved By'],422);
+            }
+            $data['approved_by_employee_id']=$approver_id?:null;
+        }
         if((int)get_option('bb_show_module_billing',0)!==1){ $data['is_billable']=0; $data['billable_amount']=null; }
         if(isset($_POST['goal_target'])){ $data['goal_target']=min(1000000,absint($_POST['goal_target'])); $data['goal_unit']=$data['goal_target']?mb_substr(sanitize_text_field(wp_unslash($_POST['goal_unit']??'')),0,40):''; $data['goal_gap_minutes']=$data['goal_target']?min(1440,absint($_POST['goal_gap_minutes']??0)):0; }
         if(empty($data['is_billable'])){ $data['billable_amount']=null; $data['billed_amount']=null; $data['billing_updated_at']=null; }
@@ -8975,7 +8988,7 @@ JS
         }
 
         if($mode!=='all') $this->log_activity('task_deleted',$task->task_name,$task->workspace_id,$task->work_area_id,$id);
-        // v4.18.196: deleting a whole recurring series also removes its saved day copies, so nothing comes back tomorrow.
+        // v4.18.197: deleting a whole recurring series also removes its saved day copies, so nothing comes back tomorrow.
         if($task->is_template && $scope==='series'){
             foreach(array_map('intval',(array)$wpdb->get_col($wpdb->prepare("SELECT id FROM {$this->tables['tasks']} WHERE template_id=%d",$id))) as $cid){
                 $wpdb->delete($this->tables['entity_assignments'],['entity_type'=>'task','entity_id'=>$cid]); $wpdb->delete($this->tables['task_remarks'],['task_id'=>$cid]);
@@ -10165,7 +10178,7 @@ JS
             if($tids && in_array((string)get_option('bb_goal_schema',''),['1','2','3','4'],true)){
                 $in=implode(',',array_map('intval',$tids));
                 foreach($wpdb->get_results($wpdb->prepare("SELECT task_id,occurrence_key,SUM(amount) total,SUBSTRING_INDEX(GROUP_CONCAT(NULLIF(goal_target,0) ORDER BY id DESC),',',1) day_target,SUBSTRING_INDEX(GROUP_CONCAT(IF(goal_target>0,goal_unit,NULL) ORDER BY id DESC SEPARATOR '\x1f'),'\x1f',1) day_unit FROM {$this->tables['goal_progress']} WHERE task_id IN ({$in}) AND occurrence_key BETWEEN %s AND %s GROUP BY task_id,occurrence_key",$from,$to)) as $x){ $goal_map[(int)$x->task_id.'|'.$x->occurrence_key]=(int)$x->total; $goal_day[(int)$x->task_id.'|'.$x->occurrence_key]=[(int)$x->day_target,(string)$x->day_unit]; }
-                // v4.18.196: remarks added with goal updates (+1 💬) show in Update Remarks too.
+                // v4.18.197: remarks added with goal updates (+1 💬) show in Update Remarks too.
                 foreach($wpdb->get_results($wpdb->prepare("SELECT task_id,occurrence_key,amount,remark,created_at FROM {$this->tables['goal_progress']} WHERE task_id IN ({$in}) AND occurrence_key BETWEEN %s AND %s AND remark IS NOT NULL AND remark<>'' ORDER BY created_at,id",$from,$to)) as $x){ $remarks[(int)$x->task_id.'|'.$x->occurrence_key][]=['remark'=>'+'.(int)$x->amount.' — '.(string)$x->remark,'at'=>$x->created_at?$this->activity_time_ist($x->created_at):'']; }
                 foreach($remarks as $rk_key=>$rk_list){ usort($rk_list,fn($a,$b)=>strcmp((string)$a['at'],(string)$b['at'])); $remarks[$rk_key]=$rk_list; }
             }
@@ -12333,7 +12346,7 @@ JS
     }
 
     // =====================================================================================
-    // v4.18.196: Create tasks from WhatsApp (voice note or text) — Owners/Managers only.
+    // v4.18.197: Create tasks from WhatsApp (voice note or text) — Owners/Managers only.
     // Flow: Meta webhook → inbox row → background processor → Gemini (listen + extract task)
     //       → WhatsApp summary with [Create] [Cancel] → task saved through the normal Save Task code.
     // =====================================================================================
@@ -12664,7 +12677,7 @@ JS
                     }
                     if($id && $this->apply_whatsapp_delivery_status($id,$status,$error)) $processed++;
                 }
-                // v4.18.196: incoming messages (voice notes / text / button taps) → WhatsApp task creation.
+                // v4.18.197: incoming messages (voice notes / text / button taps) → WhatsApp task creation.
                 $value=(array)($change['value']??[]);
                 if(!empty($value['messages'])) $processed+=$this->wa_inbox_store($value);
             }
