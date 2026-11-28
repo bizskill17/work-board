@@ -1078,11 +1078,12 @@ App.renderDailyScoreboard=function(){
   };
   $(document).on('change','#bb-dsb-month',e=>{App.dailyScoreFilters.month=String(e.currentTarget.value||'');App.render();});
   $(document).on('change','#bb-dsb-user',e=>{App.dailyScoreFilters.employee=String(e.currentTarget.value||'');App.render();});
+  const approvalDetails=(name,at)=>name?'<strong>'+App.esc(name)+'</strong>'+(at?'<br><small>'+App.esc(App.formatDateTime(at))+'</small>':''):'';
   $(document).on('click','[data-dsb-list]',e=>{e.preventDefault();const kind=String($(e.currentTarget).attr('data-dsb-list')||'notdone'),isDone=kind==='done',k=String($(e.currentTarget).attr('data-dsb-key')||''),[eid,date]=k.split('|'),f=App.dailyScoreFilters,rows=(App._dailyScoreCache||{})[f.month+'|'+f.employee]||[],r=rows.find(x=>String(x.employee_id)===eid&&String(x.date)===date);if(!r)return;
     const emp=(App.empById&&App.empById(eid))||{},list=Array.isArray(isDone?r.done_list:r.not_done)?(isDone?r.done_list:r.not_done):[],d=String(date).split('-').reverse().join('/');
     const t=v=>{const m=String(v||'').match(/^(\d{1,2}):(\d{2})/);if(!m)return '';let h=+m[1];const ap=h>=12?'PM':'AM';h=h%12||12;return `${h}:${m[2]} ${ap}`;};
-    const showApproval=isDone&&list.some(x=>x.approval);
-    const body=list.length?`<div class="bb-table-wrap"><table class="bb-table bb-dsb-notdone-table"><thead><tr><th>#</th><th>Task</th><th>Workspace</th><th>Work Area</th><th>Due Time</th>${isDone?'<th>Done At</th>':''}<th>${isDone?'Result':'Status'}</th><th>Update Remarks</th>${showApproval?'<th>Approved</th>':''}</tr></thead><tbody>${list.map((x,i)=>`<tr><td>${i+1}</td><td><strong>${App.esc(x.task_name)}</strong>${Number(x.goal_target||0)>0?`<div class="bb-dsb-goal">🎯 ${App.goalNum(x.goal_done||0)} / ${App.goalNum(x.goal_target)} ${App.esc(x.goal_unit||'')}</div>`:''}</td><td>${App.esc(x.workspace)}</td><td>${App.esc(x.work_area)}</td><td>${App.esc(t(x.due_time))}</td>${isDone?`<td>${App.esc(x.completed_at?String(x.completed_at).slice(0,10).split('-').reverse().join('/')+' '+t(String(x.completed_at).slice(11,16)):'')}</td>`:''}<td><span class="bb-dsb-status ${isDone?'is-done':''}">${App.esc(isDone?(x.status||'Completed'):(x.status==='Overdue'?'Missed':x.status))}</span></td><td class="bb-dsb-remarks">${(Array.isArray(x.remarks)?x.remarks:[]).map(rm=>`<div class="bb-dsb-remark"><span>${App.esc(rm.remark)}</span>${rm.at?`<small>${App.esc(String(rm.at).slice(0,10).split('-').reverse().join('/')+' '+t(String(rm.at).slice(11,16)))}</small>`:''}</div>`).join('')}</td>${showApproval?`<td>${x.approval?`<input type="checkbox" data-dsb-approve="${App.attr(x.approval.history_id)}" aria-label="Approve ${App.attr(x.task_name)}" ${x.approval.approved?'checked':''}>`:''}</td>`:''}</tr>`).join('')}</tbody></table></div>`:`<div class="bb-empty">${isDone?'No completed tasks for this date.':'No task details available'}</div>`;
+    const showApproval=isDone;
+    const body=list.length?`<div class="bb-table-wrap"><table class="bb-table bb-dsb-notdone-table"><thead><tr><th>#</th><th>Task</th><th>Workspace</th><th>Work Area</th><th>Due Time</th>${isDone?'<th>Done At</th>':''}<th>${isDone?'Result':'Status'}</th><th>Update Remarks</th>${showApproval?'<th>Approved</th>':''}</tr></thead><tbody>${list.map((x,i)=>`<tr><td>${i+1}</td><td><strong>${App.esc(x.task_name)}</strong>${Number(x.goal_target||0)>0?`<div class="bb-dsb-goal">🎯 ${App.goalNum(x.goal_done||0)} / ${App.goalNum(x.goal_target)} ${App.esc(x.goal_unit||'')}</div>`:''}</td><td>${App.esc(x.workspace)}</td><td>${App.esc(x.work_area)}</td><td>${App.esc(t(x.due_time))}</td>${isDone?`<td>${App.esc(x.completed_at?String(x.completed_at).slice(0,10).split('-').reverse().join('/')+' '+t(String(x.completed_at).slice(11,16)):'')}</td>`:''}<td><span class="bb-dsb-status ${isDone?'is-done':''}">${App.esc(isDone?(x.status||'Completed'):(x.status==='Overdue'?'Missed':x.status))}</span></td><td class="bb-dsb-remarks">${(Array.isArray(x.remarks)?x.remarks:[]).map(rm=>`<div class="bb-dsb-remark"><span>${App.esc(rm.remark)}</span>${rm.at?`<small>${App.esc(String(rm.at).slice(0,10).split('-').reverse().join('/')+' '+t(String(rm.at).slice(11,16)))}</small>`:''}</div>`).join('')}</td>${showApproval?`<td>${x.approval?`<input type="checkbox" data-dsb-approve="${App.attr(x.approval.history_id)}" aria-label="Approve ${App.attr(x.task_name)}" ${x.approval.approved?'checked':''}>`:''}<div data-dsb-approval-details>${approvalDetails(x.approved_name,x.approved_at)}</div></td>`:''}</tr>`).join('')}</tbody></table></div>`:`<div class="bb-empty">${isDone?'No completed tasks for this date.':'No task details available'}</div>`;
     App.openModal(`<div class="bb-form bb-dsb-modal"><div class="bb-form-heading"><div><h2>${isDone?'Tasks Done':'Tasks Not Done'}</h2><p>${App.esc(r.employee_name||emp.name||'User')} · ${d} · ${list.length} of ${Number(r.due||0)} ${isDone?'done':'not done'}</p></div></div>${body}</div>`);});
 
   $(document).on('change','[data-dsb-approve]',e=>{
@@ -1091,11 +1092,15 @@ App.renderDailyScoreboard=function(){
     const restore=message=>{box.checked=!approved;App.toast(message);};
     App.api('bb_set_daily_task_approval',{history_id:id,approved:approved?'1':'0'}).done(r=>{
       if(!r?.success){restore(r?.data?.message||'Could not save approval');return;}
+      box.checked=!!r.data.approved;
+      $(box).siblings('[data-dsb-approval-details]').html(approvalDetails(r.data.approved_name,r.data.approved_at));
       Object.values(App._dailyScoreCache||{}).forEach(rows=>rows.forEach(row=>(row.done_list||[]).forEach(task=>{
         if(String(task.approval?.history_id||'')===id){
           const saved=!!r.data.approved;
           row.approved_count=Number(row.approved_count||0)+Number(saved)-Number(!!task.approval.approved);
           task.approval.approved=saved;
+          task.approved_name=r.data.approved_name;
+          task.approved_at=r.data.approved_at;
         }
       })));
       if(App.view==='daily-scoreboard')App.renderDailyScoreboard();
